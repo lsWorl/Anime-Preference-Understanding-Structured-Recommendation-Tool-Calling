@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1",
+  "taxonomy": {
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Drama",
+      "Ecchi",
+      "Fantasy",
+      "Hentai",
+      "Horror",
+      "Mahou Shoujo",
+      "Mecha",
+      "Music",
+      "Mystery",
+      "Psychological",
+      "Romance",
+      "Sci-Fi",
+      "Slice of Life",
+      "Sports",
+      "Supernatural",
+      "Thriller"
+    ],
+    "tags": [
+      "Female Harem",
+      "Male Harem",
+      "Mixed Gender Harem"
+    ],
+    "formats": [
+      "MOVIE",
+      "MUSIC",
+      "ONA",
+      "OVA",
+      "SPECIAL",
+      "TV",
+      "TV_SHORT"
+    ],
+    "statuses": [
+      "CANCELLED",
+      "FINISHED",
+      "HIATUS",
+      "NOT_YET_RELEASED",
+      "RELEASING"
+    ]
+  },
+  "tag_groups": {
+    "HAREM": [
+      "Female Harem",
+      "Male Harem",
+      "Mixed Gender Harem"
+    ]
+  }
+}
+

@@ -1,0 +1,46 @@
+"""Dataset semantic specification and AnimePreferenceQuery v0.1 shapes.
+
+These dataclasses describe sampled canonical semantics. They are not the final
+Gold JSON and deliberately perform no implicit normalization.
+"""
+
+from dataclasses import dataclass, field
+
+
+@dataclass(frozen=True)
+class SetConstraintSpec:
+    """Canonical values grouped by the output operator they belong to."""
+
+    all_of: tuple[str, ...] = field(default_factory=tuple)
+    any_of: tuple[str, ...] = field(default_factory=tuple)
+    none_of: tuple[str, ...] = field(default_factory=tuple)
+
+
+@dataclass(frozen=True)
+class RangeConstraintSpec:
+    """Inclusive numeric bounds; None means the user expressed no such bound."""
+
+    min: int | None = None
+    max: int | None = None
+
+
+@dataclass(frozen=True)
+class SemanticSpec:
+    """Canonical semantic source from which Gold JSON is built.
+
+    ``tag_groups`` is an internal dataset-construction field. For example, the
+    approved group ``HAREM`` expands deterministically to three AniList tags.
+    It must never appear in the final AnimePreferenceQuery JSON.
+    """
+
+    genres: SetConstraintSpec = field(default_factory=SetConstraintSpec)
+    tags: SetConstraintSpec = field(default_factory=SetConstraintSpec)
+    tag_groups: SetConstraintSpec = field(default_factory=SetConstraintSpec)
+    year: RangeConstraintSpec = field(default_factory=RangeConstraintSpec)
+    episodes: RangeConstraintSpec = field(default_factory=RangeConstraintSpec)
+    formats: tuple[str, ...] = field(default_factory=tuple)
+    status: tuple[str, ...] = field(default_factory=tuple)
+    reference_titles: tuple[str, ...] = field(default_factory=tuple)
+    soft_preferences: tuple[str, ...] = field(default_factory=tuple)
+    unresolved_preferences: tuple[str, ...] = field(default_factory=tuple)
+
