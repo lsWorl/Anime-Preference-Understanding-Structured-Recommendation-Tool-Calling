@@ -1,7 +1,8 @@
 """Dataset semantic specification and AnimePreferenceQuery v0.1 shapes.
 
-These dataclasses describe sampled canonical semantics. They are not the final
-Gold JSON and deliberately perform no implicit normalization.
+These dataclasses describe sampled canonical semantics, not raw user text.
+They are not the final Gold JSON and deliberately perform no implicit cleanup
+or normalization. Accepted non-empty strings must not have outer whitespace.
 """
 
 from dataclasses import dataclass, field
@@ -31,6 +32,10 @@ class SemanticSpec:
     ``tag_groups`` is an internal dataset-construction field. For example, the
     approved group ``HAREM`` expands deterministically to three AniList tags.
     It must never appear in the final AnimePreferenceQuery JSON.
+
+    ``formats`` and ``status`` are OR lists of acceptable values. Values in
+    ``soft_preferences`` must come from an approved canonical vocabulary;
+    expressions without an approved mapping belong in ``unresolved_preferences``.
     """
 
     genres: SetConstraintSpec = field(default_factory=SetConstraintSpec)
@@ -43,4 +48,3 @@ class SemanticSpec:
     reference_titles: tuple[str, ...] = field(default_factory=tuple)
     soft_preferences: tuple[str, ...] = field(default_factory=tuple)
     unresolved_preferences: tuple[str, ...] = field(default_factory=tuple)
-
