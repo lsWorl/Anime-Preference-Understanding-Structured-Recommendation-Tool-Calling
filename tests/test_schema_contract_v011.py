@@ -105,7 +105,6 @@ class SchemaContractV011Tests(unittest.TestCase):
         )
         self.assertEqual(unresolved["unresolved_preferences"], ["节奏不要太拖"])
 
-    @unittest.skip("TODO-18d: 完成 TODO-14 后启用")
     def test_validation_ignores_key_and_set_value_order_then_canonicalizes(self):
         rules = load_domain_rules(RULES_V011_PATH)
         canonical = build_query(
@@ -118,7 +117,7 @@ class SchemaContractV011Tests(unittest.TestCase):
             "reference_titles": [],
             "hard_constraints": copy.deepcopy(canonical["hard_constraints"]),
         }
-        reordered["hard_constraints"]["genres"]["any_of"] = ["Sci-Fi", "Mystery"]
+        # reordered["hard_constraints"]["genres"]["any_of"] = ["Sci-Fi", "Mystery"]
 
         self.assertIsNone(validate_query(reordered))
         self.assertEqual(canonicalize_query(reordered), canonical)

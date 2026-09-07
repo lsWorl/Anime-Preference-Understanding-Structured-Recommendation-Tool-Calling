@@ -277,16 +277,6 @@ def load_domain_rules(path: Path) -> DomainRules:
 
 def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
     """Validate a semantic spec and deterministically build Gold JSON v0.1."""
-    # TODO-13 (Schema Contract v0.1.1):
-    # - 所有 canonical 字符串若 value != value.strip() 则直接报错，不能清理；
-    # - soft_preferences 必须命中 approved soft vocabulary；未知表达必须由上游放入
-    #   unresolved_preferences，builder 不自动移动；
-    # - tag group operator 必须在该组 allowed_operators 中；禁止 HAREM all_of 的
-    #   规则来自配置而非名称特判；
-    # - 显式 tag 与 group expansion 的重复继续报错；
-    # - episodes 的非 None bound 必须 >= versioned minimum；year 只应用配置中已冻结
-    #   的 basic rule，不发明 sampling range；
-    # - formats/status 继续输出 OR list，Gold JSON 继续保留完整显式 Schema。
     if not isinstance(spec, SemanticSpec):
         raise ValueError("spec must be a SemanticSpec instance")
     if not isinstance(rules, DomainRules):
