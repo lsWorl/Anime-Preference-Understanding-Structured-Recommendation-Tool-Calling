@@ -293,12 +293,6 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         raise ValueError("rules must be a DomainRules instance")
 
     operators = ("all_of", "any_of", "none_of")
-    for operate in operators:
-        for group_name in tag_groups[operator]:
-            group_rule = rules.tag_groups[group_name]
-
-            if operator not in group_rule.allowed_operators:
-                raise ValueError("operator must in allowed_operators")
     def validate_string_tuple(
         value: Any,
         name: str,
@@ -316,7 +310,7 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
             if not item:
                 raise ValueError('content must is not empty')
             if item != item.strip():
-                raise ValueError('content must is not empty slide')
+                raise ValueError('content must is not empty whitespace')
         if len(value) != len(set(value)):
             raise ValueError(f"{name} contains duplicate values")
         if allowlist is not None:
@@ -367,10 +361,10 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
     for operator in operators:
         combined = list(tags[operator])
         for group_name in tag_groups[operator]:
-            combined.extend(rules.tag_groups[group_name].tags)
-        if len(combined) != len(set(combined)):
-            raise ValueError(f"tags.{operator} contains duplicates after group expansion")
-        expanded_tags[operator] = sorted(combined)
+            group_rule = rules.tag_groups[group_name]
+        if operator not in group_rule.allowed_operators:
+            raise ValueError(f"tag group {group_name} does not allow operator {operator}")
+        combined.extend(group_rule.tags)
 
     expanded_sets = {key: set(items) for key, items in expanded_tags.items()}
     for left, right in (
@@ -388,15 +382,15 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         if not isinstance(value, RangeConstraintSpec):
             raise ValueError(f"{name} must be a RangeConstraintSpec")
         for bound_name, bound in (("min", value.min), ("max", value.max)):
-            if bound is not None and (
-                not isinstance(bound, int) or isinstance(bound, bool)
-            ):
-                raise ValueError(f"{name}.{bound_name} must be an integer or None")
+            if bound is None:
+                continue
+            if not isinstance(bound,int) or isinstance(bound,bool):
+                raise ValueError(f'{name}.{bound_name} must be an integer or None')
             if rule.minimum is not None and bound < rule.minimum:
-                raise ValueError('must < rule.minimum')
+                raise ValueError('must > rule.minimum')
 
             if rule.maximum is not None and bound > rule.maximum:
-                raise ValueError('must > rule.maximum')
+                raise ValueError('must < rule.maximum')
         if value.min is not None and value.max is not None and value.min > value.max:
             raise ValueError(f"{name}.min must not be greater than {name}.max")
         return {"min": value.min, "max": value.max}
