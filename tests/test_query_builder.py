@@ -133,7 +133,7 @@ class QueryBuilderTests(unittest.TestCase):
             tag_groups=SetConstraintSpec(none_of=("HAREM",)),
             year=RangeConstraintSpec(min=2010),
             reference_titles=("Steins;Gate",),
-            soft_preferences=("节奏不要太拖沓",),
+            unresolved_preferences=("节奏不要太拖沓",),
         )
 
         expected = {
@@ -158,8 +158,8 @@ class QueryBuilderTests(unittest.TestCase):
                 "status": [],
             },
             "reference_titles": ["Steins;Gate"],
-            "soft_preferences": ["节奏不要太拖沓"],
-            "unresolved_preferences": [],
+            "soft_preferences": [],
+            "unresolved_preferences": ["节奏不要太拖沓"],
         }
 
         query = build_query(spec, rules)
@@ -201,20 +201,27 @@ class QueryBuilderTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             build_query({}, rules)
 
-    def test_builder_preserves_text_and_rejects_redundant_group_expansion(self):
+    def test_builder_reject_whitespace_and_rejects_redundant_group_expansion(self):
         rules = load_domain_rules(RULES_PATH)
         exact_text = "  节奏不要太拖沓  "
+        #前后有空格直接报异常
+        with self.assertRaises(ValueError):
+            build_query(
+                SemanticSpec(
+                    unresolved_preferences=(exact_text,),
+            ),
+            rules,
+        )
         query = build_query(
             SemanticSpec(
                 formats=("TV", "MOVIE"),
                 status=("RELEASING",),
-                soft_preferences=(exact_text,),
             ),
             rules,
         )
+
         self.assertEqual(query["hard_constraints"]["formats"], ["MOVIE", "TV"])
         self.assertEqual(query["hard_constraints"]["status"], ["RELEASING"])
-        self.assertEqual(query["soft_preferences"], [exact_text])
 
         with self.assertRaisesRegex(ValueError, "duplicates after group expansion"):
             build_query(
@@ -228,7 +235,7 @@ class QueryBuilderTests(unittest.TestCase):
     def test_dumps_query_uses_canonical_unicode_json(self):
         rules = load_domain_rules(RULES_PATH)
         query = build_query(
-            SemanticSpec(soft_preferences=("节奏紧凑",)),
+            SemanticSpec(unresolved_preferences=("节奏紧凑",)),
             rules,
         )
         serialized = dumps_query(query)
@@ -289,8 +296,8 @@ class QueryBuilderTests(unittest.TestCase):
     def test_constraint_signature_handles_empty_and_rejects_bad_structure(self):
         rules = load_domain_rules(RULES_PATH)
         empty_query = build_query(SemanticSpec(), rules)
-        soft_only_query = build_query(
-            SemanticSpec(soft_preferences=("节奏紧凑",)),
+        unresolved_only_query = build_query(
+            SemanticSpec(unresolved_preferences=("节奏紧凑",)),
             rules,
         )
 
@@ -298,9 +305,9 @@ class QueryBuilderTests(unittest.TestCase):
             build_constraint_signature(empty_query),
             "NO_HARD_CONSTRAINT",
         )
-        # Signature 只描述 hard constraints，不能被 soft preference 改变。
+        # Signature 只描述 hard constraints，不能被 unresolved preference 改变。
         self.assertEqual(
-            build_constraint_signature(soft_only_query),
+            build_constraint_signature(unresolved_only_query),
             "NO_HARD_CONSTRAINT",
         )
 

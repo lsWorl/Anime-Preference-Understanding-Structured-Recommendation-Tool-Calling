@@ -362,9 +362,12 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         combined = list(tags[operator])
         for group_name in tag_groups[operator]:
             group_rule = rules.tag_groups[group_name]
-        if operator not in group_rule.allowed_operators:
-            raise ValueError(f"tag group {group_name} does not allow operator {operator}")
-        combined.extend(group_rule.tags)
+            if operator not in group_rule.allowed_operators:
+                raise ValueError(f"tag group {group_name} does not allow operator {operator}")
+            combined.extend(group_rule.tags)
+        if len(combined) != len(set(combined)):
+            raise ValueError(f"tags.{operator} contains duplicates after group expansion")
+        expanded_tags[operator] = sorted(combined)
 
     expanded_sets = {key: set(items) for key, items in expanded_tags.items()}
     for left, right in (

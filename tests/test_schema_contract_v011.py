@@ -79,7 +79,6 @@ class SchemaContractV011Tests(unittest.TestCase):
         self.assertEqual(positive["hard_constraints"]["tags"]["any_of"], expected_tags)
         self.assertEqual(negative["hard_constraints"]["tags"]["none_of"], expected_tags)
 
-    @unittest.skip("TODO-18c: 完成 TODO-13 后启用")
     def test_semantic_spec_rejects_outer_whitespace_unknown_soft_and_zero_episodes(self):
         rules = load_domain_rules(RULES_V011_PATH)
         invalid_specs = (
