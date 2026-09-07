@@ -97,33 +97,41 @@ def validate_query(query: Mapping[str, Any]) -> None:
                     f"{right} overlap: {overlap}"
                 )
             
-        # year/episodes：检查 range
-        for field_name in ("year", "episodes"):
-            bounds = require_mapping_with_keys(
-            hard_constraints[field_name],
-            f"hard_constraints.{field_name}",
-            RANGE_KEY_ORDER,
-            )
-            for bound_name in RANGE_KEY_ORDER:
-                bound = bounds[bound_name]
+    # year/episodes：检查 range
+    for field_name in ("year", "episodes"):
+        bounds = require_mapping_with_keys(
+        hard_constraints[field_name],
+        f"hard_constraints.{field_name}",
+        RANGE_KEY_ORDER,
+        )
+        for bound_name in RANGE_KEY_ORDER:
+            bound = bounds[bound_name]
 
-                if bound is not None and (not isinstance(bound, int)or isinstance(bound, bool)):
-                    raise ValueError(
-                        f"hard_constraints.{field_name}.{bound_name} "
-                        "must be an integer or None"
-                    )
+            if bound is not None and (not isinstance(bound, int)or isinstance(bound, bool)):
+                raise ValueError(
+                    f"hard_constraints.{field_name}.{bound_name} "
+                    "must be an integer or None"
+                )
 
-                if field_name == "episodes" and bound is not None and bound < 1:
-                    raise ValueError(
-                        f"hard_constraints.episodes.{bound_name} "
-                        "must be at least 1"
-                    )
-            if (
-                bounds["min"] is not None
-                and bounds["max"] is not None
-                and bounds["min"] > bounds["max"]
-            ):
-                raise ValueError(f"hard_constraints.{field_name}.min must not exceed max")
+            if field_name == "episodes" and bound is not None and bound < 1:
+                raise ValueError(
+                    f"hard_constraints.episodes.{bound_name} "
+                    "must be at least 1"
+                )
+        if (
+            bounds["min"] is not None
+            and bounds["max"] is not None
+            and bounds["min"] > bounds["max"]
+        ):
+            raise ValueError(f"hard_constraints.{field_name}.min must not exceed max")
+
+    # formats/status 是普通 OR 列表，没有 all/any/none 结构。
+    for field_name in ('formats','status'):
+        require_string_list(hard_constraints[field_name],f"hard_constraints.{field_name}")
+
+    for field_name in ("reference_titles","soft_preferences","unresolved_preferences"):
+        require_string_list(root[field_name],field_name)
+    
 
 def canonicalize_query(query: Mapping[str, Any]) -> dict[str, Any]:
     """Return a new full-schema query in the one canonical serialization order."""
@@ -133,4 +141,33 @@ def canonicalize_query(query: Mapping[str, Any]) -> dict[str, Any]:
     # - genres/tags 的集合值以及 formats/status 使用字符串升序；
     # - reference_titles/soft_preferences/unresolved_preferences 保持原顺序和原值；
     # - 保留所有空列表和 None bound；不能修改调用方对象。
-    raise NotImplementedError("TODO-14b: implement canonical query rebuilding")
+    validate_query(query)
+
+    source_hard = query["hard_constraints"]
+    canonical_hard: dict[str, Any] = {}
+    for field_name in HARD_CONSTRAINT_KEY_ORDER:
+        if field_name in ("genres", "tags"):
+            source_constraint = source_hard[field_name]
+            canonical_hard[field_name] = {
+                operator: sorted(source_constraint[operator])
+                for operator in SET_OPERATOR_KEY_ORDER
+            }
+
+        elif field_name in ("year","episodes"):
+            source_bounds = source_hard[field_name]
+            canonical_hard[field_name] = {
+                bound_name: source_bounds[bound_name]
+                for bound_name in RANGE_KEY_ORDER
+            }
+        elif field_name in ("formats", "status"):
+            canonical_hard[field_name] = sorted(source_hard[field_name])
+
+    canonical: dict[str,Any] = {}
+
+    for field_name in TOP_LEVEL_KEY_ORDER:
+        if field_name == 'hard_constraints':
+            canonical[field_name] = canonical_hard
+        else:
+            canonical[field_name] = list(query[field_name])
+
+    return canonical
