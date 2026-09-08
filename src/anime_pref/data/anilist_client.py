@@ -115,6 +115,3 @@ def fetch_anime_page(
     except Exception as e:
         # 捕获其他未预期的异常
         raise RuntimeError(f"Unexpected error: {e}") from e
-
-# if __name__ == "__main__":
-#     fetch_anime_page(1,1)

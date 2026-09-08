@@ -105,6 +105,23 @@ class SchemaContractV011Tests(unittest.TestCase):
         )
         self.assertEqual(unresolved["unresolved_preferences"], ["节奏不要太拖"])
 
+    def test_leading_and_trailing_whitespace_refuse(self):
+        rules = load_domain_rules(RULES_V011_PATH)
+        valid_query = build_query(SemanticSpec(), rules)
+        for invalid_text in (" leading", "trailing "):
+            with self.subTest(value=invalid_text):
+                invalid = copy.deepcopy(valid_query)
+                invalid["unresolved_preferences"] = [invalid_text]
+
+                with self.assertRaises(ValueError):
+                    validate_query(invalid)
+
+                with self.assertRaises(ValueError):
+                    dumps_query(invalid)
+
+                with self.assertRaises(ValueError):
+                    build_constraint_signature(invalid)
+
     def test_validation_ignores_key_and_set_value_order_then_canonicalizes(self):
         rules = load_domain_rules(RULES_V011_PATH)
         canonical = build_query(
@@ -117,12 +134,11 @@ class SchemaContractV011Tests(unittest.TestCase):
             "reference_titles": [],
             "hard_constraints": copy.deepcopy(canonical["hard_constraints"]),
         }
-        # reordered["hard_constraints"]["genres"]["any_of"] = ["Sci-Fi", "Mystery"]
+        reordered["hard_constraints"]["genres"]["any_of"] = ["Sci-Fi", "Mystery"]
 
         self.assertIsNone(validate_query(reordered))
         self.assertEqual(canonicalize_query(reordered), canonical)
 
-    @unittest.skip("TODO-18e: 完成 TODO-15 后启用")
     def test_serializer_canonicalizes_order_instead_of_rejecting_it(self):
         rules = load_domain_rules(RULES_V011_PATH)
         canonical = build_query(SemanticSpec(), rules)
@@ -137,7 +153,7 @@ class SchemaContractV011Tests(unittest.TestCase):
         self.assertEqual(json.loads(serialized), canonical)
         self.assertTrue(serialized.startswith('{"hard_constraints":'))
 
-    @unittest.skip("TODO-18f: 完成 TODO-16 后启用")
+
     def test_signature_reuses_validation_but_ignores_non_hard_fields(self):
         rules = load_domain_rules(RULES_V011_PATH)
         query = build_query(

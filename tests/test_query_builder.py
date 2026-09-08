@@ -244,19 +244,12 @@ class QueryBuilderTests(unittest.TestCase):
         self.assertNotIn(": ", serialized)
         self.assertNotIn(", ", serialized)
 
-    def test_dumps_query_rejects_invalid_structure_order_and_bounds(self):
+    def test_dumps_query_rejects_invalid_structure_and_bounds(self):
         rules = load_domain_rules(RULES_PATH)
         query = build_query(SemanticSpec(), rules)
 
         extra_key = copy.deepcopy(query)
         extra_key["unexpected"] = []
-
-        wrong_order = {
-            "reference_titles": [],
-            "hard_constraints": query["hard_constraints"],
-            "soft_preferences": [],
-            "unresolved_preferences": [],
-        }
 
         wrong_nested_type = copy.deepcopy(query)
         wrong_nested_type["hard_constraints"]["genres"]["any_of"] = ()
@@ -269,7 +262,6 @@ class QueryBuilderTests(unittest.TestCase):
 
         for case_name, invalid_query in (
             ("extra_key", extra_key),
-            ("wrong_order", wrong_order),
             ("wrong_nested_type", wrong_nested_type),
             ("boolean_bound", boolean_bound),
             ("non_finite_bound", non_finite_bound),

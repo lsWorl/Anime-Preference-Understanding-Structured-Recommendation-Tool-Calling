@@ -26,7 +26,6 @@ RANGE_KEY_ORDER = ("min", "max")
 
 def validate_query(query: Mapping[str, Any]) -> None:
     """Validate Schema v0.1.1 semantics without treating key order as meaning."""
-    # TODO-14a:
     # - 严格检查每层 key 集合、字段类型、非空字符串、重复/跨 operator 冲突；
     # - 检查 range int（排除 bool）、min <= max、episodes 的非空 bound >= 1；
     # - formats/status 是 acceptable-value OR lists；不增加 NOT 结构；
@@ -52,12 +51,17 @@ def validate_query(query: Mapping[str, Any]) -> None:
     def require_string_list(value: Any, name: str) -> list[str]:
         if not isinstance(value, list):
             raise ValueError(f"{name} must be a list")
-
         if any(
             not isinstance(item, str) or not item.strip()
             for item in value
         ):
             raise ValueError(f"{name} must contain only non-empty strings")
+
+        for item in value:
+            if item != item.strip():
+                raise ValueError(
+                    f"{name} values must not have leading/trailing whitespace"
+                )
 
         if len(value) != len(set(value)):
             raise ValueError(f"{name} contains duplicate values")
@@ -135,7 +139,6 @@ def validate_query(query: Mapping[str, Any]) -> None:
 
 def canonicalize_query(query: Mapping[str, Any]) -> dict[str, Any]:
     """Return a new full-schema query in the one canonical serialization order."""
-    # TODO-14b:
     # - 先调用 validate_query(query)；
     # - 按上方四组 *_KEY_ORDER 重建全新 dict；
     # - genres/tags 的集合值以及 formats/status 使用字符串升序；

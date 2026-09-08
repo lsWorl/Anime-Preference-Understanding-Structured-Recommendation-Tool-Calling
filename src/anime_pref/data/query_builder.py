@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 from types import MappingProxyType
 from typing import Any
-
+from anime_pref.data.query_validation import canonicalize_query
 from anime_pref.schemas.preference_query import (
     RangeConstraintSpec,
     SemanticSpec,
@@ -437,133 +437,12 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
 
 def dumps_query(query: Mapping[str, Any]) -> str:
     """Serialize a validated query in one canonical, Unicode-preserving form."""
-    # TODO-15: 删除本函数内的重复 validation，改为调用
-    # canonicalize_query(query)。key order 不同不得报错；序列化 canonical copy，
-    # 使用 ensure_ascii=False、separators=(",", ":")、allow_nan=False。
-    top_level_keys = (
-        "hard_constraints",
-        "reference_titles",
-        "soft_preferences",
-        "unresolved_preferences",
-    )
-    hard_constraint_keys = (
-        "genres",
-        "tags",
-        "year",
-        "episodes",
-        "formats",
-        "status",
-    )
-    operator_keys = ("all_of", "any_of", "none_of")
-    range_keys = ("min", "max")
-
-    def require_mapping_with_keys(
-        value: Any,
-        name: str,
-        expected_keys: tuple[str, ...],
-    ) -> Mapping[str, Any]:
-        if not isinstance(value, Mapping):
-            raise ValueError(f"{name} must be a mapping")
-        actual_keys = tuple(value.keys())
-        if actual_keys != expected_keys:
-            raise ValueError(
-                f"{name} keys must be exactly {expected_keys} in that order; "
-                f"got {actual_keys}"
-            )
-        return value
-
-    def require_string_list(
-        value: Any,
-        name: str,
-        *,
-        require_sorted: bool,
-    ) -> list[str]:
-        if not isinstance(value, list):
-            raise ValueError(f"{name} must be a list")
-        if any(not isinstance(item, str) or not item.strip() for item in value):
-            raise ValueError(f"{name} must contain only non-empty strings")
-        if len(value) != len(set(value)):
-            raise ValueError(f"{name} contains duplicate values")
-        if require_sorted and value != sorted(value):
-            raise ValueError(f"{name} must be sorted")
-        return value
-
-    root = require_mapping_with_keys(query, "query", top_level_keys)
-    hard_constraints = require_mapping_with_keys(
-        root["hard_constraints"],
-        "hard_constraints",
-        hard_constraint_keys,
-    )
-
-    for field_name in ("genres", "tags"):
-        constraint = require_mapping_with_keys(
-            hard_constraints[field_name],
-            f"hard_constraints.{field_name}",
-            operator_keys,
-        )
-        operator_values: dict[str, set[str]] = {}
-        for operator in operator_keys:
-            values = require_string_list(
-                constraint[operator],
-                f"hard_constraints.{field_name}.{operator}",
-                require_sorted=True,
-            )
-            operator_values[operator] = set(values)
-        for left, right in (
-            ("all_of", "any_of"),
-            ("all_of", "none_of"),
-            ("any_of", "none_of"),
-        ):
-            if operator_values[left] & operator_values[right]:
-                raise ValueError(
-                    f"hard_constraints.{field_name}.{left} and {right} overlap"
-                )
-
-    for field_name in ("year", "episodes"):
-        bounds = require_mapping_with_keys(
-            hard_constraints[field_name],
-            f"hard_constraints.{field_name}",
-            range_keys,
-        )
-        for bound_name in range_keys:
-            bound = bounds[bound_name]
-            if bound is not None and (
-                not isinstance(bound, int) or isinstance(bound, bool)
-            ):
-                raise ValueError(
-                    f"hard_constraints.{field_name}.{bound_name} "
-                    "must be an integer or None"
-                )
-        if (
-            bounds["min"] is not None
-            and bounds["max"] is not None
-            and bounds["min"] > bounds["max"]
-        ):
-            raise ValueError(
-                f"hard_constraints.{field_name}.min must not exceed max"
-            )
-
-    for field_name in ("formats", "status"):
-        require_string_list(
-            hard_constraints[field_name],
-            f"hard_constraints.{field_name}",
-            require_sorted=True,
-        )
-
-    for field_name in (
-        "reference_titles",
-        "soft_preferences",
-        "unresolved_preferences",
-    ):
-        require_string_list(
-            root[field_name],
-            field_name,
-            require_sorted=False,
-        )
+    canonical_query = canonicalize_query(query)
 
     try:
+        # 序列化 canonical_query
         return json.dumps(
-            query,
+            canonical_query,
             ensure_ascii=False,
             separators=(",", ":"),
             allow_nan=False,
