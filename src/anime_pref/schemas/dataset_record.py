@@ -28,8 +28,6 @@ class DatasetRecordSpec:
     paraphrase_model: str | None = None
     prompt_version: str | None = None
 
-    # TODO-17: 本工作块只冻结字段，不实现 record builder。
-    # 后续实现时必须校验非空 ID/version/family/template/user_text、seed 排除 bool、
-    # constraint_count 的正式计数定义、normalization_rule_ids 无重复且无首尾空格，
-    # 并验证 gold_query/signature 与 semantic_spec 一致。
-    # split 按理论结论留到后续划分阶段，不在此 dataclass 中加入。
+    # This dataclass only stores the frozen outer shape. Construction and
+    # cross-field consistency checks belong to data/dataset_record_builder.py.
+    # split remains a later dataset-partition field and is intentionally absent.

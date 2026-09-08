@@ -1,5 +1,8 @@
 # Schema Contract v0.1.1 Review Bundle
 
+> 状态：该 bundle 已由理论分支审查通过。后续新增决策和 DatasetRecord Builder 工作见
+> `dataset_record_builder_v0.1.md`。
+
 ## 审查范围
 
 本 bundle 只覆盖进入 semantic sampler 前的 Schema Contract v0.1.1 修正。没有实现
@@ -135,4 +138,3 @@ keys、canonical sort、serializer 和 signature 复用 validation。
 3. 第一版 approved soft preference vocabulary 是否继续为空；若不为空，需要批准 label 与映射。
 4. AniList taxonomy snapshot 的版本/hash 格式，以及 executable tag subset audit 流程。
 5. 上述四点确认后，工程侧才进入 dataset record builder 与 semantic sampler。
-

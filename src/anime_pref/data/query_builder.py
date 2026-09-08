@@ -420,6 +420,9 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         sort_output=False,
     )
 
+    # TODO-19b: 构造 query 后显式调用 validate_query_structure(query) 和
+    # validate_query_domain(query, rules)，再返回 query。不要依赖“builder 前面已经检查过”
+    # 作为两层 validation 的替代，也不要在验证失败时修复输出。
     return {
         "hard_constraints": {
             "genres": genres,

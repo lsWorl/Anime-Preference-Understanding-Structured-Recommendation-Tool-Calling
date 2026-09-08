@@ -1,7 +1,7 @@
 """Create structural signatures for distribution and leakage audits."""
 
 from typing import Any, Mapping
-from anime_pref.data.query_validation import validate_query
+from anime_pref.data.query_validation import validate_query_structure
 
 # Signature order is part of the dataset contract, not alphabetical order.
 SIGNATURE_ORDER = (
@@ -22,7 +22,7 @@ SIGNATURE_ORDER = (
 
 def build_constraint_signature(query: Mapping[str, Any]) -> str:
     """Return a stable signature such as ``GENRE_ANY + YEAR_MIN``."""
-    validate_query(query)
+    validate_query_structure(query)
 
     hard = query["hard_constraints"]
 

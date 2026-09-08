@@ -16,7 +16,11 @@ from anime_pref.data.constraint_signature import build_constraint_signature
 from anime_pref.data.query_builder import build_query, dumps_query, load_domain_rules
 from anime_pref.data.query_validation import canonicalize_query, validate_query
 from anime_pref.schemas.dataset_record import DatasetRecordSpec
-from anime_pref.schemas.preference_query import SemanticSpec, SetConstraintSpec
+from anime_pref.schemas.preference_query import (
+    RangeConstraintSpec,
+    SemanticSpec,
+    SetConstraintSpec,
+)
 
 RULES_V011_PATH = PROJECT_ROOT / "configs" / "domain_rules.v0.1.1.json"
 
@@ -56,7 +60,27 @@ class SchemaContractV011Tests(unittest.TestCase):
         self.assertEqual(harem.normalization_rule_id, "HAREM_EXPANSION_V0_1_1")
         self.assertEqual(rules.soft_preferences, frozenset())
         self.assertEqual(rules.episodes.minimum, 1)
-        self.assertIsNone(rules.year.minimum)
+        self.assertIsNone(rules.episodes.maximum)
+        self.assertEqual(rules.year.minimum, 1900)
+        self.assertEqual(rules.year.maximum, 2100)
+
+    def test_year_sanity_bounds_are_versioned_validity_rules(self):
+        rules = load_domain_rules(RULES_V011_PATH)
+
+        for year in (1900, 2100):
+            with self.subTest(valid_year=year):
+                build_query(
+                    SemanticSpec(year=RangeConstraintSpec(min=year, max=year)),
+                    rules,
+                )
+
+        for year in (1899, 2101):
+            with self.subTest(invalid_year=year):
+                with self.assertRaises(ValueError):
+                    build_query(
+                        SemanticSpec(year=RangeConstraintSpec(min=year)),
+                        rules,
+                    )
 
     def test_harem_all_is_rejected_but_any_and_none_are_allowed(self):
         rules = load_domain_rules(RULES_V011_PATH)
@@ -90,8 +114,6 @@ class SchemaContractV011Tests(unittest.TestCase):
             with self.subTest(spec=spec):
                 with self.assertRaises(ValueError):
                     build_query(spec, rules)
-
-        from anime_pref.schemas.preference_query import RangeConstraintSpec
 
         with self.assertRaises(ValueError):
             build_query(

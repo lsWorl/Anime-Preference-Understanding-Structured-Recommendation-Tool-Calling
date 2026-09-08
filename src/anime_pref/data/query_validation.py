@@ -1,4 +1,8 @@
-"""Shared semantic validation and canonical ordering for Gold Query v0.1.1."""
+"""Structural validation and canonical ordering for Gold Query v0.1.1.
+
+JSON parsing belongs to the parser layer. Domain vocabulary checks belong to
+``domain_validation`` and deliberately do not happen in this module.
+"""
 
 from collections.abc import Mapping
 from typing import Any
@@ -24,8 +28,8 @@ SET_OPERATOR_KEY_ORDER = ("all_of", "any_of", "none_of")
 RANGE_KEY_ORDER = ("min", "max")
 
 
-def validate_query(query: Mapping[str, Any]) -> None:
-    """Validate Schema v0.1.1 semantics without treating key order as meaning."""
+def validate_query_structure(query: Mapping[str, Any]) -> None:
+    """Validate structure and schema semantics without checking vocabulary."""
     # - 严格检查每层 key 集合、字段类型、非空字符串、重复/跨 operator 冲突；
     # - 检查 range int（排除 bool）、min <= max、episodes 的非空 bound >= 1；
     # - formats/status 是 acceptable-value OR lists；不增加 NOT 结构；
@@ -135,6 +139,15 @@ def validate_query(query: Mapping[str, Any]) -> None:
 
     for field_name in ("reference_titles","soft_preferences","unresolved_preferences"):
         require_string_list(root[field_name],field_name)
+
+
+def validate_query(query: Mapping[str, Any]) -> None:
+    """Backward-compatible name for structural validation.
+
+    New evaluation code should call ``validate_query_structure`` explicitly so
+    structural and domain validity can be reported as separate metrics.
+    """
+    validate_query_structure(query)
     
 
 def canonicalize_query(query: Mapping[str, Any]) -> dict[str, Any]:
@@ -144,7 +157,7 @@ def canonicalize_query(query: Mapping[str, Any]) -> dict[str, Any]:
     # - genres/tags 的集合值以及 formats/status 使用字符串升序；
     # - reference_titles/soft_preferences/unresolved_preferences 保持原顺序和原值；
     # - 保留所有空列表和 None bound；不能修改调用方对象。
-    validate_query(query)
+    validate_query_structure(query)
 
     source_hard = query["hard_constraints"]
     canonical_hard: dict[str, Any] = {}

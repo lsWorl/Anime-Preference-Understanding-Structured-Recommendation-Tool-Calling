@@ -39,8 +39,8 @@ fixed key order + sorted set values
 - `allowed_operators`：允许使用该组的 operator，使用 frozenset。
 - `normalization_rule_id`：写入 dataset provenance 的规则标识。
 
-`NumericRule` 保存可选的 `minimum/maximum`。当前 episodes minimum 为 1；year
-上下界未冻结，因此均为 null。
+`NumericRule` 保存可选的 `minimum/maximum`。当前 episodes minimum 为 1 且 maximum
+为 null；year sanity bound 为 1900–2100。它们是 validity guard，不是 sampler 分布。
 
 `DomainRules` 保存 taxonomy allowlist、tag groups、approved soft vocabulary 和 numeric
 rules。tag group 映射由 `MappingProxyType` 包装，调用方不能修改。
@@ -117,7 +117,8 @@ builder 和 `constraint_count` 的计算尚未实现。
 - set-like 输入顺序不影响 canonical 输出。
 - validator、serializer 和 signature 都拒绝首尾 whitespace。
 - serializer 和 signature 复用同一个 validator。
-- 当前完整测试为 23 个，全部通过。
+- Schema Contract v0.1.1 审查时完整测试为 23 个，全部通过；后续 patch 测试见
+  `dataset_record_builder_v0.1.md`。
 
 运行命令：
 
@@ -127,8 +128,6 @@ python -B -m unittest discover -s tests -v
 
 ## 尚未冻结或尚未实现
 
-- `constraint_count` 的计算单位。
-- year 的 basic reasonable range。
 - approved soft preference vocabulary；当前为空。
 - 完整 AniList taxonomy snapshot、fetch date/version/hash。
 - 人工审核后的 executable tag subset。

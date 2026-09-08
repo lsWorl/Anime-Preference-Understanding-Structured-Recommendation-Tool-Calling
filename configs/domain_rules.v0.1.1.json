@@ -65,8 +65,8 @@
       "maximum": null
     },
     "year": {
-      "minimum": null,
-      "maximum": null
+      "minimum": 1900,
+      "maximum": 2100
     }
   }
 }
