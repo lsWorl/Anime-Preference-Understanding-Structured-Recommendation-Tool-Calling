@@ -65,7 +65,6 @@ class DatasetRecordBuilderTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     validate_query_domain(invalid_domain, rules)
 
-    @unittest.skip("TODO-25b: 完成 TODO-20 后启用")
     def test_constraint_count_uses_pre_expansion_semantic_clauses(self):
         spec = SemanticSpec(
             genres=SetConstraintSpec(

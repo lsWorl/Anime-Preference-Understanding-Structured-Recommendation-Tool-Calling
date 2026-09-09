@@ -56,6 +56,10 @@ python -m venv .venv
 
 ## Dataset semantic specification + deterministic JSON builder v0.1
 
+## 运行完整测试的指令
+```powershell
+python -B -m unittest discover -s tests -v
+```
 本阶段新增：
 
 - `schemas/preference_query.py`：不可变的 canonical semantic spec。
