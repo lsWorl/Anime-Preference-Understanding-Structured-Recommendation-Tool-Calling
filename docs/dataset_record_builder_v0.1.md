@@ -90,6 +90,50 @@ sample_<64 lowercase hex characters>
 比较 Gold Query 时先 canonicalize，因此 key order 和 set-like list order 不造成误判。任何不
 一致直接报错，不能把重算值写回 record。
 
+## `build_dataset_record()` 实现说明
+
+这个函数是 dataset record 的唯一组装入口。调用方只传入源语义、规则、生成元数据和原始
+用户文本；所有可推导字段都由函数内部计算，不能由调用方覆盖。
+
+实现按以下顺序执行：
+
+1. `gold_query = build_query(semantic_spec, rules)`：验证 canonical semantic spec，应用
+   normalization rules，并生成完整显式 Gold Query。`build_query()` 已保证 structural 和
+   domain validity。
+2. `build_constraint_signature(gold_query)`：根据展开后的 executable hard constraints 计算
+   固定顺序的结构签名。
+3. `count_hard_semantic_clauses(semantic_spec)`：从展开前语义计算用户表达的 hard clause
+   数量，因此 HAREM 仍按一个 concept 计数。
+4. `collect_normalization_rule_ids(semantic_spec, rules)`：从展开前 tag groups 收集实际使用
+   的 normalization provenance。
+5. `make_sample_id(...)`：把版本、语义、Gold Query、family、template、规则 ID、seed、原始
+   文本和 optional paraphrase metadata 全部纳入确定性 SHA-256 identity。
+6. `DatasetRecordSpec(...)`：保存源字段和上述派生字段。`schema_version` 始终读取
+   `rules.schema_version`，函数签名不允许调用方另传；`sample_id`、Gold Query、signature、
+   count 和 normalization rule IDs 同样不能由调用方覆盖。
+
+逐行数据流如下：
+
+```text
+semantic_spec + rules
+    -> build_query
+    -> gold_query
+    -> build_constraint_signature
+
+semantic_spec
+    -> count_hard_semantic_clauses
+
+semantic_spec + rules
+    -> collect_normalization_rule_ids
+
+全部源字段 + 全部派生字段
+    -> make_sample_id
+    -> DatasetRecordSpec
+```
+
+函数不 strip 或改写 `user_text`。它通过 `make_sample_id()` 复用 metadata 验证；空白或类型
+错误会抛出 `ValueError`，合法的 raw text 按原值同时进入 sample identity 与 record。
+
 ## Year 与 episodes
 
 - year validity：1900–2100，来自 versioned config，仅用于 corruption/sanity guard。

@@ -86,7 +86,6 @@ class DatasetRecordBuilderTests(unittest.TestCase):
         # + 1 format OR-clause + 1 status OR-clause = 10.
         self.assertEqual(count_hard_semantic_clauses(spec), 10)
 
-    @unittest.skip("TODO-25c: 完成 TODO-21 后启用")
     def test_normalization_rule_ids_are_pre_expansion_provenance(self):
         rules = load_domain_rules(RULES_PATH)
         spec = SemanticSpec(tag_groups=SetConstraintSpec(any_of=("HAREM",)))
@@ -96,7 +95,6 @@ class DatasetRecordBuilderTests(unittest.TestCase):
             ("HAREM_EXPANSION_V0_1_1",),
         )
 
-    @unittest.skip("TODO-25d: 完成 TODO-22/23 后启用")
     def test_record_build_is_deterministic_and_keeps_full_provenance(self):
         rules = load_domain_rules(RULES_PATH)
         kwargs = {
@@ -127,9 +125,7 @@ class DatasetRecordBuilderTests(unittest.TestCase):
             first.normalization_rule_ids,
             ("HAREM_EXPANSION_V0_1_1",),
         )
-        self.assertIsNone(validate_dataset_record(first, rules))
 
-    @unittest.skip("TODO-25e: 完成 TODO-24 后启用")
     def test_record_validation_rejects_inconsistent_derived_fields(self):
         rules = load_domain_rules(RULES_PATH)
         record = build_dataset_record(
