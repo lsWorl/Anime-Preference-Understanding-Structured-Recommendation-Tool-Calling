@@ -138,7 +138,6 @@ class TaxonomySnapshotTests(unittest.TestCase):
             self.assertIn(field, TAXONOMY_QUERY)
         self.assertNotIn("rank", TAXONOMY_QUERY)
 
-    @unittest.skip("TODO-40a: 完成 TODO-26 后启用")
     def test_taxonomy_fetch_returns_source_response_and_rejects_graphql_errors(self):
         class FakeResponse:
             def __init__(self, payload: dict) -> None:
