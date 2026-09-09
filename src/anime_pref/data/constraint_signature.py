@@ -20,6 +20,9 @@ SIGNATURE_ORDER = (
 )
 
 
+# 先做共享结构校验，再只记录哪些硬约束槽位活跃；不编码取值、条目数或来源。
+# 固定 token 顺序属于数据契约；不能把 signature 当作 sample ID 或防泄漏依据。
+# 数值用 is not None 判断是否表达了边界，避免把数值的真假与字段存在混淆。
 def build_constraint_signature(query: Mapping[str, Any]) -> str:
     """Return a stable signature such as ``GENRE_ANY + YEAR_MIN``."""
     validate_query_structure(query)
@@ -46,3 +49,4 @@ def build_constraint_signature(query: Mapping[str, Any]) -> str:
     if not tokens:
         return "NO_HARD_CONSTRAINT"
     return " + ".join(tokens)
+

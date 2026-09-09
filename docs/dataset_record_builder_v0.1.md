@@ -1,4 +1,6 @@
-# DatasetRecord Builder v0.1 实现任务
+# DatasetRecord Builder v0.1 实现说明
+
+> 2026-09-09 更新：TODO-19–24 对应功能已实现，下面的编号保留为学习路径。本文“按顺序实现/移除 skip”描述历史练习流程，不表示这些函数仍为空。当前该模块6项测试均已启用；taxonomy 的6项 skip 属于另一个工作块。
 
 ## 本工作块边界
 
@@ -51,7 +53,7 @@ return query
 
 ## Constraint count 逐项规则
 
-对 genres、tags、tag_groups 各自计算：
+genres 按以下规则计算：
 
 ```text
 len(all_of)
@@ -59,8 +61,10 @@ len(all_of)
 + len(none_of)
 ```
 
-tag group 在展开前计算，所以 HAREM 的三个实际 tags 仍只代表一个 concept。year 与 episodes
-每个存在的 bound 加 1；formats/status 每个非空 OR list 加 1。三个非 hard 文本字段不计数。
+tags 与 tag_groups 仍在展开前计算，但两者的非空 `any_of` 共同组成一个 TAG_ANY OR
+clause，因此总共最多加 1。它们的 `all_of` 和 `none_of` 继续按每个直接 item additive
+计数。HAREM 的三个展开 tags 仍只代表一个 concept。year 与 episodes 每个存在的 bound
+加 1；formats/status 每个非空 OR list 加 1。三个非 hard 文本字段不计数。
 
 ## Deterministic sample ID
 
@@ -151,6 +155,18 @@ python -B -m unittest discover -s tests -v
 
 ## Taxonomy 后续边界
 
-进入 sampler 前还需要单独实现完整 GenreCollection/MediaTagCollection snapshot 和 reviewed
+当前已另建 taxonomy 模块骨架，但业务函数仍未实现。进入 sampler 前还需要完成完整 GenreCollection/MediaTagCollection snapshot 和 reviewed
 executable tag subset。snapshot hash 针对筛选字段、canonical sort 后的 canonical JSON，不能
 直接 hash HTTP response bytes。该模块不在本工作块实现。
+
+
+## 当前实现中的阅读重点
+
+- count_hard_semantic_clauses 先验证基本结构，再在展开前计数；它没有 rules，不替代领域校验。
+- collect_normalization_rule_ids 先调用 build_query，然后收集实际组来源；重复 ID 报错，返回升序 tuple。
+- make_sample_id 只负责身份编码，不单独检验 spec/Gold 一致；user_text 允许有意义文本的首尾空白并原样参与哈希。
+- validate_dataset_record 先验证 Gold 并重建期望 Gold，然后用源字段重建整条记录，比较 signature/count/rule IDs/sample ID，不修改记录。
+- 记录一致性不等于自然语言与 Gold 对齐验证，当前没有语义解析器。
+
+完整函数拆解与可运行例子见 [项目实现学习手册](项目实现学习手册.md) 第13–17章。
+

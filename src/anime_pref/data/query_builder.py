@@ -32,16 +32,22 @@ class NumericRule:
 
 @dataclass(frozen=True)
 class DomainRules:
+    # 模型目标的契约版本；与原始作品 manifest 的 schema_version 分别维护。
     schema_version: str
     genres: frozenset[str]
     tags: frozenset[str]
     formats: frozenset[str]
     statuses: frozenset[str]
     tag_groups: Mapping[str, TagGroupRule]
+    # 批准的 canonical soft 词表；空集合表示当前不接受任何非空 soft 值。
     soft_preferences: frozenset[str]
     episodes: NumericRule
     year: NumericRule
 
+# 将版本化 JSON 配置转换为 DomainRules；读取、解析、契约错误表现为 ValueError。
+# 先检查精确键集合，再检查白名单、标签组和 numeric_rules；不调用外部 API。
+# 白名单配置先 strip 后查重；这是配置加载政策，与 canonical spec 拒绝外部空白不同。
+# tuple/frozenset/只读 mapping 限制后续修改，避免同一次构建中规则漂移。
 def load_domain_rules(path: Path) -> DomainRules:
     """Load and validate one versioned domain-rules JSON file."""
     try:
@@ -96,6 +102,8 @@ def load_domain_rules(path: Path) -> DomainRules:
     if raw_soft_preferences is None:
         raw_soft_preferences = taxonomy["soft_preferences"]
 
+    # 配置中的列表必须由非空字符串组成；清理首尾空白后检查重复。
+    # allow_empty 仅放宽集合非空要求，例如尚未批准任何词条的 soft_preferences。
     def validate_allowlist(
         name: str, value: Any, *, allow_empty: bool = False
     ) -> list[str]:
@@ -275,6 +283,9 @@ def load_domain_rules(path: Path) -> DomainRules:
     )
 
 
+# 把已明确的语义构建为完整 Gold 字典，不从 user_text 或 reference_titles 推断新偏好。
+# 先验证输入 tuple，再按 group.allowed_operators 展开标签，最后执行结构与领域校验。
+# HAREM 的 operator 限制来自配置；没有按名称特判。空数组与 None 边界始终保留。
 def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
     """Validate a semantic spec and deterministically build Gold JSON v0.1."""
     if not isinstance(spec, SemanticSpec):
@@ -283,6 +294,8 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         raise ValueError("rules must be a DomainRules instance")
 
     operators = ("all_of", "any_of", "none_of")
+    # 输入模型使用 tuple，输出 JSON 使用 list；此处同时执行 canonical 字符串和重复检查。
+    # sort_output 只用于集合语义字段；文本字段保留原有顺序，不代表允许首尾空白。
     def validate_string_tuple(
         value: Any,
         name: str,
@@ -310,6 +323,8 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         result = list(value)
         return sorted(result) if sort_output else result
 
+    # 逐个验证 all/any/none，再用集合交集拒绝跨 operator 重复。
+    # 拒绝重叠是当前规格的输入政策，不是在求解查询能否匹配实际作品。
     def validate_set_constraint(
         value: Any,
         name: str,
@@ -371,6 +386,8 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
                 f"tags.{left} and tags.{right} overlap after group expansion: {overlap}"
             )
 
+    # None 表示未表达，不补默认边界；非空值须为 int 且不能为 bool。
+    # 版本化 minimum/maximum 是有效性边界，min/max 顺序另行检查；不是采样分布。
     def validate_range(value: Any, name: str,rule: NumericRule,) -> dict[str, int | None]:
         if not isinstance(value, RangeConstraintSpec):
             raise ValueError(f"{name} must be a RangeConstraintSpec")
@@ -401,8 +418,8 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         sort_output=True,
     )
 
-    # User-facing semantic payload is copied exactly. Whitespace is used only
-    # to reject empty values; it is never stripped from accepted expressions.
+    # canonical 文本不允许首尾空白；合法值按原值和原顺序复制，不静默 strip。
+    # soft_preferences 还必须属于批准词表，未知表达应由上游明确放入 unresolved。
     reference_titles = validate_string_tuple(
         spec.reference_titles,
         "reference_titles",
@@ -439,6 +456,9 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
     return query
 
 
+# 共享 canonicalizer 先做结构校验，再重建键序与集合排序，因此接受合法的乱序输入。
+# 此函数没有 rules 参数，不证明 taxonomy/domain 合法；构建 Gold 应先走 build_query。
+# UTF-8/Unicode 紧凑 JSON 保持输出稳定；不修改原始 query。
 def dumps_query(query: Mapping[str, Any]) -> str:
     """Serialize a validated query in one canonical, Unicode-preserving form."""
     canonical_query = canonicalize_query(query)

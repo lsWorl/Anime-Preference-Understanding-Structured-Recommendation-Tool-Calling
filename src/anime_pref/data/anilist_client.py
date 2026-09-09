@@ -32,6 +32,10 @@ query($page: Int, $perPage: Int) {
 """
 
 
+# 职责边界：此层负责请求协议和分页容器；每条 Media 的字段交给 AnimeMetadata.from_api。
+# 返回的是 data.Page，因此脚本可以直接读取 media 与 pageInfo。
+# HTTP 200 仍可能携带 GraphQL errors，必须先排除查询失败再接收数据。
+# timeout 的完整有限数检查在 CLI；直接调用本函数时目前仅检查是否大于零。
 def fetch_anime_page(
     page: int,
     per_page: int,
@@ -79,6 +83,7 @@ def fetch_anime_page(
                 response_data = json.loads(respponse.read().decode("utf-8"))
             except json.JSONDecodeError as e:
                 raise RuntimeError("Failed to decode JSON response") from e
+            # GraphQL 应用错误与 HTTP 传输状态独立，不能只看 status=200。
             if "errors" in response_data and response_data["errors"]:
                 error_msg = response_data["errors"]
                 raise RuntimeError(f"GraphQL errors: {error_msg}")
@@ -115,3 +120,4 @@ def fetch_anime_page(
     except Exception as e:
         # 捕获其他未预期的异常
         raise RuntimeError(f"Unexpected error: {e}") from e
+

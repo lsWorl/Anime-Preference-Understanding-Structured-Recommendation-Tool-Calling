@@ -28,16 +28,20 @@ SET_OPERATOR_KEY_ORDER = ("all_of", "any_of", "none_of")
 RANGE_KEY_ORDER = ("min", "max")
 
 
+# 输入是已解析的 Mapping，不是 JSON 字符串；解析有效性属于更早的一层。
+# 这里检查结构、重复/交叉冲突和范围语义，不检查标签是否在 executable vocabulary。
+# 键顺序与集合元素顺序不影响合法性；规范排序交给 canonicalize_query。
 def validate_query_structure(query: Mapping[str, Any]) -> None:
     """Validate structure and schema semantics without checking vocabulary."""
     # - 严格检查每层 key 集合、字段类型、非空字符串、重复/跨 operator 冲突；
     # - 检查 range int（排除 bool）、min <= max、episodes 的非空 bound >= 1；
     # - formats/status 是 acceptable-value OR lists；不增加 NOT 结构；
     # - 接受任意 JSON object key order，也接受 set-like 列表的任意输入顺序；
-    # - 不检查 taxonomy membership（该职责仍属于 semantic spec builder）；
+    # - 不检查 taxonomy membership（交给 domain_validation，builder 也会调用它）；
     # - 非法输入统一抛 ValueError；有效输入返回 None；不得修改 query。
 
     #校验key是否和expected_keys严格相等
+    # 用 key 集合比较发现缺项/多项，刻意不比较插入顺序；返回原 mapping 供只读访问。
     def require_mapping_with_keys(value:Any,name:str,expected_keys:tuple[str,...])->Mapping[str,Any]:
         if not isinstance(value,Mapping):
             raise ValueError(f"{name} must be a mapping")
@@ -52,6 +56,8 @@ def validate_query_structure(query: Mapping[str, Any]) -> None:
 
         return value
 
+    # 数组允许为空，但已有项必须是唯一且无首尾空白的字符串；不会去重或修剪。
+    # 返回原列表供验证使用，重新分配列表属于 canonicalizer 的职责。
     def require_string_list(value: Any, name: str) -> list[str]:
         if not isinstance(value, list):
             raise ValueError(f"{name} must be a list")
@@ -141,6 +147,7 @@ def validate_query_structure(query: Mapping[str, Any]) -> None:
         require_string_list(root[field_name],field_name)
 
 
+# 兼容旧调用名称；仍仅执行结构校验，不是结构与领域校验的合并入口。
 def validate_query(query: Mapping[str, Any]) -> None:
     """Backward-compatible name for structural validation.
 
@@ -150,9 +157,12 @@ def validate_query(query: Mapping[str, Any]) -> None:
     validate_query_structure(query)
     
 
+# 先拒绝非法结构，再构造新的嵌套 dict/list，避免排序时修改调用方对象。
+# genres/tags/formats/status 是集合语义，排序；三个文本列表保持顺序。
+# 该转换用于可重复序列化和一致性比较，不执行 domain validation。
 def canonicalize_query(query: Mapping[str, Any]) -> dict[str, Any]:
     """Return a new full-schema query in the one canonical serialization order."""
-    # - 先调用 validate_query(query)；
+    # - 先调用 validate_query_structure(query)；
     # - 按上方四组 *_KEY_ORDER 重建全新 dict；
     # - genres/tags 的集合值以及 formats/status 使用字符串升序；
     # - reference_titles/soft_preferences/unresolved_preferences 保持原顺序和原值；
@@ -187,3 +197,4 @@ def canonicalize_query(query: Mapping[str, Any]) -> dict[str, Any]:
             canonical[field_name] = list(query[field_name])
 
     return canonical
+

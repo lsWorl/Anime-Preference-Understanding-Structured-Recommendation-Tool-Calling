@@ -23,6 +23,10 @@ class AnimeMetadata:
     tags: list[AnimeTag]
     """从API的media中提取对应字段"""
     @classmethod
+    # 把一条原始 Media 校验为 Python 视图；成功返回 cls 实例，字段不合法抛 ValueError。
+    # API 的 seasonYear 转为 season_year；缺失/未知的可空字段保留 None，不替换为 0。
+    # 这里只检查元数据类型与 rank 范围，不套用用户偏好的年份/集数或 taxonomy 白名单。
+    # genres 沿用输入列表；frozen 只保护字段赋值，不递归冻结列表。
     def from_api(cls, media: dict[str, Any]) -> "AnimeMetadata":
         if not isinstance(media, dict):
             raise ValueError(

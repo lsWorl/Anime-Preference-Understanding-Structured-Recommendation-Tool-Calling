@@ -1,0 +1,36 @@
+[
+  {
+    "tag_id": 202,
+    "tag_name": "Female Harem",
+    "category": "Theme-Romance",
+    "approved": true,
+    "reason": "Required normalization target for the approved HAREM group.",
+    "aliases": [],
+    "is_general_spoiler": false,
+    "is_adult": false,
+    "source_snapshot_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "tag_id": 203,
+    "tag_name": "Male Harem",
+    "category": "Theme-Romance",
+    "approved": true,
+    "reason": "Required normalization target for the approved HAREM group.",
+    "aliases": [],
+    "is_general_spoiler": false,
+    "is_adult": false,
+    "source_snapshot_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "tag_id": 204,
+    "tag_name": "Mixed Gender Harem",
+    "category": "Theme-Romance",
+    "approved": true,
+    "reason": "Required normalization target for the approved HAREM group.",
+    "aliases": [],
+    "is_general_spoiler": false,
+    "is_adult": false,
+    "source_snapshot_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+]
+

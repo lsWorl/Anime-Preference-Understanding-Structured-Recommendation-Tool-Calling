@@ -10,6 +10,8 @@ from typing import Any, Mapping
 from anime_pref.schemas.preference_query import SemanticSpec
 
 
+# 外层记录分开保存输入来源与派生目标；不是模型应输出的 Gold JSON 本体。
+# frozen 只禁止字段重新赋值，gold_query 的嵌套 dict/list 仍需一致性校验保护。
 @dataclass(frozen=True)
 class DatasetRecordSpec:
     sample_id: str
@@ -31,3 +33,4 @@ class DatasetRecordSpec:
     # This dataclass only stores the frozen outer shape. Construction and
     # cross-field consistency checks belong to data/dataset_record_builder.py.
     # split remains a later dataset-partition field and is intentionally absent.
+

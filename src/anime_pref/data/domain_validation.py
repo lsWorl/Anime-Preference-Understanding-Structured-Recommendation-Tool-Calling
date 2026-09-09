@@ -11,12 +11,15 @@ if TYPE_CHECKING:
     from anime_pref.data.query_builder import DomainRules
 
 
+# 结构校验通过后，按当前 DomainRules 检查可执行词表和数值上下界。
+# 局部导入 DomainRules 用于运行时 isinstance，避免模块加载时的循环导入。
+# reference/unresolved 没有可执行词表；此函数不解释这些文本，也不修改 query。
 def validate_query_domain(
     query: Mapping[str, Any],
     rules: "DomainRules",
 ) -> None:
     """Validate a structurally valid query against executable domain rules."""
-    # TODO-19:
+    # 已完成的领域校验（原 TODO-19）：
     # 1. 首先调用 validate_query_structure(query)，但不要捕获并改写其 ValueError；
     # 2. rules 必须是 DomainRules；
     # 3. genres/tags 三个 operator 的每个值分别属于 rules.genres/rules.tags；
@@ -34,6 +37,7 @@ def validate_query_domain(
 
     hard_constraints = query["hard_constraints"]
     #辅助函数判断是否有未知句段名字
+    # 保留未知值列表便于定位错误；只检验精确成员关系，不做近似匹配或 alias 展开。
     def require_allowed_values(values: list[str],allowed_values: frozenset[str],name: str,) -> None:
         unknown_values  = [value for value in values if value not in allowed_values]
 
@@ -51,6 +55,8 @@ def validate_query_domain(
     require_allowed_values(query["soft_preferences"],rules.soft_preferences,"soft_preferences",)
 
     #判断数值的边界
+    # 结构层已检查类型与区间顺序；这里再应用配置边界。
+    # 跳过 None，因为“没表达限制”不等于使用规则边界作为用户偏好。
     def require_bounds_within_rule(bounds: Mapping[str, int | None],rule: "NumericRule",name: str,) -> None:
         for bound_name in ("min", "max"):
             bound = bounds[bound_name]
@@ -69,3 +75,4 @@ def validate_query_domain(
     
 
     
+

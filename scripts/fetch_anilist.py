@@ -13,6 +13,8 @@ from anime_pref.data.io import write_jsonl, write_manifest
 from anime_pref.schemas.anime_metadata import AnimeMetadata
 
 
+# argparse 的类型转换入口：把命令行字符串转成正整数。
+# per_page <= 50 等跨来源规则仍在 main 中统一校验，JSON 配置也须经过这些规则。
 def positive_int(value: str) -> int:
     number = int(value)
     if number < 1:
@@ -20,6 +22,10 @@ def positive_int(value: str) -> int:
     return number
 
 
+# 编排顺序：读取配置 → CLI 覆盖 → 参数校验 → 分页请求 → 逐条验证 → raw 写盘 → 摘要。
+# dry-run 在任何网络/缓存操作之前返回；输出相对路径基于 PROJECT_ROOT。
+# 成功返回 0，已捕获运行错误返回 1，学习骨架错误返回 2；argparse 自行处理解析退出。
+# 校验视图不替代原始 Media；若后续页面失败，已成功写入的页面不会被撤销。
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=PROJECT_ROOT / "configs/data.json")
@@ -51,7 +57,7 @@ def main() -> int:
             print(json.dumps(config, ensure_ascii=False, indent=2))
             print("Configuration OK. No network requests or files written.")
             return 0
-        # TODO-05: 串联上述模块。先完成 TODO-01..04 再回来。
+        # 已完成的分页编排（原 TODO-05），以下列出实际数据流。
         # 1. 从 page=1 开始，最多抓取 config['pages'] 页。
         # 2. 调用 fetch_anime_page；逐条用 AnimeMetadata.from_api 校验。
         # 3. 将原始 media 字典写入 page_0001.jsonl 等文件。
@@ -128,3 +134,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

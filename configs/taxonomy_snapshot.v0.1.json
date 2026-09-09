@@ -1,0 +1,20 @@
+{
+  "snapshot_schema_version": "anilist-taxonomy-snapshot-v0.1",
+  "source": "AniList GraphQL API",
+  "resource": [
+    "GenreCollection",
+    "MediaTagCollection"
+  ],
+  "genre_fields": [
+    "name"
+  ],
+  "tag_fields": [
+    "id",
+    "name",
+    "description",
+    "category",
+    "isGeneralSpoiler",
+    "isAdult"
+  ]
+}
+

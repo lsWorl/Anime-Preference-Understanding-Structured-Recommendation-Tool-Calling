@@ -86,6 +86,24 @@ class DatasetRecordBuilderTests(unittest.TestCase):
         # + 1 format OR-clause + 1 status OR-clause = 10.
         self.assertEqual(count_hard_semantic_clauses(spec), 10)
 
+    def test_tag_any_count_merges_direct_tags_and_tag_groups(self):
+        merged_any = SemanticSpec(
+            tags=SetConstraintSpec(any_of=("Ensemble Cast",)),
+            tag_groups=SetConstraintSpec(any_of=("HAREM",)),
+        )
+        all_plus_any = SemanticSpec(
+            tags=SetConstraintSpec(all_of=("Ensemble Cast",)),
+            tag_groups=SetConstraintSpec(any_of=("HAREM",)),
+        )
+        additive_none = SemanticSpec(
+            tags=SetConstraintSpec(none_of=("Ensemble Cast",)),
+            tag_groups=SetConstraintSpec(none_of=("HAREM",)),
+        )
+
+        self.assertEqual(count_hard_semantic_clauses(merged_any), 1)
+        self.assertEqual(count_hard_semantic_clauses(all_plus_any), 2)
+        self.assertEqual(count_hard_semantic_clauses(additive_none), 2)
+
     def test_normalization_rule_ids_are_pre_expansion_provenance(self):
         rules = load_domain_rules(RULES_PATH)
         spec = SemanticSpec(tag_groups=SetConstraintSpec(any_of=("HAREM",)))
@@ -111,7 +129,7 @@ class DatasetRecordBuilderTests(unittest.TestCase):
             "generation_family": "curated-template",
             "template_id": "template-001",
             "seed": 7,
-            "user_text": "想看2010年后的科幻或悬疑TV动画，不要后宫。",
+            "user_text": "想看2010年及以后、最多24集的科幻或悬疑TV动画，不要后宫。",
         }
 
         first = build_dataset_record(**kwargs)

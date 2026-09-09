@@ -8,6 +8,7 @@ or normalization. Accepted non-empty strings must not have outer whitespace.
 from dataclasses import dataclass, field
 
 
+# 三个 operator 保存 canonical 值；tuple 类型标注不执行运行时校验。
 @dataclass(frozen=True)
 class SetConstraintSpec:
     """Canonical values grouped by the output operator they belong to."""
@@ -17,6 +18,7 @@ class SetConstraintSpec:
     none_of: tuple[str, ...] = field(default_factory=tuple)
 
 
+# 闭区间边界；None 表示用户未表达，该模型不会自行填入领域上下界。
 @dataclass(frozen=True)
 class RangeConstraintSpec:
     """Inclusive numeric bounds; None means the user expressed no such bound."""
@@ -25,6 +27,7 @@ class RangeConstraintSpec:
     max: int | None = None
 
 
+# 展开前语义源；tag_groups 仅供构建与 provenance，最终 Gold 不输出该字段。
 @dataclass(frozen=True)
 class SemanticSpec:
     """Canonical semantic source from which Gold JSON is built.
@@ -48,3 +51,4 @@ class SemanticSpec:
     reference_titles: tuple[str, ...] = field(default_factory=tuple)
     soft_preferences: tuple[str, ...] = field(default_factory=tuple)
     unresolved_preferences: tuple[str, ...] = field(default_factory=tuple)
+

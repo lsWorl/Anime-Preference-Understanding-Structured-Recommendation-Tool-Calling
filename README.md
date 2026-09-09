@@ -1,77 +1,61 @@
 # Anime Preference Understanding & Structured Recommendation Tool Calling
 
-代码学习线当前状态：Project Scaffold + AniList Data Acquisition v0.1 已完成；
-正在实现 Dataset semantic specification + deterministic JSON builder v0.1。
-当前不涉及训练与推荐执行。
+当前工程实现：作品元数据采集、Schema Contract v0.1.1、确定性 Gold Query 构建、
+结构/领域校验分层，以及 DatasetRecord 构建与来源一致性验证。
+
+全量 taxonomy 快照与审核子集目前已添加数据模型、接口和测试骨架，业务函数仍待实现。
+尚未实现语义采样、语言生成、数据集切分、训练或推荐执行。
+
+## 阅读入口
+
+从 [项目实现学习手册](docs/项目实现学习手册.md) 开始，按数据流逐个阅读源码。
+手册包含函数参数与返回值、内部校验、异常、调用关系、离线示例和测试说明。
+
+- [Schema Contract v0.1.1](docs/schema_contract_v0.1.1.md)：Gold 契约与 canonicalization。
+- [DatasetRecord Builder](docs/dataset_record_builder_v0.1.md)：来源、子句计数和确定性身份。
+- [Taxonomy snapshot 与 reviewed subset](docs/taxonomy_snapshot_and_subset_v0.1.md)：待实现契约。
+- [历史 review bundle](docs/schema_contract_v0.1.1_review_bundle.md)：保留当时审查内容，不代表最新状态。
 
 ## 环境与运行
 
-Python >= 3.10。当前代码仅用标准库，配置为 JSON，不需要安装 YAML 或 Pydantic。
-在 PowerShell 中执行：
+Python >= 3.10，业务代码仅使用标准库；运行配置为 JSON，无需 YAML/Pydantic。
+从项目根目录执行：
 
 ```powershell
-cd D:\Study\anime-preference-sft
-python -m venv .venv
-.\.venv\Scripts\python.exe scripts/fetch_anilist.py --dry-run
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-```
-
-脚本直接支持 src 布局，不要求提前安装包。如需在其他代码中导入，可选执行
-`.\.venv\Scripts\python.exe -m pip install -e .`。
-
-补完 TODO 后运行：
-
-```powershell
-.\.venv\Scripts\python.exe scripts/fetch_anilist.py --pages 1 --per-page 10 --output data/raw/anilist
-```
-
-`--help`、`--dry-run` 和普通小规模采集均可使用。
-配置/运行错误返回 1，成功返回 0。dry-run 不联网、不写缓存。
-默认配置是 configs/data.json；命令行参数覆盖对应配置。
-输出相对路径基于项目根目录；自定义 --config 相对路径基于当前工作目录。
-已有空 configs/data.yaml 保留，但不被读取。
-
-## 学习顺序与验收
-
-1. **TODO-01**，data/anilist_client.py：补 GraphQL 查询，用以前成功的查询作参考。
-2. **TODO-02**，同文件：实现单页 POST、超时、HTTP/GraphQL 错误与返回结构检查。
-   先在自己的练习脚本调用 `fetch_anime_page(1, 2)`，确认结果包含 media/pageInfo。
-3. **TODO-03**，schemas/anime_metadata.py：从一条 Media 构造 dataclass，保留未知值 None。
-4. **TODO-04a / 04b**，data/io.py：完成 JSONL 和 manifest 写入。
-5. **TODO-05**，scripts/fetch_anilist.py：接上分页、校验、原始缓存、manifest。
-6. **TODO-06a / 06b / 06c**，tests/test_scaffold.py：补相应断言并移除 skip。
-   建议每完成一个模块就补它的测试。当前跳过的测试不是功能完成的证据。
-
-搜索 `TODO-` 可定位所有练习。函数 docstring 和旁边的注释说明输入、输出和失败行为。
-不应通过捕获 NotImplementedError 或返回空列表让尚未实现的功能假装成功。
-
-## 数据约定
-
-- data/raw：保存 API 原始 Media 字典，一页一个 JSONL；不改写原始字段。
-- data/interim：后续清洗/标准化中间结果；目前仅占位。
-- data/processed：后续训练与评估输入；目前仅占位。
-- AnimeMetadata：校验和标准化视图，不替代 raw 记录；dataclass 不会自动校验类型。
-- outputs：后续运行产物；training/evaluation/inference 目前只有包占位。
-- manifest.json：成功抓取的可追踪摘要，需包含代码中列出的字段。
-
-## Dataset semantic specification + deterministic JSON builder v0.1
-
-## 运行完整测试的指令
-```powershell
+python -B scripts/fetch_anilist.py --dry-run
 python -B -m unittest discover -s tests -v
 ```
-本阶段新增：
 
-- `schemas/preference_query.py`：不可变的 canonical semantic spec。
-- `data/query_builder.py`：规则加载、确定性 Gold JSON 构建与序列化。
-- `data/constraint_signature.py`：hard constraint 结构签名。
-- `configs/domain_rules.v0.1.json`：版本化 taxonomy allowlist 与批准的 tag group。
-- `tests/test_query_builder.py`：固定语义、期望 JSON、拒绝路径和 signature 骨架。
+可选创建虚拟环境，之后把 python 换成 .\.venv\Scripts\python.exe。
+脚本已设置 src 路径；其他程序导入可选择 pip install -e . 或显式设置 src 路径。
 
-实现顺序为 TODO-07（规则加载）→ TODO-08（Gold builder）→ TODO-09（序列化）
-→ TODO-10（signature）→ TODO-11（逐项启用测试）。当前 tag allowlist 只包含已经批准的
-Harem 三个 AniList tags；扩充前必须先完成 taxonomy 审计，不能凭印象添加。
+截至 2026-09-09：37 项测试，31 项通过，6 项 taxonomy 测试仍跳过。
+跳过不表示实现完成；源码中的 NotImplementedError 和 skip 才能判断剩余工作，
+历史 TODO 编号本身可能留作学习记录。
 
-本阶段不生成自然语言、不调用 LLM、不进行数据集切分或训练。若实现过程中发现
-Schema 字段类型、numeric rules 或 normalization policy 尚未在理论分支冻结，应先回理论
-分支补齐准确规则，再继续代码线。
+## 作品采集
+
+真实采集会联网并创建文件，使用尚未存在的输出文件路径：
+
+```powershell
+python -B scripts/fetch_anilist.py --pages 1 --per-page 10 --output data/raw/anilist-new-run
+```
+
+默认 configs/data.json，CLI 覆盖同名配置。输出相对路径基于项目根目录，
+自定义 --config 相对路径基于工作目录。data.yaml 不被读取。
+成功返回 0；已捕获运行错误返回 1；学习骨架异常返回 2；argparse 独立处理参数错误。
+dry-run 不联网、不写缓存。独占创建禁止覆盖，失败不自动回滚已写页面。
+
+## 当前数据约定
+
+- AnimeMetadata 是校验视图；data/raw 保存 API 原始 Media，一页一个 JSONL。
+- DomainRules 使用 configs/domain_rules.v0.1.1.json；旧 v0.1 文件保留为历史材料。
+- HAREM 允许 any_of/none_of，禁止 all_of；展开为三个实际 tags。
+- year 为 1900–2100 有效性边界，episodes 至少 1；不是采样分布。
+- soft_preferences 批准词表为空；未知表达不能由 builder 自动映射或搬移。
+- DatasetRecord 保存源 spec、Gold 和生成元数据；模型目标仍只是 Gold Query。
+- taxonomy audit 示例包含占位数据，不能作为正式批准记录。
+- data/interim、data/processed、outputs 和 training/evaluation/inference 仍为后续模块预留。
+
+本分支侧重代码复盘与注释；新增语义政策应先在理论分支确认。
+

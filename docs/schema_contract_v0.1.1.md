@@ -24,7 +24,7 @@ DomainRules + SemanticSpec
         ↓ build_query
 full-schema Gold Query
         ↓ validate_query
-semantic validity
+    structural/schema validity（领域检查另见 validate_query_domain）
         ↓ canonicalize_query
 fixed key order + sorted set values
         ├─ dumps_query
@@ -45,8 +45,7 @@ fixed key order + sorted set values
 `DomainRules` 保存 taxonomy allowlist、tag groups、approved soft vocabulary 和 numeric
 rules。tag group 映射由 `MappingProxyType` 包装，调用方不能修改。
 
-`DatasetRecordSpec` 仅预留 provenance 字段。`split` 将在后续划分阶段加入；record
-builder 和 `constraint_count` 的计算尚未实现。
+`DatasetRecordSpec` 保存 provenance 字段；record builder、constraint_count 和一致性验证现已实现，详见 `dataset_record_builder_v0.1.md`。`split` 仍留待后续划分阶段加入。
 
 ## 函数执行说明
 
@@ -77,7 +76,7 @@ builder 和 `constraint_count` 的计算尚未实现。
 9. set-like 字段排序；reference、soft、unresolved 保持输入顺序。
 10. 输出所有 Schema 字段；空列表和 null bound 不省略。
 
-### `validate_query(query)`
+### `validate_query_structure(query)`（`validate_query` 为兼容名称）
 
 1. 比较每层 key 的集合，不比较 JSON object key order。
 2. 要求集合字段和文本字段为 JSON list，元素为非空字符串。
@@ -85,12 +84,16 @@ builder 和 `constraint_count` 的计算尚未实现。
 4. 拒绝列表内重复值和 set operator 之间的重叠。
 5. 检查 range 类型、min/max 顺序以及 episodes bound 至少为 1。
 6. 把 formats/status 视为普通 OR list，不接受 NOT 结构。
-7. 不检查 taxonomy membership；该职责属于 builder。
+7. 不检查 taxonomy membership；该职责属于 `validate_query_domain(query, rules)`；builder 会调用它。
 8. 成功返回 `None`，且不修改调用方对象。
+
+### `validate_query_domain(query, rules)`
+
+先执行 structural validation，再检查 executable vocabulary、approved soft vocabulary 和版本化 numeric rules。成功返回 None，不修改 query；reference/unresolved 不做词表映射。
 
 ### `canonicalize_query(query)`
 
-1. 首先调用 `validate_query()`。
+1. 首先调用 `validate_query_structure()`。
 2. 按常量定义重建顶层、hard constraints、operator 和 range 的键顺序。
 3. 对 genres、tags、formats、status 排序。
 4. 保持 reference、soft、unresolved 的值与顺序。
@@ -104,7 +107,7 @@ builder 和 `constraint_count` 的计算尚未实现。
 
 ### `build_constraint_signature(query)`
 
-1. 调用共享 `validate_query()`。
+1. 调用共享 `validate_query_structure()`。
 2. 只读取 hard constraints 是否活跃，不读取具体取值。
 3. 按固定 `SIGNATURE_ORDER` 连接 token。
 4. 没有 hard constraint 时返回 `NO_HARD_CONSTRAINT`。
@@ -131,4 +134,8 @@ python -B -m unittest discover -s tests -v
 - approved soft preference vocabulary；当前为空。
 - 完整 AniList taxonomy snapshot、fetch date/version/hash。
 - 人工审核后的 executable tag subset。
-- dataset record builder、semantic sampler、controlled language realization 和 split。
+- semantic sampler、controlled language realization 和 split。
+
+## 2026-09-09 状态更新
+
+DatasetRecord Builder 已完成；taxonomy snapshot/subset 已加入模型与 TODO 骨架，业务函数仍待实现。当前完整测试为37项：31项通过、6项跳过，0失败。历史23项测试记录仅对应当时的审查阶段。最新逐函数说明见 [项目实现学习手册](项目实现学习手册.md)。
