@@ -5,7 +5,7 @@ from typing import Any
 
 from anime_pref.data.query_builder import DomainRules
 from anime_pref.schemas.dataset_record import DatasetRecordSpec
-from anime_pref.schemas.preference_query import SemanticSpec
+from anime_pref.schemas.preference_query import SemanticSpec,SetConstraintSpec,RangeConstraintSpec
 
 
 def count_hard_semantic_clauses(spec: SemanticSpec) -> int:
@@ -18,7 +18,86 @@ def count_hard_semantic_clauses(spec: SemanticSpec) -> int:
     # - formats/status 每个非空 OR list +1；
     # - reference/soft/unresolved 不计数；
     # - 本函数不修复 spec。类型或结构错误抛 ValueError。
-    raise NotImplementedError("TODO-20: count pre-expansion hard semantic clauses")
+    if not isinstance(spec, SemanticSpec):
+        raise ValueError("spec must be a SemanticSpec instance")
+    
+    def count_set_constraint(constraint:SetConstraintSpec,name:str) -> int:
+        if not isinstance(constraint, SetConstraintSpec):
+            raise ValueError(f"{name} must be a SetConstraintSpec")
+        operators = ("all_of", "any_of", "none_of")
+        for operator in operators:
+            values = getattr(constraint, operator)
+            if not isinstance(values, tuple):
+                 raise ValueError(f"{name}.{operator} must be a tuple")
+            for value in values:
+                if not isinstance(value, str):
+                    raise ValueError(f"{name}.{operator} must contain only strings")
+                if not value:
+                    raise ValueError(f"{name}.{operator} must not contain empty strings")
+
+                if value != value.strip():
+                    raise ValueError(f"{name}.{operator} values must not have leading/trailing whitespace")
+
+            if len(values) != len(set(values)):
+                raise ValueError(f"{name}.{operator} contains duplicate values")
+            
+        operator_sets = {operator: set(getattr(constraint, operator)) for operator in operators}
+
+        for left, right in (("all_of", "any_of"),("all_of", "none_of"),("any_of", "none_of"),):
+            overlap = operator_sets[left] & operator_sets[right]
+            if overlap:
+                raise ValueError(f"{name}.{left} and {name}.{right} overlap: {overlap}")
+        return (len(constraint.all_of) + (1 if constraint.any_of else 0)+ len(constraint.none_of))
+
+    def count_range_constraint(constraint: RangeConstraintSpec,name: str,) -> int:
+        if not isinstance(constraint, RangeConstraintSpec):
+            raise ValueError(f"{name} must be a RangeConstraintSpec")
+
+        for bound_name, bound in (("min", constraint.min),("max", constraint.max),):
+            if bound is not None and (not isinstance(bound, int) or isinstance(bound, bool)):
+                raise ValueError(f"{name}.{bound_name} must be an integer or None")
+
+        if (constraint.min is not None and constraint.max is not None and constraint.min > constraint.max):
+            raise ValueError(f"{name}.min must not be greater than {name}.max")
+
+        return (int(constraint.min is not None) + int(constraint.max is not None))
+
+    def validate_string_tuple(values: tuple[str, ...],name: str,) -> None:
+        if not isinstance(values, tuple):
+            raise ValueError(f"{name} must be a tuple")
+
+        for value in values:
+            if not isinstance(value, str):
+                raise ValueError(f"{name} must contain only strings")
+
+            if not value:
+                raise ValueError(f"{name} must not contain empty strings")
+
+            if value != value.strip():
+                raise ValueError(f"{name} values must not have leading/trailing whitespace")
+
+        if len(values) != len(set(values)):
+            raise ValueError(f"{name} contains duplicate values")
+
+
+    count = 0
+    #genres、tags、tag_groups 分别按 SetConstraintSpec 计数
+    for field_name in ("genres", "tags", "tag_groups"):
+        count += count_set_constraint(getattr(spec, field_name),field_name)
+
+    #year/episodes 每个非 None bound +1
+    for field_name in ("year", "episodes"):
+        count += count_range_constraint(getattr(spec, field_name),field_name)
+
+    for field_name in ("formats","status","reference_titles","soft_preferences","unresolved_preferences"):
+        validate_string_tuple(getattr(spec, field_name),field_name)
+
+    for field_name in ("formats", "status"):
+        values = getattr(spec, field_name)
+        if values:
+            count += 1
+            
+    return count
 
 
 def collect_normalization_rule_ids(

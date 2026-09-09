@@ -3,14 +3,14 @@
 This module must only validate, expand approved rules, and serialize semantics.
 It must never infer a preference or silently repair an invalid specification.
 """
-
+from anime_pref.data.domain_validation import validate_query_domain
 from collections.abc import Mapping
 from dataclasses import dataclass
 import json
 from pathlib import Path
 from types import MappingProxyType
 from typing import Any
-from anime_pref.data.query_validation import canonicalize_query
+from anime_pref.data.query_validation import canonicalize_query,validate_query_structure
 from anime_pref.schemas.preference_query import (
     RangeConstraintSpec,
     SemanticSpec,
@@ -420,10 +420,7 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         sort_output=False,
     )
 
-    # TODO-19b: 构造 query 后显式调用 validate_query_structure(query) 和
-    # validate_query_domain(query, rules)，再返回 query。不要依赖“builder 前面已经检查过”
-    # 作为两层 validation 的替代，也不要在验证失败时修复输出。
-    return {
+    query = {
         "hard_constraints": {
             "genres": genres,
             "tags": expanded_tags,
@@ -436,6 +433,10 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         "soft_preferences": soft_preferences,
         "unresolved_preferences": unresolved_preferences,
     }
+    validate_query_structure(query)
+    validate_query_domain(query,rules)
+
+    return query
 
 
 def dumps_query(query: Mapping[str, Any]) -> str:
