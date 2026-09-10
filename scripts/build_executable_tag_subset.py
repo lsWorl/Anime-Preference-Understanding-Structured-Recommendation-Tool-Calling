@@ -7,6 +7,17 @@ import sys
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+from anime_pref.data.query_builder import load_domain_rules
+from anime_pref.data.tag_subset import (
+    build_executable_tag_subset,
+    load_tag_audit,
+    validate_domain_rule_tag_targets,
+    write_executable_subset_bundle,
+)
+from anime_pref.data.taxonomy_snapshot import (
+    load_canonical_taxonomy_snapshot,
+)
+
 
 # 此函数已实现参数解析，返回 argparse.Namespace；Path 转换不等于文件存在或内容已校验。
 # argv=None 时读取进程命令行；传列表便于离线测试。
@@ -20,16 +31,43 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
-# 当前仅解析参数后抛 NotImplementedError；--help 可用，实际业务链尚未接通。
-# 下面的 TODO 是待实现契约，本次注释整理没有替学习者补完。
 def main(argv: list[str] | None = None) -> int:
     # TODO-39: load the canonical snapshot and audit, build/validate the subset,
     # verify DomainRules targets, persist subset+manifest, and print identity.
-    parse_args(argv)
-    raise NotImplementedError("TODO-39: wire reviewed executable subset CLI")
+    args = parse_args(argv)
+
+    snapshot = load_canonical_taxonomy_snapshot(args.canonical_snapshot)
+    audit_records = load_tag_audit(args.audit)
+    domain_rules = load_domain_rules(args.domain_rules)
+
+    subset = build_executable_tag_subset(
+        audit_records,
+        snapshot,
+        subset_version=args.subset_version,
+    )
+
+    validate_domain_rule_tag_targets(
+        subset,
+        domain_rules,
+    )
+
+    manifest = write_executable_subset_bundle(
+        subset,
+        output_dir=args.output,
+    )
+
+    subset_path = args.output / "executable_tags.json"
+    manifest_path = args.output / "manifest.json"
+
+    print(f"executable_subset: {subset_path}")
+    print(f"manifest: {manifest_path}")
+    print(f"subset_version: {manifest.subset_version}")
+    print(f"subset_sha256: {manifest.subset_hash}")
+    print("derived_from_snapshot_sha256: " f"{manifest.derived_from_snapshot_hash}")
+    print(f"approved_tag_count: {manifest.approved_tag_count}")
+
+    return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-

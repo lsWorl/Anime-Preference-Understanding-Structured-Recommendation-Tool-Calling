@@ -16,7 +16,9 @@ from anime_pref.data.query_builder import load_domain_rules
 from anime_pref.data.tag_subset import (
     build_executable_subset_manifest,
     build_executable_tag_subset,
+    dumps_executable_tag_subset,
     executable_tag_subset_sha256,
+    load_executable_tag_subset,
     validate_domain_rule_tag_targets,
     validate_tag_audit,
 )
@@ -28,7 +30,10 @@ from anime_pref.data.taxonomy_snapshot import (
     taxonomy_snapshot_sha256,
     write_taxonomy_snapshot_bundle,
 )
-from anime_pref.schemas.taxonomy import TagAuditRecordSpec
+from anime_pref.schemas.taxonomy import (
+    ExecutableTagSpec,
+    TagAuditRecordSpec,
+)
 
 RULES_PATH = PROJECT_ROOT / "configs" / "domain_rules.v0.1.1.json"
 
@@ -165,7 +170,6 @@ class TaxonomySnapshotTests(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 fetch_anilist_taxonomy()
 
-    @unittest.skip("TODO-40b: 完成 TODO-27/28 后启用")
     def test_canonical_snapshot_and_hash_ignore_input_order(self):
         first = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
         reversed_source = copy.deepcopy(SOURCE_PAYLOAD)
@@ -174,7 +178,9 @@ class TaxonomySnapshotTests(unittest.TestCase):
         second = build_canonical_taxonomy_snapshot(reversed_source)
 
         self.assertEqual(first, second)
-        self.assertEqual(taxonomy_snapshot_sha256(first), taxonomy_snapshot_sha256(second))
+        self.assertEqual(
+            taxonomy_snapshot_sha256(first), taxonomy_snapshot_sha256(second)
+        )
         self.assertEqual(first.genres, ("Mystery", "Sci-Fi"))
         self.assertEqual([tag.id for tag in first.tags], [101, 202, 203, 204])
 
@@ -186,7 +192,6 @@ class TaxonomySnapshotTests(unittest.TestCase):
             taxonomy_snapshot_sha256(changed),
         )
 
-    @unittest.skip("TODO-40c: 完成 TODO-29/30 后启用")
     def test_snapshot_manifest_and_bundle_are_consistent(self):
         snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
         manifest = build_taxonomy_snapshot_manifest(
@@ -216,7 +221,6 @@ class TaxonomySnapshotTests(unittest.TestCase):
                     fetched_at_utc="2026-09-09T12:00:00Z",
                 )
 
-    @unittest.skip("TODO-40d: 完成 TODO-31/32 后启用")
     def test_audit_must_match_snapshot_and_reject_duplicate_identity(self):
         snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
         snapshot_hash = taxonomy_snapshot_sha256(snapshot)
@@ -235,7 +239,81 @@ class TaxonomySnapshotTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     validate_tag_audit(invalid, snapshot)
 
-    @unittest.skip("TODO-40e: 完成 TODO-33/34/35 后启用")
+        additional_invalid_cases = (
+            (
+                "wrong_category",
+                (replace(audit[0], category="Wrong Category"),) + audit[1:],
+            ),
+            (
+                "wrong_spoiler_flag",
+                (
+                    replace(
+                        audit[0],
+                        is_general_spoiler=True,
+                    ),
+                )
+                + audit[1:],
+            ),
+            (
+                "wrong_adult_flag",
+                (replace(audit[0], is_adult=True),) + audit[1:],
+            ),
+            (
+                "unknown_tag_id",
+                (replace(audit[0], tag_id=999999),) + audit[1:],
+            ),
+            (
+                "unknown_tag_name",
+                (replace(audit[0], tag_name="Unknown Tag"),) + audit[1:],
+            ),
+            (
+                "duplicate_alias_in_record",
+                (
+                    replace(
+                        audit[0],
+                        aliases=("后宫", "后宫"),
+                    ),
+                )
+                + audit[1:],
+            ),
+            (
+                "alias_conflicts_with_canonical_name",
+                (
+                    replace(
+                        audit[0],
+                        aliases=("Male Harem",),
+                    ),
+                )
+                + audit[1:],
+            ),
+            (
+                "alias_shared_by_approved_records",
+                (
+                    replace(audit[0], aliases=("后宫",)),
+                    replace(audit[1], aliases=("后宫",)),
+                )
+                + audit[2:],
+            ),
+        )
+
+        for name, invalid in additional_invalid_cases:
+            with self.subTest(case=name):
+                with self.assertRaises(ValueError):
+                    validate_tag_audit(invalid, snapshot)
+
+        approved_and_rejected_share_alias = (
+            replace(audit[0], aliases=("后宫",)),
+            audit[1],
+            audit[2],
+            replace(audit[3], aliases=("后宫",)),
+        )
+        self.assertIsNone(
+            validate_tag_audit(
+                approved_and_rejected_share_alias,
+                snapshot,
+            )
+        )
+
     def test_subset_contains_only_explicitly_approved_tags_and_has_own_hash(self):
         snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
         audit = make_audit(taxonomy_snapshot_sha256(snapshot))
@@ -257,8 +335,23 @@ class TaxonomySnapshotTests(unittest.TestCase):
             manifest.derived_from_snapshot_hash,
             taxonomy_snapshot_sha256(snapshot),
         )
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            subset_path = (
+                Path(temporary_directory)
+                / "executable_tags.json"
+            )
+            subset_path.write_text(
+                dumps_executable_tag_subset(subset),
+                encoding="utf-8",
+            )
 
-    @unittest.skip("TODO-40f: 完成 TODO-36 后启用")
+            loaded_subset = load_executable_tag_subset(
+                subset_path
+            )
+
+            self.assertEqual(loaded_subset, subset)
+
+
     def test_every_domain_rule_tag_target_must_exist_in_subset(self):
         snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
         audit = make_audit(taxonomy_snapshot_sha256(snapshot))
@@ -273,6 +366,68 @@ class TaxonomySnapshotTests(unittest.TestCase):
         missing_target = replace(subset, tags=subset.tags[:-1])
         with self.assertRaises(ValueError):
             validate_domain_rule_tag_targets(missing_target, rules)
+
+        extra_tag = ExecutableTagSpec(
+            tag_id=101,
+            tag_name="Ensemble Cast",
+            category="Cast-Main Cast",
+            aliases=(),
+            is_general_spoiler=False,
+            is_adult=False,
+        )
+        subset_with_extra_tag = replace(
+            subset,
+            tags=(extra_tag,) + subset.tags,
+        )
+
+        with self.assertRaises(ValueError):
+            validate_domain_rule_tag_targets(
+                subset_with_extra_tag,
+                rules,
+            )
+
+        existing_group = next(
+            iter(rules.tag_groups.values())
+        )
+
+        valid_non_harem_group = replace(
+            existing_group,
+            tags=("Female Harem",),
+            normalization_rule_id="TEST_GROUP_VALID_V0_1",
+        )
+        rules_with_valid_non_harem_group = replace(
+            rules,
+            tag_groups={
+                **dict(rules.tag_groups),
+                "TEST_GROUP": valid_non_harem_group,
+            },
+        )
+
+        self.assertIsNone(
+            validate_domain_rule_tag_targets(
+                subset,
+                rules_with_valid_non_harem_group,
+            )
+        )
+
+        invalid_non_harem_group = replace(
+            existing_group,
+            tags=("Missing Tag",),
+            normalization_rule_id="TEST_GROUP_INVALID_V0_1",
+        )
+        rules_with_invalid_non_harem_group = replace(
+            rules,
+            tag_groups={
+                **dict(rules.tag_groups),
+                "TEST_GROUP": invalid_non_harem_group,
+            },
+        )
+
+        with self.assertRaises(ValueError):
+            validate_domain_rule_tag_targets(
+                subset,
+                rules_with_invalid_non_harem_group,
+            )
 
 
 if __name__ == "__main__":

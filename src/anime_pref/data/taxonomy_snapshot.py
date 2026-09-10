@@ -1,10 +1,12 @@
 """Canonicalize, hash, and persist AniList taxonomy snapshots."""
 
 # 调用会抛 NotImplementedError，不能把已定义的接口视为已完成的采集/审核能力。
-
+import hashlib
 from collections.abc import Mapping
+from datetime import datetime
 from pathlib import Path
 from typing import Any
+import json
 
 from anime_pref.schemas.taxonomy import (
     CanonicalTaxonomySnapshot,
@@ -177,30 +179,187 @@ def canonical_taxonomy_to_mapping(
     snapshot: CanonicalTaxonomySnapshot,
 ) -> dict[str, Any]:
     """Convert a validated snapshot to its one full canonical JSON shape."""
-    # TODO-28a: 固定 key order，tag 字段使用 schema 定义顺序；保留 None；返回全新对象。
-    raise NotImplementedError("TODO-28a: map canonical taxonomy to JSON types")
+    # 固定 key order，tag 字段使用 schema 定义顺序；保留 None；返回全新对象。
+    if not isinstance(snapshot, CanonicalTaxonomySnapshot):
+        raise ValueError("snapshot must be a CanonicalTaxonomySnapshot")
+
+    if not isinstance(snapshot.genres, tuple):
+        raise ValueError("snapshot.genres must be a tuple")
+
+    if not isinstance(snapshot.tags, tuple):
+        raise ValueError("snapshot.tags must be a tuple")
+
+    for index, tag in enumerate(snapshot.tags):
+        if not isinstance(tag, TaxonomyTagSpec):
+            raise ValueError(f"snapshot.tags[{index}] must be a TaxonomyTagSpec")
+
+    validation_source = {
+        "data": {
+            "GenreCollection": list(snapshot.genres),
+            "MediaTagCollection": [
+                {
+                    "id": tag.id,
+                    "name": tag.name,
+                    "description": tag.description,
+                    "category": tag.category,
+                    "isGeneralSpoiler": tag.is_general_spoiler,
+                    "isAdult": tag.is_adult,
+                }
+                for tag in snapshot.tags
+            ],
+        }
+    }
+
+    rebuilt_snapshot = build_canonical_taxonomy_snapshot(
+        validation_source,
+        snapshot_schema_version=snapshot.snapshot_schema_version,
+    )
+
+    if rebuilt_snapshot != snapshot:
+        raise ValueError("snapshot content or ordering is not canonical")
+
+    return {
+        "snapshot_schema_version": snapshot.snapshot_schema_version,
+        "genres": list(snapshot.genres),
+        "tags": [
+            {
+                "id": tag.id,
+                "name": tag.name,
+                "description": tag.description,
+                "category": tag.category,
+                "is_general_spoiler": tag.is_general_spoiler,
+                "is_adult": tag.is_adult,
+            }
+            for tag in snapshot.tags
+        ],
+    }
 
 
 def dumps_canonical_taxonomy(snapshot: CanonicalTaxonomySnapshot) -> str:
     """Serialize the canonical snapshot deterministically as Unicode JSON."""
-    # TODO-28b: 复用 mapping；ensure_ascii=False、紧凑 separators、allow_nan=False。
-    raise NotImplementedError("TODO-28b: serialize canonical taxonomy")
+    # 复用 mapping；ensure_ascii=False、紧凑 separators、allow_nan=False。
+    canonical_mapping = canonical_taxonomy_to_mapping(snapshot)
+
+    return json.dumps(
+        canonical_mapping,
+        ensure_ascii=False,
+        separators=(",", ":"),
+        allow_nan=False,
+    )
 
 
 def load_canonical_taxonomy_snapshot(path: Path) -> CanonicalTaxonomySnapshot:
     """Load canonical.json and reject any non-canonical structure or ordering."""
-    # TODO-28c:
     # - UTF-8 读取 JSON；精确检查 canonical snapshot 与 tag 的 key 集合和类型；
     # - 构造 dataclass 后复用 canonical mapping/serializer validation；
     # - 文件内容必须已经是 canonical order，不静默排序、strip 或修复；
     # - JSON parse 错误与 contract 错误对调用方统一表现为 ValueError。
-    raise NotImplementedError("TODO-28c: load canonical taxonomy")
+    if not isinstance(path, Path):
+        raise ValueError("path must be a pathlib.Path")
+
+    def reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        result: dict[str, Any] = {}
+
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f"duplicate JSON key: {key!r}")
+            result[key] = value
+
+        return result
+
+    try:
+        json_text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        raise ValueError(f"failed to read canonical taxonomy file: {path}") from exc
+
+    try:
+        raw_snapshot = json.loads(
+            json_text,
+            object_pairs_hook=reject_duplicate_keys,
+        )
+    except (json.JSONDecodeError, ValueError) as exc:
+        raise ValueError(f"invalid canonical taxonomy JSON: {path}") from exc
+
+    if not isinstance(raw_snapshot, dict):
+        raise ValueError("canonical taxonomy root must be a JSON object")
+
+    expected_root_keys = (
+        "snapshot_schema_version",
+        "genres",
+        "tags",
+    )
+
+    if tuple(raw_snapshot.keys()) != expected_root_keys:
+        raise ValueError(
+            "canonical taxonomy keys must be exactly "
+            f"{expected_root_keys} in that order"
+        )
+
+    if not isinstance(raw_snapshot["snapshot_schema_version"], str):
+        raise ValueError("snapshot_schema_version must be a string")
+
+    if not isinstance(raw_snapshot["genres"], list):
+        raise ValueError("genres must be a list")
+
+    if not isinstance(raw_snapshot["tags"], list):
+        raise ValueError("tags must be a list")
+
+    expected_tag_keys = (
+        "id",
+        "name",
+        "description",
+        "category",
+        "is_general_spoiler",
+        "is_adult",
+    )
+
+    tag_specs: list[TaxonomyTagSpec] = []
+
+    for index, raw_tag in enumerate(raw_snapshot["tags"]):
+        if not isinstance(raw_tag, dict):
+            raise ValueError(f"tags[{index}] must be a JSON object")
+
+        if tuple(raw_tag.keys()) != expected_tag_keys:
+            raise ValueError(
+                f"tags[{index}] keys must be exactly "
+                f"{expected_tag_keys} in that order"
+            )
+
+        tag_specs.append(
+            TaxonomyTagSpec(
+                id=raw_tag["id"],
+                name=raw_tag["name"],
+                description=raw_tag["description"],
+                category=raw_tag["category"],
+                is_general_spoiler=raw_tag["is_general_spoiler"],
+                is_adult=raw_tag["is_adult"],
+            )
+        )
+
+    candidate_snapshot = CanonicalTaxonomySnapshot(
+        snapshot_schema_version=raw_snapshot["snapshot_schema_version"],
+        genres=tuple(raw_snapshot["genres"]),
+        tags=tuple(tag_specs),
+    )
+
+    try:
+        canonical_mapping = canonical_taxonomy_to_mapping(candidate_snapshot)
+    except ValueError as exc:
+        raise ValueError("canonical taxonomy content is invalid") from exc
+
+    if raw_snapshot != canonical_mapping:
+        raise ValueError("canonical taxonomy file does not match the canonical mapping")
+
+    return candidate_snapshot
 
 
 def taxonomy_snapshot_sha256(snapshot: CanonicalTaxonomySnapshot) -> str:
     """Hash canonical UTF-8 JSON, never raw HTTP response bytes."""
-    # TODO-28d: 对 dumps_canonical_taxonomy(snapshot).encode("utf-8") 计算 SHA-256 hex。
-    raise NotImplementedError("TODO-28d: hash canonical taxonomy")
+    # 对 dumps_canonical_taxonomy(snapshot).encode("utf-8") 计算 SHA-256 hex。
+    canonical_json = dumps_canonical_taxonomy(snapshot)
+    canonical_bytes = canonical_json.encode("utf-8")
+
+    return hashlib.sha256(canonical_bytes).hexdigest()
 
 
 def build_taxonomy_snapshot_manifest(
@@ -211,11 +370,64 @@ def build_taxonomy_snapshot_manifest(
     resource: tuple[str, ...] = ANILIST_RESOURCES,
 ) -> TaxonomySnapshotManifest:
     """Build manifest metadata that is excluded from the content hash."""
-    # TODO-29:
     # - 验证 source/resource/fetched_at_utc；时间必须是带 Z 的 UTC ISO-8601 字符串；
     # - counts 从 snapshot 计算，hash 调 taxonomy_snapshot_sha256；
     # - snapshot_schema_version 从 snapshot 读取；不得由调用方覆盖 counts/hash/version。
-    raise NotImplementedError("TODO-29: build taxonomy snapshot manifest")
+    if not isinstance(source, str) or not source or source != source.strip():
+        raise ValueError(
+            "source must be a non-empty string without "
+            "leading or trailing whitespace"
+        )
+
+    if not isinstance(resource, tuple) or not resource:
+        raise ValueError("resource must be a non-empty tuple")
+
+    seen_resources: set[str] = set()
+
+    for index, resource_name in enumerate(resource):
+        if (
+            not isinstance(resource_name, str)
+            or not resource_name
+            or resource_name != resource_name.strip()
+        ):
+            raise ValueError(
+                f"resource[{index}] must be a non-empty string "
+                "without leading or trailing whitespace"
+            )
+
+        if resource_name in seen_resources:
+            raise ValueError(f"duplicate resource name: {resource_name!r}")
+
+        seen_resources.add(resource_name)
+    if (
+        not isinstance(fetched_at_utc, str)
+        or not fetched_at_utc
+        or fetched_at_utc != fetched_at_utc.strip()
+        or not fetched_at_utc.endswith("Z")
+        or "T" not in fetched_at_utc
+    ):
+        raise ValueError(
+            "fetched_at_utc must be a UTC ISO-8601 string " "ending in 'Z'"
+        )
+
+    try:
+        datetime.fromisoformat(fetched_at_utc[:-1] + "+00:00")
+    except ValueError as exc:
+        raise ValueError(
+            "fetched_at_utc must be a valid UTC ISO-8601 timestamp"
+        ) from exc
+
+    canonical_hash = taxonomy_snapshot_sha256(snapshot)
+
+    return TaxonomySnapshotManifest(
+        source=source,
+        resource=resource,
+        fetched_at_utc=fetched_at_utc,
+        genre_count=len(snapshot.genres),
+        tag_count=len(snapshot.tags),
+        canonical_sha256=canonical_hash,
+        snapshot_schema_version=snapshot.snapshot_schema_version,
+    )
 
 
 def write_taxonomy_snapshot_bundle(
@@ -225,10 +437,93 @@ def write_taxonomy_snapshot_bundle(
     fetched_at_utc: str,
 ) -> TaxonomySnapshotManifest:
     """Write source.json, canonical.json, and manifest.json without overwriting."""
-    # TODO-30:
     # - 构造 canonical snapshot 与 manifest 后再开始写文件；
     # - 创建 output_dir，但三个目标中任一已存在都先抛 FileExistsError；
     # - source.json 保留输入 payload；canonical.json 使用 canonical serializer；
     # - manifest.json 使用固定字段顺序、UTF-8 和末尾换行；
     # - 返回 manifest。不要把 fetched_at 写入 canonical content/hash。
-    raise NotImplementedError("TODO-30: persist taxonomy snapshot bundle")
+    if not isinstance(output_dir, Path):
+        raise ValueError("output_dir must be a pathlib.Path")
+
+    snapshot = build_canonical_taxonomy_snapshot(source_payload)
+
+    manifest = build_taxonomy_snapshot_manifest(
+        snapshot,
+        fetched_at_utc=fetched_at_utc,
+    )
+
+    try:
+        source_json = (
+            json.dumps(
+                dict(source_payload),
+                ensure_ascii=False,
+                indent=2,
+                allow_nan=False,
+            )
+            + "\n"
+        )
+    except (TypeError, ValueError) as exc:
+        raise ValueError(
+            "source_payload cannot be serialized as standard JSON"
+        ) from exc
+
+    canonical_json = dumps_canonical_taxonomy(snapshot)
+
+    manifest_mapping = {
+        "source": manifest.source,
+        "resource": list(manifest.resource),
+        "fetched_at_utc": manifest.fetched_at_utc,
+        "genre_count": manifest.genre_count,
+        "tag_count": manifest.tag_count,
+        "canonical_sha256": manifest.canonical_sha256,
+        "snapshot_schema_version": manifest.snapshot_schema_version,
+    }
+
+    manifest_json = (
+        json.dumps(
+            manifest_mapping,
+            ensure_ascii=False,
+            indent=2,
+            allow_nan=False,
+        )
+        + "\n"
+    )
+
+    source_path = output_dir / "source.json"
+    canonical_path = output_dir / "canonical.json"
+    manifest_path = output_dir / "manifest.json"
+
+    target_paths = (
+        source_path,
+        canonical_path,
+        manifest_path,
+    )
+
+    existing_paths = [path for path in target_paths if path.exists()]
+
+    if existing_paths:
+        formatted_paths = ", ".join(str(path) for path in existing_paths)
+        raise FileExistsError(
+            "taxonomy snapshot bundle target already exists: " f"{formatted_paths}"
+        )
+
+    output_dir.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    files_to_write = (
+        (source_path, source_json),
+        (canonical_path, canonical_json),
+        (manifest_path, manifest_json),
+    )
+
+    for path, content in files_to_write:
+        with path.open(
+            mode="x",
+            encoding="utf-8",
+            newline="\n",
+        ) as file:
+            file.write(content)
+
+    return manifest
