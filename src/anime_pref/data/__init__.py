@@ -1,1 +1,1 @@
-"""data package: learning scaffold."""
+"""Collection, validation, canonicalization, and dataset-record utilities."""

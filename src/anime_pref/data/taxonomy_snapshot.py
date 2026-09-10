@@ -1,6 +1,6 @@
 """Canonicalize, hash, and persist AniList taxonomy snapshots."""
 
-# 调用会抛 NotImplementedError，不能把已定义的接口视为已完成的采集/审核能力。
+# 本模块实现 canonical snapshot、稳定哈希、严格读取和不可覆盖的 bundle 写入。
 import hashlib
 from collections.abc import Mapping
 from datetime import datetime

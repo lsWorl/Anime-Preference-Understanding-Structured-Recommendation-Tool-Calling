@@ -1,6 +1,7 @@
 """Fetch the AniList global genre and media-tag taxonomy."""
 
-# 本模块只获取并验证 source response；排序、字段裁剪和持久化由后续模块负责。
+# 本模块只获取并验证 source response；排序、字段裁剪和持久化由
+# taxonomy_snapshot 模块负责。保留完整响应可避免 canonical 规则丢失来源证据。
 
 from typing import Any
 import json

@@ -1,4 +1,4 @@
-"""Executable TODO contract for domain validation and DatasetRecord Builder v0.1."""
+"""Regression tests for domain validation and DatasetRecord Builder v0.1."""
 
 import copy
 from pathlib import Path

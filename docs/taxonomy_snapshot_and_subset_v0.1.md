@@ -1,6 +1,8 @@
 # Full AniList Taxonomy Snapshot + Reviewed Executable Tag Subset
 
-> 状态核对（2026-09-09）：当前业务函数仍为 NotImplementedError 骨架；两个 CLI 仅 parse_args 已实现。测试有1项查询常量检查通过、6项待实现测试跳过。以下数据流和函数职责描述目标契约，不能据此判断真实采集或审核已完成。
+> 状态核对（2026-09-10）：snapshot、audit、subset、hash、bundle 写入与两个 CLI
+> 均已实现。12 项 taxonomy 单元测试全部通过；测试使用 mock 和合成数据，本次核验未执行
+> 真实网络采集，也不代表正式人工审核已经完成。
 
 本工作块只建立外部 taxonomy 的可追溯快照，以及经过人工审核后允许进入 Gold Query 的 tag 子集。它不生成 SemanticSpec、自然语言样本或数据集划分。
 
@@ -43,17 +45,36 @@ AniList GraphQL response
 
 这些版本不能互相替代。`fetched_at_utc` 属于 manifest，不进入 taxonomy content hash。因此相同 canonical 内容在不同时间抓取时 hash 相同；任何纳入 contract 的字段变化都会改变 hash。
 
-## TODO 实现顺序
+## 已实现接口
 
-1. `TODO-26`：获取并保留完整 GraphQL source response，然后启用 `TODO-40a` 测试。
-2. `TODO-27`：严格构造 canonical snapshot。先只完成这一项并运行测试；此时 hash 测试仍保持 skip。
-3. `TODO-28a`～`TODO-28d`：canonical mapping、serialization、loader 与 SHA-256，然后启用 `TODO-40b`。
-4. `TODO-29`～`TODO-30`：snapshot manifest 与不可覆盖写入，然后启用 `TODO-40c`。
-5. 完成一次真实小规模 taxonomy fetch，再从 canonical snapshot 创建真实 audit 文件。不要复制 example 文件中的占位 ID/hash。
-6. `TODO-31`～`TODO-32`：audit loader 与 snapshot identity validation，然后启用 `TODO-40d`。
-7. `TODO-33`～`TODO-35`：approved subset、canonical serialization/hash 与 manifest，然后启用 `TODO-40e`。
-8. `TODO-36`：要求 subset tag names 与 `DomainRules.tags` 相等，并要求所有 tag group targets 存在，然后启用 `TODO-40f`。HAREM 通过配置内容验证，不写名称特例。
-9. `TODO-37`～`TODO-39`：两个 bundle 写入和两个 CLI 的连接代码。
+| 阶段 | 接口 | 行为摘要 |
+|---|---|---|
+| 获取 | `fetch_anilist_taxonomy` | POST GraphQL，校验 HTTP/JSON/errors/resource，返回完整 decoded response |
+| 规范化 | `build_canonical_taxonomy_snapshot` | 严格筛选字段，拒绝重复身份，genres 与 tags 稳定排序 |
+| 序列化 | `canonical_taxonomy_to_mapping` / `dumps_canonical_taxonomy` | 固定形状、Unicode compact JSON |
+| 身份 | `taxonomy_snapshot_sha256` | 对 canonical UTF-8 JSON 计算 SHA-256 |
+| 读取 | `load_canonical_taxonomy_snapshot` | 拒绝重复 JSON key、错误键序和非 canonical 内容 |
+| 快照落盘 | `write_taxonomy_snapshot_bundle` | 预检冲突后写 `source.json`、`canonical.json`、`manifest.json` |
+| 审核读取 | `load_tag_audit` | 严格读取显式审核记录，不为缺失项补默认批准 |
+| 审核校验 | `validate_tag_audit` | 核对 snapshot hash、tag 身份、flags 和 alias 冲突 |
+| 子集构建 | `build_executable_tag_subset` | 只提取 `approved is True` 的记录并 canonical sort |
+| 子集读写 | `load_executable_tag_subset` / `write_executable_subset_bundle` | 严格读取；写 subset 与 manifest，禁止覆盖 |
+| 规则联动 | `validate_domain_rule_tag_targets` | subset tags 与 DomainRules tags 必须相等，组目标必须存在 |
+
+两个脚本已经连接这些接口：
+
+```bash
+python -B scripts/fetch_anilist_taxonomy.py --output data/raw/taxonomy-run-001
+
+python -B scripts/build_executable_tag_subset.py \
+  --canonical-snapshot data/raw/taxonomy-run-001/canonical.json \
+  --audit configs/tag_audit.reviewed.v0.1.json \
+  --subset-version reviewed-tags-v0.1 \
+  --domain-rules configs/domain_rules.v0.1.1.json \
+  --output data/processed/executable-tags-v0.1
+```
+
+完整操作步骤见 [快速开始](quickstart.md)。
 
 ## 人工审核规则
 
@@ -63,9 +84,16 @@ AniList GraphQL response
 
 当前已冻结的 HAREM group 要求 `Female Harem`、`Male Harem`、`Mixed Gender Harem` 三个真实 snapshot 条目全部进入 approved subset。其他 tags 是否批准仍需人工与理论侧共同审核。
 
-## 当前测试策略
+## 测试与运行边界
 
-测试文件先保留 skip 标记，使未实现 TODO 的骨架不会伪装成已完成。完成一组 TODO 后，删除对应测试的 `@unittest.skip` 并运行完整测试。真实网络调用不放入单元测试；fetch 测试通过 mock 固定 GraphQL 成功与错误响应。
+`tests/test_taxonomy_snapshot.py` 的12项测试均已启用，覆盖查询字段、fetch 成功与 GraphQL
+错误、输入顺序无关的 canonical/subset hash、canonical 字段边界、manifest/bundle、严格
+audit loader、duplicate identity、approved subset、禁止覆盖以及 DomainRules 联动。真实网络
+调用不进入单元测试；fetch 测试通过 mock 提供固定响应。
 
-完成全部 TODO 后再生成 `REVIEW.md`。Review bundle 应包含实际 snapshot manifest、canonical taxonomy 节选、真实 audit 节选、subset manifest/hash、核心源码、完整测试输出，以及仍需理论侧确认的 tag selection 边界。
+所有 bundle writer 都会先检查目标文件是否存在，并用独占创建模式防止覆盖。不过多文件
+写入不是事务：若写入中途发生磁盘错误，已创建的文件不会自动回滚。两个 taxonomy CLI
+目前让异常直接传播并以非零状态退出，不提供重试、断点续传或自动清理。
 
+正式 review bundle 仍应包含实际 snapshot manifest、canonical taxonomy 节选、真实 audit
+节选、subset manifest/hash、完整测试输出，以及尚待领域确认的 tag selection 边界。

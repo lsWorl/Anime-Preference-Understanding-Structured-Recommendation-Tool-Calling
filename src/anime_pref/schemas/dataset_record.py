@@ -14,6 +14,13 @@ from anime_pref.schemas.preference_query import SemanticSpec
 # frozen 只禁止字段重新赋值，gold_query 的嵌套 dict/list 仍需一致性校验保护。
 @dataclass(frozen=True)
 class DatasetRecordSpec:
+    """One training-data record containing source semantics and derived fields.
+
+    Callers should construct and check records through ``build_dataset_record``
+    and ``validate_dataset_record`` because this dataclass cannot enforce
+    relationships between Gold, signatures, counts, rule IDs, and sample ID.
+    """
+
     sample_id: str
     schema_version: str
     dataset_version: str
@@ -33,4 +40,3 @@ class DatasetRecordSpec:
     # This dataclass only stores the frozen outer shape. Construction and
     # cross-field consistency checks belong to data/dataset_record_builder.py.
     # split remains a later dataset-partition field and is intentionally absent.
-

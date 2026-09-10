@@ -1,4 +1,4 @@
-"""Dataset semantic specification and AnimePreferenceQuery v0.1 shapes.
+"""Dataset semantic specification and AnimePreferenceQuery v0.1.1 shapes.
 
 These dataclasses describe sampled canonical semantics, not raw user text.
 They are not the final Gold JSON and deliberately perform no implicit cleanup
@@ -51,4 +51,3 @@ class SemanticSpec:
     reference_titles: tuple[str, ...] = field(default_factory=tuple)
     soft_preferences: tuple[str, ...] = field(default_factory=tuple)
     unresolved_preferences: tuple[str, ...] = field(default_factory=tuple)
-

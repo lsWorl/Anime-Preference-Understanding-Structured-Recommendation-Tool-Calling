@@ -1,4 +1,4 @@
-"""AniList 单页获取；暂不加入重试、并发、训练等额外复杂度。"""
+"""Fetch and validate one AniList anime page without persistence or retries."""
 from typing import Any
 import json
 from urllib import request,error
@@ -35,7 +35,7 @@ query($page: Int, $perPage: Int) {
 # 职责边界：此层负责请求协议和分页容器；每条 Media 的字段交给 AnimeMetadata.from_api。
 # 返回的是 data.Page，因此脚本可以直接读取 media 与 pageInfo。
 # HTTP 200 仍可能携带 GraphQL errors，必须先排除查询失败再接收数据。
-# timeout 的完整有限数检查在 CLI；直接调用本函数时目前仅检查是否大于零。
+# timeout 的完整有限数检查在作品采集 CLI；直接调用本函数时仅检查是否大于零。
 def fetch_anime_page(
     page: int,
     per_page: int,
@@ -54,8 +54,9 @@ def fetch_anime_page(
         raise ValueError("per_page must be an integer between 1 and 50")
     if timeout_seconds <= 0:
         raise ValueError("timeout_seconds must be positive")
+    # 防御常量被测试或嵌入方意外替换为空；正常发布版本不会触发此分支。
     if not ANIME_PAGE_QUERY.strip():
-        raise NotImplementedError("TODO-01: add the GraphQL query")
+        raise NotImplementedError("ANIME_PAGE_QUERY must not be empty")
     payload = {
         "query":ANIME_PAGE_QUERY,
         "variables":{
@@ -76,7 +77,7 @@ def fetch_anime_page(
     )
     try:
         with request.urlopen(req,timeout=timeout_seconds) as respponse:
-            # 检查 HTTP 状态
+            # 某些测试响应或替代 transport 会直接暴露 status 属性。
             if respponse.status != 200:
                 raise RuntimeError(f"HTTP status {respponse.status}")
             try:
@@ -87,7 +88,7 @@ def fetch_anime_page(
             if "errors" in response_data and response_data["errors"]:
                 error_msg = response_data["errors"]
                 raise RuntimeError(f"GraphQL errors: {error_msg}")
-            # 检查 data 和 Page 字段
+            # 这里只校验分页容器；单条 media 的字段由 AnimeMetadata 负责。
             if "data" not in response_data or not isinstance(response_data["data"], dict):
                 raise RuntimeError("Missing or invalid 'data' field in response")
             if "Page" not in response_data["data"] or not isinstance(response_data["data"]["Page"], dict):
@@ -95,11 +96,11 @@ def fetch_anime_page(
 
             page_data = response_data['data']['Page']
 
-            # 验证 media 是列表
+            # media 可以是空列表，但容器本身必须存在且类型正确。
             if "media" not in page_data or not isinstance(page_data["media"], list):
                 raise RuntimeError("Missing or invalid 'media' field in Page")
 
-            # 验证 pageInfo 存在且 hasNextPage 是 bool
+            # hasNextPage 驱动上层分页循环，因此拒绝 truthy 字符串或数字。
             if "pageInfo" not in page_data or not isinstance(page_data["pageInfo"], dict):
                 raise RuntimeError("Missing or invalid 'pageInfo' field in Page")
             if "hasNextPage" not in page_data["pageInfo"]:
@@ -109,15 +110,14 @@ def fetch_anime_page(
 
             return page_data
             
-    #若异常则抛出异常
+    # 保留原始异常作为 __cause__，同时向 CLI 提供统一的 RuntimeError 边界。
     except error.HTTPError as e:
         raise RuntimeError(f"HTTP error {e.code}: {e.reason}") from e
     except error.URLError as e:
         raise RuntimeError(f"Network error: {e.reason}") from e
     except RuntimeError:
-        # 直接向上传递已处理的 RuntimeError
+        # 已规范化的协议错误不再包一层，避免丢失具体错误消息。
         raise
     except Exception as e:
-        # 捕获其他未预期的异常
+        # 兜底覆盖解码之外的响应对象/transport 异常。
         raise RuntimeError(f"Unexpected error: {e}") from e
-

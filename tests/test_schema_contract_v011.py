@@ -1,7 +1,4 @@
-"""Executable contract skeleton for Schema Contract v0.1.1.
-
-Remove one skip only after completing the TODO named in its message.
-"""
+"""Regression tests for the implemented Schema Contract v0.1.1 behavior."""
 
 import copy
 import json

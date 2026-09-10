@@ -1,6 +1,6 @@
 """Validate human tag audits and derive the executable tag subset."""
 
-# 调用会抛 NotImplementedError，不能把已定义的接口视为已完成的采集/审核能力。
+# 本模块实现严格 audit 校验、批准子集构建、稳定哈希以及不可覆盖的 bundle 写入。
 import hashlib
 import json
 from pathlib import Path
@@ -182,7 +182,7 @@ def validate_tag_audit(
         if not isinstance(record, TagAuditRecordSpec):
             raise ValueError(f"records[{index}] must be a TagAuditRecordSpec")
 
-    # 获取audit record 必须绑定的真实 provenance hash
+    # 每条 audit record 必须绑定由 canonical 内容计算出的同一个 provenance hash。
     snapshot_hash = taxonomy_snapshot_sha256(snapshot)
 
     snapshot_tags_by_id = {tag.id: tag for tag in snapshot.tags}
@@ -328,7 +328,7 @@ def validate_tag_audit(
             for alias in record.aliases:
                 approved_alias_owners[alias] = record.tag_name
 
-        # 校验通过后添加到数组
+        # 仅在整条记录通过身份与 alias 检查后登记，避免部分状态污染后续检查。
         seen_audit_ids.add(record.tag_id)
         seen_audit_names.add(record.tag_name)
 
@@ -791,7 +791,7 @@ def write_executable_subset_bundle(
     output_dir: Path,
 ) -> ExecutableTagSubsetManifest:
     """Write canonical subset and manifest without overwriting files."""
-    #写 executable_tags.json 与 manifest.json；预检冲突；UTF-8；返回 manifest。
+    # 写 executable_tags.json 与 manifest.json；预检冲突、使用 UTF-8，并返回 manifest。
     if not isinstance(output_dir, Path):
         raise ValueError("output_dir must be a pathlib.Path")
 

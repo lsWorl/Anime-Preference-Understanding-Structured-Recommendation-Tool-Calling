@@ -1,6 +1,6 @@
 # DatasetRecord Builder v0.1 实现说明
 
-> 2026-09-09 更新：TODO-19–24 对应功能已实现，下面的编号保留为学习路径。本文“按顺序实现/移除 skip”描述历史练习流程，不表示这些函数仍为空。当前该模块6项测试均已启用；taxonomy 的6项 skip 属于另一个工作块。
+> 2026-09-10 更新：TODO-19–24 对应功能已实现，下面的编号保留为学习路径。本文“按顺序实现/移除 skip”描述历史练习流程，不表示这些函数仍为空。当前该模块6项测试与 taxonomy 模块12项测试均已启用。
 
 ## 本工作块边界
 
@@ -151,13 +151,15 @@ python -B -m unittest tests.test_dataset_record_builder -v
 python -B -m unittest discover -s tests -v
 ```
 
-跳过的测试表示对应 TODO 尚未实现，不能当作通过。
+截至 2026-09-10，完整测试集42项全部通过且无跳过。后续若新增 skip，仍应把它视为
+未执行的契约，而不是通过。
 
-## Taxonomy 后续边界
+## Taxonomy 边界
 
-当前已另建 taxonomy 模块骨架，但业务函数仍未实现。进入 sampler 前还需要完成完整 GenreCollection/MediaTagCollection snapshot 和 reviewed
-executable tag subset。snapshot hash 针对筛选字段、canonical sort 后的 canonical JSON，不能
-直接 hash HTTP response bytes。该模块不在本工作块实现。
+taxonomy snapshot 与 reviewed executable tag subset 代码现已实现，但它们仍是与
+DatasetRecord Builder 分离的治理流程。snapshot hash 针对筛选字段、canonical sort 后的
+canonical JSON，不能直接 hash HTTP response bytes。正式进入 sampler 前仍需完成真实采集、
+人工审核，并记录使用的 snapshot/subset 版本关系。
 
 
 ## 当前实现中的阅读重点
@@ -169,4 +171,3 @@ executable tag subset。snapshot hash 针对筛选字段、canonical sort 后的
 - 记录一致性不等于自然语言与 Gold 对齐验证，当前没有语义解析器。
 
 完整函数拆解与可运行例子见 [项目实现学习手册](项目实现学习手册.md) 第13–17章。
-

@@ -1,4 +1,4 @@
-"""Build deterministic AnimePreferenceQuery v0.1 Gold JSON.
+"""Build deterministic AnimePreferenceQuery v0.1.1 Gold JSON.
 
 This module must only validate, expand approved rules, and serialize semantics.
 It must never infer a preference or silently repair an invalid specification.
@@ -32,6 +32,12 @@ class NumericRule:
 
 @dataclass(frozen=True)
 class DomainRules:
+    """Validated executable vocabulary and numeric guards for one schema version.
+
+    Use :func:`load_domain_rules` for construction so nested collections are
+    normalized and exposed as immutable tuples, frozensets, and a read-only map.
+    """
+
     # 模型目标的契约版本；与原始作品 manifest 的 schema_version 分别维护。
     schema_version: str
     genres: frozenset[str]
@@ -98,7 +104,7 @@ def load_domain_rules(path: Path) -> DomainRules:
             raise ValueError(f"Unknown taxonomy keys: {extra}")
         raise ValueError(f"Missing taxonomy keys: {missing}")
 
-    # 如果 soft_preferences 在 taxonomy 内部，在此提取
+    # soft preferences 与其他可执行词表一起位于 taxonomy 节点；允许为空。
     if raw_soft_preferences is None:
         raw_soft_preferences = taxonomy["soft_preferences"]
 
@@ -129,7 +135,7 @@ def load_domain_rules(path: Path) -> DomainRules:
         soft_pref_source_name, raw_soft_preferences, allow_empty=True
     )
 
-    # 1. 校验 tag_groups 与 TagGroupRule
+    # 标签组是输入语义到实际 tag 的显式归一化规则，而不是 taxonomy 的别名猜测。
     raw_groups = data["tag_groups"]
     if not isinstance(raw_groups, dict):
         raise ValueError("tag_groups must be a dict")
@@ -222,7 +228,7 @@ def load_domain_rules(path: Path) -> DomainRules:
             normalization_rule_id=rule_id,
         )
 
-    # 2. 校验 numeric_rules (null 表示尚未冻结详细 bound)
+    # null 表示该方向不设领域有效性边界，而不是把 null 填进用户偏好。
     raw_numeric = data["numeric_rules"]
     if not isinstance(raw_numeric, dict):
         raise ValueError("numeric_rules must be a dict")
@@ -287,7 +293,7 @@ def load_domain_rules(path: Path) -> DomainRules:
 # 先验证输入 tuple，再按 group.allowed_operators 展开标签，最后执行结构与领域校验。
 # HAREM 的 operator 限制来自配置；没有按名称特判。空数组与 None 边界始终保留。
 def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
-    """Validate a semantic spec and deterministically build Gold JSON v0.1."""
+    """Validate a semantic spec and deterministically build Gold JSON v0.1.1."""
     if not isinstance(spec, SemanticSpec):
         raise ValueError("spec must be a SemanticSpec instance")
     if not isinstance(rules, DomainRules):
@@ -303,8 +309,8 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         allowlist: frozenset[str] | set[str] | None = None,
         sort_output: bool,
     ) -> list[str]:
-        # value必须是tuple，每项必须是str 不允许有空字符串 不允许首尾 whitespace 不允许重复
-        # 有 allowlist 时必须全部命中 set-like 字段按需排序
+        # SemanticSpec 使用 tuple；元素必须是唯一、非空且没有首尾空白的字符串。
+        # 有 allowlist 时要求精确命中；集合语义字段按需排序，文本字段保留顺序。
         if not isinstance(value, tuple):
             raise ValueError(f"{name} must be a tuple")
         for item in value:
@@ -464,7 +470,7 @@ def dumps_query(query: Mapping[str, Any]) -> str:
     canonical_query = canonicalize_query(query)
 
     try:
-        # 序列化 canonical_query
+        # 这里不使用 sort_keys：键序由 canonicalize_query 的 schema 常量明确控制。
         return json.dumps(
             canonical_query,
             ensure_ascii=False,

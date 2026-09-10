@@ -1,3 +1,4 @@
+"""Fetch validated AniList media pages into an append-only raw-data bundle."""
 
 import argparse
 import json
@@ -24,7 +25,7 @@ def positive_int(value: str) -> int:
 
 # 编排顺序：读取配置 → CLI 覆盖 → 参数校验 → 分页请求 → 逐条验证 → raw 写盘 → 摘要。
 # dry-run 在任何网络/缓存操作之前返回；输出相对路径基于 PROJECT_ROOT。
-# 成功返回 0，已捕获运行错误返回 1，学习骨架错误返回 2；argparse 自行处理解析退出。
+# 成功返回 0，已捕获运行错误返回 1，查询常量缺失返回 2；argparse 自行处理解析退出。
 # 校验视图不替代原始 Media；若后续页面失败，已成功写入的页面不会被撤销。
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -57,7 +58,7 @@ def main() -> int:
             print(json.dumps(config, ensure_ascii=False, indent=2))
             print("Configuration OK. No network requests or files written.")
             return 0
-        # 已完成的分页编排（原 TODO-05），以下列出实际数据流。
+        # 分页数据流：
         # 1. 从 page=1 开始，最多抓取 config['pages'] 页。
         # 2. 调用 fetch_anime_page；逐条用 AnimeMetadata.from_api 校验。
         # 3. 将原始 media 字典写入 page_0001.jsonl 等文件。
@@ -77,20 +78,20 @@ def main() -> int:
         file_list = []
 
         while True:
-            # 检查是否达到最大页数
+            # 即使 API 仍有下一页，也以调用方配置的最大页数为硬停止条件。
             if max_pages is not None and page > max_pages:
                 break
 
-            #获取一页数据
+            # 先完成整页获取与字段校验，再创建该页文件，避免保存已知无效页面。
             page_data = fetch_anime_page(page,per_page,endpoint=endpoint,timeout_seconds=timeout)
             media_list = page_data.get('media',[])
             page_info = page_data.get('pageInfo', {})
             has_next = page_info.get('hasNextPage', False)
-            # 逐条验证每条记录，若失败则抛出 ValueError
+            # 校验对象不替换 media_list；raw 缓存继续保存 API 原始字段。
             for media in media_list:
                 AnimeMetadata.from_api(media=media)
 
-            # 写入该页原始数据到 JSONL 文件
+            # 文件使用独占创建；重复运行必须选择新目录，不能覆盖来源证据。
             filename = f"page_{page:04d}.jsonl"
             file_path = output_dir / filename
             count = write_jsonl(media_list,file_path)
@@ -98,14 +99,14 @@ def main() -> int:
             total_pages_fetched += 1
             file_list.append(str(file_path))
 
-            # 没有下一页则停止
+            # API 明确到达末页时，无需把 configured pages 全部请求完。
             if not has_next:
                 break
 
-            # 请求间隔（避免触发 API 限流）
+            # 串行请求间留出固定间隔；当前没有指数退避或断点续传。
             time.sleep(1)
             page += 1
-        # 全部成功后写入 manifest.json
+        # 只有整个循环成功后才写 manifest；已写页面在后续失败时不会自动回滚。
         manifest = {
             "fetch_time": datetime.now(timezone.utc).isoformat(),
             "endpoint": endpoint,
@@ -125,7 +126,7 @@ def main() -> int:
 
             
     except NotImplementedError as exc:
-        print(f"Learning scaffold: {exc}. Try --dry-run first.", file=sys.stderr)
+        print(f"Configuration invariant failed: {exc}.", file=sys.stderr)
         return 2
     except (OSError, ValueError, KeyError, TypeError, RuntimeError) as exc:
         print(f"Error: {exc}", file=sys.stderr)
@@ -134,4 +135,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

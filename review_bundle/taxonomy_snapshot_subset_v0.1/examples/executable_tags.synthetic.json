@@ -1,0 +1,30 @@
+{
+  "subset_version": "synthetic-reviewed-tags-v0.1",
+  "derived_from_snapshot_hash": "558bba0d4a79f87203b814a711b138151eefecf569582449f59d92628e290a0d",
+  "tags": [
+    {
+      "tag_id": 202,
+      "tag_name": "Female Harem",
+      "category": "Theme-Romance",
+      "aliases": [],
+      "is_general_spoiler": false,
+      "is_adult": false
+    },
+    {
+      "tag_id": 203,
+      "tag_name": "Male Harem",
+      "category": "Theme-Romance",
+      "aliases": [],
+      "is_general_spoiler": false,
+      "is_adult": false
+    },
+    {
+      "tag_id": 204,
+      "tag_name": "Mixed Gender Harem",
+      "category": "Theme-Romance",
+      "aliases": [],
+      "is_general_spoiler": false,
+      "is_adult": false
+    }
+  ]
+}

@@ -1,61 +1,81 @@
 # Anime Preference Understanding & Structured Recommendation Tool Calling
 
-当前工程实现：作品元数据采集、Schema Contract v0.1.1、确定性 Gold Query 构建、
-结构/领域校验分层，以及 DatasetRecord 构建与来源一致性验证。
+一个面向动漫偏好理解数据集的 Python 工程：从 AniList 获取作品与 taxonomy，
+将人工明确的偏好语义构造成可复现的结构化 Gold Query，并保存完整的数据来源信息。
 
-全量 taxonomy 快照与审核子集目前已添加数据模型、接口和测试骨架，业务函数仍待实现。
-尚未实现语义采样、语言生成、数据集切分、训练或推荐执行。
+## 当前能力
 
-## 阅读入口
+已实现：
 
-从 [项目实现学习手册](docs/项目实现学习手册.md) 开始，按数据流逐个阅读源码。
-手册包含函数参数与返回值、内部校验、异常、调用关系、离线示例和测试说明。
+- 分页采集 AniList 动画元数据，并保存 JSONL 与采集 manifest；
+- 获取 AniList 全局 genre/tag taxonomy，生成 canonical 快照、SHA-256 和 manifest；
+- 校验人工 tag audit，生成只包含明确批准项的 executable tag subset；
+- 加载版本化 DomainRules，将 `SemanticSpec` 确定性构造成 Gold Query；
+- 分离结构校验与领域校验，提供 canonical JSON 和约束结构签名；
+- 构建、验证带完整 provenance 的 `DatasetRecordSpec`。
 
-- [Schema Contract v0.1.1](docs/schema_contract_v0.1.1.md)：Gold 契约与 canonicalization。
-- [DatasetRecord Builder](docs/dataset_record_builder_v0.1.md)：来源、子句计数和确定性身份。
-- [Taxonomy snapshot 与 reviewed subset](docs/taxonomy_snapshot_and_subset_v0.1.md)：待实现契约。
-- [历史 review bundle](docs/schema_contract_v0.1.1_review_bundle.md)：保留当时审查内容，不代表最新状态。
+尚未实现：自然语言到 `SemanticSpec` 的自动解析、语义采样、文本生成或改写、
+数据集切分、模型训练、推理服务和实际推荐执行器。当前项目是数据与契约层，
+不是可直接对话推荐动漫的成品应用。
 
-## 环境与运行
+## 快速开始
 
-Python >= 3.10，业务代码仅使用标准库；运行配置为 JSON，无需 YAML/Pydantic。
-从项目根目录执行：
+要求 Python 3.10 或更高版本，业务代码仅依赖标准库。
 
-```powershell
-python -B scripts/fetch_anilist.py --dry-run
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
 python -B -m unittest discover -s tests -v
+python -B scripts/fetch_anilist.py --dry-run
 ```
 
-可选创建虚拟环境，之后把 python 换成 .\.venv\Scripts\python.exe。
-脚本已设置 src 路径；其他程序导入可选择 pip install -e . 或显式设置 src 路径。
+Windows PowerShell 激活环境时使用 `.\.venv\Scripts\Activate.ps1`。未安装 editable
+包也可以直接运行 `scripts/` 下的脚本；脚本会自行加入 `src` 路径。
 
-截至 2026-09-09：37 项测试，31 项通过，6 项 taxonomy 测试仍跳过。
-跳过不表示实现完成；源码中的 NotImplementedError 和 skip 才能判断剩余工作，
-历史 TODO 编号本身可能留作学习记录。
+更完整的命令、输出文件和人工审核步骤见 [快速开始](docs/quickstart.md)。
 
-## 作品采集
+## 三条主要数据流
 
-真实采集会联网并创建文件，使用尚未存在的输出文件路径：
+```text
+作品采集：AniList Media -> 字段校验 -> page_*.jsonl + manifest.json
 
-```powershell
-python -B scripts/fetch_anilist.py --pages 1 --per-page 10 --output data/raw/anilist-new-run
+词表治理：AniList taxonomy -> source/canonical/manifest
+                               -> 人工 audit -> executable subset/manifest
+
+样本构建：SemanticSpec + DomainRules -> Gold Query
+                                     -> signature/count/sample_id
+                                     -> DatasetRecordSpec
 ```
 
-默认 configs/data.json，CLI 覆盖同名配置。输出相对路径基于项目根目录，
-自定义 --config 相对路径基于工作目录。data.yaml 不被读取。
-成功返回 0；已捕获运行错误返回 1；学习骨架异常返回 2；argparse 独立处理参数错误。
-dry-run 不联网、不写缓存。独占创建禁止覆盖，失败不自动回滚已写页面。
+三条流程目前不会自动串成完整训练流水线。尤其是，作品采集结果不会被
+`build_query()` 自动读取，人工审核也不能由示例 audit 替代。
 
-## 当前数据约定
+## 文档导航
 
-- AnimeMetadata 是校验视图；data/raw 保存 API 原始 Media，一页一个 JSONL。
-- DomainRules 使用 configs/domain_rules.v0.1.1.json；旧 v0.1 文件保留为历史材料。
-- HAREM 允许 any_of/none_of，禁止 all_of；展开为三个实际 tags。
-- year 为 1900–2100 有效性边界，episodes 至少 1；不是采样分布。
-- soft_preferences 批准词表为空；未知表达不能由 builder 自动映射或搬移。
-- DatasetRecord 保存源 spec、Gold 和生成元数据；模型目标仍只是 Gold Query。
-- taxonomy audit 示例包含占位数据，不能作为正式批准记录。
-- data/interim、data/processed、outputs 和 training/evaluation/inference 仍为后续模块预留。
+- [文档索引](docs/README.md)：按读者目标选择入口；
+- [快速开始](docs/quickstart.md)：安装、测试、三个 CLI 工作流与排错；
+- [架构与模块](docs/architecture.md)：边界、数据流、目录和公开函数；
+- [项目实现学习手册](docs/项目实现学习手册.md)：逐函数学习材料；
+- [Schema Contract v0.1.1](docs/schema_contract_v0.1.1.md)：Gold Query 契约；
+- [DatasetRecord Builder v0.1](docs/dataset_record_builder_v0.1.md)：样本身份与来源一致性；
+- [Taxonomy snapshot 与 reviewed subset](docs/taxonomy_snapshot_and_subset_v0.1.md)：词表快照和审核流程。
 
-本分支侧重代码复盘与注释；新增语义政策应先在理论分支确认。
+`docs/schema_contract_v0.1.1_review_bundle.md` 是历史审查记录，不代表当前完整状态。
 
+## 关键约定
+
+- `configs/data.json` 是作品采集的默认运行配置；`data.yaml` 当前不被读取。
+- 当前 Gold schema 为 `0.1.1`，对应 `configs/domain_rules.v0.1.1.json`。
+- HAREM 组允许 `any_of`/`none_of`，禁止 `all_of`，并展开成三个实际 tags。
+- `year` 的 1900–2100、`episodes >= 1` 是有效性边界，不是采样分布。
+- approved soft preference 词表当前为空；未知表达必须明确放入
+  `unresolved_preferences`，builder 不会猜测或迁移。
+- canonical 输出保留 Unicode、固定键顺序，并对集合语义字段排序。
+- 所有 bundle 写入均拒绝覆盖已有目标；多文件写入不是事务，失败时不会自动回滚。
+- `configs/tag_audit.example.v0.1.json` 含占位 ID 与零 hash，只演示格式，不能用于正式构建。
+
+## 验证状态
+
+2026-09-10 使用 Python 3 运行全部 42 项单元测试，全部通过，无跳过。测试使用合成数据
+和网络 mock；此次验证没有发起真实 AniList 请求，也不代表人工 taxonomy 审核已经完成。

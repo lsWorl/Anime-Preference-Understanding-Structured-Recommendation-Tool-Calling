@@ -5,12 +5,20 @@ from typing import Any
 
 @dataclass(frozen=True)
 class AnimeTag:
+    """A media-specific AniList tag and its 0-100 relevance rank."""
+
     name: str
     rank: int
 
 
 @dataclass(frozen=True)
 class AnimeMetadata:
+    """Validated view of the AniList fields retained by the media collector.
+
+    This object is not the raw cache format. The collector validates through
+    this view and persists the original ``Media`` mapping unchanged.
+    """
+
     id: int
     title_romaji: str | None
     title_english: str | None
@@ -21,25 +29,26 @@ class AnimeMetadata:
     season_year: int | None
     genres: list[str]
     tags: list[AnimeTag]
-    """从API的media中提取对应字段"""
+
     @classmethod
     # 把一条原始 Media 校验为 Python 视图；成功返回 cls 实例，字段不合法抛 ValueError。
     # API 的 seasonYear 转为 season_year；缺失/未知的可空字段保留 None，不替换为 0。
     # 这里只检查元数据类型与 rank 范围，不套用用户偏好的年份/集数或 taxonomy 白名单。
     # genres 沿用输入列表；frozen 只保护字段赋值，不递归冻结列表。
     def from_api(cls, media: dict[str, Any]) -> "AnimeMetadata":
+        """Validate one raw AniList ``Media`` mapping and return a typed view."""
         if not isinstance(media, dict):
             raise ValueError(
                 f"'media' must be a dict, got {type(media).__name__}"
             )
-        #提取ID
+        # bool 是 int 的子类，但 API ID 契约不接受 True/False。
         anime_id = media.get('id')
         if anime_id is None:
             raise ValueError("Missing 'id' field")
         if not isinstance(anime_id, int) or isinstance(anime_id, bool):
             raise ValueError(f"'id' must be an integer, got {type(anime_id).__name__}")
 
-        #title存在必须是dict类型，且内部字段可为 None 或 str
+        # title 整体可以缺失；存在时三个已知标题字段只接受 str 或 None。
         title_data = media.get('title')
         if title_data is not None and not isinstance(title_data, dict):
             raise ValueError("'title' must be a dict or None")
@@ -53,7 +62,7 @@ class AnimeMetadata:
                 title_english = title_data.get('english')
                 title_native = title_data.get('native')
 
-        #提取 format, status
+        # AniList enum 在 JSON 中表现为字符串；未知值仍由上游原样保留。
         format_val = media.get('format')
         if format_val is not None and not isinstance(format_val, str):
             raise ValueError(f"'format' must be a string or None, got {type(format_val).__name__}")
@@ -61,19 +70,19 @@ class AnimeMetadata:
         if status_val is not None and not isinstance(status_val, str):
             raise ValueError(f"'status' must be a string or None, got {type(status_val).__name__}")
 
-        #提取 episodes（允许 None，若存在必须为 int，排除 bool）
+        # episodes 允许 None；这里只验类型，不在元数据层套用偏好规则的最小集数。
         episodes_val = media.get('episodes')
         if episodes_val is not None:
             if not isinstance(episodes_val, int) or isinstance(episodes_val, bool):
                 raise ValueError(f"'episodes' must be an integer or None, got {type(episodes_val).__name__}")
 
-        #提取 seasonYear（允许 None，若存在必须为 int，排除 bool）
+        # seasonYear 是 API 字段名，返回对象使用 Python 风格的 season_year。
         season_year_val = media.get('seasonYear')
         if season_year_val is not None:
             if not isinstance(season_year_val, int) or isinstance(season_year_val, bool):
                 raise ValueError(f"'seasonYear' must be an integer or None, got {type(season_year_val).__name__}")
 
-        #提取 genres（必须存在且为字符串列表）
+        # genres/tags 是查询明确请求的容器，因此缺失与 null 都视为响应结构错误。
         genres_val = media.get('genres')
         if genres_val is None:
             raise ValueError("Missing 'genres' field")
@@ -83,7 +92,7 @@ class AnimeMetadata:
             if not isinstance(g, str):
                 raise ValueError(f"Each genre must be a string, got {type(g).__name__}")
 
-        #提取 tags（必须存在且为列表，每个元素为包含 name 和 rank 的字典）
+        # rank 属于具体作品与 tag 的关联；全局 taxonomy 快照不会保存它。
         tags_val = media.get('tags')
         if tags_val is None:
             raise ValueError("Missing 'tags' field")

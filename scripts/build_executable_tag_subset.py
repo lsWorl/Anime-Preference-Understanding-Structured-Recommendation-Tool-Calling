@@ -32,25 +32,27 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def main(argv: list[str] | None = None) -> int:
-    # TODO-39: load the canonical snapshot and audit, build/validate the subset,
-    # verify DomainRules targets, persist subset+manifest, and print identity.
+    # loader 会拒绝非 canonical snapshot 和不完整 audit；构建前不做静默修复。
     args = parse_args(argv)
 
     snapshot = load_canonical_taxonomy_snapshot(args.canonical_snapshot)
     audit_records = load_tag_audit(args.audit)
     domain_rules = load_domain_rules(args.domain_rules)
 
+    # 只有 audit 中显式 approved=True 的记录进入 subset，遗漏项不会默认批准。
     subset = build_executable_tag_subset(
         audit_records,
         snapshot,
         subset_version=args.subset_version,
     )
 
+    # subset tag 集合必须与 DomainRules.tags 相等，且覆盖所有 tag-group 目标。
     validate_domain_rule_tag_targets(
         subset,
         domain_rules,
     )
 
+    # subset hash 表示批准内容；derived hash 则追踪审核所依据的 taxonomy snapshot。
     manifest = write_executable_subset_bundle(
         subset,
         output_dir=args.output,

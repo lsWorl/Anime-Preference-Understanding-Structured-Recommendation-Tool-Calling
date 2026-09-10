@@ -1,1 +1,1 @@
-"""inference package: learning scaffold."""
+"""Reserved package for future inference workflows; no runtime logic yet."""

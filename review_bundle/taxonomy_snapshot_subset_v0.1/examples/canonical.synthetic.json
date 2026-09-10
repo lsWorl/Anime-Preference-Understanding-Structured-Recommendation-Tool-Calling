@@ -1,0 +1,41 @@
+{
+  "snapshot_schema_version": "anilist-taxonomy-snapshot-v0.1",
+  "genres": [
+    "Mystery",
+    "Sci-Fi"
+  ],
+  "tags": [
+    {
+      "id": 101,
+      "name": "Ensemble Cast",
+      "description": "Large main cast.",
+      "category": "Cast-Main Cast",
+      "is_general_spoiler": false,
+      "is_adult": false
+    },
+    {
+      "id": 202,
+      "name": "Female Harem",
+      "description": "Female harem taxonomy description.",
+      "category": "Theme-Romance",
+      "is_general_spoiler": false,
+      "is_adult": false
+    },
+    {
+      "id": 203,
+      "name": "Male Harem",
+      "description": "Male harem taxonomy description.",
+      "category": "Theme-Romance",
+      "is_general_spoiler": false,
+      "is_adult": false
+    },
+    {
+      "id": 204,
+      "name": "Mixed Gender Harem",
+      "description": null,
+      "category": "Theme-Romance",
+      "is_general_spoiler": false,
+      "is_adult": false
+    }
+  ]
+}

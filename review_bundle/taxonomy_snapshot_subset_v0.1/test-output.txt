@@ -1,0 +1,52 @@
+Command:
+python3 -B -m unittest discover -s tests -v
+
+Result observed on 2026-09-10:
+
+test_constraint_count_uses_pre_expansion_semantic_clauses ... ok
+test_normalization_rule_ids_are_pre_expansion_provenance ... ok
+test_record_build_is_deterministic_and_keeps_full_provenance ... ok
+test_record_validation_rejects_inconsistent_derived_fields ... ok
+test_structural_and_domain_validity_are_separate ... ok
+test_tag_any_count_merges_direct_tags_and_tag_groups ... ok
+test_build_query_expands_harem_and_preserves_only_expressed_semantics ... ok
+test_builder_reject_whitespace_and_rejects_redundant_group_expansion ... ok
+test_builder_rejects_unknown_taxonomy_and_conflicting_constraints ... ok
+test_constraint_signature_handles_empty_and_rejects_bad_structure ... ok
+test_constraint_signature_uses_fixed_structural_order ... ok
+test_dumps_query_rejects_invalid_structure_and_bounds ... ok
+test_dumps_query_uses_canonical_unicode_json ... ok
+test_load_domain_rules_rejects_non_object_and_normalized_duplicates ... ok
+test_load_domain_rules_validates_approved_taxonomy ... ok
+test_semantic_spec_defaults_are_explicitly_empty ... ok
+test_fetch_script_end_to_end_without_network ... ok
+test_graphql_errors_with_http_200 ... ok
+test_invalid_page_rejected_before_network ... ok
+test_jsonl_round_trip_and_no_overwrite ... ok
+test_nullable_metadata_and_invalid_tag_rank ... ok
+test_dataset_record_reserves_provenance_without_split ... ok
+test_harem_all_is_rejected_but_any_and_none_are_allowed ... ok
+test_leading_and_trailing_whitespace_refuse ... ok
+test_rules_declare_harem_allowed_operators_and_empty_soft_taxonomy ... ok
+test_semantic_spec_rejects_outer_whitespace_unknown_soft_and_zero_episodes ... ok
+test_serializer_canonicalizes_order_instead_of_rejecting_it ... ok
+test_signature_reuses_validation_but_ignores_non_hard_fields ... ok
+test_validation_ignores_key_and_set_value_order_then_canonicalizes ... ok
+test_year_sanity_bounds_are_versioned_validity_rules ... ok
+test_audit_loader_requires_explicit_approved_field ... ok
+test_audit_must_match_snapshot_and_reject_duplicate_identity ... ok
+test_audit_rejects_duplicate_tag_name_independently ... ok
+test_canonical_snapshot_and_hash_ignore_input_order ... ok
+test_every_domain_rule_tag_target_must_exist_in_subset ... ok
+test_executable_subset_bundle_writes_manifest_and_refuses_overwrite ... ok
+test_snapshot_hash_tracks_contract_fields_but_ignores_extra_fields ... ok
+test_snapshot_manifest_and_bundle_are_consistent ... ok
+test_subset_contains_only_explicitly_approved_tags_and_has_own_hash ... ok
+test_subset_hash_is_independent_of_audit_and_alias_input_order ... ok
+test_taxonomy_fetch_returns_source_response_and_rejects_graphql_errors ... ok
+test_taxonomy_query_uses_global_identity_fields_not_media_rank ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.027s
+
+OK

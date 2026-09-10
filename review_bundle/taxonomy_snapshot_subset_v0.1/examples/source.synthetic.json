@@ -1,0 +1,43 @@
+{
+  "data": {
+    "GenreCollection": [
+      "Sci-Fi",
+      "Mystery"
+    ],
+    "MediaTagCollection": [
+      {
+        "id": 203,
+        "name": "Male Harem",
+        "description": "Male harem taxonomy description.",
+        "category": "Theme-Romance",
+        "isGeneralSpoiler": false,
+        "isAdult": false,
+        "ignoredFutureField": "must not enter canonical snapshot"
+      },
+      {
+        "id": 202,
+        "name": "Female Harem",
+        "description": "Female harem taxonomy description.",
+        "category": "Theme-Romance",
+        "isGeneralSpoiler": false,
+        "isAdult": false
+      },
+      {
+        "id": 204,
+        "name": "Mixed Gender Harem",
+        "description": null,
+        "category": "Theme-Romance",
+        "isGeneralSpoiler": false,
+        "isAdult": false
+      },
+      {
+        "id": 101,
+        "name": "Ensemble Cast",
+        "description": "Large main cast.",
+        "category": "Cast-Main Cast",
+        "isGeneralSpoiler": false,
+        "isAdult": false
+      }
+    ]
+  }
+}

@@ -27,6 +27,5 @@ def write_manifest(manifest: dict[str, Any], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('x', encoding='utf-8') as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
-        # 可选：末尾加一个换行，使符合 UNIX 文本文件惯例
+        # 固定保留末尾换行，便于命令行查看和版本控制工具处理。
         f.write('\n')
-

@@ -1,4 +1,4 @@
-"""用标准库 unittest 执行；skip 表示尚未实现，不表示测试通过。"""
+"""Tests for media fetching, API-field validation, and append-only raw output."""
 import importlib.util
 import sys
 import json

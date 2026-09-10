@@ -245,7 +245,7 @@ def _validate_normalization_rule_ids(
 def _semantic_spec_to_json_mapping(
     spec: SemanticSpec,
 ) -> dict[str, Any]:
-    # 已完成：复用子句计数入口验证 SemanticSpec 的基本结构。
+    # 复用子句计数入口的结构检查，避免 identity 路径维护另一套 spec validator。
     count_hard_semantic_clauses(spec)
 
     # 排序仅消除集合输入顺序差异，保留 operator 身份，不合并不同 operator。
@@ -495,4 +495,3 @@ def validate_dataset_record(
             raise ValueError(f"record.{field_name} is inconsistent; expected {expected_value!r}, got {actual_value!r}")
 
     return None
-

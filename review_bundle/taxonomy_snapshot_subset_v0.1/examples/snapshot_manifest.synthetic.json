@@ -1,0 +1,12 @@
+{
+  "source": "Synthetic offline fixture",
+  "resource": [
+    "GenreCollection",
+    "MediaTagCollection"
+  ],
+  "fetched_at_utc": "2026-09-10T00:00:00Z",
+  "genre_count": 2,
+  "tag_count": 4,
+  "canonical_sha256": "558bba0d4a79f87203b814a711b138151eefecf569582449f59d92628e290a0d",
+  "snapshot_schema_version": "anilist-taxonomy-snapshot-v0.1"
+}

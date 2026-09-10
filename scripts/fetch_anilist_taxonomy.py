@@ -23,17 +23,19 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def main(argv: list[str] | None = None) -> int:
-    # fetch UTC time once, call fetch_anilist_taxonomy, then write the
-    # raw/canonical/manifest bundle. Print paths/hash/counts; return 0 on success.
+    # 获取时间只记录一次，保证同一 bundle 的 provenance 一致；它写入 manifest，
+    # 不参与 canonical taxonomy 的内容哈希。
     args = parse_args(argv)
 
     fetched_at_utc = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
+    # client 返回完整 decoded response；字段裁剪与稳定排序由 bundle writer 完成。
     source_payload = fetch_anilist_taxonomy(
         endpoint=args.endpoint,
         timeout_seconds=args.timeout,
     )
 
+    # writer 会预检三个目标文件并使用独占创建；中途 I/O 失败不会自动回滚。
     manifest = write_taxonomy_snapshot_bundle(
         source_payload,
         output_dir=args.output,

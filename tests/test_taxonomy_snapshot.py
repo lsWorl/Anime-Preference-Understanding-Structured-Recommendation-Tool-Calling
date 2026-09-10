@@ -1,7 +1,7 @@
-"""Executable TODO contract for taxonomy snapshots and reviewed tag subsets."""
+"""Regression tests for taxonomy snapshots and reviewed executable subsets."""
 
 import copy
-from dataclasses import replace
+from dataclasses import asdict, replace
 import json
 from pathlib import Path
 import sys
@@ -18,9 +18,11 @@ from anime_pref.data.tag_subset import (
     build_executable_tag_subset,
     dumps_executable_tag_subset,
     executable_tag_subset_sha256,
+    load_tag_audit,
     load_executable_tag_subset,
     validate_domain_rule_tag_targets,
     validate_tag_audit,
+    write_executable_subset_bundle,
 )
 from anime_pref.data.taxonomy_client import TAXONOMY_QUERY
 from anime_pref.data.taxonomy_client import fetch_anilist_taxonomy
@@ -429,6 +431,222 @@ class TaxonomySnapshotTests(unittest.TestCase):
                 rules_with_invalid_non_harem_group,
             )
 
+    def test_audit_loader_requires_explicit_approved_field(self):
+        """Missing review decisions must never receive an implicit default."""
+        snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
+        snapshot_hash = taxonomy_snapshot_sha256(snapshot)
+        record = make_audit(snapshot_hash)[0]
+        valid_payload = [asdict(record)]
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            valid_path = Path(temporary_directory) / "valid-audit.json"
+            invalid_path = Path(temporary_directory) / "missing-approved.json"
+            valid_path.write_text(
+                json.dumps(valid_payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            loaded = load_tag_audit(valid_path)
+            self.assertEqual(loaded, (record,))
+            invalid_payload = copy.deepcopy(valid_payload)
+            invalid_payload[0].pop("approved")
+            invalid_path.write_text(
+                json.dumps(invalid_payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ValueError, r"missing=.*approved"):
+                load_tag_audit(invalid_path)
+    def test_executable_subset_bundle_writes_manifest_and_refuses_overwrite(self):
+        """The subset bundle must persist its own identity without overwriting."""
+        snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
+        audit = make_audit(taxonomy_snapshot_sha256(snapshot))
+        subset = build_executable_tag_subset(
+            audit,
+            snapshot,
+            subset_version="anilist-executable-tags-v0.1",
+        )
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output = Path(temporary_directory) / "subset-bundle"
+
+            manifest = write_executable_subset_bundle(
+                subset,
+                output_dir=output,
+            )
+            self.assertEqual(
+                {path.name for path in output.iterdir()},
+                {"executable_tags.json", "manifest.json"},
+            )
+
+            loaded_subset = load_executable_tag_subset(
+                output / "executable_tags.json"
+            )
+            self.assertEqual(loaded_subset, subset)
+
+            manifest_payload = json.loads(
+                (output / "manifest.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                manifest_payload,
+                {
+                    "subset_version": manifest.subset_version,
+                    "subset_hash": manifest.subset_hash,
+                    "derived_from_snapshot_hash": manifest.derived_from_snapshot_hash,
+                    "approved_tag_count": manifest.approved_tag_count,
+                },
+            )
+
+            with self.assertRaises(FileExistsError):
+                write_executable_subset_bundle(
+                    subset,
+                    output_dir=output,
+                )
+
+
+    def test_subset_hash_is_independent_of_audit_and_alias_input_order(self):
+        """Equivalent reviewed content must produce one canonical subset hash."""
+        snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
+        audit = make_audit(taxonomy_snapshot_sha256(snapshot))
+
+        first_audit = (
+            replace(
+                audit[0],
+                aliases=("女后宫", "female-harem"),
+            ),
+        ) + audit[1:]
+
+        first_subset = build_executable_tag_subset(
+            first_audit,
+            snapshot,
+            subset_version="anilist-executable-tags-v0.1",
+        )
+
+        second_records = []
+
+        for record in reversed(first_audit):
+            if record.tag_id == first_audit[0].tag_id:
+                record = replace(
+                    record,
+                    aliases=tuple(reversed(record.aliases)),
+                )
+            second_records.append(record)
+
+        second_audit = tuple(second_records)
+
+        second_subset = build_executable_tag_subset(
+            second_audit,
+            snapshot,
+            subset_version="anilist-executable-tags-v0.1",
+        )
+
+        self.assertEqual(first_subset, second_subset)
+
+        self.assertEqual(
+            dumps_executable_tag_subset(first_subset),
+            dumps_executable_tag_subset(second_subset),
+        )
+
+        self.assertEqual(
+            executable_tag_subset_sha256(first_subset),
+            executable_tag_subset_sha256(second_subset),
+        )
+
+
+    def test_snapshot_hash_tracks_contract_fields_but_ignores_extra_fields(self):
+        """Hash changes exactly with fields admitted to the canonical contract."""
+        baseline_snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
+        baseline_hash = taxonomy_snapshot_sha256(baseline_snapshot)
+
+        cases = (
+            (
+                "genre",
+                lambda source: source["data"]["GenreCollection"].__setitem__(
+                    0, "Action"
+                ),
+            ),
+            (
+                "tag_id",
+                lambda source: source["data"]["MediaTagCollection"][0].__setitem__(
+                    "id", 999
+                ),
+            ),
+            (
+                "tag_name",
+                lambda source: source["data"]["MediaTagCollection"][0].__setitem__(
+                    "name", "Male Harem Revised"
+                ),
+            ),
+            (
+                "description",
+                lambda source: source["data"]["MediaTagCollection"][0].__setitem__(
+                    "description", "Changed description."
+                ),
+            ),
+            (
+                "category",
+                lambda source: source["data"]["MediaTagCollection"][0].__setitem__(
+                    "category", "Changed-Category"
+                ),
+            ),
+            (
+                "is_general_spoiler",
+                lambda source: source["data"]["MediaTagCollection"][0].__setitem__(
+                    "isGeneralSpoiler", True
+                ),
+            ),
+            (
+                "is_adult",
+                lambda source: source["data"]["MediaTagCollection"][0].__setitem__(
+                    "isAdult", True
+                ),
+            ),
+        )
+        for case_name, mutate in cases:
+            with self.subTest(case=case_name):
+                changed_source = copy.deepcopy(SOURCE_PAYLOAD)
+                mutate(changed_source)
+
+                changed_snapshot = build_canonical_taxonomy_snapshot(
+                    changed_source
+                )
+                changed_hash = taxonomy_snapshot_sha256(changed_snapshot)
+
+                self.assertNotEqual(changed_hash, baseline_hash)
+        extra_field_change = copy.deepcopy(SOURCE_PAYLOAD)
+        extra_field_change["data"]["MediaTagCollection"][0][
+            "ignoredFutureField"
+        ] = "changed outside canonical contract"
+
+        extra_snapshot = build_canonical_taxonomy_snapshot(extra_field_change)
+
+        self.assertEqual(
+            taxonomy_snapshot_sha256(extra_snapshot),
+            baseline_hash,
+        )
+
+        self.assertEqual(extra_snapshot, baseline_snapshot)
+
+    def test_audit_rejects_duplicate_tag_name_independently(self):
+        """Duplicate audit names need a regression test distinct from ID mismatch."""
+        snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
+        snapshot_hash = taxonomy_snapshot_sha256(snapshot)
+        audit = make_audit(snapshot_hash)
+
+        first_record = audit[3]
+
+        second_record = replace(
+            audit[0],
+            tag_name=first_record.tag_name,
+        )
+
+        self.assertNotEqual(first_record.tag_id, second_record.tag_id)
+        self.assertEqual(first_record.tag_name, second_record.tag_name)
+
+        with self.assertRaisesRegex(
+            ValueError,
+            r"duplicate audit tag_name",
+        ):
+            validate_tag_audit(
+                (first_record, second_record),
+                snapshot,
+            )
 
 if __name__ == "__main__":
     unittest.main()

@@ -132,10 +132,13 @@ python -B -m unittest discover -s tests -v
 ## 尚未冻结或尚未实现
 
 - approved soft preference vocabulary；当前为空。
-- 完整 AniList taxonomy snapshot、fetch date/version/hash。
-- 人工审核后的 executable tag subset。
 - semantic sampler、controlled language realization 和 split。
+- 自然语言解析、训练、推理与推荐执行器。
 
-## 2026-09-09 状态更新
+完整 AniList taxonomy snapshot 与 executable tag subset 的代码路径已经实现；正式内容仍需
+真实采集和人工审核，详见 `taxonomy_snapshot_and_subset_v0.1.md`。
 
-DatasetRecord Builder 已完成；taxonomy snapshot/subset 已加入模型与 TODO 骨架，业务函数仍待实现。当前完整测试为37项：31项通过、6项跳过，0失败。历史23项测试记录仅对应当时的审查阶段。最新逐函数说明见 [项目实现学习手册](项目实现学习手册.md)。
+## 2026-09-10 状态更新
+
+DatasetRecord Builder 与 taxonomy snapshot/subset 均已实现。当前完整测试为42项，全部通过，
+无跳过；历史23项测试记录仅对应当时的审查阶段。最新入口见[文档索引](README.md)。

@@ -40,8 +40,7 @@ def validate_query_structure(query: Mapping[str, Any]) -> None:
     # - 不检查 taxonomy membership（交给 domain_validation，builder 也会调用它）；
     # - 非法输入统一抛 ValueError；有效输入返回 None；不得修改 query。
 
-    #校验key是否和expected_keys严格相等
-    # 用 key 集合比较发现缺项/多项，刻意不比较插入顺序；返回原 mapping 供只读访问。
+    # 用 key 集合发现缺项/多项，刻意不比较插入顺序；返回原 mapping 供只读访问。
     def require_mapping_with_keys(value:Any,name:str,expected_keys:tuple[str,...])->Mapping[str,Any]:
         if not isinstance(value,Mapping):
             raise ValueError(f"{name} must be a mapping")
@@ -111,7 +110,7 @@ def validate_query_structure(query: Mapping[str, Any]) -> None:
                     f"{right} overlap: {overlap}"
                 )
             
-    # year/episodes：检查 range
+    # year/episodes 使用闭区间；None 只表示用户没有表达该方向的边界。
     for field_name in ("year", "episodes"):
         bounds = require_mapping_with_keys(
         hard_constraints[field_name],
@@ -197,4 +196,3 @@ def canonicalize_query(query: Mapping[str, Any]) -> dict[str, Any]:
             canonical[field_name] = list(query[field_name])
 
     return canonical
-
