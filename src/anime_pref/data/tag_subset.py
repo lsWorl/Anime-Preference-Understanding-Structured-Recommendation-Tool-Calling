@@ -342,6 +342,12 @@ def build_executable_tag_subset(
     subset_version: str,
 ) -> ExecutableTagSubset:
     """Include only explicitly reviewed records whose approved flag is true."""
+    # Executable content policy:
+    # - v0.1 executable policy 必须拒绝 approved=True 且 is_adult=True 的记录；
+    # - v0.1 暂无 spoiler override 字段，因此也拒绝 approved=True 且
+    #   is_general_spoiler=True 的记录；
+    # - approved=False 的此类记录可以保留在 audit 中，但不会进入 subset；
+    # - category 不能触发自动批准，仍只选择显式 approved is True。
     # - 先 validate_tag_audit；subset_version 是独立非空版本且无首尾 whitespace；
     # - 只选择 approved is True；false 或缺失审核记录绝不进入 subset；
     # - 按 (tag_id, tag_name) canonical sort；aliases canonical sort；
@@ -363,6 +369,20 @@ def build_executable_tag_subset(
     for record in records:
         if record.approved is not True:
             continue
+
+        if record.is_adult is True:
+            raise ValueError(
+                f"approved tag {record.tag_name!r} cannot "
+                "enter the executable subset because "
+                "is_adult is true"
+            )
+
+        if record.is_general_spoiler is True:
+            raise ValueError(
+                f"approved tag {record.tag_name!r} cannot "
+                "enter the executable subset because "
+                "is_general_spoiler is true"
+            )
 
         approved_tags.append(
             ExecutableTagSpec(
@@ -697,7 +717,7 @@ def validate_domain_rule_tag_targets(
     rules: "DomainRules",
 ) -> None:
     """Validate group targets, active tags, and the approved subset hierarchy."""
-    # TODO-41 implementation contract:
+    # Active rules/subset hierarchy contract:
     # - 将当前 exact-equality 改为 rules.tags ⊆ approved subset tag names；
     # - 每个 rules.tag_groups[*].tags 成员必须先属于 active rules.tags；
     # - 因而完整关系为 group targets ⊆ rules.tags ⊆ subset tag names；

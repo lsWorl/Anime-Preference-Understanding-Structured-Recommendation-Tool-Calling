@@ -1,4 +1,4 @@
-"""TODO contract for rules identity and DatasetRecord provenance integration."""
+"""Regression tests for rules identity and DatasetRecord provenance integration."""
 
 import copy
 from dataclasses import replace
@@ -76,7 +76,6 @@ def load_rules_document(document: dict):
 
 
 class RulesIdentityContractTests(unittest.TestCase):
-    @unittest.skip("TODO-47a: complete TODO-41/42/44, then enable")
     def test_active_tags_may_be_a_strict_subset_of_approved_tags(self):
         subset = make_approved_subset()
         rules = load_rules_document(make_rules_document(subset))
@@ -96,7 +95,6 @@ class RulesIdentityContractTests(unittest.TestCase):
                 missing_approved_tag,
             )
 
-    @unittest.skip("TODO-47b: complete TODO-42 group-active validation, then enable")
     def test_group_target_must_be_in_active_rules_tags(self):
         subset = make_approved_subset()
         document = make_rules_document(subset)
@@ -108,7 +106,6 @@ class RulesIdentityContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             load_rules_document(document)
 
-    @unittest.skip("TODO-47c: complete TODO-43, then enable")
     def test_rules_hash_is_canonical_and_sensitive_only_to_contract_content(self):
         subset = make_approved_subset()
         first_document = make_rules_document(subset)
@@ -142,7 +139,6 @@ class RulesIdentityContractTests(unittest.TestCase):
                 load_domain_rules(pretty_path).rules_hash,
             )
 
-    @unittest.skip("TODO-47d: complete TODO-45/46, then enable")
     def test_record_keeps_and_validates_rules_and_subset_identity(self):
         subset = make_approved_subset()
         rules = load_rules_document(make_rules_document(subset))
@@ -182,7 +178,6 @@ class RulesIdentityContractTests(unittest.TestCase):
                         subset,
                     )
 
-    @unittest.skip("TODO-47e: complete TODO-46 sample identity integration, then enable")
     def test_rules_hash_change_changes_complete_record_sample_id(self):
         subset = make_approved_subset()
         first_document = make_rules_document(subset)

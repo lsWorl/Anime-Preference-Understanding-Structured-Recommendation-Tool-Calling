@@ -1,0 +1,38 @@
+{
+  "subset_version": "synthetic-approved-tags-v0.1",
+  "derived_from_snapshot_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "tags": [
+    {
+      "tag_id": 101,
+      "tag_name": "Ensemble Cast",
+      "category": "Cast-Main Cast",
+      "aliases": [],
+      "is_general_spoiler": false,
+      "is_adult": false
+    },
+    {
+      "tag_id": 202,
+      "tag_name": "Female Harem",
+      "category": "Theme-Romance",
+      "aliases": [],
+      "is_general_spoiler": false,
+      "is_adult": false
+    },
+    {
+      "tag_id": 203,
+      "tag_name": "Male Harem",
+      "category": "Theme-Romance",
+      "aliases": [],
+      "is_general_spoiler": false,
+      "is_adult": false
+    },
+    {
+      "tag_id": 204,
+      "tag_name": "Mixed Gender Harem",
+      "category": "Theme-Romance",
+      "aliases": [],
+      "is_general_spoiler": false,
+      "is_adult": false
+    }
+  ]
+}

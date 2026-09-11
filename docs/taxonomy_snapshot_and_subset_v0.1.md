@@ -1,7 +1,7 @@
 # Full AniList Taxonomy Snapshot + Reviewed Executable Tag Subset
 
 > 状态核对（2026-09-10）：snapshot、audit、subset、hash、bundle 写入与两个 CLI
-> 均已实现。12 项 taxonomy 单元测试全部通过；测试使用 mock 和合成数据，本次核验未执行
+> 均已实现。13 项 taxonomy 单元测试全部通过；测试使用 mock 和合成数据，本次核验未执行
 > 真实网络采集，也不代表正式人工审核已经完成。
 
 本工作块只建立外部 taxonomy 的可追溯快照，以及经过人工审核后允许进入 Gold Query 的 tag 子集。它不生成 SemanticSpec、自然语言样本或数据集划分。
@@ -59,7 +59,7 @@ AniList GraphQL response
 | 审核校验 | `validate_tag_audit` | 核对 snapshot hash、tag 身份、flags 和 alias 冲突 |
 | 子集构建 | `build_executable_tag_subset` | 只提取 `approved is True` 的记录并 canonical sort |
 | 子集读写 | `load_executable_tag_subset` / `write_executable_subset_bundle` | 严格读取；写 subset 与 manifest，禁止覆盖 |
-| 规则联动 | `validate_domain_rule_tag_targets` | subset tags 与 DomainRules tags 必须相等，组目标必须存在 |
+| 规则联动 | `validate_domain_rule_tag_targets` | group targets ⊆ active rules tags ⊆ approved subset tags |
 
 两个脚本已经连接这些接口：
 
@@ -86,7 +86,7 @@ python -B scripts/build_executable_tag_subset.py \
 
 ## 测试与运行边界
 
-`tests/test_taxonomy_snapshot.py` 的12项测试均已启用，覆盖查询字段、fetch 成功与 GraphQL
+`tests/test_taxonomy_snapshot.py` 的13项测试均已启用，覆盖查询字段、fetch 成功与 GraphQL
 错误、输入顺序无关的 canonical/subset hash、canonical 字段边界、manifest/bundle、严格
 audit loader、duplicate identity、approved subset、禁止覆盖以及 DomainRules 联动。真实网络
 调用不进入单元测试；fetch 测试通过 mock 提供固定响应。

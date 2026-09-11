@@ -1,5 +1,8 @@
 # Executable Rules Identity + DatasetRecord Provenance Integration v0.1
 
+> 状态核对（2026-09-11）：本工作块已实现。完整离线测试共 48 项，全部通过且无跳过。
+> Production taxonomy/rules acceptance 继续 deferred。
+
 本工作块为 executable rules 建立独立、可重算的内容身份，并把 rules/subset lineage 写入 DatasetRecord。它不实现 semantic sampler、自然语言生成、数据切分或训练。
 
 ## 文件职责
@@ -53,14 +56,15 @@ Alias 必须是 canonical concept 的稳定语义等价表达或领域称呼，�
 
 以上 policy 应在 `validate_tag_audit` 或 subset 构建入口形成可执行检查：即使人工错误地将 adult/general-spoiler tag 标为 approved，builder 也必须拒绝，而不能生成 subset。
 
-## TODO 顺序
+## 已完成的实现顺序
 
-1. `TODO-41`：先把 subset/rules 关系由 exact equality 改为包含关系，并更新原 taxonomy 测试中“extra approved tag 必须失败”的旧断言。
-2. `TODO-42a/42b`：扩展 `DomainRules` 和 loader。测试使用 synthetic rules document；production config 等真实 subset 恢复后再填写，禁止放入 synthetic hash。
-3. `TODO-43a`～`TODO-43c`：实现 canonical rules mapping、serialization 与 hash。
-4. `TODO-44`：结合实际 subset 验证版本、hash、active vocabulary 与 tag groups。
-5. `TODO-45`：扩展 `DatasetRecordSpec` 的四个 provenance 字段。
-6. `TODO-46a`～`TODO-46c`：更新 sample ID、record builder 和 validator，并迁移现有调用点。
-7. 依次移除 `TODO-47a`～`TODO-47e` 的 skip，运行完整离线测试。
+1. 把 subset/rules 关系由 exact equality 改为包含关系。
+2. 扩展 `DomainRules` 和 loader；离线测试只使用 synthetic rules/subset fixture。
+3. 实现 canonical rules mapping、serialization 与 hash。
+4. 结合实际 subset 验证 version、hash、active vocabulary 与 tag groups。
+5. 扩展 `DatasetRecordSpec` 的四个 provenance 字段。
+6. 更新 sample ID、record builder 和 validator，并迁移所有调用点。
+7. 强制执行 adult/general-spoiler executable policy。
+8. 启用全部回归测试。
 
 当前 production taxonomy acceptance 继续 deferred。真实 AniList source/canonical/manifest、真实 HAREM identity、人工 audit 和 production subset 恢复前，production rules 配置不得声称已绑定某个 synthetic subset。

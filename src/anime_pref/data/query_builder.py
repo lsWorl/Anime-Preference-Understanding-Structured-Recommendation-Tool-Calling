@@ -3,32 +3,41 @@
 This module must only validate, expand approved rules, and serialize semantics.
 It must never infer a preference or silently repair an invalid specification.
 """
+
 from anime_pref.data.domain_validation import validate_query_domain
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import json
 from pathlib import Path
 from types import MappingProxyType
 from typing import Any
-from anime_pref.data.query_validation import canonicalize_query,validate_query_structure
+from anime_pref.data.query_validation import (
+    canonicalize_query,
+    validate_query_structure,
+)
 from anime_pref.schemas.preference_query import (
     RangeConstraintSpec,
     SemanticSpec,
     SetConstraintSpec,
 )
 
+
 @dataclass(frozen=True)
 class TagGroupRule:
     """不可变标签组规则，用于配置驱动的标签组展开。"""
+
     tags: tuple[str, ...]
     allowed_operators: frozenset[str]
     normalization_rule_id: str
-    
+
+
 @dataclass(frozen=True)
 class NumericRule:
     """不可变数值边界规则"""
+
     minimum: int | None = None
     maximum: int | None = None
+
 
 @dataclass(frozen=True)
 class DomainRules:
@@ -38,11 +47,16 @@ class DomainRules:
     normalized and exposed as immutable tuples, frozensets, and a read-only map.
     """
 
-    # TODO-42a: 在本模型中加入四个必填 identity 字段：
-    # rules_version、rules_hash、executable_subset_version、executable_subset_hash。
-    # rules_hash 是 canonical rules document 的派生值，不从 JSON 配置直接读取。
-    # 模型目标的契约版本；与 rules/subset/dataset version 分别维护。
+    # DomainRules 自身的人工版本。
+    rules_version: str
+    # canonical rules document 的派生 SHA-256；输入 JSON 不提供。
+    rules_hash: str
+    # 模型 Gold JSON 的结构契约版本。
     schema_version: str
+    # 当前规则声明绑定的 approved executable subset。
+    executable_subset_version: str
+    executable_subset_hash: str
+
     genres: frozenset[str]
     tags: frozenset[str]
     formats: frozenset[str]
@@ -53,13 +67,14 @@ class DomainRules:
     episodes: NumericRule
     year: NumericRule
 
+
 # 将版本化 JSON 配置转换为 DomainRules；读取、解析、契约错误表现为 ValueError。
 # 先检查精确键集合，再检查白名单、标签组和 numeric_rules；不调用外部 API。
 # 白名单配置先 strip 后查重；这是配置加载政策，与 canonical spec 拒绝外部空白不同。
 # tuple/frozenset/只读 mapping 限制后续修改，避免同一次构建中规则漂移。
 def load_domain_rules(path: Path) -> DomainRules:
     """Load and validate one versioned domain-rules JSON file."""
-    # TODO-42b:
+    # Rules identity loading contract:
     # - 新配置必须精确包含 rules_version、schema_version、
     #   executable_subset_version、executable_subset_hash、taxonomy、tag_groups、numeric_rules；
     # - rules_hash 不允许出现在输入 JSON；它由 canonical document 计算；
@@ -75,7 +90,10 @@ def load_domain_rules(path: Path) -> DomainRules:
         raise ValueError("Domain rules must be a JSON object (dict)")
 
     allowed_top_keys = {
+        "rules_version",
         "schema_version",
+        "executable_subset_version",
+        "executable_subset_hash",
         "taxonomy",
         "tag_groups",
         "numeric_rules",
@@ -98,14 +116,41 @@ def load_domain_rules(path: Path) -> DomainRules:
             raise ValueError(f"Unknown top-level keys: {extra}")
         raise ValueError(f"Missing top-level keys: {missing}")
 
+    rules_version = data["rules_version"]
     schema_version = data["schema_version"]
-    if not isinstance(schema_version, str) or not schema_version.strip():
-        raise ValueError("schema_version must be a non-empty string")
+    executable_subset_version = data["executable_subset_version"]
+    executable_subset_hash = data["executable_subset_hash"]
+
+    for field_name, value in (
+        ("rules_version", rules_version),
+        ("schema_version", schema_version),
+        (
+            "executable_subset_version",
+            executable_subset_version,
+        ),
+    ):
+        if not isinstance(value, str) or not value or value != value.strip():
+            raise ValueError(
+                f"{field_name} must be a non-empty string "
+                "without leading or trailing whitespace"
+            )
+
+    if (
+        not isinstance(executable_subset_hash, str)
+        or len(executable_subset_hash) != 64
+        or any(
+            character not in "0123456789abcdef" for character in executable_subset_hash
+        )
+    ):
+        raise ValueError(
+            "executable_subset_hash must be a 64-character "
+            "lowercase SHA-256 hex string"
+        )
 
     taxonomy = data["taxonomy"]
     if not isinstance(taxonomy, dict):
         raise ValueError("taxonomy must be a dict")
-    
+
     taxonomy_keys = set(taxonomy)
     if taxonomy_keys != required_taxonomy_keys:
         extra = taxonomy_keys - required_taxonomy_keys
@@ -246,7 +291,9 @@ def load_domain_rules(path: Path) -> DomainRules:
         extra = set(raw_numeric) - {"episodes", "year"}
         missing = {"episodes", "year"} - set(raw_numeric)
         if extra:
-            raise ValueError(f"numeric_rules[{raw_numeric}] contains unknown bound keys: {extra}")
+            raise ValueError(
+                f"numeric_rules[{raw_numeric}] contains unknown bound keys: {extra}"
+            )
         raise ValueError(f"numeric_rules[{raw_numeric}] is missing keys: {missing}")
 
     numeric_rules: dict[str, NumericRule] = {}
@@ -260,18 +307,24 @@ def load_domain_rules(path: Path) -> DomainRules:
         if isinstance(raw_rule_val, dict):
             required_bound_keys = {"minimum", "maximum"}
             bound_keys = set(raw_rule_val)
-            
+
             if bound_keys != required_bound_keys:
                 extra = bound_keys - required_bound_keys
                 missing = required_bound_keys - bound_keys
                 if extra:
-                    raise ValueError(f"numeric_rules[{rule_name}] contains unknown bound keys: {extra}")
-                raise ValueError(f"numeric_rules[{rule_name}] is missing keys: {missing}")
-            
+                    raise ValueError(
+                        f"numeric_rules[{rule_name}] contains unknown bound keys: {extra}"
+                    )
+                raise ValueError(
+                    f"numeric_rules[{rule_name}] is missing keys: {missing}"
+                )
+
             minimum = raw_rule_val["minimum"]
             maximum = raw_rule_val["maximum"]
-            for bound_name, bound in (("minimum", minimum),("maximum", maximum)):
-                if bound is not None and (not isinstance(bound, int) or isinstance(bound, bool)):
+            for bound_name, bound in (("minimum", minimum), ("maximum", maximum)):
+                if bound is not None and (
+                    not isinstance(bound, int) or isinstance(bound, bool)
+                ):
                     raise ValueError(
                         f"numeric_rules[{rule_name}].{bound_name} "
                         "must be an integer or None"
@@ -282,12 +335,14 @@ def load_domain_rules(path: Path) -> DomainRules:
                 )
             numeric_rules[rule_name] = NumericRule(minimum=minimum, maximum=maximum)
         else:
-            raise ValueError(
-                f"numeric_rules[{rule_name}] must be a dict"
-            )
+            raise ValueError(f"numeric_rules[{rule_name}] must be a dict")
 
-    return DomainRules(
+    candidate_rules = DomainRules(
+        rules_version=rules_version,
+        rules_hash="0" * 64,
         schema_version=schema_version,
+        executable_subset_version=(executable_subset_version),
+        executable_subset_hash=executable_subset_hash,
         genres=frozenset(genres),
         tags=frozenset(tags),
         formats=frozenset(formats),
@@ -296,6 +351,19 @@ def load_domain_rules(path: Path) -> DomainRules:
         soft_preferences=frozenset(soft_preferences),
         episodes=numeric_rules["episodes"],
         year=numeric_rules["year"],
+    )
+
+    # Local import avoids a module-import cycle:
+    # rules_identity imports DomainRules from this module.
+    from anime_pref.data.rules_identity import (
+        domain_rules_sha256,
+    )
+
+    computed_rules_hash = domain_rules_sha256(candidate_rules)
+
+    return replace(
+        candidate_rules,
+        rules_hash=computed_rules_hash,
     )
 
 
@@ -310,6 +378,7 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         raise ValueError("rules must be a DomainRules instance")
 
     operators = ("all_of", "any_of", "none_of")
+
     # 输入模型使用 tuple，输出 JSON 使用 list；此处同时执行 canonical 字符串和重复检查。
     # sort_output 只用于集合语义字段；文本字段保留原有顺序，不代表允许首尾空白。
     def validate_string_tuple(
@@ -324,18 +393,20 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         if not isinstance(value, tuple):
             raise ValueError(f"{name} must be a tuple")
         for item in value:
-            if not isinstance(item,str):
-                raise ValueError('content must is str')
+            if not isinstance(item, str):
+                raise ValueError("content must is str")
             if not item:
-                raise ValueError('content must is not empty')
+                raise ValueError("content must is not empty")
             if item != item.strip():
-                raise ValueError('content must is not empty whitespace')
+                raise ValueError("content must is not empty whitespace")
         if len(value) != len(set(value)):
             raise ValueError(f"{name} contains duplicate values")
         if allowlist is not None:
             unknown = [item for item in value if item not in allowlist]
             if unknown:
-                raise ValueError(f"{name} contains values outside its allowlist: {unknown}")
+                raise ValueError(
+                    f"{name} contains values outside its allowlist: {unknown}"
+                )
         result = list(value)
         return sorted(result) if sort_output else result
 
@@ -384,10 +455,14 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         for group_name in tag_groups[operator]:
             group_rule = rules.tag_groups[group_name]
             if operator not in group_rule.allowed_operators:
-                raise ValueError(f"tag group {group_name} does not allow operator {operator}")
+                raise ValueError(
+                    f"tag group {group_name} does not allow operator {operator}"
+                )
             combined.extend(group_rule.tags)
         if len(combined) != len(set(combined)):
-            raise ValueError(f"tags.{operator} contains duplicates after group expansion")
+            raise ValueError(
+                f"tags.{operator} contains duplicates after group expansion"
+            )
         expanded_tags[operator] = sorted(combined)
 
     expanded_sets = {key: set(items) for key, items in expanded_tags.items()}
@@ -404,19 +479,23 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
 
     # None 表示未表达，不补默认边界；非空值须为 int 且不能为 bool。
     # 版本化 minimum/maximum 是有效性边界，min/max 顺序另行检查；不是采样分布。
-    def validate_range(value: Any, name: str,rule: NumericRule,) -> dict[str, int | None]:
+    def validate_range(
+        value: Any,
+        name: str,
+        rule: NumericRule,
+    ) -> dict[str, int | None]:
         if not isinstance(value, RangeConstraintSpec):
             raise ValueError(f"{name} must be a RangeConstraintSpec")
         for bound_name, bound in (("min", value.min), ("max", value.max)):
             if bound is None:
                 continue
-            if not isinstance(bound,int) or isinstance(bound,bool):
-                raise ValueError(f'{name}.{bound_name} must be an integer or None')
+            if not isinstance(bound, int) or isinstance(bound, bool):
+                raise ValueError(f"{name}.{bound_name} must be an integer or None")
             if rule.minimum is not None and bound < rule.minimum:
-                raise ValueError('must > rule.minimum')
+                raise ValueError("must > rule.minimum")
 
             if rule.maximum is not None and bound > rule.maximum:
-                raise ValueError('must < rule.maximum')
+                raise ValueError("must < rule.maximum")
         if value.min is not None and value.max is not None and value.min > value.max:
             raise ValueError(f"{name}.min must not be greater than {name}.max")
         return {"min": value.min, "max": value.max}
@@ -458,7 +537,7 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
             "genres": genres,
             "tags": expanded_tags,
             "year": validate_range(spec.year, "year", rules.year),
-            "episodes": validate_range(spec.episodes, "episodes",rules.episodes),
+            "episodes": validate_range(spec.episodes, "episodes", rules.episodes),
             "formats": formats,
             "status": status,
         },
@@ -467,7 +546,7 @@ def build_query(spec: SemanticSpec, rules: DomainRules) -> dict[str, Any]:
         "unresolved_preferences": unresolved_preferences,
     }
     validate_query_structure(query)
-    validate_query_domain(query,rules)
+    validate_query_domain(query, rules)
 
     return query
 

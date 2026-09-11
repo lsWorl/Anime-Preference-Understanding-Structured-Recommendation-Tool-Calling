@@ -2,7 +2,9 @@
 
 from collections.abc import Mapping
 from typing import Any
-
+from anime_pref.data.rules_identity import (
+    validate_executable_rules_identity,
+)
 from anime_pref.data.constraint_signature import build_constraint_signature
 from anime_pref.data.query_builder import DomainRules, build_query
 from anime_pref.data.domain_validation import validate_query_domain
@@ -17,7 +19,9 @@ from anime_pref.schemas.preference_query import (
     SetConstraintSpec,
     RangeConstraintSpec,
 )
-
+from anime_pref.schemas.taxonomy import (
+    ExecutableTagSubset,
+)
 
 import hashlib
 import json
@@ -210,6 +214,17 @@ def _validate_identifier(value: Any, name: str) -> None:
         raise ValueError(f"{name} must not have leading/trailing whitespace")
 
 
+def _validate_sha256(value: Any, name: str) -> None:
+    if (
+        not isinstance(value, str)
+        or len(value) != 64
+        or any(character not in "0123456789abcdef" for character in value)
+    ):
+        raise ValueError(
+            f"{name} must be a 64-character lowercase " "SHA-256 hex string"
+        )
+
+
 # 原始用户文本与 canonical 标识政策不同：拒绝全空白，但允许有意义文本的首尾空白。
 # strip 仅用于判空，实际文本原样保留，并参与 sample ID。
 def _validate_user_text(value: Any, name: str = "user_text") -> None:
@@ -285,6 +300,10 @@ def make_sample_id(
     *,
     schema_version: str,
     dataset_version: str,
+    executable_subset_version: str,
+    executable_subset_hash: str,
+    rules_version: str,
+    rules_hash: str,
     semantic_spec: SemanticSpec,
     gold_query: Mapping[str, Any],
     semantic_family: str,
@@ -297,7 +316,7 @@ def make_sample_id(
     prompt_version: str | None = None,
 ) -> str:
     """Create a deterministic ID from one canonical record identity payload."""
-    # TODO-46a: 增加 executable_subset_version/hash、rules_version/hash 四个必填参数，
+    # executable_subset_version/hash、rules_version/hash 是四个必填 identity 参数，
     # 严格验证并全部写入 identity_payload。sample_id 仍表示完整 record identity，
     # 不改成 semantic fingerprint 或 dedup key。
     # - 对标识字段做严格类型/非空/首尾 whitespace 检查；seed 接受 int 但排除 bool；
@@ -313,11 +332,25 @@ def make_sample_id(
     for name, value in (
         ("schema_version", schema_version),
         ("dataset_version", dataset_version),
+        (
+            "executable_subset_version",
+            executable_subset_version,
+        ),
+        ("rules_version", rules_version),
         ("semantic_family", semantic_family),
         ("generation_family", generation_family),
         ("template_id", template_id),
     ):
         _validate_identifier(value, name)
+
+    _validate_sha256(
+        executable_subset_hash,
+        "executable_subset_hash",
+    )
+    _validate_sha256(
+        rules_hash,
+        "rules_hash",
+    )
 
     # seed 接受 int 但排除 bool
     if not isinstance(seed, int) or isinstance(seed, bool):
@@ -344,6 +377,10 @@ def make_sample_id(
     identity_payload = {
         "schema_version": schema_version,
         "dataset_version": dataset_version,
+        "executable_subset_version": (executable_subset_version),
+        "executable_subset_hash": (executable_subset_hash),
+        "rules_version": rules_version,
+        "rules_hash": rules_hash,
         "semantic_spec": semantic_spec_mapping,
         "gold_query": canonical_gold_query,
         "semantic_family": semantic_family,
@@ -376,6 +413,7 @@ def build_dataset_record(
     *,
     semantic_spec: SemanticSpec,
     rules: DomainRules,
+    executable_subset: ExecutableTagSubset,
     dataset_version: str,
     semantic_family: str,
     generation_family: str,
@@ -386,9 +424,14 @@ def build_dataset_record(
     prompt_version: str | None = None,
 ) -> DatasetRecordSpec:
     """Build one canonical record and all derived provenance fields."""
-    # TODO-46b: 增加 executable_subset: ExecutableTagSubset 参数；首先调用
+    # executable_subset 是必填参数；首先调用
     # validate_executable_rules_identity(rules, subset)，随后把四个 identity 写入
     # DatasetRecordSpec 并传给 make_sample_id。不得接受调用者另传 identity 覆盖派生值。
+    validate_executable_rules_identity(
+        rules,
+        executable_subset,
+    )
+
     gold_query = build_query(semantic_spec, rules)
     constraint_signature = build_constraint_signature(gold_query)
     constraint_count = count_hard_semantic_clauses(semantic_spec)
@@ -400,6 +443,10 @@ def build_dataset_record(
     sample_id = make_sample_id(
         schema_version=rules.schema_version,
         dataset_version=dataset_version,
+        executable_subset_version=(executable_subset.subset_version),
+        executable_subset_hash=(rules.executable_subset_hash),
+        rules_version=rules.rules_version,
+        rules_hash=rules.rules_hash,
         semantic_spec=semantic_spec,
         gold_query=gold_query,
         semantic_family=semantic_family,
@@ -416,6 +463,10 @@ def build_dataset_record(
         sample_id=sample_id,
         schema_version=rules.schema_version,
         dataset_version=dataset_version,
+        executable_subset_version=(executable_subset.subset_version),
+        executable_subset_hash=(rules.executable_subset_hash),
+        rules_version=rules.rules_version,
+        rules_hash=rules.rules_hash,
         semantic_spec=semantic_spec,
         gold_query=gold_query,
         constraint_signature=constraint_signature,
@@ -437,9 +488,10 @@ def build_dataset_record(
 def validate_dataset_record(
     record: DatasetRecordSpec,
     rules: DomainRules,
+    executable_subset: ExecutableTagSubset,
 ) -> None:
     """Recompute derived fields and verify record provenance consistency."""
-    # TODO-46c: 增加 executable_subset 参数，先验证实际 rules/subset identity，再逐项比较
+    # 先验证实际 rules/subset identity，再逐项比较
     # record 的四个 identity，并用它们重算 sample_id。任何篡改均报错，不 silent repair。
     # - record/rules 类型错误抛 ValueError；schema_version 必须匹配 rules；
     # - 重新 build_query(record.semantic_spec, rules)，对 gold_query 做 structural/domain 检查；
@@ -453,6 +505,34 @@ def validate_dataset_record(
     if not isinstance(rules, DomainRules):
         raise ValueError("rules must be a DomainRules instance")
 
+    validate_executable_rules_identity(
+        rules,
+        executable_subset,
+    )
+
+    expected_identity_fields = (
+        (
+            "executable_subset_version",
+            executable_subset.subset_version,
+        ),
+        (
+            "executable_subset_hash",
+            rules.executable_subset_hash,
+        ),
+        ("rules_version", rules.rules_version),
+        ("rules_hash", rules.rules_hash),
+    )
+
+    for field_name, expected_value in expected_identity_fields:
+        actual_value = getattr(record, field_name)
+
+        if actual_value != expected_value:
+            raise ValueError(
+                f"record.{field_name} does not match "
+                f"the validated rules/subset identity; "
+                f"expected {expected_value!r}, "
+                f"got {actual_value!r}"
+            )
     if record.schema_version != rules.schema_version:
         raise ValueError("record.schema_version does not match " "rules.schema_version")
 
@@ -470,9 +550,11 @@ def validate_dataset_record(
         raise ValueError(
             "record.gold_query is inconsistent with " "record.semantic_spec"
         )
+
     expected_record = build_dataset_record(
         semantic_spec=record.semantic_spec,
         rules=rules,
+        executable_subset=executable_subset,
         dataset_version=record.dataset_version,
         semantic_family=record.semantic_family,
         generation_family=record.generation_family,
@@ -500,6 +582,8 @@ def validate_dataset_record(
         expected_value = getattr(expected_record, field_name)
 
         if actual_value != expected_value:
-            raise ValueError(f"record.{field_name} is inconsistent; expected {expected_value!r}, got {actual_value!r}")
+            raise ValueError(
+                f"record.{field_name} is inconsistent; expected {expected_value!r}, got {actual_value!r}"
+            )
 
     return None

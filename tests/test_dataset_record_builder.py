@@ -16,13 +16,15 @@ from anime_pref.data.dataset_record_builder import (
 )
 from anime_pref.data.domain_validation import validate_query_domain
 from anime_pref.data.query_builder import build_query, load_domain_rules
+from anime_pref.data.tag_subset import load_executable_tag_subset
 from anime_pref.schemas.preference_query import (
     RangeConstraintSpec,
     SemanticSpec,
     SetConstraintSpec,
 )
 
-RULES_PATH = PROJECT_ROOT / "configs" / "domain_rules.v0.1.1.json"
+RULES_PATH = PROJECT_ROOT / "tests" / "fixtures" / "domain_rules.synthetic.v0.1.json"
+SUBSET_PATH = PROJECT_ROOT / "tests" / "fixtures" / "executable_tags.synthetic.v0.1.json"
 
 
 class DatasetRecordBuilderTests(unittest.TestCase):
@@ -115,6 +117,7 @@ class DatasetRecordBuilderTests(unittest.TestCase):
 
     def test_record_build_is_deterministic_and_keeps_full_provenance(self):
         rules = load_domain_rules(RULES_PATH)
+        subset = load_executable_tag_subset(SUBSET_PATH)
         kwargs = {
             "semantic_spec": SemanticSpec(
                 genres=SetConstraintSpec(any_of=("Mystery", "Sci-Fi")),
@@ -124,6 +127,7 @@ class DatasetRecordBuilderTests(unittest.TestCase):
                 formats=("TV",),
             ),
             "rules": rules,
+            "executable_subset": subset,
             "dataset_version": "dataset-v0.1",
             "semantic_family": "genre-year-format-harem",
             "generation_family": "curated-template",
@@ -146,11 +150,13 @@ class DatasetRecordBuilderTests(unittest.TestCase):
 
     def test_record_validation_rejects_inconsistent_derived_fields(self):
         rules = load_domain_rules(RULES_PATH)
+        subset = load_executable_tag_subset(SUBSET_PATH)
         record = build_dataset_record(
             semantic_spec=SemanticSpec(
                 genres=SetConstraintSpec(any_of=("Mystery", "Sci-Fi")),
             ),
             rules=rules,
+            executable_subset=subset,
             dataset_version="dataset-v0.1",
             semantic_family="genre-any",
             generation_family="curated-template",
@@ -170,7 +176,7 @@ class DatasetRecordBuilderTests(unittest.TestCase):
         for invalid in invalid_records:
             with self.subTest(field_values=invalid):
                 with self.assertRaises(ValueError):
-                    validate_dataset_record(invalid, rules)
+                    validate_dataset_record(invalid, rules, subset)
 
 
 if __name__ == "__main__":

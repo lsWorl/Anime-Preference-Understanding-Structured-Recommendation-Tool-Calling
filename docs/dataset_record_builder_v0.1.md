@@ -110,7 +110,7 @@ sample_<64 lowercase hex characters>
    数量，因此 HAREM 仍按一个 concept 计数。
 4. `collect_normalization_rule_ids(semantic_spec, rules)`：从展开前 tag groups 收集实际使用
    的 normalization provenance。
-5. `make_sample_id(...)`：把版本、语义、Gold Query、family、template、规则 ID、seed、原始
+5. `make_sample_id(...)`：把 schema/dataset/rules/subset identity、语义、Gold Query、family、template、规则 ID、seed、原始
    文本和 optional paraphrase metadata 全部纳入确定性 SHA-256 identity。
 6. `DatasetRecordSpec(...)`：保存源字段和上述派生字段。`schema_version` 始终读取
    `rules.schema_version`，函数签名不允许调用方另传；`sample_id`、Gold Query、signature、
@@ -151,7 +151,7 @@ python -B -m unittest tests.test_dataset_record_builder -v
 python -B -m unittest discover -s tests -v
 ```
 
-截至 2026-09-10，完整测试集42项全部通过且无跳过。后续若新增 skip，仍应把它视为
+截至 2026-09-11，完整测试集48项全部通过且无跳过。后续若新增 skip，仍应把它视为
 未执行的契约，而不是通过。
 
 ## Taxonomy 边界

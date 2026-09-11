@@ -93,8 +93,8 @@ python -B scripts/build_executable_tag_subset.py \
   --output data/processed/executable-tags-v0.1
 ```
 
-输出 `executable_tags.json` 与 `manifest.json`。命令还会要求 subset 的 tag name 集合与
-`DomainRules.tags` 完全相等，并检查所有 tag group 展开目标都存在。当前规则因此要求
+输出 `executable_tags.json` 与 `manifest.json`。命令要求 active `DomainRules.tags` 是
+approved subset tags 的子集，并检查所有 tag group 展开目标都属于 active tags。当前规则因此要求
 `Female Harem`、`Male Harem`、`Mixed Gender Harem` 三项全部获得批准。
 
 ## 7. 构建一个 Gold Query
@@ -109,7 +109,9 @@ from anime_pref.schemas.preference_query import (
     SetConstraintSpec,
 )
 
-rules = load_domain_rules(Path("configs/domain_rules.v0.1.1.json"))
+# Production rules 文件需要声明真实 executable subset version/hash；API 恢复前请使用
+# tests/fixtures 中明确标记的 synthetic 文件做离线学习，不能把它用于 production。
+rules = load_domain_rules(Path("tests/fixtures/domain_rules.synthetic.v0.1.json"))
 spec = SemanticSpec(
     genres=SetConstraintSpec(any_of=("Mystery", "Sci-Fi")),
     tag_groups=SetConstraintSpec(none_of=("HAREM",)),

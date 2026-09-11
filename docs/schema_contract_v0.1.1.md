@@ -138,7 +138,8 @@ python -B -m unittest discover -s tests -v
 完整 AniList taxonomy snapshot 与 executable tag subset 的代码路径已经实现；正式内容仍需
 真实采集和人工审核，详见 `taxonomy_snapshot_and_subset_v0.1.md`。
 
-## 2026-09-10 状态更新
+## 2026-09-11 状态更新
 
-DatasetRecord Builder 与 taxonomy snapshot/subset 均已实现。当前完整测试为42项，全部通过，
+DatasetRecord Builder、taxonomy snapshot/subset 与 executable rules identity 均已实现。
+当前完整测试为48项，全部通过，
 无跳过；历史23项测试记录仅对应当时的审查阶段。最新入口见[文档索引](README.md)。

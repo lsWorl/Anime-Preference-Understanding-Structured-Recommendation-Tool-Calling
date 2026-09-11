@@ -22,6 +22,8 @@
   外部词表快照、人工审核、内容哈希和 executable vocabulary。
 - [Rules identity 与 DatasetRecord provenance](rules_identity_and_record_provenance_v0.1.md)：
   active rules 的 canonical hash、approved subset 绑定和样本 lineage。
+- [Rules identity v0.1 Review Bundle](executable_rules_identity_v0.1_REVIEW.md)：
+  当前离线实现、canonical 示例、测试证据与 production deferred 边界。
 
 ## 历史材料
 

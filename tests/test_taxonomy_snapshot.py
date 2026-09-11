@@ -37,7 +37,7 @@ from anime_pref.schemas.taxonomy import (
     TagAuditRecordSpec,
 )
 
-RULES_PATH = PROJECT_ROOT / "configs" / "domain_rules.v0.1.1.json"
+RULES_PATH = PROJECT_ROOT / "tests" / "fixtures" / "domain_rules.synthetic.v0.1.json"
 
 SOURCE_PAYLOAD = {
     "data": {
@@ -131,6 +131,37 @@ def make_audit(snapshot_hash: str) -> tuple[TagAuditRecordSpec, ...]:
 
 
 class TaxonomySnapshotTests(unittest.TestCase):
+    def test_approved_adult_and_general_spoiler_tags_cannot_enter_subset(self):
+        for source_field, audit_field in (
+            ("isAdult", "is_adult"),
+            ("isGeneralSpoiler", "is_general_spoiler"),
+        ):
+            with self.subTest(field=source_field):
+                payload = copy.deepcopy(SOURCE_PAYLOAD)
+                raw_tag = payload["data"]["MediaTagCollection"][0]
+                raw_tag[source_field] = True
+                snapshot = build_canonical_taxonomy_snapshot(payload)
+                snapshot_hash = taxonomy_snapshot_sha256(snapshot)
+                tag = next(item for item in snapshot.tags if item.id == raw_tag["id"])
+                audit = TagAuditRecordSpec(
+                    tag_id=tag.id,
+                    tag_name=tag.name,
+                    category=tag.category,
+                    approved=True,
+                    reason="Synthetic policy regression case.",
+                    aliases=(),
+                    is_general_spoiler=tag.is_general_spoiler,
+                    is_adult=tag.is_adult,
+                    source_snapshot_hash=snapshot_hash,
+                )
+
+                with self.assertRaises(ValueError):
+                    build_executable_tag_subset(
+                        (audit,),
+                        snapshot,
+                        subset_version="synthetic-policy-test-v0.1",
+                    )
+
     def test_taxonomy_query_uses_global_identity_fields_not_media_rank(self):
         for field in (
             "GenreCollection",

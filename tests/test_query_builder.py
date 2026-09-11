@@ -18,7 +18,7 @@ from anime_pref.schemas.preference_query import (
     SetConstraintSpec,
 )
 
-RULES_PATH = PROJECT_ROOT / "configs" / "domain_rules.v0.1.1.json"
+RULES_PATH = PROJECT_ROOT / "tests" / "fixtures" / "domain_rules.synthetic.v0.1.json"
 
 
 class QueryBuilderTests(unittest.TestCase):

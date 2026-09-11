@@ -60,13 +60,16 @@ Windows PowerShell 激活环境时使用 `.\.venv\Scripts\Activate.ps1`。未安
 - [Schema Contract v0.1.1](docs/schema_contract_v0.1.1.md)：Gold Query 契约；
 - [DatasetRecord Builder v0.1](docs/dataset_record_builder_v0.1.md)：样本身份与来源一致性；
 - [Taxonomy snapshot 与 reviewed subset](docs/taxonomy_snapshot_and_subset_v0.1.md)：词表快照和审核流程。
+- [Rules identity 与 DatasetRecord provenance](docs/rules_identity_and_record_provenance_v0.1.md)：
+  active rules hash、subset 绑定和样本 lineage。
 
 `docs/schema_contract_v0.1.1_review_bundle.md` 是历史审查记录，不代表当前完整状态。
 
 ## 关键约定
 
 - `configs/data.json` 是作品采集的默认运行配置；`data.yaml` 当前不被读取。
-- 当前 Gold schema 为 `0.1.1`，对应 `configs/domain_rules.v0.1.1.json`。
+- 当前 Gold schema 为 `0.1.1`。新的 DomainRules identity contract 已离线验证；
+  production rules 配置等待真实 executable subset 后再绑定，禁止填入 synthetic hash。
 - HAREM 组允许 `any_of`/`none_of`，禁止 `all_of`，并展开成三个实际 tags。
 - `year` 的 1900–2100、`episodes >= 1` 是有效性边界，不是采样分布。
 - approved soft preference 词表当前为空；未知表达必须明确放入
@@ -77,5 +80,5 @@ Windows PowerShell 激活环境时使用 `.\.venv\Scripts\Activate.ps1`。未安
 
 ## 验证状态
 
-2026-09-10 使用 Python 3 运行全部 42 项单元测试，全部通过，无跳过。测试使用合成数据
+2026-09-11 使用 Python 3 运行全部 48 项单元测试，全部通过，无跳过。测试使用合成数据
 和网络 mock；此次验证没有发起真实 AniList 请求，也不代表人工 taxonomy 审核已经完成。

@@ -19,7 +19,7 @@ from anime_pref.schemas.preference_query import (
     SetConstraintSpec,
 )
 
-RULES_V011_PATH = PROJECT_ROOT / "configs" / "domain_rules.v0.1.1.json"
+RULES_V011_PATH = PROJECT_ROOT / "tests" / "fixtures" / "domain_rules.synthetic.v0.1.json"
 
 
 class SchemaContractV011Tests(unittest.TestCase):
@@ -29,6 +29,10 @@ class SchemaContractV011Tests(unittest.TestCase):
             "sample_id",
             "schema_version",
             "dataset_version",
+            "executable_subset_version",
+            "executable_subset_hash",
+            "rules_version",
+            "rules_hash",
             "semantic_spec",
             "gold_query",
             "constraint_signature",
