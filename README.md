@@ -80,5 +80,5 @@ Windows PowerShell 激活环境时使用 `.\.venv\Scripts\Activate.ps1`。未安
 
 ## 验证状态
 
-2026-09-11 使用 Python 3 运行全部 48 项单元测试，全部通过，无跳过。测试使用合成数据
+2026-09-12 使用 Python 3 运行全部 54 项单元测试，全部通过，无跳过。测试使用合成数据
 和网络 mock；此次验证没有发起真实 AniList 请求，也不代表人工 taxonomy 审核已经完成。

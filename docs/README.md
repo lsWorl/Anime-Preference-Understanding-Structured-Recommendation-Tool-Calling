@@ -24,6 +24,10 @@
   active rules 的 canonical hash、approved subset 绑定和样本 lineage。
 - [Rules identity v0.1 Review Bundle](executable_rules_identity_v0.1_REVIEW.md)：
   当前离线实现、canonical 示例、测试证据与 production deferred 边界。
+- [Semantic Sampler Config v0.1](semantic_sampler_config_v0.1.md)：
+  sampler 配置结构、synthetic fixture 边界和 A 阶段 TODO。
+- [Semantic Sampler Config v0.1 Review Bundle](semantic_sampler_config_v0.1_REVIEW.md)：
+  A 阶段源码契约、离线测试证据和待理论确认边界。
 
 ## 历史材料
 

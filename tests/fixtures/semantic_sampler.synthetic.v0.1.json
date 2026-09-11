@@ -1,0 +1,104 @@
+{
+  "sampler_version": "offline-synthetic-semantic-sampler-v0.1",
+  "seed": 1729,
+  "family_weights": {
+    "single_constraint": 25,
+    "same_field_logic": 20,
+    "cross_field_composition": 20,
+    "normalization": 15,
+    "reference_only": 10,
+    "reference_composition": 10
+  },
+  "constraint_count_weights": {
+    "1": 35,
+    "2": 30,
+    "3": 20,
+    "4": 10,
+    "5_plus": 5
+  },
+  "operator_weights": {
+    "all_of": 45,
+    "any_of": 30,
+    "none_of": 25
+  },
+  "operator_cardinality": {
+    "all_of": {
+      "1": 65,
+      "2": 30,
+      "3": 5
+    },
+    "any_of": {
+      "2": 80,
+      "3": 20
+    },
+    "none_of": {
+      "1": 75,
+      "2": 25
+    }
+  },
+  "genre_sampling": {
+    "minimum_coverage_per_value": 1,
+    "maximum_value_share": 0.25,
+    "default_weight": 1.0,
+    "priority_weights": {
+      "Mystery": 1.1,
+      "Sci-Fi": 1.05
+    }
+  },
+  "tag_sampling": {
+    "minimum_coverage_per_value": 1,
+    "maximum_value_share": 0.4,
+    "default_weight": 1.0,
+    "priority_weights": {},
+    "tier_weights": {
+      "core": 5,
+      "standard": 3,
+      "edge": 1
+    },
+    "value_tiers": {
+      "Female Harem": "core",
+      "Male Harem": "core",
+      "Mixed Gender Harem": "core"
+    }
+  },
+  "numeric_sampling": {
+    "year": {
+      "pattern_weights": {
+        "min_only": 4,
+        "max_only": 3,
+        "bounded_range": 2
+      },
+      "pool_weights": {
+        "common": 6,
+        "catalog_region": 3,
+        "long_tail": 1
+      },
+      "common_values": [2000, 2010, 2020],
+      "catalog_region_values": [1990, 2005, 2015, 2024],
+      "long_tail_values": [1917, 1983, 2037]
+    },
+    "episodes": {
+      "pattern_weights": {
+        "min_only": 3,
+        "max_only": 5,
+        "bounded_range": 2
+      },
+      "pool_weights": {
+        "common": 6,
+        "catalog_region": 3,
+        "long_tail": 1
+      },
+      "common_values": [12, 24],
+      "catalog_region_values": [1, 13, 26, 50],
+      "long_tail_values": [7, 39, 110]
+    }
+  },
+  "combination_policy_version": "offline-synthetic-combination-policy-v0.1",
+  "audit_tolerances": {
+    "family_max_absolute_error": 0.08,
+    "constraint_count_max_absolute_error": 0.08,
+    "operator_max_absolute_error": 0.1,
+    "minimum_value_coverage_ratio": 0.9,
+    "maximum_signature_share": 0.35
+  }
+}
