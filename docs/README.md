@@ -20,6 +20,8 @@
   确定性 sample ID 和记录一致性。
 - [Taxonomy snapshot 与 reviewed subset](taxonomy_snapshot_and_subset_v0.1.md)：
   外部词表快照、人工审核、内容哈希和 executable vocabulary。
+- [Rules identity 与 DatasetRecord provenance](rules_identity_and_record_provenance_v0.1.md)：
+  active rules 的 canonical hash、approved subset 绑定和样本 lineage。
 
 ## 历史材料
 

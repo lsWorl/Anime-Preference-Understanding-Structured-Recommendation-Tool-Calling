@@ -696,10 +696,12 @@ def validate_domain_rule_tag_targets(
     subset: ExecutableTagSubset,
     rules: "DomainRules",
 ) -> None:
-    """Require every executable tag and tag-group target to exist in the subset."""
-    # - rules.tags 中每个名称必须存在于 subset 且唯一；
-    # - 每个 rules.tag_groups[*].tags 成员也必须存在；
-    # - subset tag name 集合必须与 rules.tags 完全相等，避免两个 executable vocabulary 漂移；
+    """Validate group targets, active tags, and the approved subset hierarchy."""
+    # TODO-41 implementation contract:
+    # - 将当前 exact-equality 改为 rules.tags ⊆ approved subset tag names；
+    # - 每个 rules.tag_groups[*].tags 成员必须先属于 active rules.tags；
+    # - 因而完整关系为 group targets ⊆ rules.tags ⊆ subset tag names；
+    # - subset 中已批准但尚未 active 的额外 tag 合法；
     # - HAREM 不做名称特判，完全遍历配置；失败抛 ValueError。
     executable_subset_to_mapping(subset)
 
@@ -728,14 +730,13 @@ def validate_domain_rule_tag_targets(
 
     subset_tag_names = {tag.tag_name for tag in subset.tags}
 
-    missing_from_subset = sorted(rule_tag_names - subset_tag_names)
-    unexpected_in_subset = sorted(subset_tag_names - rule_tag_names)
+    unapproved_active_tags = sorted(rule_tag_names - subset_tag_names)
 
-    if missing_from_subset or unexpected_in_subset:
+    if unapproved_active_tags:
         raise ValueError(
-            "executable tag vocabulary mismatch; "
-            f"missing_from_subset={missing_from_subset}, "
-            f"unexpected_in_subset={unexpected_in_subset}"
+            "rules.tags contains tags that are not present in "
+            "the approved executable subset: "
+            f"{unapproved_active_tags}"
         )
 
     for group_name, group_rule in tag_groups.items():
@@ -774,10 +775,10 @@ def validate_domain_rule_tag_targets(
                     f"tag group {group_name!r} contains duplicate " f"target {target!r}"
                 )
 
-            if target not in subset_tag_names:
+            if target not in rule_tag_names:
                 raise ValueError(
                     f"tag group {group_name!r} target {target!r} "
-                    "does not exist in the executable subset"
+                    "is not active in rules.tags"
                 )
 
             seen_group_targets.add(target)

@@ -38,7 +38,10 @@ class DomainRules:
     normalized and exposed as immutable tuples, frozensets, and a read-only map.
     """
 
-    # 模型目标的契约版本；与原始作品 manifest 的 schema_version 分别维护。
+    # TODO-42a: 在本模型中加入四个必填 identity 字段：
+    # rules_version、rules_hash、executable_subset_version、executable_subset_hash。
+    # rules_hash 是 canonical rules document 的派生值，不从 JSON 配置直接读取。
+    # 模型目标的契约版本；与 rules/subset/dataset version 分别维护。
     schema_version: str
     genres: frozenset[str]
     tags: frozenset[str]
@@ -56,6 +59,13 @@ class DomainRules:
 # tuple/frozenset/只读 mapping 限制后续修改，避免同一次构建中规则漂移。
 def load_domain_rules(path: Path) -> DomainRules:
     """Load and validate one versioned domain-rules JSON file."""
+    # TODO-42b:
+    # - 新配置必须精确包含 rules_version、schema_version、
+    #   executable_subset_version、executable_subset_hash、taxonomy、tag_groups、numeric_rules；
+    # - rules_hash 不允许出现在输入 JSON；它由 canonical document 计算；
+    # - identity string 非空且无首尾 whitespace，subset hash 为 64 位小写 SHA-256；
+    # - 构造 DomainRules 后计算并写入派生 rules_hash；不要使用 schema_version 代替它；
+    # - production 配置在真实 subset 可用前保持 deferred，不填 synthetic hash。
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:

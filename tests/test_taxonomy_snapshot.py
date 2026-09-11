@@ -338,23 +338,17 @@ class TaxonomySnapshotTests(unittest.TestCase):
             taxonomy_snapshot_sha256(snapshot),
         )
         with tempfile.TemporaryDirectory() as temporary_directory:
-            subset_path = (
-                Path(temporary_directory)
-                / "executable_tags.json"
-            )
+            subset_path = Path(temporary_directory) / "executable_tags.json"
             subset_path.write_text(
                 dumps_executable_tag_subset(subset),
                 encoding="utf-8",
             )
 
-            loaded_subset = load_executable_tag_subset(
-                subset_path
-            )
+            loaded_subset = load_executable_tag_subset(subset_path)
 
             self.assertEqual(loaded_subset, subset)
 
-
-    def test_every_domain_rule_tag_target_must_exist_in_subset(self):
+    def test_active_tag_and_group_target_hierarchy(self):
         snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
         audit = make_audit(taxonomy_snapshot_sha256(snapshot))
         subset = build_executable_tag_subset(
@@ -382,15 +376,14 @@ class TaxonomySnapshotTests(unittest.TestCase):
             tags=(extra_tag,) + subset.tags,
         )
 
-        with self.assertRaises(ValueError):
+        self.assertIsNone(
             validate_domain_rule_tag_targets(
                 subset_with_extra_tag,
                 rules,
             )
-
-        existing_group = next(
-            iter(rules.tag_groups.values())
         )
+
+        existing_group = next(iter(rules.tag_groups.values()))
 
         valid_non_harem_group = replace(
             existing_group,
@@ -414,7 +407,7 @@ class TaxonomySnapshotTests(unittest.TestCase):
 
         invalid_non_harem_group = replace(
             existing_group,
-            tags=("Missing Tag",),
+            tags=("Ensemble Cast",),
             normalization_rule_id="TEST_GROUP_INVALID_V0_1",
         )
         rules_with_invalid_non_harem_group = replace(
@@ -427,7 +420,7 @@ class TaxonomySnapshotTests(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             validate_domain_rule_tag_targets(
-                subset,
+                subset_with_extra_tag,
                 rules_with_invalid_non_harem_group,
             )
 
@@ -454,6 +447,7 @@ class TaxonomySnapshotTests(unittest.TestCase):
             )
             with self.assertRaisesRegex(ValueError, r"missing=.*approved"):
                 load_tag_audit(invalid_path)
+
     def test_executable_subset_bundle_writes_manifest_and_refuses_overwrite(self):
         """The subset bundle must persist its own identity without overwriting."""
         snapshot = build_canonical_taxonomy_snapshot(SOURCE_PAYLOAD)
@@ -475,9 +469,7 @@ class TaxonomySnapshotTests(unittest.TestCase):
                 {"executable_tags.json", "manifest.json"},
             )
 
-            loaded_subset = load_executable_tag_subset(
-                output / "executable_tags.json"
-            )
+            loaded_subset = load_executable_tag_subset(output / "executable_tags.json")
             self.assertEqual(loaded_subset, subset)
 
             manifest_payload = json.loads(
@@ -498,7 +490,6 @@ class TaxonomySnapshotTests(unittest.TestCase):
                     subset,
                     output_dir=output,
                 )
-
 
     def test_subset_hash_is_independent_of_audit_and_alias_input_order(self):
         """Equivalent reviewed content must produce one canonical subset hash."""
@@ -547,7 +538,6 @@ class TaxonomySnapshotTests(unittest.TestCase):
             executable_tag_subset_sha256(first_subset),
             executable_tag_subset_sha256(second_subset),
         )
-
 
     def test_snapshot_hash_tracks_contract_fields_but_ignores_extra_fields(self):
         """Hash changes exactly with fields admitted to the canonical contract."""
@@ -603,9 +593,7 @@ class TaxonomySnapshotTests(unittest.TestCase):
                 changed_source = copy.deepcopy(SOURCE_PAYLOAD)
                 mutate(changed_source)
 
-                changed_snapshot = build_canonical_taxonomy_snapshot(
-                    changed_source
-                )
+                changed_snapshot = build_canonical_taxonomy_snapshot(changed_source)
                 changed_hash = taxonomy_snapshot_sha256(changed_snapshot)
 
                 self.assertNotEqual(changed_hash, baseline_hash)
@@ -647,6 +635,7 @@ class TaxonomySnapshotTests(unittest.TestCase):
                 (first_record, second_record),
                 snapshot,
             )
+
 
 if __name__ == "__main__":
     unittest.main()

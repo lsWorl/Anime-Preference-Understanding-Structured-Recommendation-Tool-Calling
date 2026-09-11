@@ -297,6 +297,9 @@ def make_sample_id(
     prompt_version: str | None = None,
 ) -> str:
     """Create a deterministic ID from one canonical record identity payload."""
+    # TODO-46a: 增加 executable_subset_version/hash、rules_version/hash 四个必填参数，
+    # 严格验证并全部写入 identity_payload。sample_id 仍表示完整 record identity，
+    # 不改成 semantic fingerprint 或 dedup key。
     # - 对标识字段做严格类型/非空/首尾 whitespace 检查；seed 接受 int 但排除 bool；
     # - semantic_spec 转为只含 JSON types 的完整 deterministic mapping；
     # - gold_query 在这里做 structural validation 并 canonicalize；调用方必须已结合 rules
@@ -383,6 +386,9 @@ def build_dataset_record(
     prompt_version: str | None = None,
 ) -> DatasetRecordSpec:
     """Build one canonical record and all derived provenance fields."""
+    # TODO-46b: 增加 executable_subset: ExecutableTagSubset 参数；首先调用
+    # validate_executable_rules_identity(rules, subset)，随后把四个 identity 写入
+    # DatasetRecordSpec 并传给 make_sample_id。不得接受调用者另传 identity 覆盖派生值。
     gold_query = build_query(semantic_spec, rules)
     constraint_signature = build_constraint_signature(gold_query)
     constraint_count = count_hard_semantic_clauses(semantic_spec)
@@ -433,6 +439,8 @@ def validate_dataset_record(
     rules: DomainRules,
 ) -> None:
     """Recompute derived fields and verify record provenance consistency."""
+    # TODO-46c: 增加 executable_subset 参数，先验证实际 rules/subset identity，再逐项比较
+    # record 的四个 identity，并用它们重算 sample_id。任何篡改均报错，不 silent repair。
     # - record/rules 类型错误抛 ValueError；schema_version 必须匹配 rules；
     # - 重新 build_query(record.semantic_spec, rules)，对 gold_query 做 structural/domain 检查；
     # - canonical 语义比较 expected Gold 与 record.gold_query，不依赖 key/list 输入顺序；

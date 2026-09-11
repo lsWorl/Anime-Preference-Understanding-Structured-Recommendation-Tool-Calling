@@ -21,6 +21,9 @@ class DatasetRecordSpec:
     relationships between Gold, signatures, counts, rule IDs, and sample ID.
     """
 
+    # TODO-45: 在 Gold JSON 外加入四个必填 provenance 字段：
+    # executable_subset_version、executable_subset_hash、rules_version、rules_hash。
+    # 不加入 taxonomy snapshot hash；它通过 subset manifest 的 lineage 恢复。
     sample_id: str
     schema_version: str
     dataset_version: str
