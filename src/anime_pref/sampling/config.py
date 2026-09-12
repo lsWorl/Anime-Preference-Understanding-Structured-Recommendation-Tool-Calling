@@ -35,7 +35,8 @@ SEMANTIC_FAMILIES = frozenset(SEMANTIC_FAMILY_ORDER)
 
 HARD_CONSTRAINT_COUNT_BUCKET_ORDER = ("1", "2", "3", "4", "5_plus")
 HARD_CONSTRAINT_COUNT_BUCKETS = frozenset(HARD_CONSTRAINT_COUNT_BUCKET_ORDER)
-SET_OPERATORS = frozenset({"all_of", "any_of", "none_of"})
+SET_OPERATOR_ORDER = ("all_of", "any_of", "none_of")
+SET_OPERATORS = frozenset(SET_OPERATOR_ORDER)
 NUMERIC_RANGE_PATTERNS = frozenset({"min_only", "max_only", "bounded_range"})
 NUMERIC_VALUE_POOLS = frozenset({"common", "catalog_region", "long_tail"})
 TAG_SAMPLING_TIERS = frozenset({"core", "standard", "edge"})
@@ -56,11 +57,17 @@ SAMPLER_CONFIG_KEYS = frozenset(
     }
 )
 
+OPERATOR_CARDINALITY_ORDER = MappingProxyType(
+    {
+        "all_of": (1, 2, 3),
+        "any_of": (2, 3),
+        "none_of": (1, 2),
+    }
+)
 OPERATOR_CARDINALITIES = MappingProxyType(
     {
-        "all_of": frozenset({1, 2, 3}),
-        "any_of": frozenset({2, 3}),
-        "none_of": frozenset({1, 2}),
+        operator: frozenset(cardinalities)
+        for operator, cardinalities in OPERATOR_CARDINALITY_ORDER.items()
     }
 )
 

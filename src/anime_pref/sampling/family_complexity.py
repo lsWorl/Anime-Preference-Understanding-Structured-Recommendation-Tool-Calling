@@ -36,6 +36,30 @@ FAMILY_COMPLEXITY_COMPATIBILITY = MappingProxyType(
 ChoiceT = TypeVar("ChoiceT")
 
 
+def validate_family_complexity_plan(plan: FamilyComplexityPlan) -> None:
+    """Validate a planner result or an externally constructed phase-B plan.
+
+    The type aliases on the dataclass are static hints only. This explicit
+    validator protects later sampling stages from invalid direct construction,
+    including Python's surprising ``False == 0`` behavior.
+    """
+    if not isinstance(plan, FamilyComplexityPlan):
+        raise ValueError("plan must be a FamilyComplexityPlan instance")
+
+    family = plan.semantic_family
+    if not isinstance(family, str) or family not in FAMILY_COMPLEXITY_COMPATIBILITY:
+        raise ValueError(f"unknown semantic family: {family!r}")
+
+    bucket = plan.complexity_bucket
+    if isinstance(bucket, bool) or not isinstance(bucket, (int, str)):
+        raise ValueError(f"invalid complexity bucket: {bucket!r}")
+
+    if bucket not in FAMILY_COMPLEXITY_COMPATIBILITY[family]:
+        raise ValueError(
+            f"complexity bucket {bucket!r} is incompatible with family {family!r}"
+        )
+
+
 def normalize_relative_weights(
     weights: Mapping[ChoiceT, float],
 ) -> dict[ChoiceT, float]:
@@ -258,7 +282,9 @@ def sample_family_complexity_plan(
         rng,
     )
 
-    return FamilyComplexityPlan(
+    plan = FamilyComplexityPlan(
         semantic_family=family,
         complexity_bucket=complexity_bucket,
     )
+    validate_family_complexity_plan(plan)
+    return plan
