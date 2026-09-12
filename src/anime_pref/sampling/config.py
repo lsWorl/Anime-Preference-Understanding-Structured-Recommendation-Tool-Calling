@@ -23,17 +23,18 @@ from anime_pref.schemas.sampler_config import (
 )
 from anime_pref.schemas.taxonomy import ExecutableTagSubset
 
-SEMANTIC_FAMILIES = frozenset(
-    {
-        "single_constraint",
-        "same_field_logic",
-        "cross_field_composition",
-        "normalization",
-        "reference_only",
-        "reference_composition",
-    }
+SEMANTIC_FAMILY_ORDER = (
+    "single_constraint",
+    "same_field_logic",
+    "cross_field_composition",
+    "normalization",
+    "reference_only",
+    "reference_composition",
 )
-HARD_CONSTRAINT_COUNT_BUCKETS = frozenset({"1", "2", "3", "4", "5_plus"})
+SEMANTIC_FAMILIES = frozenset(SEMANTIC_FAMILY_ORDER)
+
+HARD_CONSTRAINT_COUNT_BUCKET_ORDER = ("1", "2", "3", "4", "5_plus")
+HARD_CONSTRAINT_COUNT_BUCKETS = frozenset(HARD_CONSTRAINT_COUNT_BUCKET_ORDER)
 SET_OPERATORS = frozenset({"all_of", "any_of", "none_of"})
 NUMERIC_RANGE_PATTERNS = frozenset({"min_only", "max_only", "bounded_range"})
 NUMERIC_VALUE_POOLS = frozenset({"common", "catalog_region", "long_tail"})
