@@ -100,12 +100,16 @@ class EligibleUniverseAndWeightsTests(CategoricalValueTestCase):
             {tag.tag_name for tag in self.subset.tags},
         )
 
-    def test_unreviewed_tag_cannot_enter_candidate_universe(self):
-        invalid_rules = self.rules_with(tags=(*self.rules.tags, "Unreviewed Tag"))
-        with self.assertRaises(ValueError):
-            effective_value_weights(
-                "tags", self.config, invalid_rules, self.subset
-            )
+    def test_unreviewed_or_rejected_tag_cannot_enter_candidate_universe(self):
+        # Neither kind of tag can exist in ExecutableTagSubset. Asking active
+        # DomainRules to expose either name must therefore fail identity binding.
+        for tag_name in ("Unreviewed Tag", "Rejected Tag"):
+            with self.subTest(tag_name=tag_name):
+                invalid_rules = self.rules_with(tags=(*self.rules.tags, tag_name))
+                with self.assertRaises(ValueError):
+                    effective_value_weights(
+                        "tags", self.config, invalid_rules, self.subset
+                    )
 
     def test_untiered_active_tag_uses_default_without_standard_label(self):
         active = (*self.rules.tags, "Ensemble Cast")

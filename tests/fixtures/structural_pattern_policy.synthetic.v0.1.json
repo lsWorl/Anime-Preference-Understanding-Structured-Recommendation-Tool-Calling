@@ -1,0 +1,138 @@
+{
+  "policy_version": "offline-synthetic-structural-signature-policy-v0.1",
+  "sampler_version": "offline-synthetic-semantic-sampler-v0.1",
+  "signature_entries": [
+    {
+      "semantic_family": "single_constraint",
+      "complexity_bucket": "1",
+      "atom_kinds": ["genre_set"],
+      "weight": 3
+    },
+    {
+      "semantic_family": "single_constraint",
+      "complexity_bucket": "1",
+      "atom_kinds": ["year_range"],
+      "weight": 2
+    },
+    {
+      "semantic_family": "single_constraint",
+      "complexity_bucket": "1",
+      "atom_kinds": ["format_any"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "same_field_logic",
+      "complexity_bucket": "1",
+      "atom_kinds": ["genre_set"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "same_field_logic",
+      "complexity_bucket": "2",
+      "atom_kinds": ["genre_set"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "same_field_logic",
+      "complexity_bucket": "3",
+      "atom_kinds": ["genre_set"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "cross_field_composition",
+      "complexity_bucket": "2",
+      "atom_kinds": ["genre_set", "tag_set"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "cross_field_composition",
+      "complexity_bucket": "2",
+      "atom_kinds": ["genre_set", "year_range"],
+      "weight": 4
+    },
+    {
+      "semantic_family": "cross_field_composition",
+      "complexity_bucket": "3",
+      "atom_kinds": ["genre_set", "year_range"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "cross_field_composition",
+      "complexity_bucket": "4",
+      "atom_kinds": ["genre_set", "year_range"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "cross_field_composition",
+      "complexity_bucket": "5_plus",
+      "atom_kinds": ["genre_set", "tag_set"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "normalization",
+      "complexity_bucket": "1",
+      "atom_kinds": ["tag_group_none"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "normalization",
+      "complexity_bucket": "2",
+      "atom_kinds": ["genre_set", "tag_group_none"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "normalization",
+      "complexity_bucket": "3",
+      "atom_kinds": ["genre_set", "tag_group_none"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "normalization",
+      "complexity_bucket": "4",
+      "atom_kinds": ["genre_set", "tag_group_none"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "normalization",
+      "complexity_bucket": "5_plus",
+      "atom_kinds": ["genre_set", "tag_set", "tag_group_none"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "reference_only",
+      "complexity_bucket": 0,
+      "atom_kinds": ["reference"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "reference_composition",
+      "complexity_bucket": "1",
+      "atom_kinds": ["genre_set", "reference"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "reference_composition",
+      "complexity_bucket": "2",
+      "atom_kinds": ["genre_set", "reference"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "reference_composition",
+      "complexity_bucket": "3",
+      "atom_kinds": ["genre_set", "reference"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "reference_composition",
+      "complexity_bucket": "4",
+      "atom_kinds": ["genre_set", "year_range", "reference"],
+      "weight": 1
+    },
+    {
+      "semantic_family": "reference_composition",
+      "complexity_bucket": "5_plus",
+      "atom_kinds": ["genre_set", "tag_set", "reference"],
+      "weight": 1
+    }
+  ]
+}

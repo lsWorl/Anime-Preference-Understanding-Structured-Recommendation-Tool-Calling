@@ -37,8 +37,10 @@ HARD_CONSTRAINT_COUNT_BUCKET_ORDER = ("1", "2", "3", "4", "5_plus")
 HARD_CONSTRAINT_COUNT_BUCKETS = frozenset(HARD_CONSTRAINT_COUNT_BUCKET_ORDER)
 SET_OPERATOR_ORDER = ("all_of", "any_of", "none_of")
 SET_OPERATORS = frozenset(SET_OPERATOR_ORDER)
-NUMERIC_RANGE_PATTERNS = frozenset({"min_only", "max_only", "bounded_range"})
-NUMERIC_VALUE_POOLS = frozenset({"common", "catalog_region", "long_tail"})
+NUMERIC_RANGE_PATTERN_ORDER = ("min_only", "max_only", "bounded_range")
+NUMERIC_RANGE_PATTERNS = frozenset(NUMERIC_RANGE_PATTERN_ORDER)
+NUMERIC_VALUE_POOL_ORDER = ("common", "catalog_region", "long_tail")
+NUMERIC_VALUE_POOLS = frozenset(NUMERIC_VALUE_POOL_ORDER)
 TAG_SAMPLING_TIERS = frozenset({"core", "standard", "edge"})
 
 SAMPLER_CONFIG_KEYS = frozenset(
