@@ -1,0 +1,18 @@
+{
+  "e0_version": "e0-baseline-v0.1",
+  "model_id": "Qwen/Qwen3-4B",
+  "tokenizer_id": "Qwen/Qwen3-4B",
+  "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "prompt_version": "e0-json-extraction-v0.2",
+  "prompt_path": "configs/e0_system_prompt.v0.2.txt",
+  "serialization_identity": "qwen3-official-chat-template-nonthinking-v1",
+  "enable_thinking": false,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "do_sample": false,
+  "num_beams": 1,
+  "max_new_tokens": 512,
+  "batch_size": 2,
+  "local_files_only": true,
+  "prompt_frozen": true
+}

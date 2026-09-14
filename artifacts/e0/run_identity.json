@@ -1,0 +1,23 @@
+{
+  "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "configured_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "device_name": "NVIDIA GeForce RTX 5070",
+  "e0_version": "e0-baseline-v0.1",
+  "generation_config": {
+    "device": "cuda",
+    "do_sample": false,
+    "dtype": "bfloat16",
+    "enable_thinking": false,
+    "max_new_tokens": 512,
+    "num_beams": 1
+  },
+  "model_id": "Qwen/Qwen3-4B",
+  "prompt_frozen": true,
+  "prompt_version": "e0-json-extraction-v0.2",
+  "resolved_model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "serialization_identity": "qwen3-official-chat-template-nonthinking-v1",
+  "system_prompt_sha256": "80372e73bf41bf7529374c15503e83637ad6e96985cd2220d37d35f16d310b1c",
+  "tokenizer_id": "Qwen/Qwen3-4B",
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "4.57.6"
+}
