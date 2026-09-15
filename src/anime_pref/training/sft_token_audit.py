@@ -62,5 +62,89 @@ def audit_sft_token_lengths(
         raise ValueError("validation_records must be a list")
 
     # 当前是冻结的 SFT Pilot v0.1，数量漂移必须立即报错。
-    
-    
+    if len(train_records) != 180:
+        raise ValueError(
+            f"train_records must contain 180 records, "
+            f"actual={len(train_records)}"
+        )
+
+    if len(validation_records) != 30:
+        raise ValueError(
+            f"validation_records must contain 30 records, "
+            f"actual={len(validation_records)}"
+        )
+
+    # 分别遍历 train_records 和 validation_records。
+    #
+    # 对每条记录调用：
+    # tokenize_sft_record(record, system_prompt, tokenizer)
+    #
+    # 取：
+    # len(encoded["input_ids"])
+    #
+    # 最终得到：
+    # train_lengths: list[int]
+    # validation_lengths: list[int]
+    train_lengths: list[int] = []
+    validation_lengths: list[int] = []
+    for record in train_records:
+        encoded = tokenize_sft_record(record, system_prompt, tokenizer)
+        train_lengths.append(len(encoded['input_ids']))
+
+    for record in validation_records:
+        encoded = tokenize_sft_record(record, system_prompt, tokenizer)
+        validation_lengths.append(len(encoded['input_ids']))
+
+    _validate_lengths(train_lengths, "train_lengths")
+    _validate_lengths(
+        validation_lengths,
+        "validation_lengths",
+    )
+
+    # 防止遍历过程中丢失或额外产生记录。
+    if len(train_lengths) != len(train_records):
+        raise ValueError(
+            "train token length count does not match record count"
+        )
+
+    if len(validation_lengths) != len(validation_records):
+        raise ValueError(
+            "validation token length count does not match record count"
+        )
+
+    # 返回值结构必须是：
+    #
+    # {
+    #     "train": {
+    #         "count": 180,
+    #         "min": ...,
+    #         "median": ...,
+    #         "p95": ...,
+    #         "max": ...,
+    #     },
+    #     "validation": {
+    #         "count": 30,
+    #         "max": ...,
+    #     },
+    #     "overall_max": ...,
+    # }
+    #
+    # median 使用 statistics.median。
+    # p95 使用上面的 nearest_rank_percentile(..., 0.95)。
+    # overall_max 是 train max 和 validation max 中较大的一个。
+    max_tratrain_lengths = max(train_lengths)
+    max_validation_lengths = max(validation_lengths)
+    return {
+        "train":{
+            "count": 180,
+            "min":min(train_lengths),
+            "median": median(train_lengths),
+            "p95":nearest_rank_percentile(train_lengths,0.95),
+            "max":max_tratrain_lengths
+        },
+        "validation":{
+            "count": 30,
+            "max":max_validation_lengths
+        },
+        "overall_max": max(max_tratrain_lengths,max_validation_lengths)
+    }
