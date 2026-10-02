@@ -19,6 +19,7 @@ def _validate_lengths(
         if isinstance(length, bool) or not isinstance(length, int) or length < 1:
             raise ValueError(f"{name}[{index}] must be a positive integer")
 
+
 def nearest_rank_percentile(
     lengths: list[int],
     probability: float,
@@ -48,6 +49,7 @@ def nearest_rank_percentile(
 
     return new_lengths[index]
 
+
 def audit_sft_token_lengths(
     train_records: list[dict[str, Any]],
     validation_records: list[dict[str, Any]],
@@ -64,8 +66,7 @@ def audit_sft_token_lengths(
     # 当前是冻结的 SFT Pilot v0.1，数量漂移必须立即报错。
     if len(train_records) != 180:
         raise ValueError(
-            f"train_records must contain 180 records, "
-            f"actual={len(train_records)}"
+            f"train_records must contain 180 records, " f"actual={len(train_records)}"
         )
 
     if len(validation_records) != 30:
@@ -89,11 +90,11 @@ def audit_sft_token_lengths(
     validation_lengths: list[int] = []
     for record in train_records:
         encoded = tokenize_sft_record(record, system_prompt, tokenizer)
-        train_lengths.append(len(encoded['input_ids']))
+        train_lengths.append(len(encoded["input_ids"]))
 
     for record in validation_records:
         encoded = tokenize_sft_record(record, system_prompt, tokenizer)
-        validation_lengths.append(len(encoded['input_ids']))
+        validation_lengths.append(len(encoded["input_ids"]))
 
     _validate_lengths(train_lengths, "train_lengths")
     _validate_lengths(
@@ -103,14 +104,10 @@ def audit_sft_token_lengths(
 
     # 防止遍历过程中丢失或额外产生记录。
     if len(train_lengths) != len(train_records):
-        raise ValueError(
-            "train token length count does not match record count"
-        )
+        raise ValueError("train token length count does not match record count")
 
     if len(validation_lengths) != len(validation_records):
-        raise ValueError(
-            "validation token length count does not match record count"
-        )
+        raise ValueError("validation token length count does not match record count")
 
     # 返回值结构必须是：
     #
@@ -132,19 +129,16 @@ def audit_sft_token_lengths(
     # median 使用 statistics.median。
     # p95 使用上面的 nearest_rank_percentile(..., 0.95)。
     # overall_max 是 train max 和 validation max 中较大的一个。
-    max_tratrain_lengths = max(train_lengths)
+    max_train_lengths = max(train_lengths)
     max_validation_lengths = max(validation_lengths)
     return {
-        "train":{
-            "count": 180,
-            "min":min(train_lengths),
+        "train": {
+            "count": len(train_lengths),
+            "min": min(train_lengths),
             "median": median(train_lengths),
-            "p95":nearest_rank_percentile(train_lengths,0.95),
-            "max":max_tratrain_lengths
+            "p95": nearest_rank_percentile(train_lengths, 0.95),
+            "max": max_train_lengths,
         },
-        "validation":{
-            "count": 30,
-            "max":max_validation_lengths
-        },
-        "overall_max": max(max_tratrain_lengths,max_validation_lengths)
+        "validation": {"count": len(validation_lengths), "max": max_validation_lengths},
+        "overall_max": max(max_train_lengths, max_validation_lengths),
     }

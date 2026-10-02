@@ -1,0 +1,72 @@
+{
+  "s1_version": "s1-qlora-pilot-v0.1",
+  "model_id": "Qwen/Qwen3-4B",
+  "tokenizer_id": "Qwen/Qwen3-4B",
+  "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "local_files_only": true,
+
+  "dataset_version": "anime-pref-pilot-v0.1",
+  "train_path": "data/pilot/train.v0.1.jsonl",
+  "validation_path": "data/pilot/validation.v0.1.jsonl",
+  "train_expected_count": 180,
+  "validation_expected_count": 30,
+
+  "prompt_version": "e0-json-extraction-v0.2",
+  "prompt_path": "configs/e0_system_prompt.v0.2.txt",
+  "serialization_identity": "qwen3-official-chat-template-nonthinking-v1",
+  "enable_thinking": false,
+  "max_seq_length": 768,
+
+  "load_in_4bit": true,
+  "bnb_4bit_quant_type": "nf4",
+  "bnb_4bit_use_double_quant": true,
+  "bnb_4bit_compute_dtype": "bfloat16",
+
+  "lora_target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "lora_bias": "none",
+  "lora_task_type": "CAUSAL_LM",
+
+  "optimizer": "paged_adamw_8bit",
+  "learning_rate": 0.0002,
+  "lr_scheduler_type": "linear",
+  "warmup_ratio": 0.1,
+  "weight_decay": 0.0,
+  "max_grad_norm": 1.0,
+  "num_train_epochs": 3,
+
+  "per_device_train_batch_size": 1,
+  "per_device_eval_batch_size": 1,
+  "gradient_accumulation_steps": 8,
+  "gradient_checkpointing": true,
+
+  "bf16": true,
+  "fp16": false,
+  "tf32": true,
+  "logging_steps": 5,
+  "eval_strategy": "epoch",
+  "save_strategy": "epoch",
+  "save_total_limit": 2,
+  "load_best_model_at_end": true,
+  "metric_for_best_model": "eval_loss",
+  "greater_is_better": false,
+  "dataloader_num_workers": 0,
+  "report_to": "none",
+
+  "seed": 42,
+  "data_seed": 42,
+
+  "trainer_output_dir": "artifacts/s1/trainer",
+  "adapter_output_dir": "artifacts/s1/adapter",
+  "run_identity_path": "artifacts/s1/run_identity.json"
+}
