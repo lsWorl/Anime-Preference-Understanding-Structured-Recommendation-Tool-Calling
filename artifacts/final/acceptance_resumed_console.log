@@ -1,0 +1,360 @@
+RUN check_final_adapter.py
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 41.06it/s]
+W1005 09:56:59.005000 35624 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+{
+  "saved_adapter_new_process": true,
+  "deterministic_repeat": true,
+  "is_loaded_in_4bit": false,
+  "all_parameters_frozen": true,
+  "sample_id": "sample_2113c1bedbc341b1fb9c4f1caa61dee02a782d91ba6a1eca78fcca03a41648c3",
+  "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[\"Psychological\",\"Sci-Fi\"],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":12},\"formats\":[\"OVA\",\"TV_SHORT\"],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}",
+  "json_valid": true,
+  "schema_valid": true,
+  "domain_valid": true,
+  "exact_match": true,
+  "identity": {
+    "torch_version": "2.11.0+cu130",
+    "transformers_version": "4.57.6",
+    "device_name": "NVIDIA GeForce RTX 5070",
+    "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "system_prompt_sha256": "f31a8b6aea25af0a8e1861c0cbf41edc1851749eef720d674888a36e3a393c42",
+    "model_variant": "final",
+    "release_unused_cuda_cache_between_calls": true,
+    "adapter_weights_sha256": "113d3e479b38309996970c6d36fe1f5c64480e09a6392dd1962dba27bd61f85d",
+    "training_system_prompt_sha256": "f31a8b6aea25af0a8e1861c0cbf41edc1851749eef720d674888a36e3a393c42"
+  }
+}
+RUN run_demo_cases.py
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 53.67it/s]
+W1005 09:57:33.164000 33144 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+想看2018年及以后的悬疑动画，最多24集。 ok recommendations= 5
+悬疑或者科幻都可以，不要后宫。 ok recommendations= 5
+想找类似《Steins;Gate》的作品。 ok recommendations= 5
+想看同时有科幻和悬疑题材的TV动画。 ok recommendations= 5
+想看已经完结、有异世界标签的动画。 ok recommendations= 5
+不要恋爱题材。 ok recommendations= 5
+2010年及以前的科幻作品。 ok recommendations= 5
+最多12集的作品。 ok recommendations= 5
+想找带时间循环标签的作品。 ok recommendations= 5
+2015年及以后、最多24集、悬疑或者科幻、不要后宫。 ok recommendations= 5
+Demos with recommendations: 10 /10
+RUN recommend.py ���ɻ��߿ƻö����ԣ���Ҫ�󹬡� --top-k 3
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 49.10it/s]
+W1005 09:59:06.481000 25140 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+{
+  "status": "ok",
+  "parsed_query": {
+    "hard_constraints": {
+      "genres": {
+        "all_of": [],
+        "any_of": [
+          "Mystery",
+          "Sci-Fi"
+        ],
+        "none_of": []
+      },
+      "tags": {
+        "all_of": [],
+        "any_of": [],
+        "none_of": [
+          "Female Harem",
+          "Male Harem",
+          "Mixed Gender Harem"
+        ]
+      },
+      "year": {
+        "min": null,
+        "max": null
+      },
+      "episodes": {
+        "min": null,
+        "max": null
+      },
+      "formats": [],
+      "status": []
+    },
+    "reference_titles": [],
+    "soft_preferences": [],
+    "unresolved_preferences": []
+  },
+  "candidate_count": 392,
+  "recommendations": [
+    {
+      "id": 30,
+      "url": "https://anilist.co/anime/30",
+      "title": "Neon Genesis Evangelion",
+      "titles": {
+        "english": "Neon Genesis Evangelion",
+        "native": "新世紀エヴァンゲリオン",
+        "romaji": "Shin Seiki Evangelion"
+      },
+      "year": 1995,
+      "format": "TV",
+      "status": "FINISHED",
+      "episodes": 26,
+      "genres": [
+        "Action",
+        "Drama",
+        "Mecha",
+        "Mystery",
+        "Psychological",
+        "Sci-Fi"
+      ],
+      "tags": [
+        "Aliens",
+        "Coming of Age",
+        "Dystopian",
+        "Espionage",
+        "Male Protagonist",
+        "Military",
+        "Mythology",
+        "Philosophy",
+        "Politics",
+        "Post-Apocalyptic"
+      ],
+      "score": 0.93265141,
+      "score_components": {
+        "genre_overlap": 0.4,
+        "tag_overlap": 0.0,
+        "reference_similarity": 0,
+        "popularity": 0.28365140779243864,
+        "average_score": 0.249
+      }
+    },
+    {
+      "id": 97986,
+      "url": "https://anilist.co/anime/97986",
+      "title": "Made in Abyss",
+      "titles": {
+        "english": "Made in Abyss",
+        "native": "メイドインアビス",
+        "romaji": "Made in Abyss"
+      },
+      "year": 2017,
+      "format": "TV",
+      "status": "FINISHED",
+      "episodes": 13,
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "Horror",
+        "Mystery",
+        "Sci-Fi"
+      ],
+      "tags": [
+        "Dungeon",
+        "Female Protagonist",
+        "Food",
+        "Male Protagonist",
+        "Philosophy",
+        "Robots",
+        "Steampunk",
+        "Survival",
+        "Travel"
+      ],
+      "score": 0.93131282,
+      "score_components": {
+        "genre_overlap": 0.4,
+        "tag_overlap": 0.0,
+        "reference_similarity": 0,
+        "popularity": 0.2793128230795825,
+        "average_score": 0.252
+      }
+    },
+    {
+      "id": 7311,
+      "url": "https://anilist.co/anime/7311",
+      "title": "The Disappearance of Haruhi Suzumiya",
+      "titles": {
+        "english": "The Disappearance of Haruhi Suzumiya",
+        "native": "涼宮ハルヒの消失",
+        "romaji": "Suzumiya Haruhi no Shoushitsu"
+      },
+      "year": 2010,
+      "format": "MOVIE",
+      "status": "FINISHED",
+      "episodes": 1,
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi",
+        "Supernatural"
+      ],
+      "tags": [
+        "Aliens",
+        "Coming of Age",
+        "Male Protagonist",
+        "Philosophy",
+        "School",
+        "School Club",
+        "Urban Fantasy"
+      ],
+      "score": 0.91555137,
+      "score_components": {
+        "genre_overlap": 0.4,
+        "tag_overlap": 0.0,
+        "reference_similarity": 0,
+        "popularity": 0.25755137025443914,
+        "average_score": 0.258
+      }
+    }
+  ],
+  "warnings": [],
+  "message": "",
+  "user_text": "悬疑或者科幻都可以，不要后宫。",
+  "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[\"Mystery\",\"Sci-Fi\"],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[\"Female Harem\",\"Male Harem\",\"Mixed Gender Harem\"]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+}
+RUN run_final_evaluation.py --model final
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 49.96it/s]
+W1005 09:59:32.213000 3960 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+final validation 0 / 150
+final validation 20 / 150
+final validation 40 / 150
+final validation 60 / 150
+final validation 80 / 150
+final validation 100 / 150
+final validation 120 / 150
+final validation 140 / 150
+final validation exact: 150 / 150
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 34.79it/s]
+W1005 10:21:42.940000 5384 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+final test 0 / 150
+final test 20 / 150
+final test 40 / 150
+final test 60 / 150
+final test 80 / 150
+final test 100 / 150
+final test 120 / 150
+final test 140 / 150
+final test exact: 149 / 150
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 19.55it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 28.61it/s]
+W1005 10:57:07.572000 28220 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+final challenge 0 / 40
+final challenge 20 / 40
+final challenge exact: 27 / 40
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 19.07it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 28.05it/s]
+W1005 11:06:22.534000 25072 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+final legacy_challenge 0 / 12
+final legacy_challenge exact: 12 / 12
+RUN run_final_evaluation.py --model base
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 34.17it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+base validation 0 / 150
+base validation 20 / 150
+base validation 40 / 150
+base validation 60 / 150
+base validation 80 / 150
+base validation 100 / 150
+base validation 120 / 150
+base validation 140 / 150
+base validation exact: 77 / 150
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 19.22it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 28.59it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+base test 0 / 150
+base test 20 / 150
+base test 40 / 150
+base test 60 / 150
+base test 80 / 150
+base test 100 / 150
+base test 120 / 150
+base test 140 / 150
+base test exact: 81 / 150
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 10.22it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 15.20it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+base challenge 0 / 40
+base challenge 20 / 40
+base challenge exact: 17 / 40
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 11.45it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 17.10it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+base legacy_challenge 0 / 12
+base legacy_challenge exact: 8 / 12
+RUN run_final_evaluation.py --model s1
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 11.41it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 17.02it/s]
+W1005 11:36:27.741000 22912 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+s1 validation 0 / 150
+s1 validation 20 / 150
+s1 validation 40 / 150
+s1 validation 60 / 150
+s1 validation 80 / 150
+s1 validation 100 / 150
+s1 validation 120 / 150
+s1 validation 140 / 150
+s1 validation exact: 123 / 150
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 11.85it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 17.69it/s]
+W1005 11:52:32.989000 20280 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+s1 test 0 / 150
+s1 test 20 / 150
+s1 test 40 / 150
+s1 test 60 / 150
+s1 test 80 / 150
+s1 test 100 / 150
+s1 test 120 / 150
+s1 test 140 / 150
+s1 test exact: 129 / 150
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 13.01it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 19.40it/s]
+W1005 12:08:49.635000 31252 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+s1 challenge 0 / 40
+s1 challenge 20 / 40
+s1 challenge exact: 26 / 40
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  67%|��������������   | 2/3 [00:00<00:00, 15.67it/s]
+Loading checkpoint shards: 100%|��������������������| 3/3 [00:00<00:00, 23.25it/s]
+W1005 12:16:02.168000 13456 Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+s1 legacy_challenge 0 / 12
+s1 legacy_challenge exact: 10 / 12
+RUN verify_final_data.py
+{"status": "PASS", "validated_record_count": 1500, "splits": {"train": 1200, "validation": 150, "test": 150}, "authored_challenge_verified_count": 40, "rules_hash": "07052a4c3ea0cb9c7f0538386f2ad5a135fa0f8545acd3ef402f505be4dd3828", "subset_hash": "2b6b787f9730a30d7d4e39c1c912e12ee97a89292edcc4ee95c9368eedaa7131", "validation": "Existing DatasetRecord validator, applied to saved JSONL; no silent repair."}
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+RUN report_final_project.py
+Review: D:\Study\anime-preference-sft\review_bundle\final_project\REVIEW.md portable: D:\Study\anime-preference-sft\review_bundle\final_project_review.zip
+FINAL ACCEPTANCE PIPELINE FINISHED; inspect review status and real metrics.

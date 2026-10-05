@@ -1,0 +1,120 @@
+{
+  "s1_version": "final-qlora-v0.2",
+  "base_model_id": "Qwen/Qwen3-4B",
+  "tokenizer_id": "Qwen/Qwen3-4B",
+  "resolved_model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "dataset_version": "anime-pref-final-v0.2",
+  "train_sample_ids_sha256": "dc085c1354a5ebf37c25bc28356c3e836115e0eb552ac275f3b03412d2c4acf2",
+  "validation_sample_ids_sha256": "f4d2727cc1aaf76bf622b37e23e2d1efc4ea0bb8f46253c947195765bfbd2839",
+  "system_prompt_sha256": "f31a8b6aea25af0a8e1861c0cbf41edc1851749eef720d674888a36e3a393c42",
+  "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "training_config": {
+    "s1_version": "final-qlora-v0.2",
+    "model_id": "Qwen/Qwen3-4B",
+    "tokenizer_id": "Qwen/Qwen3-4B",
+    "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "local_files_only": true,
+    "dataset_version": "anime-pref-final-v0.2",
+    "train_path": "data/final/train.v0.2.jsonl",
+    "validation_path": "data/final/validation.v0.2.jsonl",
+    "train_expected_count": 1200,
+    "validation_expected_count": 150,
+    "prompt_version": "final-json-extraction-v0.2",
+    "prompt_path": "configs/final_system_prompt.v0.2.txt",
+    "serialization_identity": "qwen3-official-chat-template-nonthinking-v1",
+    "enable_thinking": false,
+    "max_seq_length": 1792,
+    "load_in_4bit": true,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "lora_target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "lora_bias": "none",
+    "lora_task_type": "CAUSAL_LM",
+    "optimizer": "paged_adamw_8bit",
+    "learning_rate": 0.0002,
+    "lr_scheduler_type": "linear",
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "num_train_epochs": 1,
+    "per_device_train_batch_size": 1,
+    "per_device_eval_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "gradient_checkpointing": true,
+    "bf16": true,
+    "fp16": false,
+    "tf32": true,
+    "logging_steps": 5,
+    "eval_strategy": "epoch",
+    "save_strategy": "epoch",
+    "save_total_limit": 2,
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "eval_loss",
+    "greater_is_better": false,
+    "dataloader_num_workers": 0,
+    "report_to": "none",
+    "seed": 42,
+    "data_seed": 42,
+    "trainer_output_dir": "artifacts/final/trainer",
+    "adapter_output_dir": "artifacts/final/adapter",
+    "run_identity_path": "artifacts/final/run_identity.json"
+  },
+  "environment": {
+    "python_version": "3.14.2",
+    "python_executable": "D:\\Study\\anime-preference-sft\\.venv\\Scripts\\python.exe",
+    "package_versions": {
+      "torch": "2.11.0+cu130",
+      "transformers": "4.57.6",
+      "peft": "0.21.2",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2"
+    },
+    "missing_packages": [],
+    "torch_cuda_version": "13.0",
+    "cuda_available": true,
+    "gpu_name": "NVIDIA GeForce RTX 5070",
+    "bf16_supported": true
+  },
+  "token_length_summary": {
+    "train": {
+      "count": 1200,
+      "min": 1642,
+      "median": 1665.0,
+      "p95": 1690,
+      "max": 1708
+    },
+    "validation": {
+      "count": 150,
+      "max": 1729
+    }
+  },
+  "dataset_file_sha256": {
+    "train": "5f0a57c7a828a3e162889319b94bf700126f10d57a4656544a91448c3de5588c",
+    "validation": "7a75e1fb0504304758faff2ea22d7bf39b576ced317d9b9c31f22b49bdf0a436"
+  },
+  "masking_evidence": {
+    "input_shape": [
+      1,
+      1693
+    ],
+    "labels_shape": [
+      1,
+      1693
+    ],
+    "masked_prompt_tokens": 1599,
+    "supervised_tokens": 94,
+    "completion_decoded": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[\"Ecchi\",\"Mecha\"],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":2015,\"max\":null},\"episodes\":{\"min\":null,\"max\":2},\"formats\":[\"ONA\",\"SPECIAL\"],\"status\":[\"CANCELLED\",\"HIATUS\"]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}<|im_end|>\n"
+  }
+}

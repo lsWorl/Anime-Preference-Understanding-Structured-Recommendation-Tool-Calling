@@ -16,3 +16,9 @@ outputs/*
 !data/interim/.gitkeep
 !data/processed/.gitkeep
 !outputs/.gitkeep
+
+# Keep review evidence; model and optimizer binaries stay local.
+*.safetensors
+*.bin
+*.pt
+*.pth

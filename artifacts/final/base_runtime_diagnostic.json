@@ -1,0 +1,23 @@
+{
+  "runtime_identity": {
+    "torch_version": "2.11.0+cu130",
+    "transformers_version": "4.57.6",
+    "device_name": "NVIDIA GeForce RTX 5070",
+    "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "system_prompt_sha256": "f31a8b6aea25af0a8e1861c0cbf41edc1851749eef720d674888a36e3a393c42",
+    "model_variant": "base"
+  },
+  "attention": "sdpa",
+  "allocated_bytes": 8110228992,
+  "reserved_bytes": 9070182400,
+  "cases": [
+    {
+      "user_text": "只要悬疑题材，最多二十四集。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":24},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}\""
+    },
+    {
+      "user_text": "科幻和悬疑必须同时有，格式选TV。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[\"TV\"],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    }
+  ]
+}

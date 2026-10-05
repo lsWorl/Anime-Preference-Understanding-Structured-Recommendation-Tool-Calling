@@ -1,0 +1,31 @@
+{
+  "split": "challenge",
+  "sample_count": 12,
+  "inference_config": {
+    "e0_version": "e0-baseline-v0.1",
+    "model_id": "Qwen/Qwen3-4B",
+    "tokenizer_id": "Qwen/Qwen3-4B",
+    "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "prompt_version": "e0-json-extraction-v0.2",
+    "prompt_path": "configs/e0_system_prompt.v0.2.txt",
+    "serialization_identity": "qwen3-official-chat-template-nonthinking-v1",
+    "enable_thinking": false,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 512,
+    "batch_size": 2,
+    "local_files_only": true,
+    "prompt_frozen": true
+  },
+  "resolved_model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "4.57.6",
+  "device_name": "NVIDIA GeForce RTX 5070",
+  "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "system_prompt_sha256": "80372e73bf41bf7529374c15503e83637ad6e96985cd2220d37d35f16d310b1c",
+  "s1_version": "s1-qlora-pilot-v0.1",
+  "adapter_path": "D:\\Study\\anime-preference-sft\\artifacts\\s1\\adapter",
+  "adapter_weights_sha256": "18ba7e71cb2ba516349a648eddd2d08c6862b07bd0815ac47c9e51f84d9c6081"
+}

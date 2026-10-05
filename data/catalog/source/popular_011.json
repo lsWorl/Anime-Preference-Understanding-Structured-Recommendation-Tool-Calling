@@ -1,0 +1,5766 @@
+{
+  "data": {
+    "Page": {
+      "pageInfo": {
+        "hasNextPage": true
+      },
+      "media": [
+        {
+          "id": 97767,
+          "idMal": 34281,
+          "title": {
+            "romaji": "High School DxD HERO",
+            "english": "High School DxD HERO",
+            "native": "ハイスクールDxD HERO"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2018,
+            "month": 4,
+            "day": 10
+          },
+          "seasonYear": 2018,
+          "genres": [
+            "Action",
+            "Comedy",
+            "Ecchi",
+            "Fantasy",
+            "Romance"
+          ],
+          "tags": [
+            {
+              "name": "Heterosexual",
+              "rank": 97
+            },
+            {
+              "name": "Female Harem",
+              "rank": 93
+            },
+            {
+              "name": "Nudity",
+              "rank": 88
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 86
+            },
+            {
+              "name": "Demons",
+              "rank": 85
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 85
+            },
+            {
+              "name": "Super Power",
+              "rank": 81
+            },
+            {
+              "name": "Dragons",
+              "rank": 80
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 79
+            },
+            {
+              "name": "Found Family",
+              "rank": 79
+            },
+            {
+              "name": "Religion",
+              "rank": 79
+            },
+            {
+              "name": "Youkai",
+              "rank": 73
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 64
+            },
+            {
+              "name": "Nekomimi",
+              "rank": 60
+            },
+            {
+              "name": "Vampire",
+              "rank": 60
+            },
+            {
+              "name": "School",
+              "rank": 58
+            },
+            {
+              "name": "Monster Girl",
+              "rank": 55
+            },
+            {
+              "name": "Kuudere",
+              "rank": 50
+            },
+            {
+              "name": "Tomboy",
+              "rank": 50
+            },
+            {
+              "name": "Death Game",
+              "rank": 40
+            }
+          ],
+          "averageScore": 69,
+          "popularity": 138616,
+          "isAdult": false
+        },
+        {
+          "id": 16067,
+          "idMal": 16067,
+          "title": {
+            "romaji": "Nagi no Asukara",
+            "english": "A Lull in the Sea",
+            "native": "凪のあすから"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 26,
+          "startDate": {
+            "year": 2013,
+            "month": 10,
+            "day": 3
+          },
+          "seasonYear": 2013,
+          "genres": [
+            "Drama",
+            "Fantasy",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Coastal",
+              "rank": 96
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 92
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 90
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 88
+            },
+            {
+              "name": "Time Skip",
+              "rank": 85
+            },
+            {
+              "name": "Unrequited Love",
+              "rank": 79
+            },
+            {
+              "name": "Inseki",
+              "rank": 79
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 77
+            },
+            {
+              "name": "Environmental",
+              "rank": 75
+            },
+            {
+              "name": "Tragedy",
+              "rank": 73
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 73
+            },
+            {
+              "name": "Gods",
+              "rank": 70
+            },
+            {
+              "name": "School",
+              "rank": 70
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 70
+            },
+            {
+              "name": "Age Gap",
+              "rank": 67
+            },
+            {
+              "name": "Amnesia",
+              "rank": 65
+            },
+            {
+              "name": "Fishing",
+              "rank": 63
+            },
+            {
+              "name": "Swimming",
+              "rank": 60
+            },
+            {
+              "name": "Lost Civilization",
+              "rank": 60
+            },
+            {
+              "name": "Primarily Child Cast",
+              "rank": 60
+            },
+            {
+              "name": "Cohabitation",
+              "rank": 60
+            }
+          ],
+          "averageScore": 76,
+          "popularity": 138592,
+          "isAdult": false
+        },
+        {
+          "id": 99420,
+          "idMal": 35838,
+          "title": {
+            "romaji": "Shoujo Shuumatsu Ryokou",
+            "english": "Girls' Last Tour",
+            "native": "少女終末旅行"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2017,
+            "month": 10,
+            "day": 6
+          },
+          "seasonYear": 2017,
+          "genres": [
+            "Adventure",
+            "Sci-Fi",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Post-Apocalyptic",
+              "rank": 98
+            },
+            {
+              "name": "Lost Civilization",
+              "rank": 92
+            },
+            {
+              "name": "Philosophy",
+              "rank": 89
+            },
+            {
+              "name": "Episodic",
+              "rank": 87
+            },
+            {
+              "name": "Iyashikei",
+              "rank": 86
+            },
+            {
+              "name": "Travel",
+              "rank": 86
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 84
+            },
+            {
+              "name": "Environmental",
+              "rank": 83
+            },
+            {
+              "name": "Tragedy",
+              "rank": 83
+            },
+            {
+              "name": "Survival",
+              "rank": 81
+            },
+            {
+              "name": "Urban",
+              "rank": 81
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 78
+            },
+            {
+              "name": "Chibi",
+              "rank": 76
+            },
+            {
+              "name": "Cute Girls Doing Cute Things",
+              "rank": 70
+            },
+            {
+              "name": "Denpa",
+              "rank": 70
+            },
+            {
+              "name": "Military",
+              "rank": 69
+            },
+            {
+              "name": "Seinen",
+              "rank": 64
+            },
+            {
+              "name": "Robots",
+              "rank": 56
+            },
+            {
+              "name": "Tanks",
+              "rank": 54
+            },
+            {
+              "name": "Snowscape",
+              "rank": 51
+            },
+            {
+              "name": "Kuudere",
+              "rank": 50
+            },
+            {
+              "name": "Artificial Intelligence",
+              "rank": 46
+            },
+            {
+              "name": "Aliens",
+              "rank": 43
+            },
+            {
+              "name": "Photography",
+              "rank": 42
+            },
+            {
+              "name": "Guns",
+              "rank": 41
+            },
+            {
+              "name": "CGI",
+              "rank": 40
+            },
+            {
+              "name": "Language Barrier",
+              "rank": 35
+            },
+            {
+              "name": "Aviation",
+              "rank": 30
+            },
+            {
+              "name": "Nudity",
+              "rank": 22
+            },
+            {
+              "name": "Anthropomorphism",
+              "rank": 20
+            },
+            {
+              "name": "Proxy Battle",
+              "rank": 20
+            }
+          ],
+          "averageScore": 82,
+          "popularity": 138513,
+          "isAdult": false
+        },
+        {
+          "id": 2034,
+          "idMal": 2034,
+          "title": {
+            "romaji": "Lovely★Complex",
+            "english": "Lovely Complex",
+            "native": "ラブ★コン"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 24,
+          "startDate": {
+            "year": 2007,
+            "month": 4,
+            "day": 7
+          },
+          "seasonYear": 2007,
+          "genres": [
+            "Comedy",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Female Protagonist",
+              "rank": 95
+            },
+            {
+              "name": "Shoujo",
+              "rank": 92
+            },
+            {
+              "name": "School",
+              "rank": 90
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 87
+            },
+            {
+              "name": "Slapstick",
+              "rank": 84
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 84
+            },
+            {
+              "name": "Tsundere",
+              "rank": 77
+            },
+            {
+              "name": "Tomboy",
+              "rank": 66
+            },
+            {
+              "name": "Basketball",
+              "rank": 46
+            },
+            {
+              "name": "LGBTQ+ Themes",
+              "rank": 43
+            },
+            {
+              "name": "Transgender",
+              "rank": 41
+            },
+            {
+              "name": "Gender Bending",
+              "rank": 36
+            },
+            {
+              "name": "Netorare",
+              "rank": 32
+            },
+            {
+              "name": "Femboy",
+              "rank": 30
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 20
+            }
+          ],
+          "averageScore": 78,
+          "popularity": 138187,
+          "isAdult": false
+        },
+        {
+          "id": 124410,
+          "idMal": 42963,
+          "title": {
+            "romaji": "Kanojo, Okarishimasu 2nd Season",
+            "english": "Rent-a-Girlfriend Season 2",
+            "native": "彼女、お借りします 第2期"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2022,
+            "month": 7,
+            "day": 2
+          },
+          "seasonYear": 2022,
+          "genres": [
+            "Comedy",
+            "Drama",
+            "Romance"
+          ],
+          "tags": [
+            {
+              "name": "Heterosexual",
+              "rank": 91
+            },
+            {
+              "name": "Female Harem",
+              "rank": 88
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 88
+            },
+            {
+              "name": "Unrequited Love",
+              "rank": 79
+            },
+            {
+              "name": "Prostitution",
+              "rank": 79
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 76
+            },
+            {
+              "name": "Surreal Comedy",
+              "rank": 76
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 73
+            },
+            {
+              "name": "Fake Relationship",
+              "rank": 73
+            },
+            {
+              "name": "Kuudere",
+              "rank": 72
+            },
+            {
+              "name": "Tsundere",
+              "rank": 71
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 70
+            },
+            {
+              "name": "Work",
+              "rank": 69
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 68
+            },
+            {
+              "name": "Slapstick",
+              "rank": 65
+            },
+            {
+              "name": "Masturbation",
+              "rank": 64
+            },
+            {
+              "name": "Urban",
+              "rank": 60
+            },
+            {
+              "name": "Shounen",
+              "rank": 57
+            },
+            {
+              "name": "College",
+              "rank": 54
+            },
+            {
+              "name": "Acting",
+              "rank": 52
+            }
+          ],
+          "averageScore": 64,
+          "popularity": 137778,
+          "isAdult": false
+        },
+        {
+          "id": 97907,
+          "idMal": 34497,
+          "title": {
+            "romaji": "Death March Kara Hajimaru Isekai Kyousoukyoku",
+            "english": "Death March to the Parallel World Rhapsody",
+            "native": "デスマーチからはじまる異世界狂想曲"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2018,
+            "month": 1,
+            "day": 11
+          },
+          "seasonYear": 2018,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Isekai",
+              "rank": 97
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 84
+            },
+            {
+              "name": "Video Games",
+              "rank": 81
+            },
+            {
+              "name": "Magic",
+              "rank": 74
+            },
+            {
+              "name": "Female Harem",
+              "rank": 72
+            },
+            {
+              "name": "Slavery",
+              "rank": 71
+            },
+            {
+              "name": "Elf",
+              "rank": 65
+            },
+            {
+              "name": "Demons",
+              "rank": 60
+            },
+            {
+              "name": "Nekomimi",
+              "rank": 55
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 55
+            },
+            {
+              "name": "CGI",
+              "rank": 55
+            }
+          ],
+          "averageScore": 61,
+          "popularity": 137402,
+          "isAdult": false
+        },
+        {
+          "id": 20773,
+          "idMal": 25183,
+          "title": {
+            "romaji": "GANGSTA.",
+            "english": "GANGSTA.",
+            "native": "GANGSTA."
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2015,
+            "month": 7,
+            "day": 2
+          },
+          "seasonYear": 2015,
+          "genres": [
+            "Action",
+            "Drama"
+          ],
+          "tags": [
+            {
+              "name": "Seinen",
+              "rank": 97
+            },
+            {
+              "name": "Crime",
+              "rank": 88
+            },
+            {
+              "name": "Gangs",
+              "rank": 86
+            },
+            {
+              "name": "Drugs",
+              "rank": 82
+            },
+            {
+              "name": "Disability",
+              "rank": 82
+            },
+            {
+              "name": "Foreign",
+              "rank": 80
+            },
+            {
+              "name": "Urban",
+              "rank": 79
+            },
+            {
+              "name": "Swordplay",
+              "rank": 75
+            },
+            {
+              "name": "Gore",
+              "rank": 74
+            },
+            {
+              "name": "Tragedy",
+              "rank": 73
+            },
+            {
+              "name": "Guns",
+              "rank": 70
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 66
+            },
+            {
+              "name": "Espionage",
+              "rank": 66
+            },
+            {
+              "name": "Slavery",
+              "rank": 60
+            },
+            {
+              "name": "Found Family",
+              "rank": 60
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 60
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 60
+            },
+            {
+              "name": "Rape",
+              "rank": 52
+            },
+            {
+              "name": "Nudity",
+              "rank": 51
+            },
+            {
+              "name": "Tanned Skin",
+              "rank": 45
+            },
+            {
+              "name": "Police",
+              "rank": 40
+            },
+            {
+              "name": "Prostitution",
+              "rank": 40
+            }
+          ],
+          "averageScore": 72,
+          "popularity": 137281,
+          "isAdult": false
+        },
+        {
+          "id": 125428,
+          "idMal": 43690,
+          "title": {
+            "romaji": "Tenkuu Shinpan",
+            "english": "High-Rise Invasion",
+            "native": "天空侵犯"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2021,
+            "month": 2,
+            "day": 25
+          },
+          "seasonYear": 2021,
+          "genres": [
+            "Action",
+            "Horror",
+            "Mystery"
+          ],
+          "tags": [
+            {
+              "name": "Survival",
+              "rank": 98
+            },
+            {
+              "name": "Death Game",
+              "rank": 93
+            },
+            {
+              "name": "Battle Royale",
+              "rank": 88
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 85
+            },
+            {
+              "name": "Suicide",
+              "rank": 82
+            },
+            {
+              "name": "Memory Manipulation",
+              "rank": 81
+            },
+            {
+              "name": "Gods",
+              "rank": 80
+            },
+            {
+              "name": "Amnesia",
+              "rank": 80
+            },
+            {
+              "name": "Body Horror",
+              "rank": 79
+            },
+            {
+              "name": "Dystopian",
+              "rank": 79
+            },
+            {
+              "name": "Slapstick",
+              "rank": 79
+            },
+            {
+              "name": "Urban",
+              "rank": 78
+            },
+            {
+              "name": "Guns",
+              "rank": 72
+            },
+            {
+              "name": "Gore",
+              "rank": 68
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 63
+            },
+            {
+              "name": "LGBTQ+ Themes",
+              "rank": 61
+            },
+            {
+              "name": "Shounen",
+              "rank": 54
+            },
+            {
+              "name": "Nudity",
+              "rank": 53
+            },
+            {
+              "name": "Isekai",
+              "rank": 48
+            },
+            {
+              "name": "Swordplay",
+              "rank": 46
+            },
+            {
+              "name": "Dissociative Identities",
+              "rank": 44
+            },
+            {
+              "name": "Unrequited Love",
+              "rank": 30
+            },
+            {
+              "name": "Maids",
+              "rank": 15
+            }
+          ],
+          "averageScore": 66,
+          "popularity": 137250,
+          "isAdult": false
+        },
+        {
+          "id": 132126,
+          "idMal": 48849,
+          "title": {
+            "romaji": "Sonny Boy",
+            "english": "Sonny Boy",
+            "native": "Sonny Boy"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2021,
+            "month": 7,
+            "day": 16
+          },
+          "seasonYear": 2021,
+          "genres": [
+            "Drama",
+            "Mystery",
+            "Psychological",
+            "Sci-Fi",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Alternate Universe",
+              "rank": 98
+            },
+            {
+              "name": "Philosophy",
+              "rank": 95
+            },
+            {
+              "name": "Denpa",
+              "rank": 90
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 85
+            },
+            {
+              "name": "Super Power",
+              "rank": 83
+            },
+            {
+              "name": "Survival",
+              "rank": 82
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 82
+            },
+            {
+              "name": "Isekai",
+              "rank": 77
+            },
+            {
+              "name": "Travel",
+              "rank": 76
+            },
+            {
+              "name": "Meta",
+              "rank": 75
+            },
+            {
+              "name": "Achronological Order",
+              "rank": 73
+            },
+            {
+              "name": "Cosmic Horror",
+              "rank": 71
+            },
+            {
+              "name": "Mixed Media",
+              "rank": 70
+            },
+            {
+              "name": "School",
+              "rank": 69
+            },
+            {
+              "name": "Episodic",
+              "rank": 65
+            },
+            {
+              "name": "Tragedy",
+              "rank": 62
+            },
+            {
+              "name": "Gods",
+              "rank": 54
+            },
+            {
+              "name": "Unrequited Love",
+              "rank": 53
+            },
+            {
+              "name": "Wilderness",
+              "rank": 53
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 48
+            },
+            {
+              "name": "Animals",
+              "rank": 46
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 42
+            },
+            {
+              "name": "Desert",
+              "rank": 42
+            },
+            {
+              "name": "Baseball",
+              "rank": 40
+            },
+            {
+              "name": "Space",
+              "rank": 38
+            },
+            {
+              "name": "Suicide",
+              "rank": 37
+            }
+          ],
+          "averageScore": 78,
+          "popularity": 137100,
+          "isAdult": false
+        },
+        {
+          "id": 99726,
+          "idMal": 36038,
+          "title": {
+            "romaji": "Net-juu no Susume",
+            "english": "Recovery of an MMO Junkie",
+            "native": "ネト充のススメ"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 10,
+          "startDate": {
+            "year": 2017,
+            "month": 10,
+            "day": 6
+          },
+          "seasonYear": 2017,
+          "genres": [
+            "Comedy",
+            "Fantasy",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Video Games",
+              "rank": 97
+            },
+            {
+              "name": "Virtual World",
+              "rank": 92
+            },
+            {
+              "name": "Hikikomori",
+              "rank": 88
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 87
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 86
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 84
+            },
+            {
+              "name": "Otaku Culture",
+              "rank": 80
+            },
+            {
+              "name": "Gender Bending",
+              "rank": 69
+            },
+            {
+              "name": "Josei",
+              "rank": 66
+            },
+            {
+              "name": "Parody",
+              "rank": 58
+            },
+            {
+              "name": "Konbini",
+              "rank": 48
+            },
+            {
+              "name": "Office Lady",
+              "rank": 20
+            },
+            {
+              "name": "Bisexual",
+              "rank": 20
+            }
+          ],
+          "averageScore": 73,
+          "popularity": 136609,
+          "isAdult": false
+        },
+        {
+          "id": 97980,
+          "idMal": 34561,
+          "title": {
+            "romaji": "Re:CREATORS",
+            "english": "Re:CREATORS",
+            "native": "Re:CREATORS"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 22,
+          "startDate": {
+            "year": 2017,
+            "month": 4,
+            "day": 8
+          },
+          "seasonYear": 2017,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mecha",
+            "Thriller"
+          ],
+          "tags": [
+            {
+              "name": "Crossover",
+              "rank": 94
+            },
+            {
+              "name": "Writing",
+              "rank": 93
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 92
+            },
+            {
+              "name": "Meta",
+              "rank": 90
+            },
+            {
+              "name": "Isekai",
+              "rank": 87
+            },
+            {
+              "name": "Otaku Culture",
+              "rank": 86
+            },
+            {
+              "name": "Magic",
+              "rank": 84
+            },
+            {
+              "name": "Drawing",
+              "rank": 83
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 80
+            },
+            {
+              "name": "Tragedy",
+              "rank": 79
+            },
+            {
+              "name": "Reverse Isekai",
+              "rank": 79
+            },
+            {
+              "name": "Super Power",
+              "rank": 76
+            },
+            {
+              "name": "Super Robot",
+              "rank": 70
+            },
+            {
+              "name": "Alternate Universe",
+              "rank": 67
+            },
+            {
+              "name": "Battle Royale",
+              "rank": 65
+            },
+            {
+              "name": "Robots",
+              "rank": 64
+            },
+            {
+              "name": "Suicide",
+              "rank": 60
+            },
+            {
+              "name": "Swordplay",
+              "rank": 59
+            },
+            {
+              "name": "Video Games",
+              "rank": 57
+            },
+            {
+              "name": "Guns",
+              "rank": 44
+            },
+            {
+              "name": "Spearplay",
+              "rank": 40
+            }
+          ],
+          "averageScore": 73,
+          "popularity": 136489,
+          "isAdult": false
+        },
+        {
+          "id": 8525,
+          "idMal": 8525,
+          "title": {
+            "romaji": "Kami nomi zo Shiru Sekai",
+            "english": "The World God Only Knows",
+            "native": "神のみぞ知るセカイ"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2010,
+            "month": 10,
+            "day": 7
+          },
+          "seasonYear": 2010,
+          "genres": [
+            "Comedy",
+            "Romance",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Video Games",
+              "rank": 74
+            },
+            {
+              "name": "Episodic",
+              "rank": 74
+            },
+            {
+              "name": "Meta",
+              "rank": 72
+            },
+            {
+              "name": "Otaku Culture",
+              "rank": 71
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 71
+            },
+            {
+              "name": "Parody",
+              "rank": 71
+            },
+            {
+              "name": "Kuudere",
+              "rank": 70
+            },
+            {
+              "name": "Shounen",
+              "rank": 68
+            },
+            {
+              "name": "School",
+              "rank": 68
+            },
+            {
+              "name": "Ojou-sama",
+              "rank": 66
+            },
+            {
+              "name": "Female Harem",
+              "rank": 66
+            },
+            {
+              "name": "Idol",
+              "rank": 64
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 60
+            },
+            {
+              "name": "Amnesia",
+              "rank": 60
+            },
+            {
+              "name": "Hikikomori",
+              "rank": 60
+            },
+            {
+              "name": "Tsundere",
+              "rank": 60
+            },
+            {
+              "name": "Slapstick",
+              "rank": 60
+            },
+            {
+              "name": "Anti-Hero",
+              "rank": 60
+            },
+            {
+              "name": "Memory Manipulation",
+              "rank": 60
+            },
+            {
+              "name": "Demons",
+              "rank": 58
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 50
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 50
+            },
+            {
+              "name": "Gods",
+              "rank": 45
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 40
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 40
+            },
+            {
+              "name": "Athletics",
+              "rank": 35
+            },
+            {
+              "name": "Butler",
+              "rank": 35
+            },
+            {
+              "name": "Surreal Comedy",
+              "rank": 26
+            },
+            {
+              "name": "Teacher",
+              "rank": 20
+            },
+            {
+              "name": "Nudity",
+              "rank": 15
+            }
+          ],
+          "averageScore": 74,
+          "popularity": 135815,
+          "isAdult": false
+        },
+        {
+          "id": 182896,
+          "idMal": 60098,
+          "title": {
+            "romaji": "Boku no Hero Academia FINAL SEASON",
+            "english": "My Hero Academia FINAL SEASON",
+            "native": "僕のヒーローアカデミア FINAL SEASON"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 11,
+          "startDate": {
+            "year": 2025,
+            "month": 10,
+            "day": 4
+          },
+          "seasonYear": 2025,
+          "genres": [
+            "Action",
+            "Adventure"
+          ],
+          "tags": [
+            {
+              "name": "Superhero",
+              "rank": 94
+            },
+            {
+              "name": "Super Power",
+              "rank": 92
+            },
+            {
+              "name": "Shounen",
+              "rank": 92
+            },
+            {
+              "name": "War",
+              "rank": 91
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 85
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 80
+            },
+            {
+              "name": "Urban",
+              "rank": 79
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 79
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 75
+            },
+            {
+              "name": "Teacher",
+              "rank": 73
+            },
+            {
+              "name": "Age Regression",
+              "rank": 68
+            },
+            {
+              "name": "Rescue",
+              "rank": 64
+            },
+            {
+              "name": "Time Skip",
+              "rank": 60
+            },
+            {
+              "name": "Gore",
+              "rank": 55
+            },
+            {
+              "name": "Ghost",
+              "rank": 55
+            },
+            {
+              "name": "Body Swapping",
+              "rank": 45
+            },
+            {
+              "name": "LGBTQ+ Themes",
+              "rank": 10
+            }
+          ],
+          "averageScore": 87,
+          "popularity": 135778,
+          "isAdult": false
+        },
+        {
+          "id": 11499,
+          "idMal": 11499,
+          "title": {
+            "romaji": "Sankarea",
+            "english": "Sankarea: Undying Love",
+            "native": "さんかれあ"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2012,
+            "month": 4,
+            "day": 6
+          },
+          "seasonYear": 2012,
+          "genres": [
+            "Comedy",
+            "Ecchi",
+            "Horror",
+            "Romance",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Zombie",
+              "rank": 95
+            },
+            {
+              "name": "Monster Girl",
+              "rank": 93
+            },
+            {
+              "name": "Ojou-sama",
+              "rank": 85
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 80
+            },
+            {
+              "name": "Tragedy",
+              "rank": 80
+            },
+            {
+              "name": "Cohabitation",
+              "rank": 79
+            },
+            {
+              "name": "Rural",
+              "rank": 79
+            },
+            {
+              "name": "Interspecies",
+              "rank": 79
+            },
+            {
+              "name": "Shounen",
+              "rank": 72
+            },
+            {
+              "name": "Animals",
+              "rank": 70
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 66
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 65
+            },
+            {
+              "name": "Age Gap",
+              "rank": 60
+            },
+            {
+              "name": "Medicine",
+              "rank": 60
+            },
+            {
+              "name": "Unrequited Love",
+              "rank": 60
+            },
+            {
+              "name": "Incest",
+              "rank": 57
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 50
+            },
+            {
+              "name": "School",
+              "rank": 46
+            },
+            {
+              "name": "Maids",
+              "rank": 45
+            },
+            {
+              "name": "Nudity",
+              "rank": 44
+            },
+            {
+              "name": "Kuudere",
+              "rank": 43
+            },
+            {
+              "name": "Torture",
+              "rank": 40
+            },
+            {
+              "name": "Fencing",
+              "rank": 40
+            }
+          ],
+          "averageScore": 70,
+          "popularity": 135592,
+          "isAdult": false
+        },
+        {
+          "id": 136,
+          "idMal": 136,
+          "title": {
+            "romaji": "HUNTER×HUNTER",
+            "english": "Hunter x Hunter",
+            "native": "HUNTER×HUNTER"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 62,
+          "startDate": {
+            "year": 1999,
+            "month": 10,
+            "day": 16
+          },
+          "seasonYear": 1999,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Shounen",
+              "rank": 95
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 90
+            },
+            {
+              "name": "Super Power",
+              "rank": 80
+            },
+            {
+              "name": "Cultivation",
+              "rank": 80
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 79
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 78
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 70
+            },
+            {
+              "name": "Revenge",
+              "rank": 68
+            },
+            {
+              "name": "Primarily Male Cast",
+              "rank": 65
+            },
+            {
+              "name": "Crime",
+              "rank": 64
+            },
+            {
+              "name": "Assassins",
+              "rank": 55
+            },
+            {
+              "name": "Travel",
+              "rank": 50
+            },
+            {
+              "name": "Kuudere",
+              "rank": 48
+            },
+            {
+              "name": "Food",
+              "rank": 20
+            }
+          ],
+          "averageScore": 83,
+          "popularity": 135485,
+          "isAdult": false
+        },
+        {
+          "id": 162694,
+          "idMal": 54714,
+          "title": {
+            "romaji": "Kimi no Koto ga Dai Dai Dai Dai Daisuki na 100-nin no Kanojo",
+            "english": "The 100 Girlfriends Who Really, Really, Really, Really, REALLY Love You",
+            "native": "君のことが大大大大大好きな100人の彼女"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2023,
+            "month": 10,
+            "day": 8
+          },
+          "seasonYear": 2023,
+          "genres": [
+            "Comedy",
+            "Ecchi",
+            "Romance"
+          ],
+          "tags": [
+            {
+              "name": "Female Harem",
+              "rank": 99
+            },
+            {
+              "name": "Polyamorous",
+              "rank": 99
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 97
+            },
+            {
+              "name": "Surreal Comedy",
+              "rank": 93
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 92
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 92
+            },
+            {
+              "name": "Parody",
+              "rank": 91
+            },
+            {
+              "name": "Meta",
+              "rank": 89
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 89
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 88
+            },
+            {
+              "name": "Tsundere",
+              "rank": 84
+            },
+            {
+              "name": "School",
+              "rank": 84
+            },
+            {
+              "name": "Kuudere",
+              "rank": 84
+            },
+            {
+              "name": "Slapstick",
+              "rank": 80
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 76
+            },
+            {
+              "name": "Age Gap",
+              "rank": 65
+            },
+            {
+              "name": "Gods",
+              "rank": 65
+            },
+            {
+              "name": "Age Regression",
+              "rank": 64
+            },
+            {
+              "name": "Alchemy",
+              "rank": 60
+            },
+            {
+              "name": "Bisexual",
+              "rank": 60
+            },
+            {
+              "name": "Cute Girls Doing Cute Things",
+              "rank": 58
+            },
+            {
+              "name": "Drugs",
+              "rank": 57
+            },
+            {
+              "name": "Found Family",
+              "rank": 55
+            },
+            {
+              "name": "Seinen",
+              "rank": 53
+            },
+            {
+              "name": "Nudity",
+              "rank": 52
+            },
+            {
+              "name": "Ghost",
+              "rank": 40
+            },
+            {
+              "name": "Yuri",
+              "rank": 40
+            },
+            {
+              "name": "Crossdressing",
+              "rank": 38
+            },
+            {
+              "name": "Suicide",
+              "rank": 32
+            },
+            {
+              "name": "Ojou-sama",
+              "rank": 30
+            },
+            {
+              "name": "School Club",
+              "rank": 23
+            },
+            {
+              "name": "Philosophy",
+              "rank": 13
+            }
+          ],
+          "averageScore": 76,
+          "popularity": 135412,
+          "isAdult": false
+        },
+        {
+          "id": 3784,
+          "idMal": 3784,
+          "title": {
+            "romaji": "Evangelion Shin Movie: Ha",
+            "english": "Evangelion: 2.0 You Can (Not) Advance",
+            "native": "ヱヴァンゲリヲン新劇場版:破"
+          },
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2009,
+            "month": 6,
+            "day": 27
+          },
+          "seasonYear": 2009,
+          "genres": [
+            "Action",
+            "Drama",
+            "Mecha",
+            "Psychological",
+            "Sci-Fi"
+          ],
+          "tags": [
+            {
+              "name": "Kaiju",
+              "rank": 92
+            },
+            {
+              "name": "Super Robot",
+              "rank": 92
+            },
+            {
+              "name": "Denpa",
+              "rank": 90
+            },
+            {
+              "name": "Military",
+              "rank": 78
+            },
+            {
+              "name": "Cosmic Horror",
+              "rank": 76
+            },
+            {
+              "name": "Meta",
+              "rank": 75
+            },
+            {
+              "name": "Post-Apocalyptic",
+              "rank": 72
+            },
+            {
+              "name": "Real Robot",
+              "rank": 70
+            },
+            {
+              "name": "Aliens",
+              "rank": 68
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 67
+            },
+            {
+              "name": "CGI",
+              "rank": 67
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 66
+            },
+            {
+              "name": "Tsundere",
+              "rank": 60
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 60
+            },
+            {
+              "name": "Urban",
+              "rank": 60
+            },
+            {
+              "name": "Tomboy",
+              "rank": 50
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 44
+            },
+            {
+              "name": "Nudity",
+              "rank": 42
+            },
+            {
+              "name": "Super Power",
+              "rank": 40
+            },
+            {
+              "name": "Kuudere",
+              "rank": 40
+            },
+            {
+              "name": "Mythology",
+              "rank": 40
+            }
+          ],
+          "averageScore": 81,
+          "popularity": 134949,
+          "isAdult": false
+        },
+        {
+          "id": 6594,
+          "idMal": 6594,
+          "title": {
+            "romaji": "Katanagatari",
+            "english": "Katanagatari",
+            "native": "刀語"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2010,
+            "month": 1,
+            "day": 26
+          },
+          "seasonYear": 2010,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Romance"
+          ],
+          "tags": [
+            {
+              "name": "Swordplay",
+              "rank": 96
+            },
+            {
+              "name": "Martial Arts",
+              "rank": 93
+            },
+            {
+              "name": "Tragedy",
+              "rank": 86
+            },
+            {
+              "name": "Historical",
+              "rank": 84
+            },
+            {
+              "name": "Samurai",
+              "rank": 82
+            },
+            {
+              "name": "Revenge",
+              "rank": 80
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 80
+            },
+            {
+              "name": "Travel",
+              "rank": 80
+            },
+            {
+              "name": "Philosophy",
+              "rank": 80
+            },
+            {
+              "name": "Gore",
+              "rank": 79
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 76
+            },
+            {
+              "name": "Ninja",
+              "rank": 74
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 72
+            },
+            {
+              "name": "Meta",
+              "rank": 70
+            },
+            {
+              "name": "Anachronism",
+              "rank": 68
+            },
+            {
+              "name": "Episodic",
+              "rank": 66
+            },
+            {
+              "name": "Politics",
+              "rank": 66
+            },
+            {
+              "name": "Tsundere",
+              "rank": 65
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 64
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 61
+            },
+            {
+              "name": "Time Manipulation",
+              "rank": 55
+            },
+            {
+              "name": "Body Horror",
+              "rank": 50
+            },
+            {
+              "name": "Rural",
+              "rank": 50
+            },
+            {
+              "name": "Slapstick",
+              "rank": 46
+            },
+            {
+              "name": "Nudity",
+              "rank": 43
+            },
+            {
+              "name": "Guns",
+              "rank": 40
+            },
+            {
+              "name": "Shapeshifting",
+              "rank": 40
+            },
+            {
+              "name": "Body Swapping",
+              "rank": 37
+            },
+            {
+              "name": "Urban",
+              "rank": 30
+            },
+            {
+              "name": "Shrine Maiden",
+              "rank": 28
+            },
+            {
+              "name": "Desert",
+              "rank": 26
+            },
+            {
+              "name": "Robots",
+              "rank": 26
+            },
+            {
+              "name": "Ghost",
+              "rank": 25
+            }
+          ],
+          "averageScore": 81,
+          "popularity": 134898,
+          "isAdult": false
+        },
+        {
+          "id": 177937,
+          "idMal": 59027,
+          "title": {
+            "romaji": "SPY×FAMILY Season 3",
+            "english": "SPY x FAMILY Season 3",
+            "native": "SPY×FAMILY Season 3"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2025,
+            "month": 10,
+            "day": 4
+          },
+          "seasonYear": 2025,
+          "genres": [
+            "Action",
+            "Comedy",
+            "Slice of Life",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Espionage",
+              "rank": 100
+            },
+            {
+              "name": "Urban",
+              "rank": 100
+            },
+            {
+              "name": "Assassins",
+              "rank": 95
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 94
+            },
+            {
+              "name": "Super Power",
+              "rank": 90
+            },
+            {
+              "name": "Martial Arts",
+              "rank": 90
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 88
+            },
+            {
+              "name": "Family Life",
+              "rank": 88
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 86
+            },
+            {
+              "name": "Found Family",
+              "rank": 85
+            },
+            {
+              "name": "Shounen",
+              "rank": 84
+            },
+            {
+              "name": "Fake Relationship",
+              "rank": 84
+            },
+            {
+              "name": "Parenthood",
+              "rank": 83
+            },
+            {
+              "name": "War",
+              "rank": 83
+            },
+            {
+              "name": "Terrorism",
+              "rank": 83
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 82
+            },
+            {
+              "name": "School",
+              "rank": 78
+            },
+            {
+              "name": "Politics",
+              "rank": 78
+            },
+            {
+              "name": "Cohabitation",
+              "rank": 77
+            },
+            {
+              "name": "Military",
+              "rank": 76
+            },
+            {
+              "name": "Guns",
+              "rank": 70
+            },
+            {
+              "name": "Tragedy",
+              "rank": 46
+            },
+            {
+              "name": "Food",
+              "rank": 44
+            },
+            {
+              "name": "Dissociative Identities",
+              "rank": 30
+            },
+            {
+              "name": "Volleyball",
+              "rank": 26
+            },
+            {
+              "name": "Primarily Child Cast",
+              "rank": 20
+            }
+          ],
+          "averageScore": 82,
+          "popularity": 134847,
+          "isAdult": false
+        },
+        {
+          "id": 20955,
+          "idMal": 28497,
+          "title": {
+            "romaji": "Rokka no Yuusha",
+            "english": "Rokka -Braves of the Six Flowers-",
+            "native": "六花の勇者"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2015,
+            "month": 7,
+            "day": 5
+          },
+          "seasonYear": 2015,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            {
+              "name": "Survival",
+              "rank": 87
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 86
+            },
+            {
+              "name": "Magic",
+              "rank": 83
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 79
+            },
+            {
+              "name": "Fugitive",
+              "rank": 76
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 74
+            },
+            {
+              "name": "Demons",
+              "rank": 73
+            },
+            {
+              "name": "Detective",
+              "rank": 73
+            },
+            {
+              "name": "Monster Girl",
+              "rank": 65
+            },
+            {
+              "name": "Swordplay",
+              "rank": 64
+            },
+            {
+              "name": "Travel",
+              "rank": 60
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 45
+            },
+            {
+              "name": "Assassins",
+              "rank": 40
+            },
+            {
+              "name": "Kuudere",
+              "rank": 33
+            },
+            {
+              "name": "CGI",
+              "rank": 30
+            }
+          ],
+          "averageScore": 70,
+          "popularity": 134666,
+          "isAdult": false
+        },
+        {
+          "id": 21123,
+          "idMal": 31339,
+          "title": {
+            "romaji": "DRIFTERS",
+            "english": "DRIFTERS",
+            "native": "DRIFTERS"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2016,
+            "month": 10,
+            "day": 7
+          },
+          "seasonYear": 2016,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Isekai",
+              "rank": 97
+            },
+            {
+              "name": "Historical",
+              "rank": 92
+            },
+            {
+              "name": "War",
+              "rank": 92
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 86
+            },
+            {
+              "name": "Samurai",
+              "rank": 82
+            },
+            {
+              "name": "Gore",
+              "rank": 80
+            },
+            {
+              "name": "Anachronism",
+              "rank": 80
+            },
+            {
+              "name": "Swordplay",
+              "rank": 79
+            },
+            {
+              "name": "Seinen",
+              "rank": 76
+            },
+            {
+              "name": "Anti-Hero",
+              "rank": 76
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 74
+            },
+            {
+              "name": "Primarily Male Cast",
+              "rank": 72
+            },
+            {
+              "name": "Elf",
+              "rank": 72
+            },
+            {
+              "name": "Language Barrier",
+              "rank": 68
+            },
+            {
+              "name": "Guns",
+              "rank": 57
+            },
+            {
+              "name": "Magic",
+              "rank": 54
+            },
+            {
+              "name": "Archery",
+              "rank": 50
+            },
+            {
+              "name": "Rape",
+              "rank": 38
+            },
+            {
+              "name": "Aviation",
+              "rank": 34
+            },
+            {
+              "name": "CGI",
+              "rank": 34
+            },
+            {
+              "name": "Dragons",
+              "rank": 30
+            },
+            {
+              "name": "Death Game",
+              "rank": 20
+            }
+          ],
+          "averageScore": 75,
+          "popularity": 134637,
+          "isAdult": false
+        },
+        {
+          "id": 135806,
+          "idMal": 49220,
+          "title": {
+            "romaji": "Isekai Oji-san",
+            "english": "Uncle from Another World",
+            "native": "異世界おじさん"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2022,
+            "month": 7,
+            "day": 6
+          },
+          "seasonYear": 2022,
+          "genres": [
+            "Adventure",
+            "Comedy",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Isekai",
+              "rank": 94
+            },
+            {
+              "name": "Parody",
+              "rank": 94
+            },
+            {
+              "name": "Magic",
+              "rank": 85
+            },
+            {
+              "name": "Meta",
+              "rank": 84
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 81
+            },
+            {
+              "name": "Seinen",
+              "rank": 79
+            },
+            {
+              "name": "Video Games",
+              "rank": 78
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 78
+            },
+            {
+              "name": "Otaku Culture",
+              "rank": 78
+            },
+            {
+              "name": "Surreal Comedy",
+              "rank": 78
+            },
+            {
+              "name": "Tsundere",
+              "rank": 77
+            },
+            {
+              "name": "Elf",
+              "rank": 77
+            },
+            {
+              "name": "POV",
+              "rank": 75
+            },
+            {
+              "name": "Memory Manipulation",
+              "rank": 69
+            },
+            {
+              "name": "Satire",
+              "rank": 66
+            },
+            {
+              "name": "Female Harem",
+              "rank": 66
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 66
+            },
+            {
+              "name": "Slapstick",
+              "rank": 66
+            },
+            {
+              "name": "Reverse Isekai",
+              "rank": 66
+            },
+            {
+              "name": "Nudity",
+              "rank": 60
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 56
+            },
+            {
+              "name": "Tragedy",
+              "rank": 55
+            },
+            {
+              "name": "Achronological Order",
+              "rank": 50
+            },
+            {
+              "name": "Dragons",
+              "rank": 46
+            },
+            {
+              "name": "Crossdressing",
+              "rank": 44
+            },
+            {
+              "name": "Gender Bending",
+              "rank": 42
+            },
+            {
+              "name": "Shapeshifting",
+              "rank": 40
+            },
+            {
+              "name": "Prison",
+              "rank": 30
+            },
+            {
+              "name": "Virtual World",
+              "rank": 10
+            }
+          ],
+          "averageScore": 76,
+          "popularity": 134496,
+          "isAdult": false
+        },
+        {
+          "id": 141911,
+          "idMal": 50416,
+          "title": {
+            "romaji": "Skip to Loafer",
+            "english": "Skip and Loafer",
+            "native": "スキップとローファー"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2023,
+            "month": 4,
+            "day": 4
+          },
+          "seasonYear": 2023,
+          "genres": [
+            "Comedy",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "School",
+              "rank": 95
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 94
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 93
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 91
+            },
+            {
+              "name": "Urban",
+              "rank": 83
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 83
+            },
+            {
+              "name": "Seinen",
+              "rank": 78
+            },
+            {
+              "name": "Iyashikei",
+              "rank": 77
+            },
+            {
+              "name": "Acting",
+              "rank": 57
+            },
+            {
+              "name": "Transgender",
+              "rank": 44
+            },
+            {
+              "name": "Rural",
+              "rank": 42
+            },
+            {
+              "name": "LGBTQ+ Themes",
+              "rank": 38
+            },
+            {
+              "name": "Coastal",
+              "rank": 24
+            }
+          ],
+          "averageScore": 81,
+          "popularity": 134236,
+          "isAdult": false
+        },
+        {
+          "id": 9041,
+          "idMal": 9041,
+          "title": {
+            "romaji": "IS: Infinite Stratos",
+            "english": "Infinite Stratos",
+            "native": "IS〈インフィニット・ストラトス〉"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2011,
+            "month": 1,
+            "day": 7
+          },
+          "seasonYear": 2011,
+          "genres": [
+            "Action",
+            "Comedy",
+            "Ecchi",
+            "Mecha",
+            "Romance",
+            "Sci-Fi"
+          ],
+          "tags": [
+            {
+              "name": "Female Harem",
+              "rank": 97
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 80
+            },
+            {
+              "name": "School",
+              "rank": 79
+            },
+            {
+              "name": "Robots",
+              "rank": 78
+            },
+            {
+              "name": "Real Robot",
+              "rank": 77
+            },
+            {
+              "name": "Tsundere",
+              "rank": 76
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 71
+            },
+            {
+              "name": "Nudity",
+              "rank": 71
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 70
+            },
+            {
+              "name": "Crossdressing",
+              "rank": 60
+            },
+            {
+              "name": "Swordplay",
+              "rank": 60
+            },
+            {
+              "name": "Foreign",
+              "rank": 60
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 60
+            },
+            {
+              "name": "Kuudere",
+              "rank": 56
+            },
+            {
+              "name": "Henshin",
+              "rank": 50
+            },
+            {
+              "name": "Aviation",
+              "rank": 50
+            },
+            {
+              "name": "CGI",
+              "rank": 40
+            },
+            {
+              "name": "Artificial Intelligence",
+              "rank": 40
+            },
+            {
+              "name": "School Club",
+              "rank": 10
+            }
+          ],
+          "averageScore": 61,
+          "popularity": 134015,
+          "isAdult": false
+        },
+        {
+          "id": 513,
+          "idMal": 513,
+          "title": {
+            "romaji": "Tenkuu no Shiro Laputa",
+            "english": "Castle in the Sky",
+            "native": "天空の城ラピュタ"
+          },
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 1986,
+            "month": 8,
+            "day": 2
+          },
+          "seasonYear": 1986,
+          "genres": [
+            "Adventure",
+            "Fantasy",
+            "Sci-Fi"
+          ],
+          "tags": [
+            {
+              "name": "Lost Civilization",
+              "rank": 92
+            },
+            {
+              "name": "Steampunk",
+              "rank": 84
+            },
+            {
+              "name": "Pirates",
+              "rank": 82
+            },
+            {
+              "name": "Environmental",
+              "rank": 82
+            },
+            {
+              "name": "Aviation",
+              "rank": 81
+            },
+            {
+              "name": "Fugitive",
+              "rank": 80
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 79
+            },
+            {
+              "name": "Exiled",
+              "rank": 79
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 70
+            },
+            {
+              "name": "Military",
+              "rank": 68
+            },
+            {
+              "name": "Travel",
+              "rank": 66
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 65
+            },
+            {
+              "name": "Robots",
+              "rank": 57
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 55
+            },
+            {
+              "name": "Guns",
+              "rank": 50
+            },
+            {
+              "name": "Primarily Male Cast",
+              "rank": 48
+            },
+            {
+              "name": "Trains",
+              "rank": 37
+            }
+          ],
+          "averageScore": 80,
+          "popularity": 133909,
+          "isAdult": false
+        },
+        {
+          "id": 112323,
+          "idMal": 40507,
+          "title": {
+            "romaji": "Arifureta Shokugyou de Sekai Saikyou 2nd season",
+            "english": "Arifureta: From Commonplace to World's Strongest Season 2",
+            "native": "ありふれた職業で世界最強 2nd season"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2022,
+            "month": 1,
+            "day": 13
+          },
+          "seasonYear": 2022,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy",
+            "Psychological"
+          ],
+          "tags": [
+            {
+              "name": "Isekai",
+              "rank": 95
+            },
+            {
+              "name": "Anti-Hero",
+              "rank": 90
+            },
+            {
+              "name": "Female Harem",
+              "rank": 85
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 84
+            },
+            {
+              "name": "Magic",
+              "rank": 81
+            },
+            {
+              "name": "Dungeon",
+              "rank": 80
+            },
+            {
+              "name": "Angels",
+              "rank": 79
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 76
+            },
+            {
+              "name": "Guns",
+              "rank": 74
+            },
+            {
+              "name": "Demons",
+              "rank": 72
+            },
+            {
+              "name": "Monster Girl",
+              "rank": 67
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 67
+            },
+            {
+              "name": "Vampire",
+              "rank": 64
+            },
+            {
+              "name": "CGI",
+              "rank": 63
+            },
+            {
+              "name": "Satire",
+              "rank": 57
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 54
+            },
+            {
+              "name": "Software Development",
+              "rank": 54
+            },
+            {
+              "name": "Age Gap",
+              "rank": 53
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 52
+            },
+            {
+              "name": "Necromancy",
+              "rank": 40
+            },
+            {
+              "name": "Yandere",
+              "rank": 35
+            },
+            {
+              "name": "Slavery",
+              "rank": 33
+            },
+            {
+              "name": "Cosmic Horror",
+              "rank": 25
+            },
+            {
+              "name": "Gore",
+              "rank": 20
+            },
+            {
+              "name": "Medieval",
+              "rank": 20
+            }
+          ],
+          "averageScore": 70,
+          "popularity": 133877,
+          "isAdult": false
+        },
+        {
+          "id": 171457,
+          "idMal": 57524,
+          "title": {
+            "romaji": "Make Heroine ga Oosugiru!",
+            "english": "Makeine: Too Many Losing Heroines!",
+            "native": "負けヒロインが多すぎる！"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2024,
+            "month": 7,
+            "day": 14
+          },
+          "seasonYear": 2024,
+          "genres": [
+            "Comedy",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Unrequited Love",
+              "rank": 98
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 91
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 90
+            },
+            {
+              "name": "School",
+              "rank": 90
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 87
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 85
+            },
+            {
+              "name": "School Club",
+              "rank": 81
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 79
+            },
+            {
+              "name": "Episodic",
+              "rank": 79
+            },
+            {
+              "name": "Satire",
+              "rank": 77
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 76
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 73
+            },
+            {
+              "name": "Tomboy",
+              "rank": 71
+            },
+            {
+              "name": "Urban",
+              "rank": 70
+            },
+            {
+              "name": "Meta",
+              "rank": 68
+            },
+            {
+              "name": "Food",
+              "rank": 64
+            },
+            {
+              "name": "Writing",
+              "rank": 61
+            },
+            {
+              "name": "Tanned Skin",
+              "rank": 60
+            },
+            {
+              "name": "Nudity",
+              "rank": 40
+            },
+            {
+              "name": "Aromantic",
+              "rank": 33
+            },
+            {
+              "name": "Shounen",
+              "rank": 10
+            },
+            {
+              "name": "Mixed Media",
+              "rank": 10
+            }
+          ],
+          "averageScore": 80,
+          "popularity": 133312,
+          "isAdult": false
+        },
+        {
+          "id": 126192,
+          "idMal": 43969,
+          "title": {
+            "romaji": "Kanojo mo Kanojo",
+            "english": "Girlfriend, Girlfriend",
+            "native": "カノジョも彼女"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2021,
+            "month": 7,
+            "day": 3
+          },
+          "seasonYear": 2021,
+          "genres": [
+            "Comedy",
+            "Ecchi",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Polyamorous",
+              "rank": 98
+            },
+            {
+              "name": "Female Harem",
+              "rank": 97
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 95
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 94
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 94
+            },
+            {
+              "name": "Slapstick",
+              "rank": 89
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 88
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 86
+            },
+            {
+              "name": "Parody",
+              "rank": 84
+            },
+            {
+              "name": "Satire",
+              "rank": 74
+            },
+            {
+              "name": "Shounen",
+              "rank": 68
+            },
+            {
+              "name": "Tsundere",
+              "rank": 67
+            },
+            {
+              "name": "School",
+              "rank": 66
+            },
+            {
+              "name": "Yandere",
+              "rank": 61
+            },
+            {
+              "name": "Nudity",
+              "rank": 58
+            },
+            {
+              "name": "Cohabitation",
+              "rank": 50
+            },
+            {
+              "name": "Cosplay",
+              "rank": 38
+            },
+            {
+              "name": "Video Games",
+              "rank": 26
+            },
+            {
+              "name": "Crossdressing",
+              "rank": 10
+            }
+          ],
+          "averageScore": 63,
+          "popularity": 133129,
+          "isAdult": false
+        },
+        {
+          "id": 11759,
+          "idMal": 11759,
+          "title": {
+            "romaji": "Accel World",
+            "english": "Accel World",
+            "native": "アクセル・ワールド"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 24,
+          "startDate": {
+            "year": 2012,
+            "month": 4,
+            "day": 7
+          },
+          "seasonYear": 2012,
+          "genres": [
+            "Action",
+            "Romance",
+            "Sci-Fi"
+          ],
+          "tags": [
+            {
+              "name": "Virtual World",
+              "rank": 99
+            },
+            {
+              "name": "Video Games",
+              "rank": 96
+            },
+            {
+              "name": "Henshin",
+              "rank": 90
+            },
+            {
+              "name": "Netorare",
+              "rank": 79
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 79
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 79
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 77
+            },
+            {
+              "name": "Time Manipulation",
+              "rank": 76
+            },
+            {
+              "name": "Augmented Reality",
+              "rank": 73
+            },
+            {
+              "name": "School",
+              "rank": 70
+            },
+            {
+              "name": "Philosophy",
+              "rank": 65
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 60
+            },
+            {
+              "name": "Tokusatsu",
+              "rank": 60
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 60
+            },
+            {
+              "name": "Isekai",
+              "rank": 52
+            },
+            {
+              "name": "Motorcycles",
+              "rank": 50
+            },
+            {
+              "name": "Kuudere",
+              "rank": 46
+            },
+            {
+              "name": "Bullying",
+              "rank": 46
+            }
+          ],
+          "averageScore": 67,
+          "popularity": 132971,
+          "isAdult": false
+        },
+        {
+          "id": 14749,
+          "idMal": 14749,
+          "title": {
+            "romaji": "Ore no Kanojo to Osananajimi ga Shuraba Sugiru",
+            "english": "Oreshura",
+            "native": "俺の彼女と幼なじみが修羅場すぎる"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2013,
+            "month": 1,
+            "day": 6
+          },
+          "seasonYear": 2013,
+          "genres": [
+            "Comedy",
+            "Romance"
+          ],
+          "tags": [
+            {
+              "name": "Female Harem",
+              "rank": 92
+            },
+            {
+              "name": "School",
+              "rank": 89
+            },
+            {
+              "name": "School Club",
+              "rank": 84
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 79
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 76
+            },
+            {
+              "name": "Tsundere",
+              "rank": 70
+            },
+            {
+              "name": "Chuunibyou",
+              "rank": 67
+            },
+            {
+              "name": "Cute Girls Doing Cute Things",
+              "rank": 60
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 60
+            },
+            {
+              "name": "Fake Relationship",
+              "rank": 60
+            },
+            {
+              "name": "Kuudere",
+              "rank": 50
+            },
+            {
+              "name": "Meta",
+              "rank": 47
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 20
+            },
+            {
+              "name": "Blackmail",
+              "rank": 20
+            }
+          ],
+          "averageScore": 65,
+          "popularity": 132924,
+          "isAdult": false
+        },
+        {
+          "id": 154116,
+          "idMal": 52741,
+          "title": {
+            "romaji": "Undead Unluck",
+            "english": "Undead Unluck",
+            "native": "アンデッドアンラック"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 24,
+          "startDate": {
+            "year": 2023,
+            "month": 10,
+            "day": 7
+          },
+          "seasonYear": 2023,
+          "genres": [
+            "Action",
+            "Comedy",
+            "Sci-Fi",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Female Protagonist",
+              "rank": 91
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 91
+            },
+            {
+              "name": "Super Power",
+              "rank": 90
+            },
+            {
+              "name": "Shounen",
+              "rank": 88
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 85
+            },
+            {
+              "name": "Time Loop",
+              "rank": 84
+            },
+            {
+              "name": "Cosmic Horror",
+              "rank": 83
+            },
+            {
+              "name": "Tragedy",
+              "rank": 82
+            },
+            {
+              "name": "Dissociative Identities",
+              "rank": 81
+            },
+            {
+              "name": "Gore",
+              "rank": 81
+            },
+            {
+              "name": "Foreign",
+              "rank": 79
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 76
+            },
+            {
+              "name": "Memory Manipulation",
+              "rank": 73
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 72
+            },
+            {
+              "name": "Nudity",
+              "rank": 71
+            },
+            {
+              "name": "Zombie",
+              "rank": 70
+            },
+            {
+              "name": "Time Manipulation",
+              "rank": 68
+            },
+            {
+              "name": "Age Gap",
+              "rank": 67
+            },
+            {
+              "name": "Suicide",
+              "rank": 65
+            },
+            {
+              "name": "Martial Arts",
+              "rank": 62
+            },
+            {
+              "name": "Body Horror",
+              "rank": 61
+            },
+            {
+              "name": "Meta",
+              "rank": 61
+            },
+            {
+              "name": "Post-Apocalyptic",
+              "rank": 61
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 60
+            },
+            {
+              "name": "Travel",
+              "rank": 60
+            },
+            {
+              "name": "Language Barrier",
+              "rank": 48
+            },
+            {
+              "name": "Aliens",
+              "rank": 43
+            },
+            {
+              "name": "Real Robot",
+              "rank": 38
+            },
+            {
+              "name": "Tsundere",
+              "rank": 27
+            }
+          ],
+          "averageScore": 76,
+          "popularity": 132831,
+          "isAdult": false
+        },
+        {
+          "id": 98035,
+          "idMal": 34662,
+          "title": {
+            "romaji": "Fate/Apocrypha",
+            "english": "Fate/Apocrypha",
+            "native": "Fate/Apocrypha"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 25,
+          "startDate": {
+            "year": 2017,
+            "month": 7,
+            "day": 2
+          },
+          "seasonYear": 2017,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Battle Royale",
+              "rank": 95
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 93
+            },
+            {
+              "name": "Mythology",
+              "rank": 90
+            },
+            {
+              "name": "War",
+              "rank": 88
+            },
+            {
+              "name": "Magic",
+              "rank": 80
+            },
+            {
+              "name": "Spearplay",
+              "rank": 79
+            },
+            {
+              "name": "Medieval",
+              "rank": 79
+            },
+            {
+              "name": "Crossdressing",
+              "rank": 76
+            },
+            {
+              "name": "Death Game",
+              "rank": 75
+            },
+            {
+              "name": "Religion",
+              "rank": 75
+            },
+            {
+              "name": "Foreign",
+              "rank": 74
+            },
+            {
+              "name": "Femboy",
+              "rank": 70
+            },
+            {
+              "name": "Swordplay",
+              "rank": 68
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 68
+            },
+            {
+              "name": "Gender Bending",
+              "rank": 67
+            },
+            {
+              "name": "Boys' Love",
+              "rank": 64
+            },
+            {
+              "name": "Tomboy",
+              "rank": 60
+            },
+            {
+              "name": "Dissociative Identities",
+              "rank": 60
+            },
+            {
+              "name": "Nekomimi",
+              "rank": 53
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 53
+            },
+            {
+              "name": "Archery",
+              "rank": 52
+            },
+            {
+              "name": "Tragedy",
+              "rank": 50
+            },
+            {
+              "name": "Bondage",
+              "rank": 42
+            },
+            {
+              "name": "Vampire",
+              "rank": 40
+            },
+            {
+              "name": "Femdom",
+              "rank": 24
+            }
+          ],
+          "averageScore": 70,
+          "popularity": 132814,
+          "isAdult": false
+        },
+        {
+          "id": 127399,
+          "idMal": 44942,
+          "title": {
+            "romaji": "Shuumatsu no Valkyrie",
+            "english": "Record of Ragnarok",
+            "native": "終末のワルキューレ"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2021,
+            "month": 6,
+            "day": 17
+          },
+          "seasonYear": 2021,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Gods",
+              "rank": 96
+            },
+            {
+              "name": "Mythology",
+              "rank": 95
+            },
+            {
+              "name": "Survival",
+              "rank": 87
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 85
+            },
+            {
+              "name": "Super Power",
+              "rank": 83
+            },
+            {
+              "name": "Dissociative Identities",
+              "rank": 79
+            },
+            {
+              "name": "Primarily Male Cast",
+              "rank": 79
+            },
+            {
+              "name": "Battle Royale",
+              "rank": 79
+            },
+            {
+              "name": "Historical",
+              "rank": 78
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 75
+            },
+            {
+              "name": "War",
+              "rank": 72
+            },
+            {
+              "name": "Afterlife",
+              "rank": 67
+            },
+            {
+              "name": "Swordplay",
+              "rank": 66
+            },
+            {
+              "name": "Martial Arts",
+              "rank": 66
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 63
+            },
+            {
+              "name": "Gore",
+              "rank": 62
+            },
+            {
+              "name": "Seinen",
+              "rank": 60
+            },
+            {
+              "name": "Nudity",
+              "rank": 60
+            },
+            {
+              "name": "Spearplay",
+              "rank": 60
+            },
+            {
+              "name": "Samurai",
+              "rank": 50
+            },
+            {
+              "name": "Time Manipulation",
+              "rank": 38
+            }
+          ],
+          "averageScore": 67,
+          "popularity": 132606,
+          "isAdult": false
+        },
+        {
+          "id": 323,
+          "idMal": 323,
+          "title": {
+            "romaji": "Mousou Dairinin",
+            "english": "Paranoia Agent",
+            "native": "妄想代理人"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2004,
+            "month": 2,
+            "day": 3
+          },
+          "seasonYear": 2004,
+          "genres": [
+            "Drama",
+            "Mystery",
+            "Psychological",
+            "Supernatural",
+            "Thriller"
+          ],
+          "tags": [
+            {
+              "name": "Denpa",
+              "rank": 97
+            },
+            {
+              "name": "Crime",
+              "rank": 90
+            },
+            {
+              "name": "Philosophy",
+              "rank": 90
+            },
+            {
+              "name": "Detective",
+              "rank": 85
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 83
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 82
+            },
+            {
+              "name": "Police",
+              "rank": 80
+            },
+            {
+              "name": "Amnesia",
+              "rank": 79
+            },
+            {
+              "name": "Homeless",
+              "rank": 79
+            },
+            {
+              "name": "Memory Manipulation",
+              "rank": 79
+            },
+            {
+              "name": "Office",
+              "rank": 79
+            },
+            {
+              "name": "Primarily Male Cast",
+              "rank": 79
+            },
+            {
+              "name": "Urban",
+              "rank": 77
+            },
+            {
+              "name": "Meta",
+              "rank": 77
+            },
+            {
+              "name": "Episodic",
+              "rank": 72
+            },
+            {
+              "name": "Satire",
+              "rank": 70
+            },
+            {
+              "name": "Suicide",
+              "rank": 70
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 70
+            },
+            {
+              "name": "Disability",
+              "rank": 68
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 68
+            },
+            {
+              "name": "Dissociative Identities",
+              "rank": 65
+            },
+            {
+              "name": "Bullying",
+              "rank": 65
+            },
+            {
+              "name": "Fugitive",
+              "rank": 60
+            },
+            {
+              "name": "Hikikomori",
+              "rank": 60
+            },
+            {
+              "name": "Cosmic Horror",
+              "rank": 57
+            },
+            {
+              "name": "Ghost",
+              "rank": 56
+            },
+            {
+              "name": "Nudity",
+              "rank": 56
+            },
+            {
+              "name": "Chuunibyou",
+              "rank": 55
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 54
+            },
+            {
+              "name": "Prostitution",
+              "rank": 48
+            },
+            {
+              "name": "LGBTQ+ Themes",
+              "rank": 24
+            },
+            {
+              "name": "Achronological Order",
+              "rank": 20
+            }
+          ],
+          "averageScore": 76,
+          "popularity": 132389,
+          "isAdult": false
+        },
+        {
+          "id": 18397,
+          "idMal": 18397,
+          "title": {
+            "romaji": "Shingeki no Kyojin OVA",
+            "english": "Attack on Titan OVA",
+            "native": "進撃の巨人 OVA"
+          },
+          "format": "OVA",
+          "status": "FINISHED",
+          "episodes": 3,
+          "startDate": {
+            "year": 2013,
+            "month": 12,
+            "day": 9
+          },
+          "seasonYear": 2013,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            {
+              "name": "Kaiju",
+              "rank": 98
+            },
+            {
+              "name": "Military",
+              "rank": 94
+            },
+            {
+              "name": "Super Power",
+              "rank": 83
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 72
+            },
+            {
+              "name": "Steampunk",
+              "rank": 71
+            },
+            {
+              "name": "Shounen",
+              "rank": 70
+            },
+            {
+              "name": "Tragedy",
+              "rank": 65
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 60
+            },
+            {
+              "name": "Rural",
+              "rank": 60
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 60
+            },
+            {
+              "name": "Gore",
+              "rank": 60
+            },
+            {
+              "name": "Guns",
+              "rank": 60
+            },
+            {
+              "name": "Swordplay",
+              "rank": 53
+            },
+            {
+              "name": "CGI",
+              "rank": 40
+            },
+            {
+              "name": "Archery",
+              "rank": 40
+            },
+            {
+              "name": "Food",
+              "rank": 40
+            },
+            {
+              "name": "Medieval",
+              "rank": 20
+            }
+          ],
+          "averageScore": 77,
+          "popularity": 131985,
+          "isAdult": false
+        },
+        {
+          "id": 103900,
+          "idMal": 38186,
+          "title": {
+            "romaji": "Bokutachi wa Benkyou ga Dekinai",
+            "english": "We Never Learn: BOKUBEN",
+            "native": "ぼくたちは勉強ができない"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2019,
+            "month": 4,
+            "day": 7
+          },
+          "seasonYear": 2019,
+          "genres": [
+            "Comedy",
+            "Ecchi",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Female Harem",
+              "rank": 91
+            },
+            {
+              "name": "Slapstick",
+              "rank": 88
+            },
+            {
+              "name": "School",
+              "rank": 87
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 84
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 77
+            },
+            {
+              "name": "Teacher",
+              "rank": 75
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 73
+            },
+            {
+              "name": "Swimming",
+              "rank": 73
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 65
+            },
+            {
+              "name": "Kuudere",
+              "rank": 56
+            },
+            {
+              "name": "Tanned Skin",
+              "rank": 54
+            },
+            {
+              "name": "Tsundere",
+              "rank": 52
+            },
+            {
+              "name": "Tomboy",
+              "rank": 51
+            },
+            {
+              "name": "Maids",
+              "rank": 40
+            },
+            {
+              "name": "Shounen",
+              "rank": 40
+            }
+          ],
+          "averageScore": 71,
+          "popularity": 131875,
+          "isAdult": false
+        },
+        {
+          "id": 149118,
+          "idMal": 51818,
+          "title": {
+            "romaji": "Enen no Shouboutai: San no Shou",
+            "english": "Fire Force Season 3",
+            "native": "炎炎ノ消防隊 参ノ章"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2025,
+            "month": 4,
+            "day": 5
+          },
+          "seasonYear": 2025,
+          "genres": [
+            "Action",
+            "Drama",
+            "Sci-Fi",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Post-Apocalyptic",
+              "rank": 98
+            },
+            {
+              "name": "Cult",
+              "rank": 97
+            },
+            {
+              "name": "Dystopian",
+              "rank": 97
+            },
+            {
+              "name": "Conspiracy",
+              "rank": 97
+            },
+            {
+              "name": "Super Power",
+              "rank": 96
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 95
+            },
+            {
+              "name": "Shounen",
+              "rank": 95
+            },
+            {
+              "name": "Demons",
+              "rank": 92
+            },
+            {
+              "name": "Firefighters",
+              "rank": 90
+            },
+            {
+              "name": "Urban",
+              "rank": 90
+            },
+            {
+              "name": "Anti-Hero",
+              "rank": 85
+            },
+            {
+              "name": "Religion",
+              "rank": 80
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 80
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 80
+            },
+            {
+              "name": "Kaiju",
+              "rank": 79
+            },
+            {
+              "name": "Rescue",
+              "rank": 75
+            },
+            {
+              "name": "Gods",
+              "rank": 73
+            },
+            {
+              "name": "Lost Civilization",
+              "rank": 70
+            },
+            {
+              "name": "Cosmic Horror",
+              "rank": 70
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 65
+            },
+            {
+              "name": "Mythology",
+              "rank": 60
+            },
+            {
+              "name": "Nun",
+              "rank": 60
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 60
+            },
+            {
+              "name": "Nekomimi",
+              "rank": 60
+            },
+            {
+              "name": "Swordplay",
+              "rank": 60
+            },
+            {
+              "name": "Philosophy",
+              "rank": 60
+            },
+            {
+              "name": "Time Manipulation",
+              "rank": 57
+            },
+            {
+              "name": "Archery",
+              "rank": 50
+            },
+            {
+              "name": "Dragons",
+              "rank": 46
+            },
+            {
+              "name": "Guns",
+              "rank": 45
+            },
+            {
+              "name": "Tanned Skin",
+              "rank": 40
+            },
+            {
+              "name": "Mixed Media",
+              "rank": 40
+            }
+          ],
+          "averageScore": 78,
+          "popularity": 131683,
+          "isAdult": false
+        },
+        {
+          "id": 142074,
+          "idMal": 50461,
+          "title": {
+            "romaji": "Otomege Sekai wa Mob ni Kibishii Sekai desu",
+            "english": "Trapped in a Dating Sim: The World of Otome Games Is Tough for Mobs",
+            "native": "乙女ゲー世界はモブに厳しい世界です"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2022,
+            "month": 4,
+            "day": 3
+          },
+          "seasonYear": 2022,
+          "genres": [
+            "Action",
+            "Fantasy",
+            "Mecha",
+            "Romance"
+          ],
+          "tags": [
+            {
+              "name": "Matriarchy",
+              "rank": 98
+            },
+            {
+              "name": "Anti-Hero",
+              "rank": 93
+            },
+            {
+              "name": "Isekai",
+              "rank": 90
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 85
+            },
+            {
+              "name": "Boarding School",
+              "rank": 79
+            },
+            {
+              "name": "Female Harem",
+              "rank": 79
+            },
+            {
+              "name": "Robots",
+              "rank": 78
+            },
+            {
+              "name": "School",
+              "rank": 78
+            },
+            {
+              "name": "Ojou-sama",
+              "rank": 74
+            },
+            {
+              "name": "Video Games",
+              "rank": 67
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 66
+            },
+            {
+              "name": "Magic",
+              "rank": 65
+            },
+            {
+              "name": "Parody",
+              "rank": 65
+            },
+            {
+              "name": "Reincarnation",
+              "rank": 63
+            },
+            {
+              "name": "Bullying",
+              "rank": 62
+            },
+            {
+              "name": "Super Robot",
+              "rank": 62
+            },
+            {
+              "name": "Artificial Intelligence",
+              "rank": 60
+            },
+            {
+              "name": "Virtual World",
+              "rank": 60
+            },
+            {
+              "name": "Real Robot",
+              "rank": 31
+            },
+            {
+              "name": "Lost Civilization",
+              "rank": 30
+            },
+            {
+              "name": "Military",
+              "rank": 28
+            }
+          ],
+          "averageScore": 71,
+          "popularity": 131654,
+          "isAdult": false
+        },
+        {
+          "id": 7724,
+          "idMal": 7724,
+          "title": {
+            "romaji": "Shiki",
+            "english": "Shiki",
+            "native": "屍鬼"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 22,
+          "startDate": {
+            "year": 2010,
+            "month": 7,
+            "day": 9
+          },
+          "seasonYear": 2010,
+          "genres": [
+            "Horror",
+            "Mystery",
+            "Supernatural",
+            "Thriller"
+          ],
+          "tags": [
+            {
+              "name": "Vampire",
+              "rank": 97
+            },
+            {
+              "name": "Survival",
+              "rank": 96
+            },
+            {
+              "name": "Tragedy",
+              "rank": 94
+            },
+            {
+              "name": "Rural",
+              "rank": 89
+            },
+            {
+              "name": "Anti-Hero",
+              "rank": 88
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 81
+            },
+            {
+              "name": "Zombie",
+              "rank": 80
+            },
+            {
+              "name": "Philosophy",
+              "rank": 77
+            },
+            {
+              "name": "Gore",
+              "rank": 76
+            },
+            {
+              "name": "Denpa",
+              "rank": 76
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 68
+            },
+            {
+              "name": "Pandemic",
+              "rank": 67
+            },
+            {
+              "name": "Medicine",
+              "rank": 61
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 60
+            },
+            {
+              "name": "Achronological Order",
+              "rank": 60
+            },
+            {
+              "name": "Yandere",
+              "rank": 57
+            },
+            {
+              "name": "Revenge",
+              "rank": 54
+            },
+            {
+              "name": "Religion",
+              "rank": 53
+            },
+            {
+              "name": "Nudity",
+              "rank": 50
+            },
+            {
+              "name": "Writing",
+              "rank": 46
+            },
+            {
+              "name": "Werewolf",
+              "rank": 43
+            },
+            {
+              "name": "Guns",
+              "rank": 40
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 30
+            }
+          ],
+          "averageScore": 75,
+          "popularity": 131644,
+          "isAdult": false
+        },
+        {
+          "id": 20671,
+          "idMal": 23321,
+          "title": {
+            "romaji": "Log Horizon 2",
+            "english": "Log Horizon 2",
+            "native": "ログ・ホライズン 2"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 25,
+          "startDate": {
+            "year": 2014,
+            "month": 10,
+            "day": 4
+          },
+          "seasonYear": 2014,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Isekai",
+              "rank": 96
+            },
+            {
+              "name": "Virtual World",
+              "rank": 88
+            },
+            {
+              "name": "Dungeon",
+              "rank": 87
+            },
+            {
+              "name": "Video Games",
+              "rank": 85
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 80
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 77
+            },
+            {
+              "name": "Politics",
+              "rank": 74
+            },
+            {
+              "name": "Magic",
+              "rank": 70
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 60
+            },
+            {
+              "name": "Goblin",
+              "rank": 57
+            },
+            {
+              "name": "Dragons",
+              "rank": 55
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 50
+            },
+            {
+              "name": "Found Family",
+              "rank": 50
+            },
+            {
+              "name": "Elf",
+              "rank": 40
+            },
+            {
+              "name": "Crossdressing",
+              "rank": 32
+            },
+            {
+              "name": "Twins",
+              "rank": 25
+            },
+            {
+              "name": "Gender Bending",
+              "rank": 20
+            },
+            {
+              "name": "CGI",
+              "rank": 20
+            },
+            {
+              "name": "Conspiracy",
+              "rank": 20
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 20
+            },
+            {
+              "name": "Anthropomorphism",
+              "rank": 20
+            },
+            {
+              "name": "LGBTQ+ Themes",
+              "rank": 20
+            }
+          ],
+          "averageScore": 73,
+          "popularity": 131411,
+          "isAdult": false
+        },
+        {
+          "id": 21718,
+          "idMal": 33049,
+          "title": {
+            "romaji": "Fate/stay night [Heaven's Feel] II. lost butterfly",
+            "english": "Fate/stay night [Heaven's Feel] II. lost butterfly",
+            "native": "Fate/stay night[Heaven's Feel] ⅠⅠ.lost butterfly"
+          },
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2019,
+            "month": 1,
+            "day": 12
+          },
+          "seasonYear": 2019,
+          "genres": [
+            "Action",
+            "Fantasy",
+            "Psychological",
+            "Romance",
+            "Supernatural",
+            "Thriller"
+          ],
+          "tags": [
+            {
+              "name": "Magic",
+              "rank": 92
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 90
+            },
+            {
+              "name": "Tragedy",
+              "rank": 89
+            },
+            {
+              "name": "Battle Royale",
+              "rank": 86
+            },
+            {
+              "name": "Gore",
+              "rank": 79
+            },
+            {
+              "name": "Body Horror",
+              "rank": 72
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 72
+            },
+            {
+              "name": "Yandere",
+              "rank": 72
+            },
+            {
+              "name": "Adoption",
+              "rank": 70
+            },
+            {
+              "name": "Found Family",
+              "rank": 70
+            },
+            {
+              "name": "School",
+              "rank": 70
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 69
+            },
+            {
+              "name": "Super Power",
+              "rank": 66
+            },
+            {
+              "name": "Cannibalism",
+              "rank": 65
+            },
+            {
+              "name": "Rape",
+              "rank": 63
+            },
+            {
+              "name": "Cosmic Horror",
+              "rank": 60
+            },
+            {
+              "name": "Orphan",
+              "rank": 60
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 60
+            },
+            {
+              "name": "Disability",
+              "rank": 52
+            },
+            {
+              "name": "Archery",
+              "rank": 50
+            },
+            {
+              "name": "Swordplay",
+              "rank": 50
+            },
+            {
+              "name": "Assassins",
+              "rank": 50
+            },
+            {
+              "name": "Nudity",
+              "rank": 48
+            },
+            {
+              "name": "Urban",
+              "rank": 46
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 46
+            },
+            {
+              "name": "Kuudere",
+              "rank": 40
+            },
+            {
+              "name": "Food",
+              "rank": 40
+            },
+            {
+              "name": "Demons",
+              "rank": 40
+            },
+            {
+              "name": "CGI",
+              "rank": 34
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 28
+            },
+            {
+              "name": "Mythology",
+              "rank": 20
+            },
+            {
+              "name": "Masturbation",
+              "rank": 20
+            },
+            {
+              "name": "Tanned Skin",
+              "rank": 20
+            }
+          ],
+          "averageScore": 84,
+          "popularity": 131207,
+          "isAdult": false
+        },
+        {
+          "id": 21878,
+          "idMal": 33731,
+          "title": {
+            "romaji": "Gabriel Dropout",
+            "english": "Gabriel DropOut",
+            "native": "ガヴリールドロップアウト"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2017,
+            "month": 1,
+            "day": 9
+          },
+          "seasonYear": 2017,
+          "genres": [
+            "Comedy",
+            "Slice of Life",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Angels",
+              "rank": 95
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 92
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 91
+            },
+            {
+              "name": "Demons",
+              "rank": 89
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 89
+            },
+            {
+              "name": "Cute Girls Doing Cute Things",
+              "rank": 88
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 85
+            },
+            {
+              "name": "Surreal Comedy",
+              "rank": 84
+            },
+            {
+              "name": "Slapstick",
+              "rank": 84
+            },
+            {
+              "name": "Urban",
+              "rank": 82
+            },
+            {
+              "name": "School",
+              "rank": 80
+            },
+            {
+              "name": "Gods",
+              "rank": 80
+            },
+            {
+              "name": "Episodic",
+              "rank": 79
+            },
+            {
+              "name": "Chibi",
+              "rank": 79
+            },
+            {
+              "name": "Hikikomori",
+              "rank": 73
+            },
+            {
+              "name": "Magic",
+              "rank": 71
+            },
+            {
+              "name": "Tsundere",
+              "rank": 70
+            },
+            {
+              "name": "Chuunibyou",
+              "rank": 65
+            },
+            {
+              "name": "Parody",
+              "rank": 65
+            },
+            {
+              "name": "Video Games",
+              "rank": 62
+            },
+            {
+              "name": "Shounen",
+              "rank": 52
+            },
+            {
+              "name": "Work",
+              "rank": 40
+            }
+          ],
+          "averageScore": 72,
+          "popularity": 130687,
+          "isAdult": false
+        },
+        {
+          "id": 21262,
+          "idMal": 31181,
+          "title": {
+            "romaji": "Owarimonogatari",
+            "english": "Owarimonogatari",
+            "native": "終物語"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2015,
+            "month": 10,
+            "day": 4
+          },
+          "seasonYear": 2015,
+          "genres": [
+            "Drama",
+            "Mystery",
+            "Psychological",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Philosophy",
+              "rank": 95
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 89
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 89
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 84
+            },
+            {
+              "name": "Vampire",
+              "rank": 80
+            },
+            {
+              "name": "Tragedy",
+              "rank": 79
+            },
+            {
+              "name": "Detective",
+              "rank": 75
+            },
+            {
+              "name": "Achronological Order",
+              "rank": 74
+            },
+            {
+              "name": "Suicide",
+              "rank": 73
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 66
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 53
+            },
+            {
+              "name": "Tsundere",
+              "rank": 43
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 12
+            }
+          ],
+          "averageScore": 85,
+          "popularity": 130681,
+          "isAdult": false
+        },
+        {
+          "id": 98478,
+          "idMal": 35180,
+          "title": {
+            "romaji": "3-gatsu no Lion 2nd Season",
+            "english": "March comes in like a lion Season 2",
+            "native": "３月のライオン 第2シリーズ"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 22,
+          "startDate": {
+            "year": 2017,
+            "month": 10,
+            "day": 14
+          },
+          "seasonYear": 2017,
+          "genres": [
+            "Drama",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Coming of Age",
+              "rank": 97
+            },
+            {
+              "name": "Rehabilitation",
+              "rank": 96
+            },
+            {
+              "name": "Found Family",
+              "rank": 92
+            },
+            {
+              "name": "Family Life",
+              "rank": 89
+            },
+            {
+              "name": "Shogi",
+              "rank": 85
+            },
+            {
+              "name": "Seinen",
+              "rank": 84
+            },
+            {
+              "name": "Bullying",
+              "rank": 81
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 80
+            },
+            {
+              "name": "Philosophy",
+              "rank": 80
+            },
+            {
+              "name": "Urban",
+              "rank": 79
+            },
+            {
+              "name": "Tragedy",
+              "rank": 67
+            },
+            {
+              "name": "Iyashikei",
+              "rank": 64
+            },
+            {
+              "name": "Board Game",
+              "rank": 63
+            },
+            {
+              "name": "School",
+              "rank": 61
+            },
+            {
+              "name": "Estranged Family",
+              "rank": 60
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 56
+            },
+            {
+              "name": "Food",
+              "rank": 46
+            },
+            {
+              "name": "School Club",
+              "rank": 40
+            },
+            {
+              "name": "Disability",
+              "rank": 34
+            },
+            {
+              "name": "Age Gap",
+              "rank": 30
+            }
+          ],
+          "averageScore": 89,
+          "popularity": 130532,
+          "isAdult": false
+        },
+        {
+          "id": 128712,
+          "idMal": 46471,
+          "title": {
+            "romaji": "Tantei wa mou, Shindeiru.",
+            "english": "The Detective Is Already Dead",
+            "native": "探偵はもう、死んでいる。"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2021,
+            "month": 7,
+            "day": 4
+          },
+          "seasonYear": 2021,
+          "genres": [
+            "Comedy",
+            "Drama",
+            "Mystery",
+            "Romance",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Detective",
+              "rank": 94
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 90
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 84
+            },
+            {
+              "name": "Tragedy",
+              "rank": 83
+            },
+            {
+              "name": "Achronological Order",
+              "rank": 82
+            },
+            {
+              "name": "Body Swapping",
+              "rank": 78
+            },
+            {
+              "name": "Crime",
+              "rank": 77
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 75
+            },
+            {
+              "name": "Terrorism",
+              "rank": 75
+            },
+            {
+              "name": "Dissociative Identities",
+              "rank": 72
+            },
+            {
+              "name": "Super Power",
+              "rank": 70
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 66
+            },
+            {
+              "name": "Female Harem",
+              "rank": 61
+            },
+            {
+              "name": "Aliens",
+              "rank": 60
+            },
+            {
+              "name": "Artificial Intelligence",
+              "rank": 60
+            },
+            {
+              "name": "Guns",
+              "rank": 52
+            },
+            {
+              "name": "Amnesia",
+              "rank": 50
+            },
+            {
+              "name": "Love Triangle",
+              "rank": 49
+            },
+            {
+              "name": "Police",
+              "rank": 43
+            },
+            {
+              "name": "VTuber",
+              "rank": 42
+            },
+            {
+              "name": "Idol",
+              "rank": 40
+            },
+            {
+              "name": "Prison",
+              "rank": 40
+            },
+            {
+              "name": "Age Gap",
+              "rank": 40
+            },
+            {
+              "name": "Super Robot",
+              "rank": 30
+            },
+            {
+              "name": "Robots",
+              "rank": 23
+            }
+          ],
+          "averageScore": 61,
+          "popularity": 130523,
+          "isAdult": false
+        },
+        {
+          "id": 110354,
+          "idMal": 40060,
+          "title": {
+            "romaji": "BNA",
+            "english": "BNA",
+            "native": "BNA ビー・エヌ・エー"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2020,
+            "month": 3,
+            "day": 21
+          },
+          "seasonYear": 2020,
+          "genres": [
+            "Action",
+            "Comedy",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Animals",
+              "rank": 97
+            },
+            {
+              "name": "Shapeshifting",
+              "rank": 96
+            },
+            {
+              "name": "Anthropomorphism",
+              "rank": 96
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 93
+            },
+            {
+              "name": "Conspiracy",
+              "rank": 89
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 88
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 85
+            },
+            {
+              "name": "Politics",
+              "rank": 80
+            },
+            {
+              "name": "Detective",
+              "rank": 73
+            },
+            {
+              "name": "Cult",
+              "rank": 70
+            },
+            {
+              "name": "Class Struggle",
+              "rank": 70
+            },
+            {
+              "name": "Dystopian",
+              "rank": 66
+            },
+            {
+              "name": "Baseball",
+              "rank": 66
+            },
+            {
+              "name": "Lost Civilization",
+              "rank": 61
+            },
+            {
+              "name": "Tomboy",
+              "rank": 61
+            },
+            {
+              "name": "Mafia",
+              "rank": 60
+            },
+            {
+              "name": "Police",
+              "rank": 60
+            },
+            {
+              "name": "Urban",
+              "rank": 60
+            },
+            {
+              "name": "Body Image",
+              "rank": 60
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 59
+            },
+            {
+              "name": "Bullying",
+              "rank": 48
+            },
+            {
+              "name": "Idol",
+              "rank": 42
+            }
+          ],
+          "averageScore": 72,
+          "popularity": 130394,
+          "isAdult": false
+        },
+        {
+          "id": 225,
+          "idMal": 225,
+          "title": {
+            "romaji": "Dragon Ball GT",
+            "english": "Dragon Ball GT",
+            "native": "ドラゴンボールGT"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 64,
+          "startDate": {
+            "year": 1996,
+            "month": 2,
+            "day": 7
+          },
+          "seasonYear": 1996,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Sci-Fi"
+          ],
+          "tags": [
+            {
+              "name": "Aliens",
+              "rank": 90
+            },
+            {
+              "name": "Age Regression",
+              "rank": 86
+            },
+            {
+              "name": "Henshin",
+              "rank": 80
+            },
+            {
+              "name": "Space",
+              "rank": 80
+            },
+            {
+              "name": "Dragons",
+              "rank": 80
+            },
+            {
+              "name": "Super Power",
+              "rank": 79
+            },
+            {
+              "name": "Martial Arts",
+              "rank": 79
+            },
+            {
+              "name": "Shounen",
+              "rank": 76
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 75
+            },
+            {
+              "name": "Artificial Intelligence",
+              "rank": 60
+            },
+            {
+              "name": "Magic",
+              "rank": 50
+            },
+            {
+              "name": "Super Robot",
+              "rank": 50
+            }
+          ],
+          "averageScore": 63,
+          "popularity": 130105,
+          "isAdult": false
+        },
+        {
+          "id": 127401,
+          "idMal": 44961,
+          "title": {
+            "romaji": "Platinum End",
+            "english": "Platinum End",
+            "native": "プラチナエンド"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 24,
+          "startDate": {
+            "year": 2021,
+            "month": 10,
+            "day": 8
+          },
+          "seasonYear": 2021,
+          "genres": [
+            "Drama",
+            "Mystery",
+            "Psychological",
+            "Romance",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Tragedy",
+              "rank": 95
+            },
+            {
+              "name": "Denpa",
+              "rank": 95
+            },
+            {
+              "name": "Battle Royale",
+              "rank": 89
+            },
+            {
+              "name": "Angels",
+              "rank": 88
+            },
+            {
+              "name": "Gods",
+              "rank": 86
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 82
+            },
+            {
+              "name": "Survival",
+              "rank": 81
+            },
+            {
+              "name": "Death Game",
+              "rank": 79
+            },
+            {
+              "name": "Suicide",
+              "rank": 77
+            },
+            {
+              "name": "Urban Fantasy",
+              "rank": 77
+            },
+            {
+              "name": "Philosophy",
+              "rank": 77
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 76
+            },
+            {
+              "name": "Urban",
+              "rank": 74
+            },
+            {
+              "name": "Crime",
+              "rank": 71
+            },
+            {
+              "name": "Religion",
+              "rank": 71
+            },
+            {
+              "name": "Conspiracy",
+              "rank": 70
+            },
+            {
+              "name": "Super Power",
+              "rank": 70
+            },
+            {
+              "name": "Cosmic Horror",
+              "rank": 66
+            },
+            {
+              "name": "Archery",
+              "rank": 66
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 65
+            },
+            {
+              "name": "Shounen",
+              "rank": 64
+            },
+            {
+              "name": "CGI",
+              "rank": 62
+            },
+            {
+              "name": "Rape",
+              "rank": 60
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 60
+            },
+            {
+              "name": "Hikikomori",
+              "rank": 60
+            },
+            {
+              "name": "Henshin",
+              "rank": 60
+            },
+            {
+              "name": "Bullying",
+              "rank": 58
+            },
+            {
+              "name": "Gore",
+              "rank": 55
+            },
+            {
+              "name": "Yandere",
+              "rank": 55
+            },
+            {
+              "name": "Politics",
+              "rank": 42
+            },
+            {
+              "name": "Kuudere",
+              "rank": 40
+            },
+            {
+              "name": "LGBTQ+ Themes",
+              "rank": 40
+            },
+            {
+              "name": "Time Skip",
+              "rank": 36
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 33
+            }
+          ],
+          "averageScore": 58,
+          "popularity": 130062,
+          "isAdult": false
+        },
+        {
+          "id": 137908,
+          "idMal": 49613,
+          "title": {
+            "romaji": "Chiyu Mahou no Machigatta Tsukaikata",
+            "english": "The Wrong Way to Use Healing Magic",
+            "native": "治癒魔法の間違った使い方"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2024,
+            "month": 1,
+            "day": 6
+          },
+          "seasonYear": 2024,
+          "genres": [
+            "Action",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Isekai",
+              "rank": 95
+            },
+            {
+              "name": "Magic",
+              "rank": 90
+            },
+            {
+              "name": "Demons",
+              "rank": 82
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 74
+            },
+            {
+              "name": "Survival",
+              "rank": 70
+            },
+            {
+              "name": "War",
+              "rank": 66
+            },
+            {
+              "name": "Fitness",
+              "rank": 65
+            },
+            {
+              "name": "Cultivation",
+              "rank": 60
+            },
+            {
+              "name": "Creature Taming",
+              "rank": 60
+            },
+            {
+              "name": "Military",
+              "rank": 55
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 55
+            },
+            {
+              "name": "Animals",
+              "rank": 51
+            },
+            {
+              "name": "Wilderness",
+              "rank": 46
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 40
+            },
+            {
+              "name": "Swordplay",
+              "rank": 38
+            },
+            {
+              "name": "Female Harem",
+              "rank": 33
+            }
+          ],
+          "averageScore": 75,
+          "popularity": 129934,
+          "isAdult": false
+        },
+        {
+          "id": 117448,
+          "idMal": 41623,
+          "title": {
+            "romaji": "Isekai Maou to Shoukan Shoujo no Dorei Majutsu Ω",
+            "english": "How NOT to Summon a Demon Lord Ω",
+            "native": "異世界魔王と召喚少女の奴隷魔術Ω"
+          },
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 10,
+          "startDate": {
+            "year": 2021,
+            "month": 4,
+            "day": 9
+          },
+          "seasonYear": 2021,
+          "genres": [
+            "Comedy",
+            "Ecchi",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Isekai",
+              "rank": 92
+            },
+            {
+              "name": "Female Harem",
+              "rank": 84
+            },
+            {
+              "name": "Magic",
+              "rank": 81
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 80
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 79
+            },
+            {
+              "name": "Nudity",
+              "rank": 72
+            },
+            {
+              "name": "Elf",
+              "rank": 68
+            },
+            {
+              "name": "Nekomimi",
+              "rank": 65
+            },
+            {
+              "name": "Virtual World",
+              "rank": 60
+            },
+            {
+              "name": "Hikikomori",
+              "rank": 60
+            },
+            {
+              "name": "Tanned Skin",
+              "rank": 40
+            },
+            {
+              "name": "Idol",
+              "rank": 38
+            },
+            {
+              "name": "CGI",
+              "rank": 20
+            },
+            {
+              "name": "Psychosexual",
+              "rank": 20
+            }
+          ],
+          "averageScore": 66,
+          "popularity": 129755,
+          "isAdult": false
+        }
+      ]
+    }
+  }
+}

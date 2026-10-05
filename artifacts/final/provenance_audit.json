@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "validated_record_count": 1500,
+  "splits": {
+    "train": 1200,
+    "validation": 150,
+    "test": 150
+  },
+  "authored_challenge_verified_count": 40,
+  "rules_hash": "07052a4c3ea0cb9c7f0538386f2ad5a135fa0f8545acd3ef402f505be4dd3828",
+  "subset_hash": "2b6b787f9730a30d7d4e39c1c912e12ee97a89292edcc4ee95c9368eedaa7131",
+  "validation": "Existing DatasetRecord validator, applied to saved JSONL; no silent repair."
+}

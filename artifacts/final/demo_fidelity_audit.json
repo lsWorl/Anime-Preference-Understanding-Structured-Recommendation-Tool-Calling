@@ -1,0 +1,380 @@
+{
+  "pipeline_success_count": 10,
+  "exact_query_match_count": 7,
+  "semantic_match_count": 8,
+  "count": 10,
+  "cases": [
+    {
+      "user_text": "想看2018年及以后的悬疑动画，最多24集。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [
+              "Mystery"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": 2018,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": 24
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": false,
+      "semantic_match_allowing_singleton_any_all": false,
+      "recommendation_ids_violating_intended_hard_constraints": [
+        113415,
+        101348
+      ]
+    },
+    {
+      "user_text": "悬疑或者科幻都可以，不要后宫。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [
+              "Mystery",
+              "Sci-Fi"
+            ],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": [
+              "Female Harem",
+              "Male Harem",
+              "Mixed Gender Harem"
+            ]
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": true,
+      "semantic_match_allowing_singleton_any_all": true,
+      "recommendation_ids_violating_intended_hard_constraints": []
+    },
+    {
+      "user_text": "想找类似《Steins;Gate》的作品。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [
+          "Steins;Gate"
+        ],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": true,
+      "semantic_match_allowing_singleton_any_all": true,
+      "recommendation_ids_violating_intended_hard_constraints": []
+    },
+    {
+      "user_text": "想看同时有科幻和悬疑题材的TV动画。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [
+              "Mystery",
+              "Sci-Fi"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [
+            "TV"
+          ],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": true,
+      "semantic_match_allowing_singleton_any_all": true,
+      "recommendation_ids_violating_intended_hard_constraints": []
+    },
+    {
+      "user_text": "想看已经完结、有异世界标签的动画。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [
+              "Isekai"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": [
+            "FINISHED"
+          ]
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": true,
+      "semantic_match_allowing_singleton_any_all": true,
+      "recommendation_ids_violating_intended_hard_constraints": []
+    },
+    {
+      "user_text": "不要恋爱题材。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": [
+              "Romance"
+            ]
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": true,
+      "semantic_match_allowing_singleton_any_all": true,
+      "recommendation_ids_violating_intended_hard_constraints": []
+    },
+    {
+      "user_text": "2010年及以前的科幻作品。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [
+              "Sci-Fi"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": 2010
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": false,
+      "semantic_match_allowing_singleton_any_all": false,
+      "recommendation_ids_violating_intended_hard_constraints": [
+        5114,
+        21,
+        1535,
+        199
+      ]
+    },
+    {
+      "user_text": "最多12集的作品。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": 12
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": true,
+      "semantic_match_allowing_singleton_any_all": true,
+      "recommendation_ids_violating_intended_hard_constraints": []
+    },
+    {
+      "user_text": "想找带时间循环标签的作品。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [
+              "Time Loop"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": false,
+      "semantic_match_allowing_singleton_any_all": true,
+      "recommendation_ids_violating_intended_hard_constraints": []
+    },
+    {
+      "user_text": "2015年及以后、最多24集、悬疑或者科幻、不要后宫。",
+      "expected_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [
+              "Mystery",
+              "Sci-Fi"
+            ],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": [
+              "Female Harem",
+              "Male Harem",
+              "Mixed Gender Harem"
+            ]
+          },
+          "year": {
+            "min": 2015,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": 24
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "exact_query_match": true,
+      "semantic_match_allowing_singleton_any_all": true,
+      "recommendation_ids_violating_intended_hard_constraints": []
+    }
+  ],
+  "scope": "Manual expected demo semantics; singleton ANY/ALL equivalence only. Does not alter E0 metrics or model outputs."
+}

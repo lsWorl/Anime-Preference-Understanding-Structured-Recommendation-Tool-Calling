@@ -1,0 +1,23 @@
+{
+  "saved_adapter_new_process": true,
+  "deterministic_repeat": true,
+  "is_loaded_in_4bit": false,
+  "all_parameters_frozen": true,
+  "sample_id": "sample_2113c1bedbc341b1fb9c4f1caa61dee02a782d91ba6a1eca78fcca03a41648c3",
+  "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[\"Psychological\",\"Sci-Fi\"],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":12},\"formats\":[\"OVA\",\"TV_SHORT\"],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}",
+  "json_valid": true,
+  "schema_valid": true,
+  "domain_valid": true,
+  "exact_match": true,
+  "identity": {
+    "torch_version": "2.11.0+cu130",
+    "transformers_version": "4.57.6",
+    "device_name": "NVIDIA GeForce RTX 5070",
+    "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "system_prompt_sha256": "f31a8b6aea25af0a8e1861c0cbf41edc1851749eef720d674888a36e3a393c42",
+    "model_variant": "final",
+    "release_unused_cuda_cache_between_calls": true,
+    "adapter_weights_sha256": "113d3e479b38309996970c6d36fe1f5c64480e09a6392dd1962dba27bd61f85d",
+    "training_system_prompt_sha256": "f31a8b6aea25af0a8e1861c0cbf41edc1851749eef720d674888a36e3a393c42"
+  }
+}

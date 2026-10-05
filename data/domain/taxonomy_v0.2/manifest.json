@@ -1,0 +1,12 @@
+{
+  "source": "AniList GraphQL API",
+  "resource": [
+    "GenreCollection",
+    "MediaTagCollection"
+  ],
+  "fetched_at_utc": "2026-10-04T14:44:01.832852Z",
+  "genre_count": 19,
+  "tag_count": 428,
+  "canonical_sha256": "5727c5340d91fb650958e99489ab67ee9949f773f3205cf96d9597565d0f8755",
+  "snapshot_schema_version": "anilist-taxonomy-snapshot-v0.1"
+}

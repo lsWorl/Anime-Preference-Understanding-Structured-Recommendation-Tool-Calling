@@ -1,0 +1,1666 @@
+[
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "4",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "4",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "4",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "4",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "4",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 3
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "same_field_logic",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "4",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "bounded_range"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "4",
+    "atoms": [
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "bounded_range"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "3",
+    "atoms": [
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "bounded_range"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "4",
+    "atoms": [
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "bounded_range"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "single_constraint",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "reference_only",
+    "complexity_bucket": 0,
+    "atoms": [
+      {
+        "kind": "reference",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "reference_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "reference",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "reference_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "all_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "reference",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "reference_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "reference",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "reference_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "reference",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "cross_field_composition",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "reference_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "reference",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "reference_composition",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "tag_set",
+        "operator_plan": {
+          "operator": "none_of",
+          "cardinality": 1
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "status_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "reference",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "normalization",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "tag_group_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "normalization",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_group_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "normalization",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_group_any",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "normalization",
+    "complexity_bucket": "1",
+    "atoms": [
+      {
+        "kind": "tag_group_none",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "normalization",
+    "complexity_bucket": "2",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_group_none",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  },
+  {
+    "semantic_family": "normalization",
+    "complexity_bucket": "5_plus",
+    "atoms": [
+      {
+        "kind": "genre_set",
+        "operator_plan": {
+          "operator": "any_of",
+          "cardinality": 2
+        },
+        "range_pattern": null
+      },
+      {
+        "kind": "year_range",
+        "operator_plan": null,
+        "range_pattern": "min_only"
+      },
+      {
+        "kind": "episodes_range",
+        "operator_plan": null,
+        "range_pattern": "max_only"
+      },
+      {
+        "kind": "format_any",
+        "operator_plan": null,
+        "range_pattern": null
+      },
+      {
+        "kind": "tag_group_none",
+        "operator_plan": null,
+        "range_pattern": null
+      }
+    ]
+  }
+]

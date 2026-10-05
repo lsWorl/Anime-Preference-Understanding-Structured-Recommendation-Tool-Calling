@@ -1,0 +1,7 @@
+{
+  "best_checkpoint": "D:\\Study\\anime-preference-sft\\artifacts\\final\\trainer\\checkpoint-150",
+  "best_validation_loss": 8.059773244895041e-05,
+  "adapter_sha256": "113d3e479b38309996970c6d36fe1f5c64480e09a6392dd1962dba27bd61f85d",
+  "global_step": 150,
+  "selection_metric": "validation loss"
+}

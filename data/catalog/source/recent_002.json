@@ -1,0 +1,1861 @@
+{
+  "data": {
+    "Page": {
+      "pageInfo": {
+        "hasNextPage": true
+      },
+      "media": [
+        {
+          "id": 216826,
+          "idMal": 64978,
+          "title": {
+            "romaji": "Funsou deshitara Hatta made",
+            "english": null,
+            "native": "紛争でしたら八田まで"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Mystery",
+            "Slice of Life"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 476,
+          "isAdult": false
+        },
+        {
+          "id": 216782,
+          "idMal": 65033,
+          "title": {
+            "romaji": "MOON FIGHTERS! CM",
+            "english": null,
+            "native": "KAエスマ文庫『MOON FIGHTERS!』アニメーションCM"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 9,
+            "day": 9
+          },
+          "seasonYear": null,
+          "genres": [],
+          "tags": [
+            {
+              "name": "Advertisement",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 76,
+          "isAdult": false
+        },
+        {
+          "id": 216647,
+          "idMal": 64071,
+          "title": {
+            "romaji": "VEIL",
+            "english": null,
+            "native": null
+          },
+          "format": "MUSIC",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 4,
+            "day": 29
+          },
+          "seasonYear": null,
+          "genres": [
+            "Sci-Fi"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 116,
+          "isAdult": false
+        },
+        {
+          "id": 216646,
+          "idMal": 62959,
+          "title": {
+            "romaji": "Rironbusou Shite",
+            "english": null,
+            "native": "理論武装して"
+          },
+          "format": "MUSIC",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2025,
+            "month": 11,
+            "day": 15
+          },
+          "seasonYear": null,
+          "genres": [],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 102,
+          "isAdult": false
+        },
+        {
+          "id": 216645,
+          "idMal": 64861,
+          "title": {
+            "romaji": "Hetalia World★Stars (2026)",
+            "english": null,
+            "native": "ヘタリア World★Stars (2026)"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 4,
+          "startDate": {
+            "year": 2026,
+            "month": 9,
+            "day": 5
+          },
+          "seasonYear": 2026,
+          "genres": [
+            "Comedy"
+          ],
+          "tags": [
+            {
+              "name": "Satire",
+              "rank": 20
+            },
+            {
+              "name": "Politics",
+              "rank": 20
+            },
+            {
+              "name": "Food",
+              "rank": 20
+            },
+            {
+              "name": "Anthropomorphism",
+              "rank": 20
+            },
+            {
+              "name": "Cute Boys Doing Cute Things",
+              "rank": 20
+            },
+            {
+              "name": "Educational",
+              "rank": 20
+            },
+            {
+              "name": "Primarily Male Cast",
+              "rank": 20
+            },
+            {
+              "name": "Episodic",
+              "rank": 20
+            },
+            {
+              "name": "Parody",
+              "rank": 20
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 20
+            },
+            {
+              "name": "Foreign",
+              "rank": 20
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 214,
+          "isAdult": false
+        },
+        {
+          "id": 216644,
+          "idMal": 64960,
+          "title": {
+            "romaji": "EAT-MAN The Over Order",
+            "english": null,
+            "native": "EAT-MAN The Over Order"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 439,
+          "isAdult": false
+        },
+        {
+          "id": 216643,
+          "idMal": 64873,
+          "title": {
+            "romaji": "Matsuken Anime: Kore Seibaishite mo Ii desu ka?",
+            "english": null,
+            "native": "マツケンアニメ~コレ成敗してもいいですか？～"
+          },
+          "format": "ONA",
+          "status": "RELEASING",
+          "episodes": null,
+          "startDate": {
+            "year": 2026,
+            "month": 8,
+            "day": 29
+          },
+          "seasonYear": 2026,
+          "genres": [
+            "Music"
+          ],
+          "tags": [
+            {
+              "name": "Male Protagonist",
+              "rank": 79
+            },
+            {
+              "name": "Chibi",
+              "rank": 79
+            },
+            {
+              "name": "Flash",
+              "rank": 79
+            }
+          ],
+          "averageScore": null,
+          "popularity": 29,
+          "isAdult": false
+        },
+        {
+          "id": 216625,
+          "idMal": 64965,
+          "title": {
+            "romaji": "PokéOki SEASON 2",
+            "english": null,
+            "native": "ポケ起き SEASON 2"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 4,
+          "startDate": {
+            "year": 2026,
+            "month": 9,
+            "day": 7
+          },
+          "seasonYear": 2026,
+          "genres": [
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Animals",
+              "rank": 79
+            },
+            {
+              "name": "Vertical Video",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 180,
+          "isAdult": false
+        },
+        {
+          "id": 216624,
+          "idMal": 64950,
+          "title": {
+            "romaji": "Shishite Ikiru SSS-kyuu Hunter",
+            "english": "SSS-Class Revival Hunter",
+            "native": "死して生きるSSS級ハンター"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": 2027,
+            "month": 1,
+            "day": null
+          },
+          "seasonYear": 2027,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Supernatural"
+          ],
+          "tags": [
+            {
+              "name": "Time Manipulation",
+              "rank": 90
+            },
+            {
+              "name": "Suicide",
+              "rank": 82
+            },
+            {
+              "name": "Male Protagonist",
+              "rank": 73
+            },
+            {
+              "name": "Dungeon",
+              "rank": 50
+            }
+          ],
+          "averageScore": null,
+          "popularity": 5537,
+          "isAdult": false
+        },
+        {
+          "id": 216623,
+          "idMal": 64920,
+          "title": {
+            "romaji": "Doraemon: Nobita no Jouki Jikansha",
+            "english": null,
+            "native": "ドラえもん のび太の蒸気時間車"
+          },
+          "format": "MOVIE",
+          "status": "NOT_YET_RELEASED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2027,
+            "month": 3,
+            "day": 5
+          },
+          "seasonYear": 2027,
+          "genres": [
+            "Comedy",
+            "Sci-Fi"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 122,
+          "isAdult": false
+        },
+        {
+          "id": 216620,
+          "idMal": 62734,
+          "title": {
+            "romaji": "Lingjing Xingzhe",
+            "english": "Spiritual Realm Walker",
+            "native": "灵境行者"
+          },
+          "format": "ONA",
+          "status": "RELEASING",
+          "episodes": 24,
+          "startDate": {
+            "year": 2026,
+            "month": 9,
+            "day": 3
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Supernatural"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 129,
+          "isAdult": false
+        },
+        {
+          "id": 216560,
+          "idMal": 64922,
+          "title": {
+            "romaji": "Kimi wa Yotsuba no Clover",
+            "english": null,
+            "native": "きみは四葉のクローバー"
+          },
+          "format": null,
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Drama",
+            "Romance"
+          ],
+          "tags": [
+            {
+              "name": "Bullying",
+              "rank": 100
+            },
+            {
+              "name": "Revenge",
+              "rank": 90
+            },
+            {
+              "name": "Time Manipulation",
+              "rank": 80
+            },
+            {
+              "name": "Suicide",
+              "rank": 79
+            },
+            {
+              "name": "Yandere",
+              "rank": 79
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 73
+            },
+            {
+              "name": "School",
+              "rank": 66
+            }
+          ],
+          "averageScore": null,
+          "popularity": 1273,
+          "isAdult": false
+        },
+        {
+          "id": 216559,
+          "idMal": 64972,
+          "title": {
+            "romaji": "Wishing Umbrella",
+            "english": null,
+            "native": "Wishing Umbrella"
+          },
+          "format": "MUSIC",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 9,
+            "day": 12
+          },
+          "seasonYear": null,
+          "genres": [],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 158,
+          "isAdult": false
+        },
+        {
+          "id": 216558,
+          "idMal": 65050,
+          "title": {
+            "romaji": "Odekake Hololive",
+            "english": null,
+            "native": "おでかけホロライブ"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "VTuber",
+              "rank": 100
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 60
+            },
+            {
+              "name": "Travel",
+              "rank": 20
+            },
+            {
+              "name": "Iyashikei",
+              "rank": 20
+            },
+            {
+              "name": "Anthology",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 819,
+          "isAdult": false
+        },
+        {
+          "id": 216557,
+          "idMal": 63157,
+          "title": {
+            "romaji": "Keroro Gunsou☆",
+            "english": "KERORO☆",
+            "native": "ケロロ軍曹☆"
+          },
+          "format": "TV",
+          "status": "RELEASING",
+          "episodes": null,
+          "startDate": {
+            "year": 2026,
+            "month": 10,
+            "day": 3
+          },
+          "seasonYear": 2026,
+          "genres": [
+            "Comedy",
+            "Sci-Fi"
+          ],
+          "tags": [
+            {
+              "name": "Shounen",
+              "rank": 20
+            },
+            {
+              "name": "Aliens",
+              "rank": 20
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 20
+            },
+            {
+              "name": "Space",
+              "rank": 20
+            },
+            {
+              "name": "Meta",
+              "rank": 20
+            },
+            {
+              "name": "Parody",
+              "rank": 20
+            },
+            {
+              "name": "Episodic",
+              "rank": 20
+            },
+            {
+              "name": "Otaku Culture",
+              "rank": 20
+            },
+            {
+              "name": "Ninja",
+              "rank": 20
+            },
+            {
+              "name": "Military",
+              "rank": 20
+            }
+          ],
+          "averageScore": 54,
+          "popularity": 1318,
+          "isAdult": false
+        },
+        {
+          "id": 216478,
+          "idMal": null,
+          "title": {
+            "romaji": "Azur Lane: 9 Shuunen Kinen Anime PV",
+            "english": null,
+            "native": "アズールレーン 9周年記念アニメPV"
+          },
+          "format": "SPECIAL",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 9,
+            "day": 5
+          },
+          "seasonYear": null,
+          "genres": [],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 171,
+          "isAdult": false
+        },
+        {
+          "id": 216404,
+          "idMal": 64906,
+          "title": {
+            "romaji": "Aoharu Once More",
+            "english": null,
+            "native": "アオハル・ワンスモア"
+          },
+          "format": null,
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Drama",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Boys' Love",
+              "rank": 60
+            },
+            {
+              "name": "Flash",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 212,
+          "isAdult": false
+        },
+        {
+          "id": 216346,
+          "idMal": 64905,
+          "title": {
+            "romaji": "Nippon Sangoku (Zoku-hen)",
+            "english": null,
+            "native": "日本三國 (続編)"
+          },
+          "format": null,
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Drama",
+            "Sci-Fi"
+          ],
+          "tags": [
+            {
+              "name": "Politics",
+              "rank": 80
+            },
+            {
+              "name": "War",
+              "rank": 80
+            },
+            {
+              "name": "Class Struggle",
+              "rank": 79
+            },
+            {
+              "name": "Tragedy",
+              "rank": 79
+            },
+            {
+              "name": "Military",
+              "rank": 75
+            },
+            {
+              "name": "Philosophy",
+              "rank": 60
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 60
+            },
+            {
+              "name": "Seinen",
+              "rank": 60
+            },
+            {
+              "name": "Gore",
+              "rank": 60
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 60
+            },
+            {
+              "name": "Dystopian",
+              "rank": 53
+            }
+          ],
+          "averageScore": null,
+          "popularity": 4992,
+          "isAdult": false
+        },
+        {
+          "id": 216312,
+          "idMal": 64877,
+          "title": {
+            "romaji": "Boku no Suki na Hito ga Suki na Hito",
+            "english": null,
+            "native": "ぼくの好きな人が好きな人"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Comedy",
+            "Romance"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 912,
+          "isAdult": false
+        },
+        {
+          "id": 216272,
+          "idMal": 64898,
+          "title": {
+            "romaji": "Tefuda ga Oome no Victoria 2",
+            "english": null,
+            "native": "手札が多めのビクトリア第２期"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Romance"
+          ],
+          "tags": [
+            {
+              "name": "Found Family",
+              "rank": 60
+            },
+            {
+              "name": "Josei",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 2412,
+          "isAdult": false
+        },
+        {
+          "id": 216176,
+          "idMal": 64451,
+          "title": {
+            "romaji": "Lian Qi Shi Wan Nian Special: Yangji Tianxia",
+            "english": "One Hundred Thousand Years of Qi Training: Yang Ascendant",
+            "native": "炼气十万年特别篇 阳极天下"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 7,
+            "day": 18
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Full CGI",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 52,
+          "isAdult": false
+        },
+        {
+          "id": 216175,
+          "idMal": 64653,
+          "title": {
+            "romaji": "Baise Shandian 2",
+            "english": null,
+            "native": "白色闪电 第二季"
+          },
+          "format": "ONA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": 12,
+          "startDate": {
+            "year": 2028,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Sports"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 62,
+          "isAdult": false
+        },
+        {
+          "id": 216170,
+          "idMal": 64892,
+          "title": {
+            "romaji": "8-gatsu 31-nichi no Long Summer",
+            "english": null,
+            "native": "8月31日のロングサマー"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Comedy",
+            "Romance",
+            "Sci-Fi"
+          ],
+          "tags": [
+            {
+              "name": "Time Loop",
+              "rank": 20
+            },
+            {
+              "name": "Coming of Age",
+              "rank": 20
+            },
+            {
+              "name": "Heterosexual",
+              "rank": 20
+            },
+            {
+              "name": "Seinen",
+              "rank": 20
+            },
+            {
+              "name": "Primarily Teen Cast",
+              "rank": 20
+            },
+            {
+              "name": "Time Manipulation",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 1433,
+          "isAdult": false
+        },
+        {
+          "id": 216167,
+          "idMal": 64895,
+          "title": {
+            "romaji": "Pokémon: Wild Card",
+            "english": null,
+            "native": "ポケモン：ワイルドカード"
+          },
+          "format": "MOVIE",
+          "status": "NOT_YET_RELEASED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2027,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [],
+          "tags": [
+            {
+              "name": "Card Battle",
+              "rank": 80
+            }
+          ],
+          "averageScore": null,
+          "popularity": 2736,
+          "isAdult": false
+        },
+        {
+          "id": 216117,
+          "idMal": null,
+          "title": {
+            "romaji": "Baki Gaiden: Retsu Kaiou wa Isekai Tensei Shitemo Ikkou ni Kamawan",
+            "english": null,
+            "native": "バキ外伝 烈海王は異世界転生しても一向にかまわんッッ"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Isekai",
+              "rank": 73
+            },
+            {
+              "name": "Martial Arts",
+              "rank": 60
+            }
+          ],
+          "averageScore": null,
+          "popularity": 1131,
+          "isAdult": false
+        },
+        {
+          "id": 215969,
+          "idMal": null,
+          "title": {
+            "romaji": "Tenchi Galaxy Pilot",
+            "english": null,
+            "native": "天地ギャラクシー（パイロット版）"
+          },
+          "format": "OVA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2028,
+            "month": 7,
+            "day": null
+          },
+          "seasonYear": 2028,
+          "genres": [
+            "Comedy",
+            "Romance",
+            "Sci-Fi"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 365,
+          "isAdult": false
+        },
+        {
+          "id": 215891,
+          "idMal": 63591,
+          "title": {
+            "romaji": "Pure",
+            "english": "Pure",
+            "native": "ピュア"
+          },
+          "format": "MUSIC",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 3,
+            "day": 4
+          },
+          "seasonYear": null,
+          "genres": [],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 135,
+          "isAdult": false
+        },
+        {
+          "id": 215878,
+          "idMal": 64840,
+          "title": {
+            "romaji": "Angry Rabbit",
+            "english": null,
+            "native": "Angry Rabbit"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 8,
+            "day": 21
+          },
+          "seasonYear": null,
+          "genres": [
+            "Horror"
+          ],
+          "tags": [
+            {
+              "name": "Anthropomorphism",
+              "rank": 79
+            },
+            {
+              "name": "Crime",
+              "rank": 79
+            },
+            {
+              "name": "Primarily Animal Cast",
+              "rank": 79
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 79
+            },
+            {
+              "name": "Stop Motion",
+              "rank": 79
+            },
+            {
+              "name": "Gore",
+              "rank": 79
+            },
+            {
+              "name": "Anti-Hero",
+              "rank": 79
+            },
+            {
+              "name": "No Dialogue",
+              "rank": 79
+            },
+            {
+              "name": "Revenge",
+              "rank": 60
+            },
+            {
+              "name": "Guns",
+              "rank": 60
+            }
+          ],
+          "averageScore": 51,
+          "popularity": 173,
+          "isAdult": false
+        },
+        {
+          "id": 215856,
+          "idMal": 64859,
+          "title": {
+            "romaji": "ONE PIECE FILM: BAAD",
+            "english": null,
+            "native": "ONE PIECE FILM BAAD"
+          },
+          "format": "MOVIE",
+          "status": "NOT_YET_RELEASED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2029,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [],
+          "tags": [
+            {
+              "name": "Shounen",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 5318,
+          "isAdult": false
+        },
+        {
+          "id": 215855,
+          "idMal": 64858,
+          "title": {
+            "romaji": "ONE PIECE FILM: GOD VALLEY",
+            "english": null,
+            "native": "ONE PIECE FILM GOD VALLEY"
+          },
+          "format": "MOVIE",
+          "status": "NOT_YET_RELEASED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2027,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": 2027,
+          "genres": [],
+          "tags": [
+            {
+              "name": "Pirates",
+              "rank": 88
+            },
+            {
+              "name": "Conspiracy",
+              "rank": 85
+            },
+            {
+              "name": "Battle Royale",
+              "rank": 79
+            },
+            {
+              "name": "Ensemble Cast",
+              "rank": 79
+            },
+            {
+              "name": "Rescue",
+              "rank": 79
+            },
+            {
+              "name": "Slavery",
+              "rank": 73
+            },
+            {
+              "name": "Brainwashing",
+              "rank": 60
+            },
+            {
+              "name": "Primarily Adult Cast",
+              "rank": 60
+            },
+            {
+              "name": "Shounen",
+              "rank": 50
+            },
+            {
+              "name": "Tragedy",
+              "rank": 50
+            },
+            {
+              "name": "Fugitive",
+              "rank": 30
+            },
+            {
+              "name": "Super Power",
+              "rank": 20
+            },
+            {
+              "name": "Ships",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 6611,
+          "isAdult": false
+        },
+        {
+          "id": 215835,
+          "idMal": 64867,
+          "title": {
+            "romaji": "Umayuru: Full Gate!",
+            "english": null,
+            "native": "うまゆるふるげ〜と!"
+          },
+          "format": "ONA",
+          "status": "RELEASING",
+          "episodes": 26,
+          "startDate": {
+            "year": 2026,
+            "month": 9,
+            "day": 27
+          },
+          "seasonYear": 2026,
+          "genres": [
+            "Comedy",
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Chibi",
+              "rank": 84
+            },
+            {
+              "name": "Primarily Female Cast",
+              "rank": 84
+            },
+            {
+              "name": "Kemonomimi",
+              "rank": 84
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 84
+            },
+            {
+              "name": "Cute Girls Doing Cute Things",
+              "rank": 80
+            },
+            {
+              "name": "Athletics",
+              "rank": 80
+            },
+            {
+              "name": "Food",
+              "rank": 70
+            }
+          ],
+          "averageScore": 63,
+          "popularity": 2382,
+          "isAdult": false
+        },
+        {
+          "id": 215791,
+          "idMal": 64844,
+          "title": {
+            "romaji": "Maiden Blood",
+            "english": null,
+            "native": "Maiden Blood"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": 2027,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Demons",
+              "rank": 79
+            },
+            {
+              "name": "Magic",
+              "rank": 79
+            },
+            {
+              "name": "Gore",
+              "rank": 79
+            },
+            {
+              "name": "Full CGI",
+              "rank": 60
+            },
+            {
+              "name": "Disability",
+              "rank": 60
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 60
+            },
+            {
+              "name": "Assassins",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 1519,
+          "isAdult": false
+        },
+        {
+          "id": 215790,
+          "idMal": 44302,
+          "title": {
+            "romaji": "Menghuan Xiyou: Tianming Zhi Zhan",
+            "english": null,
+            "native": "梦幻西游之天命之战"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2016,
+            "month": 9,
+            "day": 23
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 13,
+          "isAdult": false
+        },
+        {
+          "id": 215789,
+          "idMal": 44303,
+          "title": {
+            "romaji": "Menghuan Xiyou: Lei Nu Weiji",
+            "english": null,
+            "native": "梦幻西游之雷怒危机"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 13,
+          "startDate": {
+            "year": 2016,
+            "month": 8,
+            "day": 12
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 13,
+          "isAdult": false
+        },
+        {
+          "id": 215761,
+          "idMal": null,
+          "title": {
+            "romaji": "POKÉTOON (2026)",
+            "english": "POKÉTOON (2026)",
+            "native": "POKÉTOON (2026)"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 2,
+          "startDate": {
+            "year": 2026,
+            "month": 8,
+            "day": 12
+          },
+          "seasonYear": 2026,
+          "genres": [
+            "Adventure",
+            "Fantasy",
+            "Slice of Life"
+          ],
+          "tags": [],
+          "averageScore": 59,
+          "popularity": 450,
+          "isAdult": false
+        },
+        {
+          "id": 215695,
+          "idMal": 64746,
+          "title": {
+            "romaji": "Komadori Mofmof Parade",
+            "english": null,
+            "native": "こまどり モフモフパレード"
+          },
+          "format": "TV",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": 2027,
+            "month": 1,
+            "day": null
+          },
+          "seasonYear": 2027,
+          "genres": [
+            "Comedy"
+          ],
+          "tags": [
+            {
+              "name": "Stop Motion",
+              "rank": 60
+            },
+            {
+              "name": "Chibi",
+              "rank": 60
+            },
+            {
+              "name": "Aliens",
+              "rank": 60
+            }
+          ],
+          "averageScore": null,
+          "popularity": 191,
+          "isAdult": false
+        },
+        {
+          "id": 215693,
+          "idMal": 64535,
+          "title": {
+            "romaji": "Li Shiya",
+            "english": null,
+            "native": "李诗雅"
+          },
+          "format": "ONA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Drama",
+            "Romance"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 822,
+          "isAdult": false
+        },
+        {
+          "id": 215639,
+          "idMal": 64382,
+          "title": {
+            "romaji": "Baxian!",
+            "english": "All Wishes Come True!",
+            "native": "八仙！"
+          },
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 7,
+            "day": 18
+          },
+          "seasonYear": null,
+          "genres": [
+            "Adventure",
+            "Comedy",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Full CGI",
+              "rank": 20
+            },
+            {
+              "name": "Gods",
+              "rank": 20
+            },
+            {
+              "name": "Mythology",
+              "rank": 20
+            },
+            {
+              "name": "Ancient China",
+              "rank": 20
+            },
+            {
+              "name": "Anti-Hero",
+              "rank": 20
+            },
+            {
+              "name": "Martial Arts",
+              "rank": 20
+            },
+            {
+              "name": "Crime",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 238,
+          "isAdult": false
+        },
+        {
+          "id": 215617,
+          "idMal": null,
+          "title": {
+            "romaji": "DNF",
+            "english": null,
+            "native": "DNF"
+          },
+          "format": "ONA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Fantasy"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 158,
+          "isAdult": false
+        },
+        {
+          "id": 215582,
+          "idMal": 64802,
+          "title": {
+            "romaji": "Fate/Grand Order Exhibition: Hoshimi no Kairo",
+            "english": null,
+            "native": "Fate/Grand Order展 -星見の回廊-"
+          },
+          "format": "SPECIAL",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 7,
+            "day": 17
+          },
+          "seasonYear": null,
+          "genres": [],
+          "tags": [
+            {
+              "name": "Female Protagonist",
+              "rank": 79
+            },
+            {
+              "name": "Dinosaurs",
+              "rank": 79
+            },
+            {
+              "name": "Alternate Universe",
+              "rank": 79
+            },
+            {
+              "name": "Magic",
+              "rank": 79
+            },
+            {
+              "name": "Witch",
+              "rank": 79
+            },
+            {
+              "name": "Fairy",
+              "rank": 79
+            },
+            {
+              "name": "Foreign",
+              "rank": 79
+            }
+          ],
+          "averageScore": 57,
+          "popularity": 223,
+          "isAdult": false
+        },
+        {
+          "id": 215526,
+          "idMal": 64710,
+          "title": {
+            "romaji": "Taigu Shen Zun",
+            "english": "Primeval Overlord",
+            "native": "太古神尊"
+          },
+          "format": "ONA",
+          "status": "RELEASING",
+          "episodes": 40,
+          "startDate": {
+            "year": 2026,
+            "month": 7,
+            "day": 30
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Full CGI",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 71,
+          "isAdult": false
+        },
+        {
+          "id": 215523,
+          "idMal": 64460,
+          "title": {
+            "romaji": "Shen Yin Wangzuo: Sheng Babie Zhi Zhan",
+            "english": null,
+            "native": "神印王座·圣巴别之战"
+          },
+          "format": "ONA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": 2027,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Fantasy"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 110,
+          "isAdult": false
+        },
+        {
+          "id": 215522,
+          "idMal": 61649,
+          "title": {
+            "romaji": "Caishen Dou Zhanlong",
+            "english": "Golden Curse",
+            "native": "财神窦占龙"
+          },
+          "format": "ONA",
+          "status": "RELEASING",
+          "episodes": 16,
+          "startDate": {
+            "year": 2026,
+            "month": 8,
+            "day": 16
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Fantasy",
+            "Horror"
+          ],
+          "tags": [
+            {
+              "name": "Full CGI",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 143,
+          "isAdult": false
+        },
+        {
+          "id": 215521,
+          "idMal": 64384,
+          "title": {
+            "romaji": "Zhangmen Didiao Dian",
+            "english": "Stay Low Profile, Sect Chief",
+            "native": "掌门低调点"
+          },
+          "format": "ONA",
+          "status": "RELEASING",
+          "episodes": 40,
+          "startDate": {
+            "year": 2026,
+            "month": 6,
+            "day": 2
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Full CGI",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 80,
+          "isAdult": false
+        },
+        {
+          "id": 215520,
+          "idMal": 43342,
+          "title": {
+            "romaji": "Xiao Mao Diao Yu",
+            "english": null,
+            "native": "小猫钓鱼"
+          },
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 1952,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Slice of Life"
+          ],
+          "tags": [
+            {
+              "name": "Achromatic",
+              "rank": 20
+            },
+            {
+              "name": "Animals",
+              "rank": 20
+            },
+            {
+              "name": "Fishing",
+              "rank": 20
+            },
+            {
+              "name": "Anthropomorphism",
+              "rank": 20
+            },
+            {
+              "name": "Rural",
+              "rank": 20
+            }
+          ],
+          "averageScore": null,
+          "popularity": 21,
+          "isAdult": false
+        },
+        {
+          "id": 215298,
+          "idMal": null,
+          "title": {
+            "romaji": "Aofeng",
+            "english": null,
+            "native": "傲风"
+          },
+          "format": "ONA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Fantasy"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 72,
+          "isAdult": false
+        },
+        {
+          "id": 215297,
+          "idMal": null,
+          "title": {
+            "romaji": "Chuan Jin Sai Bo Youxi Hou Gandiao Boss Chenggong Shangwei",
+            "english": null,
+            "native": "穿进赛博游戏后干掉Boss成功上位"
+          },
+          "format": "ONA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": null,
+          "startDate": {
+            "year": null,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Sci-Fi"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 99,
+          "isAdult": false
+        },
+        {
+          "id": 215106,
+          "idMal": 64403,
+          "title": {
+            "romaji": "Yuanshen: Zuì​hou de Yí​chan",
+            "english": "Genshin Impact: \"The Final Gift\"",
+            "native": "原神 最后的遗产"
+          },
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 1,
+          "startDate": {
+            "year": 2026,
+            "month": 6,
+            "day": 15
+          },
+          "seasonYear": null,
+          "genres": [
+            "Fantasy"
+          ],
+          "tags": [
+            {
+              "name": "Primarily Female Cast",
+              "rank": 79
+            },
+            {
+              "name": "Female Protagonist",
+              "rank": 60
+            },
+            {
+              "name": "Tragedy",
+              "rank": 20
+            }
+          ],
+          "averageScore": 67,
+          "popularity": 289,
+          "isAdult": false
+        },
+        {
+          "id": 214978,
+          "idMal": 63995,
+          "title": {
+            "romaji": "Yi Jian Du Zun",
+            "english": null,
+            "native": "一剑独尊"
+          },
+          "format": "ONA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": 52,
+          "startDate": {
+            "year": 2027,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Fantasy"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 52,
+          "isAdult": false
+        },
+        {
+          "id": 214977,
+          "idMal": 61613,
+          "title": {
+            "romaji": "Wo You Yi Jian",
+            "english": null,
+            "native": "我有一剑"
+          },
+          "format": "ONA",
+          "status": "NOT_YET_RELEASED",
+          "episodes": 52,
+          "startDate": {
+            "year": 2027,
+            "month": null,
+            "day": null
+          },
+          "seasonYear": null,
+          "genres": [
+            "Action",
+            "Fantasy"
+          ],
+          "tags": [],
+          "averageScore": null,
+          "popularity": 42,
+          "isAdult": false
+        }
+      ]
+    }
+  }
+}

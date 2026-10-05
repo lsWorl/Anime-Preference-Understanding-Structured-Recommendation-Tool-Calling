@@ -1,0 +1,2431 @@
+{
+  "cases": [
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": 2018,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": 24
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 658,
+      "recommendations": [
+        {
+          "id": 104578,
+          "url": "https://anilist.co/anime/104578",
+          "title": "Attack on Titan Season 3 Part 2",
+          "titles": {
+            "english": "Attack on Titan Season 3 Part 2",
+            "native": "進撃の巨人 Season３ Part.2",
+            "romaji": "Shingeki no Kyojin Season 3 Part 2"
+          },
+          "year": 2019,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 10,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Male Protagonist",
+            "Military",
+            "Primarily Adult Cast",
+            "Revenge",
+            "Steampunk",
+            "Super Power",
+            "Survival",
+            "Swordplay"
+          ],
+          "score": 0.55519901,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.28819900597926856,
+            "average_score": 0.267
+          }
+        },
+        {
+          "id": 110277,
+          "url": "https://anilist.co/anime/110277",
+          "title": "Attack on Titan Final Season",
+          "titles": {
+            "english": "Attack on Titan Final Season",
+            "native": "進撃の巨人 The Final Season",
+            "romaji": "Shingeki no Kyojin: The Final Season"
+          },
+          "year": 2020,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 16,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Male Protagonist",
+            "Military",
+            "Philosophy",
+            "Politics",
+            "Primarily Adult Cast",
+            "Revenge",
+            "Steampunk",
+            "Super Power",
+            "Survival",
+            "Swordplay"
+          ],
+          "score": 0.55029773,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2892977264117135,
+            "average_score": 0.26099999999999995
+          }
+        },
+        {
+          "id": 113415,
+          "url": "https://anilist.co/anime/113415",
+          "title": "JUJUTSU KAISEN",
+          "titles": {
+            "english": "JUJUTSU KAISEN",
+            "native": "呪術廻戦",
+            "romaji": "Jujutsu Kaisen"
+          },
+          "year": 2020,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 24,
+          "genres": [
+            "Action",
+            "Drama",
+            "Supernatural"
+          ],
+          "tags": [
+            "Demons",
+            "Ensemble Cast",
+            "Magic",
+            "Male Protagonist",
+            "Martial Arts",
+            "Mythology",
+            "School",
+            "Slapstick",
+            "Super Power",
+            "Swordplay",
+            "Urban Fantasy",
+            "Youkai"
+          ],
+          "score": 0.55026957,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.29826956562315016,
+            "average_score": 0.252
+          }
+        },
+        {
+          "id": 99147,
+          "url": "https://anilist.co/anime/99147",
+          "title": "Attack on Titan Season 3",
+          "titles": {
+            "english": "Attack on Titan Season 3",
+            "native": "進撃の巨人 Season３",
+            "romaji": "Shingeki no Kyojin Season 3"
+          },
+          "year": 2018,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            "Crime",
+            "Dystopian",
+            "Ensemble Cast",
+            "Male Protagonist",
+            "Military",
+            "Politics",
+            "Revenge",
+            "Steampunk",
+            "Super Power",
+            "Survival"
+          ],
+          "score": 0.54870297,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2907029722849452,
+            "average_score": 0.258
+          }
+        },
+        {
+          "id": 101348,
+          "url": "https://anilist.co/anime/101348",
+          "title": "Vinland Saga",
+          "titles": {
+            "english": "Vinland Saga",
+            "native": "ヴィンランド・サガ",
+            "romaji": "VINLAND SAGA"
+          },
+          "year": 2019,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 24,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Historical",
+            "Male Protagonist",
+            "Military",
+            "Philosophy",
+            "Politics",
+            "Primarily Adult Cast",
+            "Revenge",
+            "Survival",
+            "Swordplay",
+            "Travel"
+          ],
+          "score": 0.54678646,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.28578646445421796,
+            "average_score": 0.26099999999999995
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "想看2018年及以后的悬疑动画，最多24集。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":2018,\"max\":null},\"episodes\":{\"min\":null,\"max\":24},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [
+              "Mystery",
+              "Sci-Fi"
+            ],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": [
+              "Female Harem",
+              "Male Harem",
+              "Mixed Gender Harem"
+            ]
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 392,
+      "recommendations": [
+        {
+          "id": 30,
+          "url": "https://anilist.co/anime/30",
+          "title": "Neon Genesis Evangelion",
+          "titles": {
+            "english": "Neon Genesis Evangelion",
+            "native": "新世紀エヴァンゲリオン",
+            "romaji": "Shin Seiki Evangelion"
+          },
+          "year": 1995,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 26,
+          "genres": [
+            "Action",
+            "Drama",
+            "Mecha",
+            "Mystery",
+            "Psychological",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Aliens",
+            "Coming of Age",
+            "Dystopian",
+            "Espionage",
+            "Male Protagonist",
+            "Military",
+            "Mythology",
+            "Philosophy",
+            "Politics",
+            "Post-Apocalyptic"
+          ],
+          "score": 0.93265141,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.28365140779243864,
+            "average_score": 0.249
+          }
+        },
+        {
+          "id": 97986,
+          "url": "https://anilist.co/anime/97986",
+          "title": "Made in Abyss",
+          "titles": {
+            "english": "Made in Abyss",
+            "native": "メイドインアビス",
+            "romaji": "Made in Abyss"
+          },
+          "year": 2017,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Dungeon",
+            "Female Protagonist",
+            "Food",
+            "Male Protagonist",
+            "Philosophy",
+            "Robots",
+            "Steampunk",
+            "Survival",
+            "Travel"
+          ],
+          "score": 0.93131282,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2793128230795825,
+            "average_score": 0.252
+          }
+        },
+        {
+          "id": 7311,
+          "url": "https://anilist.co/anime/7311",
+          "title": "The Disappearance of Haruhi Suzumiya",
+          "titles": {
+            "english": "The Disappearance of Haruhi Suzumiya",
+            "native": "涼宮ハルヒの消失",
+            "romaji": "Suzumiya Haruhi no Shoushitsu"
+          },
+          "year": 2010,
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi",
+            "Supernatural"
+          ],
+          "tags": [
+            "Aliens",
+            "Coming of Age",
+            "Male Protagonist",
+            "Philosophy",
+            "School",
+            "School Club",
+            "Urban Fantasy"
+          ],
+          "score": 0.91555137,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.25755137025443914,
+            "average_score": 0.258
+          }
+        },
+        {
+          "id": 100643,
+          "url": "https://anilist.co/anime/100643",
+          "title": "Made in Abyss: Dawn of the Deep Soul",
+          "titles": {
+            "english": "Made in Abyss: Dawn of the Deep Soul",
+            "native": "メイドインアビス 深き魂の黎明",
+            "romaji": "Made in Abyss: Fukaki Tamashii no Reimei"
+          },
+          "year": 2020,
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Psychological",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Dungeon",
+            "Ensemble Cast",
+            "Female Protagonist",
+            "Male Protagonist",
+            "Robots",
+            "Survival"
+          ],
+          "score": 0.91465038,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2596503779333361,
+            "average_score": 0.255
+          }
+        },
+        {
+          "id": 114745,
+          "url": "https://anilist.co/anime/114745",
+          "title": "Made in Abyss: The Golden City of the Scorching Sun",
+          "titles": {
+            "english": "Made in Abyss: The Golden City of the Scorching Sun",
+            "native": "メイドインアビス 烈日の黄金郷",
+            "romaji": "Made in Abyss: Retsujitsu no Ougonkyou"
+          },
+          "year": 2022,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Dungeon",
+            "Ensemble Cast",
+            "Female Protagonist",
+            "Food",
+            "Male Protagonist",
+            "Philosophy",
+            "Revenge",
+            "Robots",
+            "Survival",
+            "Travel"
+          ],
+          "score": 0.91372316,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.25872315983372085,
+            "average_score": 0.255
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "悬疑或者科幻都可以，不要后宫。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[\"Mystery\",\"Sci-Fi\"],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[\"Female Harem\",\"Male Harem\",\"Mixed Gender Harem\"]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [
+          "Steins;Gate"
+        ],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 1544,
+      "recommendations": [
+        {
+          "id": 9253,
+          "url": "https://anilist.co/anime/9253",
+          "title": "Steins;Gate",
+          "titles": {
+            "english": "Steins;Gate",
+            "native": "シュタインズ・ゲート",
+            "romaji": "Steins;Gate"
+          },
+          "year": 2011,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 24,
+          "genres": [
+            "Drama",
+            "Psychological",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Male Protagonist",
+            "Primarily Adult Cast",
+            "Time Loop"
+          ],
+          "score": 2.55461774,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 2.0,
+            "popularity": 0.28761773754983594,
+            "average_score": 0.267
+          }
+        },
+        {
+          "id": 21127,
+          "url": "https://anilist.co/anime/21127",
+          "title": "Steins;Gate 0",
+          "titles": {
+            "english": "Steins;Gate 0",
+            "native": "シュタインズ・ゲート ゼロ",
+            "romaji": "Steins;Gate 0"
+          },
+          "year": 2018,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 23,
+          "genres": [
+            "Drama",
+            "Psychological",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [
+            "Artificial Intelligence",
+            "College",
+            "Dystopian",
+            "Male Protagonist",
+            "Military",
+            "Philosophy",
+            "Post-Apocalyptic"
+          ],
+          "score": 1.86971099,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 1.3513513513513513,
+            "popularity": 0.266359643367913,
+            "average_score": 0.252
+          }
+        },
+        {
+          "id": 21624,
+          "url": "https://anilist.co/anime/21624",
+          "title": "Steins;Gate 0: 23β -Divide by Zero-",
+          "titles": {
+            "english": "Steins;Gate 0: 23β -Divide by Zero-",
+            "native": "シュタインズ・ゲート 境界面上のミッシングリンク -Divide By Zero-",
+            "romaji": "Steins;Gate: Kyoukaimenjou no Missing Link - Divide By Zero"
+          },
+          "year": 2015,
+          "format": "OVA",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Drama",
+            "Psychological",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [],
+          "score": 1.70253088,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 1.2142857142857142,
+            "popularity": 0.24524516623667814,
+            "average_score": 0.243
+          }
+        },
+        {
+          "id": 110350,
+          "url": "https://anilist.co/anime/110350",
+          "title": "ID: INVADED",
+          "titles": {
+            "english": "ID: INVADED",
+            "native": "イド：インヴェイデッド",
+            "romaji": "ID: INVADED"
+          },
+          "year": 2020,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "genres": [
+            "Drama",
+            "Mystery",
+            "Psychological",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [
+            "Crime",
+            "Cyberpunk",
+            "Detective",
+            "Female Protagonist",
+            "Male Protagonist",
+            "Philosophy",
+            "Police",
+            "Primarily Adult Cast",
+            "Revenge",
+            "Urban Fantasy",
+            "Virtual World"
+          ],
+          "score": 1.46701116,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0.9818181818181819,
+            "popularity": 0.2541929830135044,
+            "average_score": 0.23099999999999998
+          }
+        },
+        {
+          "id": 11577,
+          "url": "https://anilist.co/anime/11577",
+          "title": "Steins;Gate The Movie – Load Region of Déjà Vu",
+          "titles": {
+            "english": "Steins;Gate The Movie – Load Region of Déjà Vu",
+            "native": "劇場版 シュタインズゲート 負荷領域のデジャヴ",
+            "romaji": "Steins;Gate: Fuka Ryouiki no Déjà vu"
+          },
+          "year": 2013,
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Drama",
+            "Romance",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [
+            "Female Protagonist",
+            "Primarily Adult Cast"
+          ],
+          "score": 1.41268289,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0.9103448275862069,
+            "popularity": 0.256338058034939,
+            "average_score": 0.24599999999999997
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "想找类似《Steins;Gate》的作品。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[],\"status\":[]},\"reference_titles\":[\"Steins;Gate\"],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [
+              "Mystery",
+              "Sci-Fi"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [
+            "TV"
+          ],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 24,
+      "recommendations": [
+        {
+          "id": 30,
+          "url": "https://anilist.co/anime/30",
+          "title": "Neon Genesis Evangelion",
+          "titles": {
+            "english": "Neon Genesis Evangelion",
+            "native": "新世紀エヴァンゲリオン",
+            "romaji": "Shin Seiki Evangelion"
+          },
+          "year": 1995,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 26,
+          "genres": [
+            "Action",
+            "Drama",
+            "Mecha",
+            "Mystery",
+            "Psychological",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Aliens",
+            "Coming of Age",
+            "Dystopian",
+            "Espionage",
+            "Male Protagonist",
+            "Military",
+            "Mythology",
+            "Philosophy",
+            "Politics",
+            "Post-Apocalyptic"
+          ],
+          "score": 0.93265141,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.28365140779243864,
+            "average_score": 0.249
+          }
+        },
+        {
+          "id": 97986,
+          "url": "https://anilist.co/anime/97986",
+          "title": "Made in Abyss",
+          "titles": {
+            "english": "Made in Abyss",
+            "native": "メイドインアビス",
+            "romaji": "Made in Abyss"
+          },
+          "year": 2017,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Dungeon",
+            "Female Protagonist",
+            "Food",
+            "Male Protagonist",
+            "Philosophy",
+            "Robots",
+            "Steampunk",
+            "Survival",
+            "Travel"
+          ],
+          "score": 0.93131282,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2793128230795825,
+            "average_score": 0.252
+          }
+        },
+        {
+          "id": 114745,
+          "url": "https://anilist.co/anime/114745",
+          "title": "Made in Abyss: The Golden City of the Scorching Sun",
+          "titles": {
+            "english": "Made in Abyss: The Golden City of the Scorching Sun",
+            "native": "メイドインアビス 烈日の黄金郷",
+            "romaji": "Made in Abyss: Retsujitsu no Ougonkyou"
+          },
+          "year": 2022,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Dungeon",
+            "Ensemble Cast",
+            "Female Protagonist",
+            "Food",
+            "Male Protagonist",
+            "Philosophy",
+            "Revenge",
+            "Robots",
+            "Survival",
+            "Travel"
+          ],
+          "score": 0.91372316,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.25872315983372085,
+            "average_score": 0.255
+          }
+        },
+        {
+          "id": 339,
+          "url": "https://anilist.co/anime/339",
+          "title": "Serial Experiments Lain",
+          "titles": {
+            "english": "Serial Experiments Lain",
+            "native": "serial experiments lain",
+            "romaji": "serial experiments lain"
+          },
+          "year": 1998,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "genres": [
+            "Drama",
+            "Mystery",
+            "Psychological",
+            "Sci-Fi",
+            "Supernatural"
+          ],
+          "tags": [
+            "Artificial Intelligence",
+            "Cyberpunk",
+            "Female Protagonist",
+            "Philosophy",
+            "Software Development",
+            "Video Games",
+            "Virtual World"
+          ],
+          "score": 0.90916895,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2691689525966801,
+            "average_score": 0.24
+          }
+        },
+        {
+          "id": 155783,
+          "url": "https://anilist.co/anime/155783",
+          "title": "Tengoku Daimakyo",
+          "titles": {
+            "english": "Tengoku Daimakyo",
+            "native": "天国大魔境",
+            "romaji": "Tengoku Daimakyou"
+          },
+          "year": 2023,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "genres": [
+            "Adventure",
+            "Mystery",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [
+            "Artificial Intelligence",
+            "Coming of Age",
+            "Cyberpunk",
+            "Demons",
+            "Dystopian",
+            "Female Protagonist",
+            "Male Protagonist",
+            "Post-Apocalyptic",
+            "Super Power",
+            "Survival",
+            "Travel"
+          ],
+          "score": 0.90843981,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2654398149606058,
+            "average_score": 0.243
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "想看同时有科幻和悬疑题材的TV动画。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[\"Sci-Fi\",\"Mystery\"],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[\"TV\"],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [
+              "Isekai"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": [
+            "FINISHED"
+          ]
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 159,
+      "recommendations": [
+        {
+          "id": 199,
+          "url": "https://anilist.co/anime/199",
+          "title": "Spirited Away",
+          "titles": {
+            "english": "Spirited Away",
+            "native": "千と千尋の神隠し",
+            "romaji": "Sen to Chihiro no Kamikakushi"
+          },
+          "year": 2001,
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Supernatural"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Dragons",
+            "Female Protagonist",
+            "Isekai",
+            "Magic",
+            "Mythology",
+            "Travel",
+            "Urban Fantasy",
+            "Work",
+            "Youkai"
+          ],
+          "score": 0.74099668,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.2829966804692965,
+            "average_score": 0.258
+          }
+        },
+        {
+          "id": 21355,
+          "url": "https://anilist.co/anime/21355",
+          "title": "Re:ZERO -Starting Life in Another World-",
+          "titles": {
+            "english": "Re:ZERO -Starting Life in Another World-",
+            "native": "Re:ゼロから始める異世界生活",
+            "romaji": "Re:Zero kara Hajimeru Isekai Seikatsu"
+          },
+          "year": 2016,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 25,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Psychological",
+            "Romance",
+            "Thriller"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Demons",
+            "Isekai",
+            "Love Triangle",
+            "Magic",
+            "Male Protagonist",
+            "Politics",
+            "Time Loop",
+            "Travel"
+          ],
+          "score": 0.73163249,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.2886324913272327,
+            "average_score": 0.243
+          }
+        },
+        {
+          "id": 127720,
+          "url": "https://anilist.co/anime/127720",
+          "title": "Mushoku Tensei: Jobless Reincarnation Cour 2",
+          "titles": {
+            "english": "Mushoku Tensei: Jobless Reincarnation Cour 2",
+            "native": "無職転生 ～異世界行ったら本気だす～ 第2クール",
+            "romaji": "Mushoku Tensei: Isekai Ittara Honki Dasu Part 2"
+          },
+          "year": 2021,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Ecchi",
+            "Fantasy"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Demons",
+            "Female Harem",
+            "Isekai",
+            "Magic",
+            "Male Protagonist",
+            "Post-Apocalyptic",
+            "Survival",
+            "Swordplay",
+            "Travel"
+          ],
+          "score": 0.7295954,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.2745954020469036,
+            "average_score": 0.255
+          }
+        },
+        {
+          "id": 108465,
+          "url": "https://anilist.co/anime/108465",
+          "title": "Mushoku Tensei: Jobless Reincarnation",
+          "titles": {
+            "english": "Mushoku Tensei: Jobless Reincarnation",
+            "native": "無職転生 ～異世界行ったら本気だす～",
+            "romaji": "Mushoku Tensei: Isekai Ittara Honki Dasu"
+          },
+          "year": 2021,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 11,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Ecchi",
+            "Fantasy"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Demons",
+            "Family Life",
+            "Female Harem",
+            "Isekai",
+            "Magic",
+            "Male Protagonist",
+            "Politics",
+            "Swordplay",
+            "Travel"
+          ],
+          "score": 0.72806163,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.28206162943128504,
+            "average_score": 0.24599999999999997
+          }
+        },
+        {
+          "id": 189046,
+          "url": "https://anilist.co/anime/189046",
+          "title": "Re:ZERO -Starting Life in Another World- Season 4",
+          "titles": {
+            "english": "Re:ZERO -Starting Life in Another World- Season 4",
+            "native": "Re:ゼロから始める異世界生活 4th season",
+            "romaji": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season"
+          },
+          "year": 2026,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 19,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Psychological",
+            "Romance",
+            "Thriller"
+          ],
+          "tags": [
+            "Dragons",
+            "Female Protagonist",
+            "Isekai",
+            "Magic",
+            "Male Protagonist",
+            "Time Loop",
+            "Travel"
+          ],
+          "score": 0.72732811,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.25732811138392864,
+            "average_score": 0.27
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "想看已经完结、有异世界标签的动画。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[\"Isekai\"],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[],\"status\":[\"FINISHED\"]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": [
+              "Romance"
+            ]
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 1081,
+      "recommendations": [
+        {
+          "id": 11061,
+          "url": "https://anilist.co/anime/11061",
+          "title": "Hunter x Hunter (2011)",
+          "titles": {
+            "english": "Hunter x Hunter (2011)",
+            "native": "HUNTER×HUNTER (2011)",
+            "romaji": "HUNTER×HUNTER (2011)"
+          },
+          "year": 2011,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 148,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "tags": [
+            "Animals",
+            "Coming of Age",
+            "Crime",
+            "Ensemble Cast",
+            "Male Protagonist",
+            "Martial Arts",
+            "Philosophy",
+            "Revenge",
+            "Super Power",
+            "Travel",
+            "Urban Fantasy",
+            "Video Games",
+            "Virtual World"
+          ],
+          "score": 0.56209114,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.29509113675557136,
+            "average_score": 0.267
+          }
+        },
+        {
+          "id": 5114,
+          "url": "https://anilist.co/anime/5114",
+          "title": "Fullmetal Alchemist: Brotherhood",
+          "titles": {
+            "english": "Fullmetal Alchemist: Brotherhood",
+            "native": "鋼の錬金術師 FULLMETAL ALCHEMIST",
+            "romaji": "Hagane no Renkinjutsushi: FULLMETAL ALCHEMIST"
+          },
+          "year": 2009,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 64,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy"
+          ],
+          "tags": [
+            "Alchemy",
+            "Coming of Age",
+            "Demons",
+            "Ensemble Cast",
+            "Male Protagonist",
+            "Military",
+            "Philosophy",
+            "Politics",
+            "Revenge",
+            "Slapstick",
+            "Steampunk",
+            "Super Power",
+            "Travel",
+            "Urban Fantasy"
+          ],
+          "score": 0.5620105,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2920104997585052,
+            "average_score": 0.27
+          }
+        },
+        {
+          "id": 154587,
+          "url": "https://anilist.co/anime/154587",
+          "title": "Frieren: Beyond Journey’s End",
+          "titles": {
+            "english": "Frieren: Beyond Journey’s End",
+            "native": "葬送のフリーレン",
+            "romaji": "Sousou no Frieren"
+          },
+          "year": 2023,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 28,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy"
+          ],
+          "tags": [
+            "Demons",
+            "Dungeon",
+            "Female Protagonist",
+            "Iyashikei",
+            "Magic",
+            "Philosophy",
+            "Rural",
+            "Travel"
+          ],
+          "score": 0.55612011,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2831201084418577,
+            "average_score": 0.273
+          }
+        },
+        {
+          "id": 104578,
+          "url": "https://anilist.co/anime/104578",
+          "title": "Attack on Titan Season 3 Part 2",
+          "titles": {
+            "english": "Attack on Titan Season 3 Part 2",
+            "native": "進撃の巨人 Season３ Part.2",
+            "romaji": "Shingeki no Kyojin Season 3 Part 2"
+          },
+          "year": 2019,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 10,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Male Protagonist",
+            "Military",
+            "Primarily Adult Cast",
+            "Revenge",
+            "Steampunk",
+            "Super Power",
+            "Survival",
+            "Swordplay"
+          ],
+          "score": 0.55519901,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.28819900597926856,
+            "average_score": 0.267
+          }
+        },
+        {
+          "id": 16498,
+          "url": "https://anilist.co/anime/16498",
+          "title": "Attack on Titan",
+          "titles": {
+            "english": "Attack on Titan",
+            "native": "進撃の巨人",
+            "romaji": "Shingeki no Kyojin"
+          },
+          "year": 2013,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 25,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Male Protagonist",
+            "Military",
+            "Post-Apocalyptic",
+            "Revenge",
+            "Rural",
+            "Steampunk",
+            "Super Power",
+            "Survival",
+            "Swordplay"
+          ],
+          "score": 0.555,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.3,
+            "average_score": 0.255
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "不要恋爱题材。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[\"Romance\"]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": 2010
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 296,
+      "recommendations": [
+        {
+          "id": 5114,
+          "url": "https://anilist.co/anime/5114",
+          "title": "Fullmetal Alchemist: Brotherhood",
+          "titles": {
+            "english": "Fullmetal Alchemist: Brotherhood",
+            "native": "鋼の錬金術師 FULLMETAL ALCHEMIST",
+            "romaji": "Hagane no Renkinjutsushi: FULLMETAL ALCHEMIST"
+          },
+          "year": 2009,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 64,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy"
+          ],
+          "tags": [
+            "Alchemy",
+            "Coming of Age",
+            "Demons",
+            "Ensemble Cast",
+            "Male Protagonist",
+            "Military",
+            "Philosophy",
+            "Politics",
+            "Revenge",
+            "Slapstick",
+            "Steampunk",
+            "Super Power",
+            "Travel",
+            "Urban Fantasy"
+          ],
+          "score": 0.5620105,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2920104997585052,
+            "average_score": 0.27
+          }
+        },
+        {
+          "id": 21,
+          "url": "https://anilist.co/anime/21",
+          "title": "ONE PIECE",
+          "titles": {
+            "english": "ONE PIECE",
+            "native": "ONE PIECE",
+            "romaji": "ONE PIECE"
+          },
+          "year": 1999,
+          "format": "TV",
+          "status": "RELEASING",
+          "episodes": null,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Drama",
+            "Fantasy"
+          ],
+          "tags": [
+            "Animals",
+            "Artificial Intelligence",
+            "Battle Royale",
+            "Crime",
+            "Demons",
+            "Dragons",
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Food",
+            "Male Protagonist",
+            "Ninja",
+            "Philosophy",
+            "Politics",
+            "Post-Apocalyptic",
+            "Primarily Adult Cast",
+            "Revenge",
+            "Robots",
+            "Samurai",
+            "Slapstick",
+            "Super Power",
+            "Swordplay",
+            "Travel"
+          ],
+          "score": 0.55367381,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.29267380843453655,
+            "average_score": 0.26099999999999995
+          }
+        },
+        {
+          "id": 1535,
+          "url": "https://anilist.co/anime/1535",
+          "title": "Death Note",
+          "titles": {
+            "english": "Death Note",
+            "native": "DEATH NOTE",
+            "romaji": "DEATH NOTE"
+          },
+          "year": 2006,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 37,
+          "genres": [
+            "Mystery",
+            "Psychological",
+            "Supernatural",
+            "Thriller"
+          ],
+          "tags": [
+            "Crime",
+            "Detective",
+            "Espionage",
+            "Male Protagonist",
+            "Philosophy",
+            "Police",
+            "Primarily Adult Cast",
+            "Urban Fantasy"
+          ],
+          "score": 0.55000661,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2980066095253081,
+            "average_score": 0.252
+          }
+        },
+        {
+          "id": 199,
+          "url": "https://anilist.co/anime/199",
+          "title": "Spirited Away",
+          "titles": {
+            "english": "Spirited Away",
+            "native": "千と千尋の神隠し",
+            "romaji": "Sen to Chihiro no Kamikakushi"
+          },
+          "year": 2001,
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Supernatural"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Dragons",
+            "Female Protagonist",
+            "Isekai",
+            "Magic",
+            "Mythology",
+            "Travel",
+            "Urban Fantasy",
+            "Work",
+            "Youkai"
+          ],
+          "score": 0.54099668,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2829966804692965,
+            "average_score": 0.258
+          }
+        },
+        {
+          "id": 1,
+          "url": "https://anilist.co/anime/1",
+          "title": "Cowboy Bebop",
+          "titles": {
+            "english": "Cowboy Bebop",
+            "native": "カウボーイビバップ",
+            "romaji": "Cowboy Bebop"
+          },
+          "year": 1998,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 26,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Crime",
+            "Cyberpunk",
+            "Ensemble Cast",
+            "Female Protagonist",
+            "Male Protagonist",
+            "Martial Arts",
+            "Philosophy",
+            "Police",
+            "Primarily Adult Cast",
+            "Space",
+            "Travel",
+            "Work"
+          ],
+          "score": 0.54040472,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2824047154475218,
+            "average_score": 0.258
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "2010年及以前的科幻作品。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":2010},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": 12
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 957,
+      "recommendations": [
+        {
+          "id": 20954,
+          "url": "https://anilist.co/anime/20954",
+          "title": "A Silent Voice",
+          "titles": {
+            "english": "A Silent Voice",
+            "native": "聲の形",
+            "romaji": "Koe no Katachi"
+          },
+          "year": 2016,
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Drama",
+            "Romance",
+            "Slice of Life"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Female Protagonist",
+            "Male Protagonist",
+            "Philosophy",
+            "Photography",
+            "School"
+          ],
+          "score": 0.55565063,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2916506263219298,
+            "average_score": 0.264
+          }
+        },
+        {
+          "id": 104578,
+          "url": "https://anilist.co/anime/104578",
+          "title": "Attack on Titan Season 3 Part 2",
+          "titles": {
+            "english": "Attack on Titan Season 3 Part 2",
+            "native": "進撃の巨人 Season３ Part.2",
+            "romaji": "Shingeki no Kyojin Season 3 Part 2"
+          },
+          "year": 2019,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 10,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Male Protagonist",
+            "Military",
+            "Primarily Adult Cast",
+            "Revenge",
+            "Steampunk",
+            "Super Power",
+            "Survival",
+            "Swordplay"
+          ],
+          "score": 0.55519901,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.28819900597926856,
+            "average_score": 0.267
+          }
+        },
+        {
+          "id": 99147,
+          "url": "https://anilist.co/anime/99147",
+          "title": "Attack on Titan Season 3",
+          "titles": {
+            "english": "Attack on Titan Season 3",
+            "native": "進撃の巨人 Season３",
+            "romaji": "Shingeki no Kyojin Season 3"
+          },
+          "year": 2018,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            "Crime",
+            "Dystopian",
+            "Ensemble Cast",
+            "Male Protagonist",
+            "Military",
+            "Politics",
+            "Revenge",
+            "Steampunk",
+            "Super Power",
+            "Survival"
+          ],
+          "score": 0.54870297,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2907029722849452,
+            "average_score": 0.258
+          }
+        },
+        {
+          "id": 20958,
+          "url": "https://anilist.co/anime/20958",
+          "title": "Attack on Titan Season 2",
+          "titles": {
+            "english": "Attack on Titan Season 2",
+            "native": "進撃の巨人 Season２",
+            "romaji": "Shingeki no Kyojin Season 2"
+          },
+          "year": 2017,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "genres": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Male Protagonist",
+            "Military",
+            "Politics",
+            "Post-Apocalyptic",
+            "Revenge",
+            "Rural",
+            "Steampunk",
+            "Super Power",
+            "Survival"
+          ],
+          "score": 0.54714249,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2921424911760741,
+            "average_score": 0.255
+          }
+        },
+        {
+          "id": 21519,
+          "url": "https://anilist.co/anime/21519",
+          "title": "Your Name.",
+          "titles": {
+            "english": "Your Name.",
+            "native": "君の名は。",
+            "romaji": "Kimi no Na wa."
+          },
+          "year": 2016,
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Drama",
+            "Romance",
+            "Supernatural"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Female Protagonist",
+            "Male Protagonist",
+            "Mythology",
+            "Rural",
+            "Urban Fantasy"
+          ],
+          "score": 0.54657419,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2915741923148336,
+            "average_score": 0.255
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "最多12集的作品。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":12},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [
+              "Time Loop"
+            ],
+            "none_of": []
+          },
+          "year": {
+            "min": null,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": null
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 24,
+      "recommendations": [
+        {
+          "id": 9253,
+          "url": "https://anilist.co/anime/9253",
+          "title": "Steins;Gate",
+          "titles": {
+            "english": "Steins;Gate",
+            "native": "シュタインズ・ゲート",
+            "romaji": "Steins;Gate"
+          },
+          "year": 2011,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 24,
+          "genres": [
+            "Drama",
+            "Psychological",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [
+            "Dystopian",
+            "Ensemble Cast",
+            "Espionage",
+            "Male Protagonist",
+            "Primarily Adult Cast",
+            "Time Loop"
+          ],
+          "score": 0.75461774,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.28761773754983594,
+            "average_score": 0.267
+          }
+        },
+        {
+          "id": 21355,
+          "url": "https://anilist.co/anime/21355",
+          "title": "Re:ZERO -Starting Life in Another World-",
+          "titles": {
+            "english": "Re:ZERO -Starting Life in Another World-",
+            "native": "Re:ゼロから始める異世界生活",
+            "romaji": "Re:Zero kara Hajimeru Isekai Seikatsu"
+          },
+          "year": 2016,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 25,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Psychological",
+            "Romance",
+            "Thriller"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Demons",
+            "Isekai",
+            "Love Triangle",
+            "Magic",
+            "Male Protagonist",
+            "Politics",
+            "Time Loop",
+            "Travel"
+          ],
+          "score": 0.73163249,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.2886324913272327,
+            "average_score": 0.243
+          }
+        },
+        {
+          "id": 101291,
+          "url": "https://anilist.co/anime/101291",
+          "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "titles": {
+            "english": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "native": "青春ブタ野郎はバニーガール先輩の夢を見ない",
+            "romaji": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai"
+          },
+          "year": 2018,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "genres": [
+            "Comedy",
+            "Drama",
+            "Mystery",
+            "Psychological",
+            "Romance",
+            "Supernatural"
+          ],
+          "tags": [
+            "Coming of Age",
+            "Female Harem",
+            "Love Triangle",
+            "Male Protagonist",
+            "School",
+            "Time Loop",
+            "Urban Fantasy"
+          ],
+          "score": 0.73006221,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.28706220884696915,
+            "average_score": 0.243
+          }
+        },
+        {
+          "id": 102883,
+          "url": "https://anilist.co/anime/102883",
+          "title": "JoJo's Bizarre Adventure: Golden Wind",
+          "titles": {
+            "english": "JoJo's Bizarre Adventure: Golden Wind",
+            "native": "ジョジョの奇妙な冒険 黄金の風",
+            "romaji": "JoJo no Kimyou na Bouken: Ougon no Kaze"
+          },
+          "year": 2018,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 39,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Mystery",
+            "Supernatural"
+          ],
+          "tags": [
+            "Crime",
+            "Detective",
+            "Ensemble Cast",
+            "Male Protagonist",
+            "Philosophy",
+            "Super Power",
+            "Time Loop",
+            "Travel",
+            "Urban Fantasy"
+          ],
+          "score": 0.72782332,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.272823317199185,
+            "average_score": 0.255
+          }
+        },
+        {
+          "id": 189046,
+          "url": "https://anilist.co/anime/189046",
+          "title": "Re:ZERO -Starting Life in Another World- Season 4",
+          "titles": {
+            "english": "Re:ZERO -Starting Life in Another World- Season 4",
+            "native": "Re:ゼロから始める異世界生活 4th season",
+            "romaji": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season"
+          },
+          "year": 2026,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 19,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Psychological",
+            "Romance",
+            "Thriller"
+          ],
+          "tags": [
+            "Dragons",
+            "Female Protagonist",
+            "Isekai",
+            "Magic",
+            "Male Protagonist",
+            "Time Loop",
+            "Travel"
+          ],
+          "score": 0.72732811,
+          "score_components": {
+            "genre_overlap": 0.0,
+            "tag_overlap": 0.2,
+            "reference_similarity": 0,
+            "popularity": 0.25732811138392864,
+            "average_score": 0.27
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "想找带时间循环标签的作品。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[\"Time Loop\"],\"none_of\":[]},\"year\":{\"min\":null,\"max\":null},\"episodes\":{\"min\":null,\"max\":null},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    },
+    {
+      "status": "ok",
+      "parsed_query": {
+        "hard_constraints": {
+          "genres": {
+            "all_of": [],
+            "any_of": [
+              "Mystery",
+              "Sci-Fi"
+            ],
+            "none_of": []
+          },
+          "tags": {
+            "all_of": [],
+            "any_of": [],
+            "none_of": [
+              "Female Harem",
+              "Male Harem",
+              "Mixed Gender Harem"
+            ]
+          },
+          "year": {
+            "min": 2015,
+            "max": null
+          },
+          "episodes": {
+            "min": null,
+            "max": 24
+          },
+          "formats": [],
+          "status": []
+        },
+        "reference_titles": [],
+        "soft_preferences": [],
+        "unresolved_preferences": []
+      },
+      "candidate_count": 194,
+      "recommendations": [
+        {
+          "id": 97986,
+          "url": "https://anilist.co/anime/97986",
+          "title": "Made in Abyss",
+          "titles": {
+            "english": "Made in Abyss",
+            "native": "メイドインアビス",
+            "romaji": "Made in Abyss"
+          },
+          "year": 2017,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Dungeon",
+            "Female Protagonist",
+            "Food",
+            "Male Protagonist",
+            "Philosophy",
+            "Robots",
+            "Steampunk",
+            "Survival",
+            "Travel"
+          ],
+          "score": 0.93131282,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2793128230795825,
+            "average_score": 0.252
+          }
+        },
+        {
+          "id": 100643,
+          "url": "https://anilist.co/anime/100643",
+          "title": "Made in Abyss: Dawn of the Deep Soul",
+          "titles": {
+            "english": "Made in Abyss: Dawn of the Deep Soul",
+            "native": "メイドインアビス 深き魂の黎明",
+            "romaji": "Made in Abyss: Fukaki Tamashii no Reimei"
+          },
+          "year": 2020,
+          "format": "MOVIE",
+          "status": "FINISHED",
+          "episodes": 1,
+          "genres": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Psychological",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Dungeon",
+            "Ensemble Cast",
+            "Female Protagonist",
+            "Male Protagonist",
+            "Robots",
+            "Survival"
+          ],
+          "score": 0.91465038,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2596503779333361,
+            "average_score": 0.255
+          }
+        },
+        {
+          "id": 114745,
+          "url": "https://anilist.co/anime/114745",
+          "title": "Made in Abyss: The Golden City of the Scorching Sun",
+          "titles": {
+            "english": "Made in Abyss: The Golden City of the Scorching Sun",
+            "native": "メイドインアビス 烈日の黄金郷",
+            "romaji": "Made in Abyss: Retsujitsu no Ougonkyou"
+          },
+          "year": 2022,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 12,
+          "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Sci-Fi"
+          ],
+          "tags": [
+            "Dungeon",
+            "Ensemble Cast",
+            "Female Protagonist",
+            "Food",
+            "Male Protagonist",
+            "Philosophy",
+            "Revenge",
+            "Robots",
+            "Survival",
+            "Travel"
+          ],
+          "score": 0.91372316,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.25872315983372085,
+            "average_score": 0.255
+          }
+        },
+        {
+          "id": 155783,
+          "url": "https://anilist.co/anime/155783",
+          "title": "Tengoku Daimakyo",
+          "titles": {
+            "english": "Tengoku Daimakyo",
+            "native": "天国大魔境",
+            "romaji": "Tengoku Daimakyou"
+          },
+          "year": 2023,
+          "format": "TV",
+          "status": "FINISHED",
+          "episodes": 13,
+          "genres": [
+            "Adventure",
+            "Mystery",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [
+            "Artificial Intelligence",
+            "Coming of Age",
+            "Cyberpunk",
+            "Demons",
+            "Dystopian",
+            "Female Protagonist",
+            "Male Protagonist",
+            "Post-Apocalyptic",
+            "Super Power",
+            "Survival",
+            "Travel"
+          ],
+          "score": 0.90843981,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2654398149606058,
+            "average_score": 0.243
+          }
+        },
+        {
+          "id": 99088,
+          "url": "https://anilist.co/anime/99088",
+          "title": "PLUTO",
+          "titles": {
+            "english": "PLUTO",
+            "native": "PLUTO",
+            "romaji": "PLUTO"
+          },
+          "year": 2023,
+          "format": "ONA",
+          "status": "FINISHED",
+          "episodes": 8,
+          "genres": [
+            "Action",
+            "Drama",
+            "Mecha",
+            "Mystery",
+            "Psychological",
+            "Sci-Fi",
+            "Thriller"
+          ],
+          "tags": [
+            "Artificial Intelligence",
+            "Crime",
+            "Cyberpunk",
+            "Detective",
+            "Dystopian",
+            "Ensemble Cast",
+            "Male Protagonist",
+            "Military",
+            "Philosophy",
+            "Police",
+            "Politics",
+            "Primarily Adult Cast",
+            "Revenge",
+            "Robots",
+            "Travel"
+          ],
+          "score": 0.90220529,
+          "score_components": {
+            "genre_overlap": 0.4,
+            "tag_overlap": 0.0,
+            "reference_similarity": 0,
+            "popularity": 0.2502052915696094,
+            "average_score": 0.252
+          }
+        }
+      ],
+      "warnings": [],
+      "message": "",
+      "user_text": "2015年及以后、最多24集、悬疑或者科幻、不要后宫。",
+      "raw_model_output": "{\"hard_constraints\":{\"genres\":{\"all_of\":[],\"any_of\":[\"Mystery\",\"Sci-Fi\"],\"none_of\":[]},\"tags\":{\"all_of\":[],\"any_of\":[],\"none_of\":[\"Female Harem\",\"Male Harem\",\"Mixed Gender Harem\"]},\"year\":{\"min\":2015,\"max\":null},\"episodes\":{\"min\":null,\"max\":24},\"formats\":[],\"status\":[]},\"reference_titles\":[],\"soft_preferences\":[],\"unresolved_preferences\":[]}"
+    }
+  ],
+  "model_identity": {
+    "torch_version": "2.11.0+cu130",
+    "transformers_version": "4.57.6",
+    "device_name": "NVIDIA GeForce RTX 5070",
+    "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "system_prompt_sha256": "f31a8b6aea25af0a8e1861c0cbf41edc1851749eef720d674888a36e3a393c42",
+    "model_variant": "final",
+    "release_unused_cuda_cache_between_calls": true,
+    "adapter_weights_sha256": "113d3e479b38309996970c6d36fe1f5c64480e09a6392dd1962dba27bd61f85d",
+    "training_system_prompt_sha256": "f31a8b6aea25af0a8e1861c0cbf41edc1851749eef720d674888a36e3a393c42"
+  }
+}
